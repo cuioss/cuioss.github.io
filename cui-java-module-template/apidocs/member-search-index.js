@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"io.cui.template","c":"Hello","l":"Hello()","url":"%3Cinit%3E()"},{"p":"io.cui.template","c":"Hello","l":"hello(String)","url":"hello(java.lang.String)"},{"p":"io.cui.template","c":"Hello","l":"toString()"}]
