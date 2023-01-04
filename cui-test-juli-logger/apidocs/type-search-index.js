@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"io.cui.test.juli.junit5","l":"EnableTestLogger"},{"p":"io.cui.test.juli","l":"LogAsserts"},{"p":"io.cui.test.juli.junit5","l":"TestLoggerController"},{"p":"io.cui.test.juli","l":"TestLoggerFactory"},{"p":"io.cui.test.juli","l":"TestLogHandler"},{"p":"io.cui.test.juli","l":"TestLogLevel"}]
