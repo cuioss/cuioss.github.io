@@ -6,19 +6,23 @@ Webpage for the cuioss projects
 
 ### cui-parent-pom
 
-[Webpage](https://cuioss.github.io/cui-parent-pom/index.html) 
+[Generated Maven-Documentation](https://cuioss.github.io/cui-parent-pom/index.html) 
 
 ### cui-java-module-template
 
-[Webpage](https://cuioss.github.io/cui-java-module-template/index.html) 
+[Generated Maven-Documentation](https://cuioss.github.io/cui-java-module-template/about.html) 
 
 ### cui-java-tools
 
-[Webpage](https://cuioss.github.io/cui-java-tools/index.html) 
+[Generated Maven-Documentation](https://cuioss.github.io/cui-java-tools/about.html) 
 
 
 ## Test-Modules
 
 ### cui-test-juli-logger
 
-[Webpage](https://cuioss.github.io/cui-test-juli-logger/index.html) 
+[Generated Maven-Documentation](https://cuioss.github.io/cui-test-juli-logger/about.html) 
+
+### cui-test-value-objects
+
+[Generated Maven-Documentation](https://cuioss.github.io/cui-test-value-objects/about.html) 
