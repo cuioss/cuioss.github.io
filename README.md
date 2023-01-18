@@ -26,3 +26,7 @@ Webpage for the cuioss projects
 ### cui-test-value-objects
 
 [Generated Maven-Documentation](https://cuioss.github.io/cui-test-value-objects/about.html) 
+
+### ccui-test-generator
+
+[Generated Maven-Documentation](https://cuioss.github.io/cui-test-generator/about.html) 
