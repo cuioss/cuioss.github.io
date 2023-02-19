@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<main role="main">
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span><a id="line.1">package io.cui.test.valueobjects.property;</a>
+<span class="sourceLineNo">002</span><a id="line.2"></a>
+<span class="sourceLineNo">003</span><a id="line.3">import java.io.Serializable;</a>
+<span class="sourceLineNo">004</span><a id="line.4"></a>
+<span class="sourceLineNo">005</span><a id="line.5">import io.cui.test.generator.TypedGenerator;</a>
+<span class="sourceLineNo">006</span><a id="line.6">import io.cui.test.generator.impl.CollectionGenerator;</a>
+<span class="sourceLineNo">007</span><a id="line.7">import io.cui.test.valueobjects.property.util.AssertionStrategy;</a>
+<span class="sourceLineNo">008</span><a id="line.8">import io.cui.test.valueobjects.property.util.CollectionType;</a>
+<span class="sourceLineNo">009</span><a id="line.9">import io.cui.test.valueobjects.property.util.PropertyAccessStrategy;</a>
+<span class="sourceLineNo">010</span><a id="line.10">import io.cui.tools.property.PropertyMemberInfo;</a>
+<span class="sourceLineNo">011</span><a id="line.11">import io.cui.tools.property.PropertyReadWrite;</a>
+<span class="sourceLineNo">012</span><a id="line.12"></a>
+<span class="sourceLineNo">013</span><a id="line.13">/**</a>
+<span class="sourceLineNo">014</span><a id="line.14"> * Represents runtime information for a certain property. This contains all metadata that may be</a>
+<span class="sourceLineNo">015</span><a id="line.15"> * needed.</a>
+<span class="sourceLineNo">016</span><a id="line.16"> *</a>
+<span class="sourceLineNo">017</span><a id="line.17"> * @author Oliver Wolff</a>
+<span class="sourceLineNo">018</span><a id="line.18"> */</a>
+<span class="sourceLineNo">019</span><a id="line.19">public interface PropertyMetadata extends Comparable&lt;PropertyMetadata&gt; {</a>
+<span class="sourceLineNo">020</span><a id="line.20"></a>
+<span class="sourceLineNo">021</span><a id="line.21">    /**</a>
+<span class="sourceLineNo">022</span><a id="line.22">     * Identifies the name of the property</a>
+<span class="sourceLineNo">023</span><a id="line.23">     *</a>
+<span class="sourceLineNo">024</span><a id="line.24">     * @return the actual name of the property, must never be null nor empty</a>
+<span class="sourceLineNo">025</span><a id="line.25">     */</a>
+<span class="sourceLineNo">026</span><a id="line.26">    String getName();</a>
+<span class="sourceLineNo">027</span><a id="line.27"></a>
+<span class="sourceLineNo">028</span><a id="line.28">    /**</a>
+<span class="sourceLineNo">029</span><a id="line.29">     * @return the type of the property. This can either be the actual type, in case</a>
+<span class="sourceLineNo">030</span><a id="line.30">     *         {@link #getCollectionType()} is {@link CollectionType#NO_ITERABLE}, the</a>
+<span class="sourceLineNo">031</span><a id="line.31">     *         component-type in case of {@link CollectionType#ARRAY_MARKER} or the type argument</a>
+<span class="sourceLineNo">032</span><a id="line.32">     *         for a collection for the other {@link CollectionType}s, see {@link #next()} and</a>
+<span class="sourceLineNo">033</span><a id="line.33">     *         {@link #resolveActualClass()}</a>
+<span class="sourceLineNo">034</span><a id="line.34">     */</a>
+<span class="sourceLineNo">035</span><a id="line.35">    Class&lt;?&gt; getPropertyClass();</a>
+<span class="sourceLineNo">036</span><a id="line.36"></a>
+<span class="sourceLineNo">037</span><a id="line.37">    /**</a>
+<span class="sourceLineNo">038</span><a id="line.38">     * Generates a next random value</a>
+<span class="sourceLineNo">039</span><a id="line.39">     * Similar to {@link TypedGenerator#next()} but in case there is a {@link #getCollectionType()}</a>
+<span class="sourceLineNo">040</span><a id="line.40">     * that is not {@link CollectionType#NO_ITERABLE} it wraps the content of the contained</a>
+<span class="sourceLineNo">041</span><a id="line.41">     * generator into a the corresponding collectionWrapper, see</a>
+<span class="sourceLineNo">042</span><a id="line.42">     * {@link CollectionType#nextIterable(CollectionGenerator)}</a>
+<span class="sourceLineNo">043</span><a id="line.43">     *</a>
+<span class="sourceLineNo">044</span><a id="line.44">     * @return the next generated value</a>
+<span class="sourceLineNo">045</span><a id="line.45">     */</a>
+<span class="sourceLineNo">046</span><a id="line.46">    Object next();</a>
+<span class="sourceLineNo">047</span><a id="line.47"></a>
+<span class="sourceLineNo">048</span><a id="line.48">    /**</a>
+<span class="sourceLineNo">049</span><a id="line.49">     * @return The actual class of the property. PropertyMetadata can always be used directly or the</a>
+<span class="sourceLineNo">050</span><a id="line.50">     *         data can be implicitly wrapped into a collection or an array. This method computes</a>
+<span class="sourceLineNo">051</span><a id="line.51">     *         the actual class of the property combining both informations</a>
+<span class="sourceLineNo">052</span><a id="line.52">     */</a>
+<span class="sourceLineNo">053</span><a id="line.53">    Class&lt;?&gt; resolveActualClass();</a>
+<span class="sourceLineNo">054</span><a id="line.54"></a>
+<span class="sourceLineNo">055</span><a id="line.55">    /**</a>
+<span class="sourceLineNo">056</span><a id="line.56">     * @return a new instance of {@link CollectionGenerator} wrapping the contained generator;</a>
+<span class="sourceLineNo">057</span><a id="line.57">     */</a>
+<span class="sourceLineNo">058</span><a id="line.58">    @SuppressWarnings("squid:S1452") // owolff: No type information available at this level,</a>
+<span class="sourceLineNo">059</span><a id="line.59">                                     // therefore the wildcard is needed</a>
+<span class="sourceLineNo">060</span><a id="line.60">    CollectionGenerator&lt;?&gt; resolveCollectionGenerator();</a>
+<span class="sourceLineNo">061</span><a id="line.61"></a>
+<span class="sourceLineNo">062</span><a id="line.62">    /**</a>
+<span class="sourceLineNo">063</span><a id="line.63">     * @return the wrapped {@link TypedGenerator} to dynamically create properties.</a>
+<span class="sourceLineNo">064</span><a id="line.64">     */</a>
+<span class="sourceLineNo">065</span><a id="line.65">    @SuppressWarnings("squid:S1452") // owolff: No type information available at this level,</a>
+<span class="sourceLineNo">066</span><a id="line.66">                                     // therefore the wildcard is needed</a>
+<span class="sourceLineNo">067</span><a id="line.67">    TypedGenerator&lt;?&gt; getGenerator();</a>
+<span class="sourceLineNo">068</span><a id="line.68"></a>
+<span class="sourceLineNo">069</span><a id="line.69">    /**</a>
+<span class="sourceLineNo">070</span><a id="line.70">     * @return boolean indicating whether the attribute defines a default-value. Default is false.</a>
+<span class="sourceLineNo">071</span><a id="line.71">     */</a>
+<span class="sourceLineNo">072</span><a id="line.72">    boolean isDefaultValue();</a>
+<span class="sourceLineNo">073</span><a id="line.73"></a>
+<span class="sourceLineNo">074</span><a id="line.74">    /**</a>
+<span class="sourceLineNo">075</span><a id="line.75">     * Indicates that the attribute is required.</a>
+<span class="sourceLineNo">076</span><a id="line.76">     *</a>
+<span class="sourceLineNo">077</span><a id="line.77">     * @return boolean indicating whether the attribute is required, defaults to false.</a>
+<span class="sourceLineNo">078</span><a id="line.78">     */</a>
+<span class="sourceLineNo">079</span><a id="line.79">    boolean isRequired();</a>
+<span class="sourceLineNo">080</span><a id="line.80"></a>
+<span class="sourceLineNo">081</span><a id="line.81">    /**</a>
+<span class="sourceLineNo">082</span><a id="line.82">     * Defines the way properties are to be written / read</a>
+<span class="sourceLineNo">083</span><a id="line.83">     *</a>
+<span class="sourceLineNo">084</span><a id="line.84">     * @return the {@link PropertyAccessStrategy}, must never be null, defaults to</a>
+<span class="sourceLineNo">085</span><a id="line.85">     *         {@link PropertyAccessStrategy#BEAN_PROPERTY}</a>
+<span class="sourceLineNo">086</span><a id="line.86">     */</a>
+<span class="sourceLineNo">087</span><a id="line.87">    PropertyAccessStrategy getPropertyAccessStrategy();</a>
+<span class="sourceLineNo">088</span><a id="line.88"></a>
+<span class="sourceLineNo">089</span><a id="line.89">    /**</a>
+<span class="sourceLineNo">090</span><a id="line.90">     * In case there is a collectionWrapper defined the generated values will implicitly wrapped</a>
+<span class="sourceLineNo">091</span><a id="line.91">     * in the corresponding collection class defined by that wrapper.</a>
+<span class="sourceLineNo">092</span><a id="line.92">     *</a>
+<span class="sourceLineNo">093</span><a id="line.93">     * @return the {@link CollectionType} represented by this {@link PropertyMetadata}. Must never</a>
+<span class="sourceLineNo">094</span><a id="line.94">     *         be null but may be {@link CollectionType#NO_ITERABLE}</a>
+<span class="sourceLineNo">095</span><a id="line.95">     */</a>
+<span class="sourceLineNo">096</span><a id="line.96">    CollectionType getCollectionType();</a>
+<span class="sourceLineNo">097</span><a id="line.97"></a>
+<span class="sourceLineNo">098</span><a id="line.98">    /**</a>
+<span class="sourceLineNo">099</span><a id="line.99">     * Indicates the way the corresponding property is subject to the contracts regarding the</a>
+<span class="sourceLineNo">100</span><a id="line.100">     * canonical Object methods like {@link Object#equals(Object)}, {@link Object#hashCode()} and</a>
+<span class="sourceLineNo">101</span><a id="line.101">     * {@link Object#toString()} and the {@link Serializable} contract. The default is</a>
+<span class="sourceLineNo">102</span><a id="line.102">     * {@link PropertyMemberInfo#DEFAULT}</a>
+<span class="sourceLineNo">103</span><a id="line.103">     *</a>
+<span class="sourceLineNo">104</span><a id="line.104">     * @return the {@link PropertyMemberInfo}, must never be null</a>
+<span class="sourceLineNo">105</span><a id="line.105">     */</a>
+<span class="sourceLineNo">106</span><a id="line.106">    PropertyMemberInfo getPropertyMemberInfo();</a>
+<span class="sourceLineNo">107</span><a id="line.107"></a>
+<span class="sourceLineNo">108</span><a id="line.108">    /**</a>
+<span class="sourceLineNo">109</span><a id="line.109">     * @return {@link PropertyReadWrite} indicating whether a property can be read or written too,</a>
+<span class="sourceLineNo">110</span><a id="line.110">     *         defaults to {@link PropertyReadWrite#READ_WRITE}</a>
+<span class="sourceLineNo">111</span><a id="line.111">     */</a>
+<span class="sourceLineNo">112</span><a id="line.112">    PropertyReadWrite getPropertyReadWrite();</a>
+<span class="sourceLineNo">113</span><a id="line.113"></a>
+<span class="sourceLineNo">114</span><a id="line.114">    /**</a>
+<span class="sourceLineNo">115</span><a id="line.115">     * Defines the the way how to deal with equality regarding</a>
+<span class="sourceLineNo">116</span><a id="line.116">     * PropertySupport.assertValueSet(Object)</a>
+<span class="sourceLineNo">117</span><a id="line.117">     *</a>
+<span class="sourceLineNo">118</span><a id="line.118">     * @return the {@link AssertionStrategy}, defaults to {@link AssertionStrategy#DEFAULT}</a>
+<span class="sourceLineNo">119</span><a id="line.119">     */</a>
+<span class="sourceLineNo">120</span><a id="line.120">    AssertionStrategy getAssertionStrategy();</a>
+<span class="sourceLineNo">121</span><a id="line.121"></a>
+<span class="sourceLineNo">122</span><a id="line.122">}</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</main>
+</body>
+</html>
