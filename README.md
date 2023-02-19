@@ -16,6 +16,10 @@ Webpage for the cuioss projects
 
 [Generated Maven-Documentation](https://cuioss.github.io/cui-java-tools/about.html) 
 
+### cui-core-ui-model
+
+[Generated Maven-Documentation](https://cuioss.github.io/cui-core-ui-model/about.html) 
+
 
 ## Test-Modules
 
