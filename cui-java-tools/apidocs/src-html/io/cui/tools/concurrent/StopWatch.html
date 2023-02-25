@@ -147,7 +147,7 @@
 <span class="sourceLineNo">138</span><a id="line.138">     * @throws IllegalStateException if the stopwatch is already stopped.</a>
 <span class="sourceLineNo">139</span><a id="line.139">     */</a>
 <span class="sourceLineNo">140</span><a id="line.140">    public StopWatch stop() {</a>
-<span class="sourceLineNo">141</span><a id="line.141">        long tick = ticker.read();</a>
+<span class="sourceLineNo">141</span><a id="line.141">        var tick = ticker.read();</a>
 <span class="sourceLineNo">142</span><a id="line.142">        checkState(isRunning, "This stopwatch is already stopped.");</a>
 <span class="sourceLineNo">143</span><a id="line.143">        isRunning = false;</a>
 <span class="sourceLineNo">144</span><a id="line.144">        elapsedNanos += tick - startTick;</a>
@@ -200,10 +200,10 @@
 <span class="sourceLineNo">191</span><a id="line.191">    /** Returns a string representation of the current elapsed time. */</a>
 <span class="sourceLineNo">192</span><a id="line.192">    @Override</a>
 <span class="sourceLineNo">193</span><a id="line.193">    public String toString() {</a>
-<span class="sourceLineNo">194</span><a id="line.194">        long nanos = elapsedNanos();</a>
+<span class="sourceLineNo">194</span><a id="line.194">        var nanos = elapsedNanos();</a>
 <span class="sourceLineNo">195</span><a id="line.195"></a>
-<span class="sourceLineNo">196</span><a id="line.196">        TimeUnit unit = chooseUnit(nanos);</a>
-<span class="sourceLineNo">197</span><a id="line.197">        double value = (double) nanos / NANOSECONDS.convert(1, unit);</a>
+<span class="sourceLineNo">196</span><a id="line.196">        var unit = chooseUnit(nanos);</a>
+<span class="sourceLineNo">197</span><a id="line.197">        var value = (double) nanos / NANOSECONDS.convert(1, unit);</a>
 <span class="sourceLineNo">198</span><a id="line.198"></a>
 <span class="sourceLineNo">199</span><a id="line.199">        return String.format(Locale.ROOT, "%.4g", value) + " " + abbreviate(unit);</a>
 <span class="sourceLineNo">200</span><a id="line.200">    }</a>
