@@ -116,21 +116,23 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <hr>
-<pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Retention.html?is-external=true" title="class or interface in java.lang.annotation" class="externalLink">@Retention</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/RetentionPolicy.html?is-external=true#RUNTIME" title="class or interface in java.lang.annotation" class="externalLink">RUNTIME</a>)
-<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation" class="externalLink">@Target</a>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation" class="externalLink">TYPE</a>)
+<pre><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/annotation/Retention.html?is-external=true" title="class or interface in java.lang.annotation" class="externalLink">@Retention</a>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/annotation/RetentionPolicy.html?is-external=true#RUNTIME" title="class or interface in java.lang.annotation" class="externalLink">RUNTIME</a>)
+<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation" class="externalLink">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation" class="externalLink">TYPE</a>)
 @ExtendWith(<a href="GeneratorControllerExtension.html" title="class in io.cui.test.generator.junit">GeneratorControllerExtension.class</a>)
-public @interface <a href="../../../../../src-html/io/cui/test/generator/junit/EnableGeneratorController.html#line.30">EnableGeneratorController</a></pre>
+public @interface <a href="../../../../../src-html/io/cui/test/generator/junit/EnableGeneratorController.html#line.32">EnableGeneratorController</a></pre>
 <div class="block"><h2>Purpose and Usage</h2>
  This annotation is meant to be set on a junit 5 test-case. It controls the generator subsystem
  and, in case of test-failures, provides information, that can be used for repeating the failed
  tests with a fixed seed for the generators, see <a href="GeneratorSeed.html" title="annotation in io.cui.test.generator.junit"><code>GeneratorSeed</code></a> for details. This fixed
  seed results in the generators reproducing the exact same test-data.
- Sample output: 
+ Sample output:
+ 
  <pre>
-GeneratorController seed was 4711L. 
-Use a fixed seed by applying @GeneratorSeed(4711L) for the method/class, 
+GeneratorController seed was 4711L.
+Use a fixed seed by applying @GeneratorSeed(4711L) for the method/class,
 or by using the system property '-Dio.cui.test.generator.seed=4711'
  </pre>
+ 
  <h2>Implementation</h2>
  Shorthand for enabling <a href="GeneratorControllerExtension.html" title="class in io.cui.test.generator.junit"><code>GeneratorControllerExtension</code></a> for a certain test-class. This type
  is equivalent to <code>ExtendWith</code> <a href="GeneratorControllerExtension.html" title="class in io.cui.test.generator.junit"><code>GeneratorControllerExtension</code></a></div>

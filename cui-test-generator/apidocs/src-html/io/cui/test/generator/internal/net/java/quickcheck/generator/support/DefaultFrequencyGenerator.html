@@ -8,20 +8,20 @@
 <main role="main">
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span><a id="line.1">/*</a>
-<span class="sourceLineNo">002</span><a id="line.2"> *  Licensed to the author under one or more</a>
-<span class="sourceLineNo">003</span><a id="line.3"> *  contributor license agreements.  See the NOTICE file distributed with</a>
-<span class="sourceLineNo">004</span><a id="line.4"> *  this work for additional information regarding copyright ownership.</a>
-<span class="sourceLineNo">005</span><a id="line.5"> *  The ASF licenses this file to You under the Apache License, Version 2.0</a>
-<span class="sourceLineNo">006</span><a id="line.6"> *  (the "License"); you may not use this file except in compliance with</a>
-<span class="sourceLineNo">007</span><a id="line.7"> *  the License.  You may obtain a copy of the License at</a>
+<span class="sourceLineNo">002</span><a id="line.2"> * Licensed to the author under one or more</a>
+<span class="sourceLineNo">003</span><a id="line.3"> * contributor license agreements. See the NOTICE file distributed with</a>
+<span class="sourceLineNo">004</span><a id="line.4"> * this work for additional information regarding copyright ownership.</a>
+<span class="sourceLineNo">005</span><a id="line.5"> * The ASF licenses this file to You under the Apache License, Version 2.0</a>
+<span class="sourceLineNo">006</span><a id="line.6"> * (the "License"); you may not use this file except in compliance with</a>
+<span class="sourceLineNo">007</span><a id="line.7"> * the License. You may obtain a copy of the License at</a>
 <span class="sourceLineNo">008</span><a id="line.8"> *</a>
-<span class="sourceLineNo">009</span><a id="line.9"> *      http://www.apache.org/licenses/LICENSE-2.0</a>
+<span class="sourceLineNo">009</span><a id="line.9"> * http://www.apache.org/licenses/LICENSE-2.0</a>
 <span class="sourceLineNo">010</span><a id="line.10"> *</a>
-<span class="sourceLineNo">011</span><a id="line.11"> *  Unless required by applicable law or agreed to in writing, software</a>
-<span class="sourceLineNo">012</span><a id="line.12"> *  distributed under the License is distributed on an "AS IS" BASIS,</a>
-<span class="sourceLineNo">013</span><a id="line.13"> *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</a>
-<span class="sourceLineNo">014</span><a id="line.14"> *  See the License for the specific language governing permissions and</a>
-<span class="sourceLineNo">015</span><a id="line.15"> *  limitations under the License.</a>
+<span class="sourceLineNo">011</span><a id="line.11"> * Unless required by applicable law or agreed to in writing, software</a>
+<span class="sourceLineNo">012</span><a id="line.12"> * distributed under the License is distributed on an "AS IS" BASIS,</a>
+<span class="sourceLineNo">013</span><a id="line.13"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</a>
+<span class="sourceLineNo">014</span><a id="line.14"> * See the License for the specific language governing permissions and</a>
+<span class="sourceLineNo">015</span><a id="line.15"> * limitations under the License.</a>
 <span class="sourceLineNo">016</span><a id="line.16"> */</a>
 <span class="sourceLineNo">017</span><a id="line.17">package io.cui.test.generator.internal.net.java.quickcheck.generator.support;</a>
 <span class="sourceLineNo">018</span><a id="line.18"></a>
@@ -71,7 +71,7 @@
 <span class="sourceLineNo">062</span><a id="line.62"></a>
 <span class="sourceLineNo">063</span><a id="line.63">    @Override</a>
 <span class="sourceLineNo">064</span><a id="line.64">    public T next() {</a>
-<span class="sourceLineNo">065</span><a id="line.65">        checkArgument(1&lt;= this.sum, "number of generators");</a>
+<span class="sourceLineNo">065</span><a id="line.65">        checkArgument(1 &lt;= this.sum, "number of generators");</a>
 <span class="sourceLineNo">066</span><a id="line.66"></a>
 <span class="sourceLineNo">067</span><a id="line.67">        int next = choose().nextInt();</a>
 <span class="sourceLineNo">068</span><a id="line.68">        for (Frequency&lt;T&gt; pair : this.frequencies) {</a>
@@ -92,23 +92,24 @@
 <span class="sourceLineNo">083</span><a id="line.83">    }</a>
 <span class="sourceLineNo">084</span><a id="line.84"></a>
 <span class="sourceLineNo">085</span><a id="line.85">    private static class Frequency&lt;T&gt; {</a>
-<span class="sourceLineNo">086</span><a id="line.86">        private final Generator&lt;T&gt; generator;</a>
-<span class="sourceLineNo">087</span><a id="line.87">        private final int weight;</a>
-<span class="sourceLineNo">088</span><a id="line.88"></a>
-<span class="sourceLineNo">089</span><a id="line.89">        private Frequency(Generator&lt;T&gt; generator, int weight) {</a>
-<span class="sourceLineNo">090</span><a id="line.90">            this.generator = generator;</a>
-<span class="sourceLineNo">091</span><a id="line.91">            this.weight = weight;</a>
-<span class="sourceLineNo">092</span><a id="line.92">        }</a>
-<span class="sourceLineNo">093</span><a id="line.93"></a>
-<span class="sourceLineNo">094</span><a id="line.94">        private Generator&lt;T&gt; getGenerator() {</a>
-<span class="sourceLineNo">095</span><a id="line.95">            return this.generator;</a>
-<span class="sourceLineNo">096</span><a id="line.96">        }</a>
-<span class="sourceLineNo">097</span><a id="line.97"></a>
-<span class="sourceLineNo">098</span><a id="line.98">        private int getWeight() {</a>
-<span class="sourceLineNo">099</span><a id="line.99">            return this.weight;</a>
-<span class="sourceLineNo">100</span><a id="line.100">        }</a>
-<span class="sourceLineNo">101</span><a id="line.101">    }</a>
-<span class="sourceLineNo">102</span><a id="line.102">}</a>
+<span class="sourceLineNo">086</span><a id="line.86"></a>
+<span class="sourceLineNo">087</span><a id="line.87">        private final Generator&lt;T&gt; generator;</a>
+<span class="sourceLineNo">088</span><a id="line.88">        private final int weight;</a>
+<span class="sourceLineNo">089</span><a id="line.89"></a>
+<span class="sourceLineNo">090</span><a id="line.90">        private Frequency(Generator&lt;T&gt; generator, int weight) {</a>
+<span class="sourceLineNo">091</span><a id="line.91">            this.generator = generator;</a>
+<span class="sourceLineNo">092</span><a id="line.92">            this.weight = weight;</a>
+<span class="sourceLineNo">093</span><a id="line.93">        }</a>
+<span class="sourceLineNo">094</span><a id="line.94"></a>
+<span class="sourceLineNo">095</span><a id="line.95">        private Generator&lt;T&gt; getGenerator() {</a>
+<span class="sourceLineNo">096</span><a id="line.96">            return this.generator;</a>
+<span class="sourceLineNo">097</span><a id="line.97">        }</a>
+<span class="sourceLineNo">098</span><a id="line.98"></a>
+<span class="sourceLineNo">099</span><a id="line.99">        private int getWeight() {</a>
+<span class="sourceLineNo">100</span><a id="line.100">            return this.weight;</a>
+<span class="sourceLineNo">101</span><a id="line.101">        }</a>
+<span class="sourceLineNo">102</span><a id="line.102">    }</a>
+<span class="sourceLineNo">103</span><a id="line.103">}</a>
 
 
 

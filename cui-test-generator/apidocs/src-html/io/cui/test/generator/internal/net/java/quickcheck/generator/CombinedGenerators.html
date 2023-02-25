@@ -8,20 +8,20 @@
 <main role="main">
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span><a id="line.1">/*</a>
-<span class="sourceLineNo">002</span><a id="line.2"> *  Licensed to the author under one or more</a>
-<span class="sourceLineNo">003</span><a id="line.3"> *  contributor license agreements.  See the NOTICE file distributed with</a>
-<span class="sourceLineNo">004</span><a id="line.4"> *  this work for additional information regarding copyright ownership.</a>
-<span class="sourceLineNo">005</span><a id="line.5"> *  The ASF licenses this file to You under the Apache License, Version 2.0</a>
-<span class="sourceLineNo">006</span><a id="line.6"> *  (the "License"); you may not use this file except in compliance with</a>
-<span class="sourceLineNo">007</span><a id="line.7"> *  the License.  You may obtain a copy of the License at</a>
+<span class="sourceLineNo">002</span><a id="line.2"> * Licensed to the author under one or more</a>
+<span class="sourceLineNo">003</span><a id="line.3"> * contributor license agreements. See the NOTICE file distributed with</a>
+<span class="sourceLineNo">004</span><a id="line.4"> * this work for additional information regarding copyright ownership.</a>
+<span class="sourceLineNo">005</span><a id="line.5"> * The ASF licenses this file to You under the Apache License, Version 2.0</a>
+<span class="sourceLineNo">006</span><a id="line.6"> * (the "License"); you may not use this file except in compliance with</a>
+<span class="sourceLineNo">007</span><a id="line.7"> * the License. You may obtain a copy of the License at</a>
 <span class="sourceLineNo">008</span><a id="line.8"> *</a>
-<span class="sourceLineNo">009</span><a id="line.9"> *      http://www.apache.org/licenses/LICENSE-2.0</a>
+<span class="sourceLineNo">009</span><a id="line.9"> * http://www.apache.org/licenses/LICENSE-2.0</a>
 <span class="sourceLineNo">010</span><a id="line.10"> *</a>
-<span class="sourceLineNo">011</span><a id="line.11"> *  Unless required by applicable law or agreed to in writing, software</a>
-<span class="sourceLineNo">012</span><a id="line.12"> *  distributed under the License is distributed on an "AS IS" BASIS,</a>
-<span class="sourceLineNo">013</span><a id="line.13"> *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</a>
-<span class="sourceLineNo">014</span><a id="line.14"> *  See the License for the specific language governing permissions and</a>
-<span class="sourceLineNo">015</span><a id="line.15"> *  limitations under the License.</a>
+<span class="sourceLineNo">011</span><a id="line.11"> * Unless required by applicable law or agreed to in writing, software</a>
+<span class="sourceLineNo">012</span><a id="line.12"> * distributed under the License is distributed on an "AS IS" BASIS,</a>
+<span class="sourceLineNo">013</span><a id="line.13"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</a>
+<span class="sourceLineNo">014</span><a id="line.14"> * See the License for the specific language governing permissions and</a>
+<span class="sourceLineNo">015</span><a id="line.15"> * limitations under the License.</a>
 <span class="sourceLineNo">016</span><a id="line.16"> */</a>
 <span class="sourceLineNo">017</span><a id="line.17">package io.cui.test.generator.internal.net.java.quickcheck.generator;</a>
 <span class="sourceLineNo">018</span><a id="line.18"></a>
@@ -164,92 +164,92 @@
 <span class="sourceLineNo">155</span><a id="line.155">        return Generators.sortedTriple(content);</a>
 <span class="sourceLineNo">156</span><a id="line.156">    }</a>
 <span class="sourceLineNo">157</span><a id="line.157"></a>
-<span class="sourceLineNo">158</span><a id="line.158"></a>
-<span class="sourceLineNo">159</span><a id="line.159">    /**</a>
-<span class="sourceLineNo">160</span><a id="line.160">     * Create a generator as a combination of a null value generator and</a>
-<span class="sourceLineNo">161</span><a id="line.161">     * generator of type T.</a>
-<span class="sourceLineNo">162</span><a id="line.162">     *</a>
-<span class="sourceLineNo">163</span><a id="line.163">     * @param &lt;T&gt;</a>
-<span class="sourceLineNo">164</span><a id="line.164">     *            Type of the values generated.</a>
-<span class="sourceLineNo">165</span><a id="line.165">     */</a>
-<span class="sourceLineNo">166</span><a id="line.166">    public static &lt;T&gt; Generator&lt;T&gt; nullsAnd(Generator&lt;T&gt; generator) {</a>
-<span class="sourceLineNo">167</span><a id="line.167">        return Generators.nullsAnd(generator);</a>
-<span class="sourceLineNo">168</span><a id="line.168">    }</a>
-<span class="sourceLineNo">169</span><a id="line.169"></a>
-<span class="sourceLineNo">170</span><a id="line.170">    /**</a>
-<span class="sourceLineNo">171</span><a id="line.171">     * Create a generator as a combination of a null value generator and</a>
-<span class="sourceLineNo">172</span><a id="line.172">     * generator of type T.</a>
-<span class="sourceLineNo">173</span><a id="line.173">     *</a>
-<span class="sourceLineNo">174</span><a id="line.174">     * @param &lt;T&gt;</a>
-<span class="sourceLineNo">175</span><a id="line.175">     *            Type of the values generated.</a>
-<span class="sourceLineNo">176</span><a id="line.176">     * @param weight</a>
-<span class="sourceLineNo">177</span><a id="line.177">     *            weight of the provided generator</a>
-<span class="sourceLineNo">178</span><a id="line.178">     */</a>
-<span class="sourceLineNo">179</span><a id="line.179">    public static &lt;T&gt; Generator&lt;T&gt; nullsAnd(Generator&lt;T&gt; generator, int weight) {</a>
-<span class="sourceLineNo">180</span><a id="line.180">        return Generators.nullsAnd(generator, weight);</a>
-<span class="sourceLineNo">181</span><a id="line.181">    }</a>
-<span class="sourceLineNo">182</span><a id="line.182"></a>
-<span class="sourceLineNo">183</span><a id="line.183">    /**</a>
-<span class="sourceLineNo">184</span><a id="line.184">     * Create a generator of sets with values from the content generator.</a>
-<span class="sourceLineNo">185</span><a id="line.185">     *</a>
-<span class="sourceLineNo">186</span><a id="line.186">     * @param &lt;T&gt;</a>
-<span class="sourceLineNo">187</span><a id="line.187">     *            type of set elements generated</a>
-<span class="sourceLineNo">188</span><a id="line.188">     * @param content</a>
-<span class="sourceLineNo">189</span><a id="line.189">     *            generator providing the content of sets generated</a>
-<span class="sourceLineNo">190</span><a id="line.190">     */</a>
-<span class="sourceLineNo">191</span><a id="line.191">    public static &lt;T&gt; Generator&lt;Set&lt;T&gt;&gt; sets(Generator&lt;? extends T&gt; content) {</a>
-<span class="sourceLineNo">192</span><a id="line.192">        return Generators.sets(content);</a>
-<span class="sourceLineNo">193</span><a id="line.193">    }</a>
-<span class="sourceLineNo">194</span><a id="line.194"></a>
-<span class="sourceLineNo">195</span><a id="line.195">    /**</a>
-<span class="sourceLineNo">196</span><a id="line.196">     * Create a generator of sets with values from the content generator.</a>
-<span class="sourceLineNo">197</span><a id="line.197">     *</a>
-<span class="sourceLineNo">198</span><a id="line.198">     * @param &lt;T&gt;</a>
-<span class="sourceLineNo">199</span><a id="line.199">     *            type of set elements generated</a>
-<span class="sourceLineNo">200</span><a id="line.200">     * @param content</a>
-<span class="sourceLineNo">201</span><a id="line.201">     *            generator providing the content of sets generated</a>
-<span class="sourceLineNo">202</span><a id="line.202">     * @param size</a>
-<span class="sourceLineNo">203</span><a id="line.203">     *            size of the sets generated</a>
-<span class="sourceLineNo">204</span><a id="line.204">     */</a>
-<span class="sourceLineNo">205</span><a id="line.205">    public static &lt;T&gt; Generator&lt;Set&lt;T&gt;&gt; sets(Generator&lt;? extends T&gt; content,</a>
-<span class="sourceLineNo">206</span><a id="line.206">            Generator&lt;Integer&gt; size) {</a>
-<span class="sourceLineNo">207</span><a id="line.207">        return Generators.sets(content, size);</a>
-<span class="sourceLineNo">208</span><a id="line.208">    }</a>
-<span class="sourceLineNo">209</span><a id="line.209"></a>
-<span class="sourceLineNo">210</span><a id="line.210">    /**</a>
-<span class="sourceLineNo">211</span><a id="line.211">     * Create a generator of sets with values from the content generator. Length</a>
-<span class="sourceLineNo">212</span><a id="line.212">     * is between high and low.</a>
-<span class="sourceLineNo">213</span><a id="line.213">     *</a>
-<span class="sourceLineNo">214</span><a id="line.214">     * @param &lt;T&gt;</a>
-<span class="sourceLineNo">215</span><a id="line.215">     *            type of set elements generated</a>
-<span class="sourceLineNo">216</span><a id="line.216">     * @param content</a>
-<span class="sourceLineNo">217</span><a id="line.217">     *            generator providing the content of sets generated</a>
-<span class="sourceLineNo">218</span><a id="line.218">     * @param low</a>
-<span class="sourceLineNo">219</span><a id="line.219">     *            minimal size</a>
-<span class="sourceLineNo">220</span><a id="line.220">     * @param high</a>
-<span class="sourceLineNo">221</span><a id="line.221">     *            max size</a>
-<span class="sourceLineNo">222</span><a id="line.222">     */</a>
-<span class="sourceLineNo">223</span><a id="line.223">    public static &lt;T&gt; Generator&lt;Set&lt;T&gt;&gt; sets(Generator&lt;? extends T&gt; content, int low,</a>
-<span class="sourceLineNo">224</span><a id="line.224">            int high) {</a>
-<span class="sourceLineNo">225</span><a id="line.225">        return Generators.sets(content, low, high);</a>
-<span class="sourceLineNo">226</span><a id="line.226">    }</a>
-<span class="sourceLineNo">227</span><a id="line.227"></a>
-<span class="sourceLineNo">228</span><a id="line.228">    /**</a>
-<span class="sourceLineNo">229</span><a id="line.229">     * Create a generator of sets that are not empty.</a>
-<span class="sourceLineNo">230</span><a id="line.230">     *</a>
-<span class="sourceLineNo">231</span><a id="line.231">     * @param &lt;T&gt;</a>
-<span class="sourceLineNo">232</span><a id="line.232">     *            type of set elements generated</a>
-<span class="sourceLineNo">233</span><a id="line.233">     * @param content</a>
-<span class="sourceLineNo">234</span><a id="line.234">     *            generator providing the content of sets generated</a>
-<span class="sourceLineNo">235</span><a id="line.235">     */</a>
-<span class="sourceLineNo">236</span><a id="line.236">    public static &lt;T&gt; Generator&lt;Set&lt;T&gt;&gt; nonEmptySets(Generator&lt;? extends T&gt; content) {</a>
-<span class="sourceLineNo">237</span><a id="line.237">        return Generators.nonEmptySets(content);</a>
-<span class="sourceLineNo">238</span><a id="line.238">    }</a>
-<span class="sourceLineNo">239</span><a id="line.239"></a>
-<span class="sourceLineNo">240</span><a id="line.240">    @SafeVarargs</a>
-<span class="sourceLineNo">241</span><a id="line.241">    public static &lt;T&gt; Generator&lt;Set&lt;T&gt;&gt; sets(T... superset) {</a>
-<span class="sourceLineNo">242</span><a id="line.242">        return Generators.sets(superset);</a>
-<span class="sourceLineNo">243</span><a id="line.243">    }</a>
+<span class="sourceLineNo">158</span><a id="line.158">    /**</a>
+<span class="sourceLineNo">159</span><a id="line.159">     * Create a generator as a combination of a null value generator and</a>
+<span class="sourceLineNo">160</span><a id="line.160">     * generator of type T.</a>
+<span class="sourceLineNo">161</span><a id="line.161">     *</a>
+<span class="sourceLineNo">162</span><a id="line.162">     * @param &lt;T&gt;</a>
+<span class="sourceLineNo">163</span><a id="line.163">     *            Type of the values generated.</a>
+<span class="sourceLineNo">164</span><a id="line.164">     */</a>
+<span class="sourceLineNo">165</span><a id="line.165">    public static &lt;T&gt; Generator&lt;T&gt; nullsAnd(Generator&lt;T&gt; generator) {</a>
+<span class="sourceLineNo">166</span><a id="line.166">        return Generators.nullsAnd(generator);</a>
+<span class="sourceLineNo">167</span><a id="line.167">    }</a>
+<span class="sourceLineNo">168</span><a id="line.168"></a>
+<span class="sourceLineNo">169</span><a id="line.169">    /**</a>
+<span class="sourceLineNo">170</span><a id="line.170">     * Create a generator as a combination of a null value generator and</a>
+<span class="sourceLineNo">171</span><a id="line.171">     * generator of type T.</a>
+<span class="sourceLineNo">172</span><a id="line.172">     *</a>
+<span class="sourceLineNo">173</span><a id="line.173">     * @param &lt;T&gt;</a>
+<span class="sourceLineNo">174</span><a id="line.174">     *            Type of the values generated.</a>
+<span class="sourceLineNo">175</span><a id="line.175">     * @param weight</a>
+<span class="sourceLineNo">176</span><a id="line.176">     *            weight of the provided generator</a>
+<span class="sourceLineNo">177</span><a id="line.177">     */</a>
+<span class="sourceLineNo">178</span><a id="line.178">    public static &lt;T&gt; Generator&lt;T&gt; nullsAnd(Generator&lt;T&gt; generator, int weight) {</a>
+<span class="sourceLineNo">179</span><a id="line.179">        return Generators.nullsAnd(generator, weight);</a>
+<span class="sourceLineNo">180</span><a id="line.180">    }</a>
+<span class="sourceLineNo">181</span><a id="line.181"></a>
+<span class="sourceLineNo">182</span><a id="line.182">    /**</a>
+<span class="sourceLineNo">183</span><a id="line.183">     * Create a generator of sets with values from the content generator.</a>
+<span class="sourceLineNo">184</span><a id="line.184">     *</a>
+<span class="sourceLineNo">185</span><a id="line.185">     * @param &lt;T&gt;</a>
+<span class="sourceLineNo">186</span><a id="line.186">     *            type of set elements generated</a>
+<span class="sourceLineNo">187</span><a id="line.187">     * @param content</a>
+<span class="sourceLineNo">188</span><a id="line.188">     *            generator providing the content of sets generated</a>
+<span class="sourceLineNo">189</span><a id="line.189">     */</a>
+<span class="sourceLineNo">190</span><a id="line.190">    public static &lt;T&gt; Generator&lt;Set&lt;T&gt;&gt; sets(Generator&lt;? extends T&gt; content) {</a>
+<span class="sourceLineNo">191</span><a id="line.191">        return Generators.sets(content);</a>
+<span class="sourceLineNo">192</span><a id="line.192">    }</a>
+<span class="sourceLineNo">193</span><a id="line.193"></a>
+<span class="sourceLineNo">194</span><a id="line.194">    /**</a>
+<span class="sourceLineNo">195</span><a id="line.195">     * Create a generator of sets with values from the content generator.</a>
+<span class="sourceLineNo">196</span><a id="line.196">     *</a>
+<span class="sourceLineNo">197</span><a id="line.197">     * @param &lt;T&gt;</a>
+<span class="sourceLineNo">198</span><a id="line.198">     *            type of set elements generated</a>
+<span class="sourceLineNo">199</span><a id="line.199">     * @param content</a>
+<span class="sourceLineNo">200</span><a id="line.200">     *            generator providing the content of sets generated</a>
+<span class="sourceLineNo">201</span><a id="line.201">     * @param size</a>
+<span class="sourceLineNo">202</span><a id="line.202">     *            size of the sets generated</a>
+<span class="sourceLineNo">203</span><a id="line.203">     */</a>
+<span class="sourceLineNo">204</span><a id="line.204">    public static &lt;T&gt; Generator&lt;Set&lt;T&gt;&gt; sets(Generator&lt;? extends T&gt; content,</a>
+<span class="sourceLineNo">205</span><a id="line.205">            Generator&lt;Integer&gt; size) {</a>
+<span class="sourceLineNo">206</span><a id="line.206">        return Generators.sets(content, size);</a>
+<span class="sourceLineNo">207</span><a id="line.207">    }</a>
+<span class="sourceLineNo">208</span><a id="line.208"></a>
+<span class="sourceLineNo">209</span><a id="line.209">    /**</a>
+<span class="sourceLineNo">210</span><a id="line.210">     * Create a generator of sets with values from the content generator. Length</a>
+<span class="sourceLineNo">211</span><a id="line.211">     * is between high and low.</a>
+<span class="sourceLineNo">212</span><a id="line.212">     *</a>
+<span class="sourceLineNo">213</span><a id="line.213">     * @param &lt;T&gt;</a>
+<span class="sourceLineNo">214</span><a id="line.214">     *            type of set elements generated</a>
+<span class="sourceLineNo">215</span><a id="line.215">     * @param content</a>
+<span class="sourceLineNo">216</span><a id="line.216">     *            generator providing the content of sets generated</a>
+<span class="sourceLineNo">217</span><a id="line.217">     * @param low</a>
+<span class="sourceLineNo">218</span><a id="line.218">     *            minimal size</a>
+<span class="sourceLineNo">219</span><a id="line.219">     * @param high</a>
+<span class="sourceLineNo">220</span><a id="line.220">     *            max size</a>
+<span class="sourceLineNo">221</span><a id="line.221">     */</a>
+<span class="sourceLineNo">222</span><a id="line.222">    public static &lt;T&gt; Generator&lt;Set&lt;T&gt;&gt; sets(Generator&lt;? extends T&gt; content, int low,</a>
+<span class="sourceLineNo">223</span><a id="line.223">            int high) {</a>
+<span class="sourceLineNo">224</span><a id="line.224">        return Generators.sets(content, low, high);</a>
+<span class="sourceLineNo">225</span><a id="line.225">    }</a>
+<span class="sourceLineNo">226</span><a id="line.226"></a>
+<span class="sourceLineNo">227</span><a id="line.227">    /**</a>
+<span class="sourceLineNo">228</span><a id="line.228">     * Create a generator of sets that are not empty.</a>
+<span class="sourceLineNo">229</span><a id="line.229">     *</a>
+<span class="sourceLineNo">230</span><a id="line.230">     * @param &lt;T&gt;</a>
+<span class="sourceLineNo">231</span><a id="line.231">     *            type of set elements generated</a>
+<span class="sourceLineNo">232</span><a id="line.232">     * @param content</a>
+<span class="sourceLineNo">233</span><a id="line.233">     *            generator providing the content of sets generated</a>
+<span class="sourceLineNo">234</span><a id="line.234">     */</a>
+<span class="sourceLineNo">235</span><a id="line.235">    public static &lt;T&gt; Generator&lt;Set&lt;T&gt;&gt; nonEmptySets(Generator&lt;? extends T&gt; content) {</a>
+<span class="sourceLineNo">236</span><a id="line.236">        return Generators.nonEmptySets(content);</a>
+<span class="sourceLineNo">237</span><a id="line.237">    }</a>
+<span class="sourceLineNo">238</span><a id="line.238"></a>
+<span class="sourceLineNo">239</span><a id="line.239">    @SafeVarargs</a>
+<span class="sourceLineNo">240</span><a id="line.240">    public static &lt;T&gt; Generator&lt;Set&lt;T&gt;&gt; sets(T... superset) {</a>
+<span class="sourceLineNo">241</span><a id="line.241">        return Generators.sets(superset);</a>
+<span class="sourceLineNo">242</span><a id="line.242">    }</a>
+<span class="sourceLineNo">243</span><a id="line.243"></a>
 <span class="sourceLineNo">244</span><a id="line.244">    /**</a>
 <span class="sourceLineNo">245</span><a id="line.245">     * Create a generator of subsets from a given set.</a>
 <span class="sourceLineNo">246</span><a id="line.246">     *</a>
@@ -283,7 +283,7 @@
 <span class="sourceLineNo">274</span><a id="line.274">     *         more than once in the resulting list.</a>
 <span class="sourceLineNo">275</span><a id="line.275">     */</a>
 <span class="sourceLineNo">276</span><a id="line.276">    @SafeVarargs</a>
-<span class="sourceLineNo">277</span><a id="line.277">    public static &lt;T&gt; Generator&lt;List&lt;T&gt;&gt; duplicates(T... input){</a>
+<span class="sourceLineNo">277</span><a id="line.277">    public static &lt;T&gt; Generator&lt;List&lt;T&gt;&gt; duplicates(T... input) {</a>
 <span class="sourceLineNo">278</span><a id="line.278">        return Generators.duplicates(input);</a>
 <span class="sourceLineNo">279</span><a id="line.279">    }</a>
 <span class="sourceLineNo">280</span><a id="line.280"></a>
@@ -293,7 +293,7 @@
 <span class="sourceLineNo">284</span><a id="line.284">     * @return a list derived from the input values. At least one input value is</a>
 <span class="sourceLineNo">285</span><a id="line.285">     *         more than once in the resulting list.</a>
 <span class="sourceLineNo">286</span><a id="line.286">     */</a>
-<span class="sourceLineNo">287</span><a id="line.287">    public static &lt;T&gt; Generator&lt;List&lt;T&gt;&gt; duplicates(Iterable&lt;T&gt; input){</a>
+<span class="sourceLineNo">287</span><a id="line.287">    public static &lt;T&gt; Generator&lt;List&lt;T&gt;&gt; duplicates(Iterable&lt;T&gt; input) {</a>
 <span class="sourceLineNo">288</span><a id="line.288">        return Generators.duplicates(input);</a>
 <span class="sourceLineNo">289</span><a id="line.289">    }</a>
 <span class="sourceLineNo">290</span><a id="line.290"></a>
@@ -507,7 +507,7 @@
 <span class="sourceLineNo">498</span><a id="line.498">     *            type of arrays generated</a>
 <span class="sourceLineNo">499</span><a id="line.499">     */</a>
 <span class="sourceLineNo">500</span><a id="line.500">    public static &lt;T&gt; Generator&lt;T[]&gt; nonEmptyArrays(Generator&lt;? extends T&gt; content,</a>
-<span class="sourceLineNo">501</span><a id="line.501">             Class&lt;T&gt; type) {</a>
+<span class="sourceLineNo">501</span><a id="line.501">            Class&lt;T&gt; type) {</a>
 <span class="sourceLineNo">502</span><a id="line.502">        return Generators.nonEmptyArrays(content, type);</a>
 <span class="sourceLineNo">503</span><a id="line.503">    }</a>
 <span class="sourceLineNo">504</span><a id="line.504"></a>
@@ -600,336 +600,346 @@
 <span class="sourceLineNo">591</span><a id="line.591">    /**</a>
 <span class="sourceLineNo">592</span><a id="line.592">     * Create a generator of {@link Map maps}.</a>
 <span class="sourceLineNo">593</span><a id="line.593">     *</a>
-<span class="sourceLineNo">594</span><a id="line.594">     * &lt;p&gt;This is a generator for simple maps where the values are not related to the keys.&lt;/p&gt;</a>
-<span class="sourceLineNo">595</span><a id="line.595">     *</a>
-<span class="sourceLineNo">596</span><a id="line.596">     * @param keys</a>
-<span class="sourceLineNo">597</span><a id="line.597">     *            {@link Generator} for the keys of the map</a>
-<span class="sourceLineNo">598</span><a id="line.598">     * @param values</a>
-<span class="sourceLineNo">599</span><a id="line.599">     *            {@link Generator} for the values of the map</a>
-<span class="sourceLineNo">600</span><a id="line.600">     */</a>
-<span class="sourceLineNo">601</span><a id="line.601">    public static &lt;K,V&gt; Generator&lt;Map&lt;K,V&gt;&gt; maps(Generator&lt;K&gt; keys, Generator&lt;V&gt; values) {</a>
-<span class="sourceLineNo">602</span><a id="line.602">        return Generators.maps(keys, values);</a>
-<span class="sourceLineNo">603</span><a id="line.603">    }</a>
-<span class="sourceLineNo">604</span><a id="line.604"></a>
-<span class="sourceLineNo">605</span><a id="line.605">    /**</a>
-<span class="sourceLineNo">606</span><a id="line.606">     * Create a generator of {@link Map maps}.</a>
-<span class="sourceLineNo">607</span><a id="line.607">     *</a>
-<span class="sourceLineNo">608</span><a id="line.608">     * &lt;p&gt;This is a generator for simple maps where the values are not related to the keys.&lt;/p&gt;</a>
+<span class="sourceLineNo">594</span><a id="line.594">     * &lt;p&gt;</a>
+<span class="sourceLineNo">595</span><a id="line.595">     * This is a generator for simple maps where the values are not related to the keys.</a>
+<span class="sourceLineNo">596</span><a id="line.596">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">597</span><a id="line.597">     *</a>
+<span class="sourceLineNo">598</span><a id="line.598">     * @param keys</a>
+<span class="sourceLineNo">599</span><a id="line.599">     *            {@link Generator} for the keys of the map</a>
+<span class="sourceLineNo">600</span><a id="line.600">     * @param values</a>
+<span class="sourceLineNo">601</span><a id="line.601">     *            {@link Generator} for the values of the map</a>
+<span class="sourceLineNo">602</span><a id="line.602">     */</a>
+<span class="sourceLineNo">603</span><a id="line.603">    public static &lt;K, V&gt; Generator&lt;Map&lt;K, V&gt;&gt; maps(Generator&lt;K&gt; keys, Generator&lt;V&gt; values) {</a>
+<span class="sourceLineNo">604</span><a id="line.604">        return Generators.maps(keys, values);</a>
+<span class="sourceLineNo">605</span><a id="line.605">    }</a>
+<span class="sourceLineNo">606</span><a id="line.606"></a>
+<span class="sourceLineNo">607</span><a id="line.607">    /**</a>
+<span class="sourceLineNo">608</span><a id="line.608">     * Create a generator of {@link Map maps}.</a>
 <span class="sourceLineNo">609</span><a id="line.609">     *</a>
-<span class="sourceLineNo">610</span><a id="line.610">     * @param keys</a>
-<span class="sourceLineNo">611</span><a id="line.611">     *            {@link Generator} for the keys of the map</a>
-<span class="sourceLineNo">612</span><a id="line.612">     * @param values</a>
-<span class="sourceLineNo">613</span><a id="line.613">     *            {@link Generator} for the values of the map</a>
-<span class="sourceLineNo">614</span><a id="line.614">     * @param size</a>
-<span class="sourceLineNo">615</span><a id="line.615">     *            integer used to determine the size of the generated map</a>
-<span class="sourceLineNo">616</span><a id="line.616">     */</a>
-<span class="sourceLineNo">617</span><a id="line.617">    public static &lt;K,V&gt; Generator&lt;Map&lt;K,V&gt;&gt; maps(Generator&lt;K&gt; keys, Generator&lt;V&gt; values, Generator&lt;Integer&gt; size) {</a>
-<span class="sourceLineNo">618</span><a id="line.618">        return Generators.maps(keys, values, size);</a>
-<span class="sourceLineNo">619</span><a id="line.619">    }</a>
-<span class="sourceLineNo">620</span><a id="line.620"></a>
-<span class="sourceLineNo">621</span><a id="line.621"></a>
-<span class="sourceLineNo">622</span><a id="line.622">    /**</a>
-<span class="sourceLineNo">623</span><a id="line.623">     * Create a generator of maps from a given map.</a>
-<span class="sourceLineNo">624</span><a id="line.624">     *</a>
-<span class="sourceLineNo">625</span><a id="line.625">     * &lt;p&gt;The entry set of the generated maps are subsets of the given map's entry set.&lt;/p&gt;</a>
-<span class="sourceLineNo">626</span><a id="line.626">     * @param supermap of the generated maps</a>
-<span class="sourceLineNo">627</span><a id="line.627">     */</a>
-<span class="sourceLineNo">628</span><a id="line.628">    public static &lt;K,V&gt; Generator&lt;Map&lt;K, V&gt;&gt; maps(Map&lt;K, V&gt; supermap) {</a>
-<span class="sourceLineNo">629</span><a id="line.629">        return Generators.maps(supermap);</a>
-<span class="sourceLineNo">630</span><a id="line.630">    }</a>
-<span class="sourceLineNo">631</span><a id="line.631"></a>
-<span class="sourceLineNo">632</span><a id="line.632">    /**</a>
-<span class="sourceLineNo">633</span><a id="line.633">     * Create a generator of maps from a given map.</a>
-<span class="sourceLineNo">634</span><a id="line.634">     *</a>
-<span class="sourceLineNo">635</span><a id="line.635">     * &lt;p&gt;The entry set of the generated maps are subsets of the given map's entry set.&lt;/p&gt;</a>
-<span class="sourceLineNo">636</span><a id="line.636">     *</a>
-<span class="sourceLineNo">637</span><a id="line.637">     * @param supermap of the generated maps</a>
-<span class="sourceLineNo">638</span><a id="line.638">     * @param sizes of the generated maps</a>
-<span class="sourceLineNo">639</span><a id="line.639">     */</a>
-<span class="sourceLineNo">640</span><a id="line.640">    public static &lt;K,V&gt; Generator&lt;Map&lt;K, V&gt;&gt; maps(Map&lt;K, V&gt; supermap, Generator&lt;Integer&gt; sizes) {</a>
-<span class="sourceLineNo">641</span><a id="line.641">        return Generators.maps(supermap, sizes);</a>
-<span class="sourceLineNo">642</span><a id="line.642">    }</a>
-<span class="sourceLineNo">643</span><a id="line.643"></a>
-<span class="sourceLineNo">644</span><a id="line.644">    /**</a>
-<span class="sourceLineNo">645</span><a id="line.645">     * Create a deterministic generator which guarantees that all values from</a>
-<span class="sourceLineNo">646</span><a id="line.646">     * the ensuredValues collection will be return</a>
-<span class="sourceLineNo">647</span><a id="line.647">     * {@link Generator#next()} are issued (i.e. ensuredValues.size() &amp;lt;= # of</a>
-<span class="sourceLineNo">648</span><a id="line.648">     * runs). The order of values is undefined.</a>
-<span class="sourceLineNo">649</span><a id="line.649">     *</a>
-<span class="sourceLineNo">650</span><a id="line.650">     * @param &lt;T&gt; type of values return</a>
-<span class="sourceLineNo">651</span><a id="line.651">     */</a>
-<span class="sourceLineNo">652</span><a id="line.652">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; ensureValues(Iterable&lt;T&gt; ensuredValues) {</a>
-<span class="sourceLineNo">653</span><a id="line.653">        return Generators.ensureValues(ensuredValues);</a>
-<span class="sourceLineNo">654</span><a id="line.654">    }</a>
-<span class="sourceLineNo">655</span><a id="line.655"></a>
-<span class="sourceLineNo">656</span><a id="line.656">    /**</a>
-<span class="sourceLineNo">657</span><a id="line.657">     * Create a deterministic generator which guarantees that all values from</a>
-<span class="sourceLineNo">658</span><a id="line.658">     * the ensuredValues array will be return</a>
-<span class="sourceLineNo">659</span><a id="line.659">     * {@link Generator#next()} are issued (i.e. ensuredValues.size() &amp;lt;= # of</a>
-<span class="sourceLineNo">660</span><a id="line.660">     * runs). The order of values is undefined.</a>
-<span class="sourceLineNo">661</span><a id="line.661">     *</a>
-<span class="sourceLineNo">662</span><a id="line.662">     * @param &lt;T&gt;</a>
-<span class="sourceLineNo">663</span><a id="line.663">     *            type of values return</a>
-<span class="sourceLineNo">664</span><a id="line.664">     */</a>
-<span class="sourceLineNo">665</span><a id="line.665">    @SafeVarargs</a>
-<span class="sourceLineNo">666</span><a id="line.666">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; ensureValues(T... content) {</a>
-<span class="sourceLineNo">667</span><a id="line.667">        return Generators.ensureValues(content);</a>
-<span class="sourceLineNo">668</span><a id="line.668">    }</a>
-<span class="sourceLineNo">669</span><a id="line.669"></a>
-<span class="sourceLineNo">670</span><a id="line.670">    /**</a>
-<span class="sourceLineNo">671</span><a id="line.671">     * &lt;p&gt;</a>
-<span class="sourceLineNo">672</span><a id="line.672">     *  Create a deterministic generator which guarantees that all values from</a>
-<span class="sourceLineNo">673</span><a id="line.673">     *  the ensuredValues collection will be return</a>
-<span class="sourceLineNo">674</span><a id="line.674">     *  {@link Generator#next()} are issued (i.e. ensuredValues.size() &amp;lt;= # of</a>
-<span class="sourceLineNo">675</span><a id="line.675">     *  runs). The order of values is undefined.</a>
-<span class="sourceLineNo">676</span><a id="line.676">     * &lt;/p&gt;&lt;p&gt;</a>
-<span class="sourceLineNo">677</span><a id="line.677">     *  If all values of ensuredValues are generated calls to</a>
-<span class="sourceLineNo">678</span><a id="line.678">     *  {@link Generator#next()} will return generator.</a>
-<span class="sourceLineNo">679</span><a id="line.679">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">680</span><a id="line.680">     *</a>
-<span class="sourceLineNo">681</span><a id="line.681">     * @param &lt;T&gt;</a>
-<span class="sourceLineNo">682</span><a id="line.682">     *            type of values return</a>
-<span class="sourceLineNo">683</span><a id="line.683">     */</a>
-<span class="sourceLineNo">684</span><a id="line.684">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; ensureValues(</a>
-<span class="sourceLineNo">685</span><a id="line.685">            Iterable&lt;T&gt; ensuredValues, Generator&lt;T&gt; otherValues) {</a>
-<span class="sourceLineNo">686</span><a id="line.686">        return Generators.ensureValues(ensuredValues, otherValues);</a>
-<span class="sourceLineNo">687</span><a id="line.687">    }</a>
-<span class="sourceLineNo">688</span><a id="line.688"></a>
-<span class="sourceLineNo">689</span><a id="line.689">    /**</a>
-<span class="sourceLineNo">690</span><a id="line.690">     * &lt;p&gt;</a>
-<span class="sourceLineNo">691</span><a id="line.691">     * Create a generator which guarantees that all values from the</a>
-<span class="sourceLineNo">692</span><a id="line.692">     * ensuredValues will be return</a>
-<span class="sourceLineNo">693</span><a id="line.693">     * {@link Generator#next()} are issued.</a>
-<span class="sourceLineNo">694</span><a id="line.694">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">695</span><a id="line.695">     * &lt;p&gt;</a>
-<span class="sourceLineNo">696</span><a id="line.696">     * The order of values is undefined. All other values in the window and</a>
-<span class="sourceLineNo">697</span><a id="line.697">     * after the window are taken from the {@link Generator generator</a>
-<span class="sourceLineNo">698</span><a id="line.698">     * otherValues}.</a>
-<span class="sourceLineNo">699</span><a id="line.699">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">700</span><a id="line.700">     *</a>
-<span class="sourceLineNo">701</span><a id="line.701">     * @param &lt;T&gt;</a>
-<span class="sourceLineNo">702</span><a id="line.702">     *            type of values return</a>
-<span class="sourceLineNo">703</span><a id="line.703">     * @param window</a>
-<span class="sourceLineNo">704</span><a id="line.704">     *            After window number of calls to {@link Generator#next()} it is</a>
-<span class="sourceLineNo">705</span><a id="line.705">     *            guaranteed that all ensured values were return</a>
-<span class="sourceLineNo">706</span><a id="line.706">     */</a>
-<span class="sourceLineNo">707</span><a id="line.707">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; ensureValues(Iterable&lt;T&gt; ensuredValues, int window,</a>
-<span class="sourceLineNo">708</span><a id="line.708">            Generator&lt;T&gt; otherValues) {</a>
-<span class="sourceLineNo">709</span><a id="line.709">        return Generators.ensureValues(ensuredValues, window, otherValues);</a>
-<span class="sourceLineNo">710</span><a id="line.710">    }</a>
-<span class="sourceLineNo">711</span><a id="line.711"></a>
-<span class="sourceLineNo">712</span><a id="line.712">    /**</a>
-<span class="sourceLineNo">713</span><a id="line.713">     * &lt;p&gt;</a>
-<span class="sourceLineNo">714</span><a id="line.714">     * Create a generator that ensures unique values.</a>
-<span class="sourceLineNo">715</span><a id="line.715">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">716</span><a id="line.716">     * &lt;p&gt;</a>
-<span class="sourceLineNo">717</span><a id="line.717">     * The actual values are created with an arbitrary generator.</a>
-<span class="sourceLineNo">718</span><a id="line.718">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">719</span><a id="line.719">     * &lt;p&gt;</a>
-<span class="sourceLineNo">720</span><a id="line.720">     * Note: unique generator depends on valid implementation of equals and</a>
-<span class="sourceLineNo">721</span><a id="line.721">     * hashCode method of the content type generated.</a>
-<span class="sourceLineNo">722</span><a id="line.722">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">723</span><a id="line.723">     *</a>
-<span class="sourceLineNo">724</span><a id="line.724">     * @param &lt;T&gt;</a>
-<span class="sourceLineNo">725</span><a id="line.725">     *            type of values return</a>
-<span class="sourceLineNo">726</span><a id="line.726">     * @param generator</a>
-<span class="sourceLineNo">727</span><a id="line.727">     *            used to create the raw values. This generator can</a>
-<span class="sourceLineNo">728</span><a id="line.728">     *            create duplicate values</a>
-<span class="sourceLineNo">729</span><a id="line.729">     * @param tries</a>
-<span class="sourceLineNo">730</span><a id="line.730">     *            Number of tries to create a new unique value. After this</a>
-<span class="sourceLineNo">731</span><a id="line.731">     *            number of tries is exceeded the generation aborts with a</a>
-<span class="sourceLineNo">732</span><a id="line.732">     *            {@link GeneratorException}.</a>
-<span class="sourceLineNo">733</span><a id="line.733">     * @return unique generator instance</a>
-<span class="sourceLineNo">734</span><a id="line.734">     */</a>
-<span class="sourceLineNo">735</span><a id="line.735">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; uniqueValues(Generator&lt;T&gt; generator,</a>
-<span class="sourceLineNo">736</span><a id="line.736">            int tries) {</a>
-<span class="sourceLineNo">737</span><a id="line.737">        return Generators.uniqueValues(generator, tries);</a>
-<span class="sourceLineNo">738</span><a id="line.738">    }</a>
-<span class="sourceLineNo">739</span><a id="line.739"></a>
-<span class="sourceLineNo">740</span><a id="line.740">    /**</a>
-<span class="sourceLineNo">741</span><a id="line.741">     * &lt;p&gt;</a>
-<span class="sourceLineNo">742</span><a id="line.742">     * Create a generator that ensures unique values.</a>
-<span class="sourceLineNo">743</span><a id="line.743">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">744</span><a id="line.744">     * &lt;p&gt;</a>
-<span class="sourceLineNo">745</span><a id="line.745">     * The actual values are created with an arbitrary generator.</a>
-<span class="sourceLineNo">746</span><a id="line.746">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">747</span><a id="line.747">     * &lt;p&gt;</a>
-<span class="sourceLineNo">748</span><a id="line.748">     * Unique generator depends on the {@link Comparator} implementation to</a>
-<span class="sourceLineNo">749</span><a id="line.749">     * decide if two instances are the same (i.e. when the comparator return</a>
-<span class="sourceLineNo">750</span><a id="line.750">     * for {@link Comparator#compare(Object, Object)}).</a>
-<span class="sourceLineNo">751</span><a id="line.751">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">752</span><a id="line.752">     *</a>
-<span class="sourceLineNo">753</span><a id="line.753">     * @param &lt;T&gt;</a>
-<span class="sourceLineNo">754</span><a id="line.754">     *            type of values return</a>
-<span class="sourceLineNo">755</span><a id="line.755">     * @param generator</a>
-<span class="sourceLineNo">756</span><a id="line.756">     *            used to create the raw values. This generator can create</a>
-<span class="sourceLineNo">757</span><a id="line.757">     *            duplicate values</a>
-<span class="sourceLineNo">758</span><a id="line.758">     * @param comparator</a>
-<span class="sourceLineNo">759</span><a id="line.759">     *            that decides if two values are of the same equivalence class.</a>
-<span class="sourceLineNo">760</span><a id="line.760">     * @param tries</a>
-<span class="sourceLineNo">761</span><a id="line.761">     *            Number of tries to create a new unique value. After this</a>
-<span class="sourceLineNo">762</span><a id="line.762">     *            number of tries is exceeded the generation aborts with a</a>
-<span class="sourceLineNo">763</span><a id="line.763">     *            {@link GeneratorException}.</a>
-<span class="sourceLineNo">764</span><a id="line.764">     * @return unique generator instance</a>
-<span class="sourceLineNo">765</span><a id="line.765">     */</a>
-<span class="sourceLineNo">766</span><a id="line.766">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; uniqueValues(Generator&lt;T&gt; generator,</a>
-<span class="sourceLineNo">767</span><a id="line.767">            Comparator&lt;? super T&gt; comparator, int tries) {</a>
-<span class="sourceLineNo">768</span><a id="line.768">        return Generators.uniqueValues(generator, comparator, tries);</a>
-<span class="sourceLineNo">769</span><a id="line.769">    }</a>
-<span class="sourceLineNo">770</span><a id="line.770"></a>
-<span class="sourceLineNo">771</span><a id="line.771">    /**</a>
-<span class="sourceLineNo">772</span><a id="line.772">     * &lt;p&gt;</a>
-<span class="sourceLineNo">773</span><a id="line.773">     * Create a generator that ensures unique values.</a>
-<span class="sourceLineNo">774</span><a id="line.774">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">775</span><a id="line.775">     * &lt;p&gt;</a>
-<span class="sourceLineNo">776</span><a id="line.776">     * The actual values are created with an arbitrary generator.</a>
-<span class="sourceLineNo">777</span><a id="line.777">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">778</span><a id="line.778">     * &lt;p&gt;</a>
-<span class="sourceLineNo">779</span><a id="line.779">     * Unique generator depends on the {@link Comparator} implementation to</a>
-<span class="sourceLineNo">780</span><a id="line.780">     * decide if two instances are the same (i.e. when the comparator return</a>
-<span class="sourceLineNo">781</span><a id="line.781">     * for {@link Comparator#compare(Object, Object)}).</a>
-<span class="sourceLineNo">782</span><a id="line.782">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">783</span><a id="line.783">     *</a>
-<span class="sourceLineNo">784</span><a id="line.784">     * @param &lt;T&gt;</a>
-<span class="sourceLineNo">785</span><a id="line.785">     *            type of values return</a>
-<span class="sourceLineNo">786</span><a id="line.786">     * @param generator</a>
-<span class="sourceLineNo">787</span><a id="line.787">     *            used to create the raw values. This generator can create</a>
-<span class="sourceLineNo">788</span><a id="line.788">     *            duplicate values</a>
-<span class="sourceLineNo">789</span><a id="line.789">     * @param comparator</a>
-<span class="sourceLineNo">790</span><a id="line.790">     *            that decides if two values are of the same equivalence class.</a>
-<span class="sourceLineNo">791</span><a id="line.791">     * @return unique generator instance</a>
-<span class="sourceLineNo">792</span><a id="line.792">     */</a>
-<span class="sourceLineNo">793</span><a id="line.793">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; uniqueValues(Generator&lt;T&gt; generator,</a>
-<span class="sourceLineNo">794</span><a id="line.794">            Comparator&lt;? super T&gt; comparator) {</a>
-<span class="sourceLineNo">795</span><a id="line.795">        return Generators.uniqueValues(generator, comparator);</a>
-<span class="sourceLineNo">796</span><a id="line.796">    }</a>
-<span class="sourceLineNo">797</span><a id="line.797"></a>
-<span class="sourceLineNo">798</span><a id="line.798">    /**</a>
-<span class="sourceLineNo">799</span><a id="line.799">     * &lt;p&gt;</a>
-<span class="sourceLineNo">800</span><a id="line.800">     * Create a generator that ensures unique values</a>
-<span class="sourceLineNo">801</span><a id="line.801">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">802</span><a id="line.802">     * &lt;p&gt;</a>
-<span class="sourceLineNo">803</span><a id="line.803">     *  The actual values are created with an arbitrary generator.</a>
-<span class="sourceLineNo">804</span><a id="line.804">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">805</span><a id="line.805">     * &lt;p&gt;</a>
-<span class="sourceLineNo">806</span><a id="line.806">     * Note: unique generator depends on valid implementation of equals and</a>
-<span class="sourceLineNo">807</span><a id="line.807">     * hashCode method of the content type generated.</a>
-<span class="sourceLineNo">808</span><a id="line.808">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">809</span><a id="line.809">     *</a>
-<span class="sourceLineNo">810</span><a id="line.810">     * @param &lt;T&gt;</a>
-<span class="sourceLineNo">811</span><a id="line.811">     *            type of values return</a>
-<span class="sourceLineNo">812</span><a id="line.812">     * @param generator</a>
-<span class="sourceLineNo">813</span><a id="line.813">     *            used to create the raw values. This generator can</a>
-<span class="sourceLineNo">814</span><a id="line.814">     *            create duplicate values</a>
-<span class="sourceLineNo">815</span><a id="line.815">     * @return unique generator instance</a>
-<span class="sourceLineNo">816</span><a id="line.816">     */</a>
-<span class="sourceLineNo">817</span><a id="line.817">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; uniqueValues(Generator&lt;T&gt; generator) {</a>
-<span class="sourceLineNo">818</span><a id="line.818">        return Generators.uniqueValues(generator);</a>
-<span class="sourceLineNo">819</span><a id="line.819">    }</a>
-<span class="sourceLineNo">820</span><a id="line.820"></a>
-<span class="sourceLineNo">821</span><a id="line.821">    /**</a>
-<span class="sourceLineNo">822</span><a id="line.822">     * Create a generator that omits a given set of values.</a>
-<span class="sourceLineNo">823</span><a id="line.823">     *</a>
-<span class="sourceLineNo">824</span><a id="line.824">     * @param generator used to create the raw values.</a>
-<span class="sourceLineNo">825</span><a id="line.825">     * @param excluded values. These values will not be return</a>
-<span class="sourceLineNo">826</span><a id="line.826">     */</a>
-<span class="sourceLineNo">827</span><a id="line.827">    @SafeVarargs</a>
-<span class="sourceLineNo">828</span><a id="line.828">    public static &lt;T&gt; Generator&lt;T&gt; excludeValues(Generator&lt;T&gt; generator, T... excluded) {</a>
-<span class="sourceLineNo">829</span><a id="line.829">        return Generators.excludeValues(generator, excluded);</a>
-<span class="sourceLineNo">830</span><a id="line.830">    }</a>
-<span class="sourceLineNo">831</span><a id="line.831"></a>
-<span class="sourceLineNo">832</span><a id="line.832">    /**</a>
-<span class="sourceLineNo">833</span><a id="line.833">     * Create a generator that omits a given set of values.</a>
-<span class="sourceLineNo">834</span><a id="line.834">     *</a>
-<span class="sourceLineNo">835</span><a id="line.835">     * @param values of generator</a>
-<span class="sourceLineNo">836</span><a id="line.836">     * @param excluded values. These values will not be return</a>
-<span class="sourceLineNo">837</span><a id="line.837">     */</a>
-<span class="sourceLineNo">838</span><a id="line.838">    @SafeVarargs</a>
-<span class="sourceLineNo">839</span><a id="line.839">    public static &lt;T&gt; Generator&lt;T&gt; excludeValues(Iterable&lt;T&gt; values, T... excluded) {</a>
-<span class="sourceLineNo">840</span><a id="line.840">        return Generators.excludeValues(values, excluded);</a>
-<span class="sourceLineNo">841</span><a id="line.841">    }</a>
-<span class="sourceLineNo">842</span><a id="line.842"></a>
-<span class="sourceLineNo">843</span><a id="line.843">    /**</a>
-<span class="sourceLineNo">844</span><a id="line.844">     * Create a generator that omits a given set of values.</a>
-<span class="sourceLineNo">845</span><a id="line.845">     *</a>
-<span class="sourceLineNo">846</span><a id="line.846">     * @param values of generator</a>
-<span class="sourceLineNo">847</span><a id="line.847">     * @param excluded values. These values will not be return</a>
-<span class="sourceLineNo">848</span><a id="line.848">     */</a>
-<span class="sourceLineNo">849</span><a id="line.849">    public static &lt;T&gt; Generator&lt;T&gt; excludeValues(Iterable&lt;T&gt; values, Iterable&lt;T&gt; excluded) {</a>
-<span class="sourceLineNo">850</span><a id="line.850">        return Generators.excludeValues(values, excluded);</a>
-<span class="sourceLineNo">851</span><a id="line.851">    }</a>
-<span class="sourceLineNo">852</span><a id="line.852"></a>
-<span class="sourceLineNo">853</span><a id="line.853">    /**</a>
-<span class="sourceLineNo">854</span><a id="line.854">     * Create a generator that omits a given set of values.</a>
-<span class="sourceLineNo">855</span><a id="line.855">     *</a>
-<span class="sourceLineNo">856</span><a id="line.856">     * @param generator used to create the raw values.</a>
-<span class="sourceLineNo">857</span><a id="line.857">     * @param excluded values. These values will not be return</a>
-<span class="sourceLineNo">858</span><a id="line.858">     */</a>
-<span class="sourceLineNo">859</span><a id="line.859">    public static &lt;T&gt; Generator&lt;T&gt; excludeValues(Generator&lt;T&gt; generator, Iterable&lt;T&gt; excluded) {</a>
-<span class="sourceLineNo">860</span><a id="line.860">        return Generators.excludeValues(generator, excluded);</a>
-<span class="sourceLineNo">861</span><a id="line.861">    }</a>
-<span class="sourceLineNo">862</span><a id="line.862"></a>
-<span class="sourceLineNo">863</span><a id="line.863">    /**</a>
-<span class="sourceLineNo">864</span><a id="line.864">     * A generator for a lists. The values in the lists are strictly increasing.</a>
-<span class="sourceLineNo">865</span><a id="line.865">     * &lt;p&gt;</a>
-<span class="sourceLineNo">866</span><a id="line.866">     * For every element x in the list: x(n) &amp;lt; x(n+1).</a>
-<span class="sourceLineNo">867</span><a id="line.867">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">868</span><a id="line.868">     *</a>
-<span class="sourceLineNo">869</span><a id="line.869">     * @param input values generator</a>
-<span class="sourceLineNo">870</span><a id="line.870">     */</a>
-<span class="sourceLineNo">871</span><a id="line.871">    public static &lt;T extends Comparable&lt;T&gt;&gt; Generator&lt;List&lt;T&gt;&gt; strictlyOrdered(Generator&lt;T&gt; input) {</a>
-<span class="sourceLineNo">872</span><a id="line.872">        return Generators.strictlyOrdered(input);</a>
-<span class="sourceLineNo">873</span><a id="line.873">    }</a>
-<span class="sourceLineNo">874</span><a id="line.874"></a>
-<span class="sourceLineNo">875</span><a id="line.875">    /**</a>
-<span class="sourceLineNo">876</span><a id="line.876">     * A generator for a lists. The values in the lists are strictly increasing.</a>
+<span class="sourceLineNo">610</span><a id="line.610">     * &lt;p&gt;</a>
+<span class="sourceLineNo">611</span><a id="line.611">     * This is a generator for simple maps where the values are not related to the keys.</a>
+<span class="sourceLineNo">612</span><a id="line.612">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">613</span><a id="line.613">     *</a>
+<span class="sourceLineNo">614</span><a id="line.614">     * @param keys</a>
+<span class="sourceLineNo">615</span><a id="line.615">     *            {@link Generator} for the keys of the map</a>
+<span class="sourceLineNo">616</span><a id="line.616">     * @param values</a>
+<span class="sourceLineNo">617</span><a id="line.617">     *            {@link Generator} for the values of the map</a>
+<span class="sourceLineNo">618</span><a id="line.618">     * @param size</a>
+<span class="sourceLineNo">619</span><a id="line.619">     *            integer used to determine the size of the generated map</a>
+<span class="sourceLineNo">620</span><a id="line.620">     */</a>
+<span class="sourceLineNo">621</span><a id="line.621">    public static &lt;K, V&gt; Generator&lt;Map&lt;K, V&gt;&gt; maps(Generator&lt;K&gt; keys, Generator&lt;V&gt; values, Generator&lt;Integer&gt; size) {</a>
+<span class="sourceLineNo">622</span><a id="line.622">        return Generators.maps(keys, values, size);</a>
+<span class="sourceLineNo">623</span><a id="line.623">    }</a>
+<span class="sourceLineNo">624</span><a id="line.624"></a>
+<span class="sourceLineNo">625</span><a id="line.625">    /**</a>
+<span class="sourceLineNo">626</span><a id="line.626">     * Create a generator of maps from a given map.</a>
+<span class="sourceLineNo">627</span><a id="line.627">     *</a>
+<span class="sourceLineNo">628</span><a id="line.628">     * &lt;p&gt;</a>
+<span class="sourceLineNo">629</span><a id="line.629">     * The entry set of the generated maps are subsets of the given map's entry set.</a>
+<span class="sourceLineNo">630</span><a id="line.630">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">631</span><a id="line.631">     * </a>
+<span class="sourceLineNo">632</span><a id="line.632">     * @param supermap of the generated maps</a>
+<span class="sourceLineNo">633</span><a id="line.633">     */</a>
+<span class="sourceLineNo">634</span><a id="line.634">    public static &lt;K, V&gt; Generator&lt;Map&lt;K, V&gt;&gt; maps(Map&lt;K, V&gt; supermap) {</a>
+<span class="sourceLineNo">635</span><a id="line.635">        return Generators.maps(supermap);</a>
+<span class="sourceLineNo">636</span><a id="line.636">    }</a>
+<span class="sourceLineNo">637</span><a id="line.637"></a>
+<span class="sourceLineNo">638</span><a id="line.638">    /**</a>
+<span class="sourceLineNo">639</span><a id="line.639">     * Create a generator of maps from a given map.</a>
+<span class="sourceLineNo">640</span><a id="line.640">     *</a>
+<span class="sourceLineNo">641</span><a id="line.641">     * &lt;p&gt;</a>
+<span class="sourceLineNo">642</span><a id="line.642">     * The entry set of the generated maps are subsets of the given map's entry set.</a>
+<span class="sourceLineNo">643</span><a id="line.643">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">644</span><a id="line.644">     *</a>
+<span class="sourceLineNo">645</span><a id="line.645">     * @param supermap of the generated maps</a>
+<span class="sourceLineNo">646</span><a id="line.646">     * @param sizes of the generated maps</a>
+<span class="sourceLineNo">647</span><a id="line.647">     */</a>
+<span class="sourceLineNo">648</span><a id="line.648">    public static &lt;K, V&gt; Generator&lt;Map&lt;K, V&gt;&gt; maps(Map&lt;K, V&gt; supermap, Generator&lt;Integer&gt; sizes) {</a>
+<span class="sourceLineNo">649</span><a id="line.649">        return Generators.maps(supermap, sizes);</a>
+<span class="sourceLineNo">650</span><a id="line.650">    }</a>
+<span class="sourceLineNo">651</span><a id="line.651"></a>
+<span class="sourceLineNo">652</span><a id="line.652">    /**</a>
+<span class="sourceLineNo">653</span><a id="line.653">     * Create a deterministic generator which guarantees that all values from</a>
+<span class="sourceLineNo">654</span><a id="line.654">     * the ensuredValues collection will be return</a>
+<span class="sourceLineNo">655</span><a id="line.655">     * {@link Generator#next()} are issued (i.e. ensuredValues.size() &amp;lt;= # of</a>
+<span class="sourceLineNo">656</span><a id="line.656">     * runs). The order of values is undefined.</a>
+<span class="sourceLineNo">657</span><a id="line.657">     *</a>
+<span class="sourceLineNo">658</span><a id="line.658">     * @param &lt;T&gt; type of values return</a>
+<span class="sourceLineNo">659</span><a id="line.659">     */</a>
+<span class="sourceLineNo">660</span><a id="line.660">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; ensureValues(Iterable&lt;T&gt; ensuredValues) {</a>
+<span class="sourceLineNo">661</span><a id="line.661">        return Generators.ensureValues(ensuredValues);</a>
+<span class="sourceLineNo">662</span><a id="line.662">    }</a>
+<span class="sourceLineNo">663</span><a id="line.663"></a>
+<span class="sourceLineNo">664</span><a id="line.664">    /**</a>
+<span class="sourceLineNo">665</span><a id="line.665">     * Create a deterministic generator which guarantees that all values from</a>
+<span class="sourceLineNo">666</span><a id="line.666">     * the ensuredValues array will be return</a>
+<span class="sourceLineNo">667</span><a id="line.667">     * {@link Generator#next()} are issued (i.e. ensuredValues.size() &amp;lt;= # of</a>
+<span class="sourceLineNo">668</span><a id="line.668">     * runs). The order of values is undefined.</a>
+<span class="sourceLineNo">669</span><a id="line.669">     *</a>
+<span class="sourceLineNo">670</span><a id="line.670">     * @param &lt;T&gt;</a>
+<span class="sourceLineNo">671</span><a id="line.671">     *            type of values return</a>
+<span class="sourceLineNo">672</span><a id="line.672">     */</a>
+<span class="sourceLineNo">673</span><a id="line.673">    @SafeVarargs</a>
+<span class="sourceLineNo">674</span><a id="line.674">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; ensureValues(T... content) {</a>
+<span class="sourceLineNo">675</span><a id="line.675">        return Generators.ensureValues(content);</a>
+<span class="sourceLineNo">676</span><a id="line.676">    }</a>
+<span class="sourceLineNo">677</span><a id="line.677"></a>
+<span class="sourceLineNo">678</span><a id="line.678">    /**</a>
+<span class="sourceLineNo">679</span><a id="line.679">     * &lt;p&gt;</a>
+<span class="sourceLineNo">680</span><a id="line.680">     * Create a deterministic generator which guarantees that all values from</a>
+<span class="sourceLineNo">681</span><a id="line.681">     * the ensuredValues collection will be return</a>
+<span class="sourceLineNo">682</span><a id="line.682">     * {@link Generator#next()} are issued (i.e. ensuredValues.size() &amp;lt;= # of</a>
+<span class="sourceLineNo">683</span><a id="line.683">     * runs). The order of values is undefined.</a>
+<span class="sourceLineNo">684</span><a id="line.684">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">685</span><a id="line.685">     * &lt;p&gt;</a>
+<span class="sourceLineNo">686</span><a id="line.686">     * If all values of ensuredValues are generated calls to</a>
+<span class="sourceLineNo">687</span><a id="line.687">     * {@link Generator#next()} will return generator.</a>
+<span class="sourceLineNo">688</span><a id="line.688">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">689</span><a id="line.689">     *</a>
+<span class="sourceLineNo">690</span><a id="line.690">     * @param &lt;T&gt;</a>
+<span class="sourceLineNo">691</span><a id="line.691">     *            type of values return</a>
+<span class="sourceLineNo">692</span><a id="line.692">     */</a>
+<span class="sourceLineNo">693</span><a id="line.693">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; ensureValues(</a>
+<span class="sourceLineNo">694</span><a id="line.694">            Iterable&lt;T&gt; ensuredValues, Generator&lt;T&gt; otherValues) {</a>
+<span class="sourceLineNo">695</span><a id="line.695">        return Generators.ensureValues(ensuredValues, otherValues);</a>
+<span class="sourceLineNo">696</span><a id="line.696">    }</a>
+<span class="sourceLineNo">697</span><a id="line.697"></a>
+<span class="sourceLineNo">698</span><a id="line.698">    /**</a>
+<span class="sourceLineNo">699</span><a id="line.699">     * &lt;p&gt;</a>
+<span class="sourceLineNo">700</span><a id="line.700">     * Create a generator which guarantees that all values from the</a>
+<span class="sourceLineNo">701</span><a id="line.701">     * ensuredValues will be return</a>
+<span class="sourceLineNo">702</span><a id="line.702">     * {@link Generator#next()} are issued.</a>
+<span class="sourceLineNo">703</span><a id="line.703">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">704</span><a id="line.704">     * &lt;p&gt;</a>
+<span class="sourceLineNo">705</span><a id="line.705">     * The order of values is undefined. All other values in the window and</a>
+<span class="sourceLineNo">706</span><a id="line.706">     * after the window are taken from the {@link Generator generator</a>
+<span class="sourceLineNo">707</span><a id="line.707">     * otherValues}.</a>
+<span class="sourceLineNo">708</span><a id="line.708">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">709</span><a id="line.709">     *</a>
+<span class="sourceLineNo">710</span><a id="line.710">     * @param &lt;T&gt;</a>
+<span class="sourceLineNo">711</span><a id="line.711">     *            type of values return</a>
+<span class="sourceLineNo">712</span><a id="line.712">     * @param window</a>
+<span class="sourceLineNo">713</span><a id="line.713">     *            After window number of calls to {@link Generator#next()} it is</a>
+<span class="sourceLineNo">714</span><a id="line.714">     *            guaranteed that all ensured values were return</a>
+<span class="sourceLineNo">715</span><a id="line.715">     */</a>
+<span class="sourceLineNo">716</span><a id="line.716">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; ensureValues(Iterable&lt;T&gt; ensuredValues, int window,</a>
+<span class="sourceLineNo">717</span><a id="line.717">            Generator&lt;T&gt; otherValues) {</a>
+<span class="sourceLineNo">718</span><a id="line.718">        return Generators.ensureValues(ensuredValues, window, otherValues);</a>
+<span class="sourceLineNo">719</span><a id="line.719">    }</a>
+<span class="sourceLineNo">720</span><a id="line.720"></a>
+<span class="sourceLineNo">721</span><a id="line.721">    /**</a>
+<span class="sourceLineNo">722</span><a id="line.722">     * &lt;p&gt;</a>
+<span class="sourceLineNo">723</span><a id="line.723">     * Create a generator that ensures unique values.</a>
+<span class="sourceLineNo">724</span><a id="line.724">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">725</span><a id="line.725">     * &lt;p&gt;</a>
+<span class="sourceLineNo">726</span><a id="line.726">     * The actual values are created with an arbitrary generator.</a>
+<span class="sourceLineNo">727</span><a id="line.727">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">728</span><a id="line.728">     * &lt;p&gt;</a>
+<span class="sourceLineNo">729</span><a id="line.729">     * Note: unique generator depends on valid implementation of equals and</a>
+<span class="sourceLineNo">730</span><a id="line.730">     * hashCode method of the content type generated.</a>
+<span class="sourceLineNo">731</span><a id="line.731">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">732</span><a id="line.732">     *</a>
+<span class="sourceLineNo">733</span><a id="line.733">     * @param &lt;T&gt;</a>
+<span class="sourceLineNo">734</span><a id="line.734">     *            type of values return</a>
+<span class="sourceLineNo">735</span><a id="line.735">     * @param generator</a>
+<span class="sourceLineNo">736</span><a id="line.736">     *            used to create the raw values. This generator can</a>
+<span class="sourceLineNo">737</span><a id="line.737">     *            create duplicate values</a>
+<span class="sourceLineNo">738</span><a id="line.738">     * @param tries</a>
+<span class="sourceLineNo">739</span><a id="line.739">     *            Number of tries to create a new unique value. After this</a>
+<span class="sourceLineNo">740</span><a id="line.740">     *            number of tries is exceeded the generation aborts with a</a>
+<span class="sourceLineNo">741</span><a id="line.741">     *            {@link GeneratorException}.</a>
+<span class="sourceLineNo">742</span><a id="line.742">     * @return unique generator instance</a>
+<span class="sourceLineNo">743</span><a id="line.743">     */</a>
+<span class="sourceLineNo">744</span><a id="line.744">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; uniqueValues(Generator&lt;T&gt; generator,</a>
+<span class="sourceLineNo">745</span><a id="line.745">            int tries) {</a>
+<span class="sourceLineNo">746</span><a id="line.746">        return Generators.uniqueValues(generator, tries);</a>
+<span class="sourceLineNo">747</span><a id="line.747">    }</a>
+<span class="sourceLineNo">748</span><a id="line.748"></a>
+<span class="sourceLineNo">749</span><a id="line.749">    /**</a>
+<span class="sourceLineNo">750</span><a id="line.750">     * &lt;p&gt;</a>
+<span class="sourceLineNo">751</span><a id="line.751">     * Create a generator that ensures unique values.</a>
+<span class="sourceLineNo">752</span><a id="line.752">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">753</span><a id="line.753">     * &lt;p&gt;</a>
+<span class="sourceLineNo">754</span><a id="line.754">     * The actual values are created with an arbitrary generator.</a>
+<span class="sourceLineNo">755</span><a id="line.755">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">756</span><a id="line.756">     * &lt;p&gt;</a>
+<span class="sourceLineNo">757</span><a id="line.757">     * Unique generator depends on the {@link Comparator} implementation to</a>
+<span class="sourceLineNo">758</span><a id="line.758">     * decide if two instances are the same (i.e. when the comparator return</a>
+<span class="sourceLineNo">759</span><a id="line.759">     * for {@link Comparator#compare(Object, Object)}).</a>
+<span class="sourceLineNo">760</span><a id="line.760">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">761</span><a id="line.761">     *</a>
+<span class="sourceLineNo">762</span><a id="line.762">     * @param &lt;T&gt;</a>
+<span class="sourceLineNo">763</span><a id="line.763">     *            type of values return</a>
+<span class="sourceLineNo">764</span><a id="line.764">     * @param generator</a>
+<span class="sourceLineNo">765</span><a id="line.765">     *            used to create the raw values. This generator can create</a>
+<span class="sourceLineNo">766</span><a id="line.766">     *            duplicate values</a>
+<span class="sourceLineNo">767</span><a id="line.767">     * @param comparator</a>
+<span class="sourceLineNo">768</span><a id="line.768">     *            that decides if two values are of the same equivalence class.</a>
+<span class="sourceLineNo">769</span><a id="line.769">     * @param tries</a>
+<span class="sourceLineNo">770</span><a id="line.770">     *            Number of tries to create a new unique value. After this</a>
+<span class="sourceLineNo">771</span><a id="line.771">     *            number of tries is exceeded the generation aborts with a</a>
+<span class="sourceLineNo">772</span><a id="line.772">     *            {@link GeneratorException}.</a>
+<span class="sourceLineNo">773</span><a id="line.773">     * @return unique generator instance</a>
+<span class="sourceLineNo">774</span><a id="line.774">     */</a>
+<span class="sourceLineNo">775</span><a id="line.775">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; uniqueValues(Generator&lt;T&gt; generator,</a>
+<span class="sourceLineNo">776</span><a id="line.776">            Comparator&lt;? super T&gt; comparator, int tries) {</a>
+<span class="sourceLineNo">777</span><a id="line.777">        return Generators.uniqueValues(generator, comparator, tries);</a>
+<span class="sourceLineNo">778</span><a id="line.778">    }</a>
+<span class="sourceLineNo">779</span><a id="line.779"></a>
+<span class="sourceLineNo">780</span><a id="line.780">    /**</a>
+<span class="sourceLineNo">781</span><a id="line.781">     * &lt;p&gt;</a>
+<span class="sourceLineNo">782</span><a id="line.782">     * Create a generator that ensures unique values.</a>
+<span class="sourceLineNo">783</span><a id="line.783">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">784</span><a id="line.784">     * &lt;p&gt;</a>
+<span class="sourceLineNo">785</span><a id="line.785">     * The actual values are created with an arbitrary generator.</a>
+<span class="sourceLineNo">786</span><a id="line.786">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">787</span><a id="line.787">     * &lt;p&gt;</a>
+<span class="sourceLineNo">788</span><a id="line.788">     * Unique generator depends on the {@link Comparator} implementation to</a>
+<span class="sourceLineNo">789</span><a id="line.789">     * decide if two instances are the same (i.e. when the comparator return</a>
+<span class="sourceLineNo">790</span><a id="line.790">     * for {@link Comparator#compare(Object, Object)}).</a>
+<span class="sourceLineNo">791</span><a id="line.791">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">792</span><a id="line.792">     *</a>
+<span class="sourceLineNo">793</span><a id="line.793">     * @param &lt;T&gt;</a>
+<span class="sourceLineNo">794</span><a id="line.794">     *            type of values return</a>
+<span class="sourceLineNo">795</span><a id="line.795">     * @param generator</a>
+<span class="sourceLineNo">796</span><a id="line.796">     *            used to create the raw values. This generator can create</a>
+<span class="sourceLineNo">797</span><a id="line.797">     *            duplicate values</a>
+<span class="sourceLineNo">798</span><a id="line.798">     * @param comparator</a>
+<span class="sourceLineNo">799</span><a id="line.799">     *            that decides if two values are of the same equivalence class.</a>
+<span class="sourceLineNo">800</span><a id="line.800">     * @return unique generator instance</a>
+<span class="sourceLineNo">801</span><a id="line.801">     */</a>
+<span class="sourceLineNo">802</span><a id="line.802">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; uniqueValues(Generator&lt;T&gt; generator,</a>
+<span class="sourceLineNo">803</span><a id="line.803">            Comparator&lt;? super T&gt; comparator) {</a>
+<span class="sourceLineNo">804</span><a id="line.804">        return Generators.uniqueValues(generator, comparator);</a>
+<span class="sourceLineNo">805</span><a id="line.805">    }</a>
+<span class="sourceLineNo">806</span><a id="line.806"></a>
+<span class="sourceLineNo">807</span><a id="line.807">    /**</a>
+<span class="sourceLineNo">808</span><a id="line.808">     * &lt;p&gt;</a>
+<span class="sourceLineNo">809</span><a id="line.809">     * Create a generator that ensures unique values</a>
+<span class="sourceLineNo">810</span><a id="line.810">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">811</span><a id="line.811">     * &lt;p&gt;</a>
+<span class="sourceLineNo">812</span><a id="line.812">     * The actual values are created with an arbitrary generator.</a>
+<span class="sourceLineNo">813</span><a id="line.813">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">814</span><a id="line.814">     * &lt;p&gt;</a>
+<span class="sourceLineNo">815</span><a id="line.815">     * Note: unique generator depends on valid implementation of equals and</a>
+<span class="sourceLineNo">816</span><a id="line.816">     * hashCode method of the content type generated.</a>
+<span class="sourceLineNo">817</span><a id="line.817">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">818</span><a id="line.818">     *</a>
+<span class="sourceLineNo">819</span><a id="line.819">     * @param &lt;T&gt;</a>
+<span class="sourceLineNo">820</span><a id="line.820">     *            type of values return</a>
+<span class="sourceLineNo">821</span><a id="line.821">     * @param generator</a>
+<span class="sourceLineNo">822</span><a id="line.822">     *            used to create the raw values. This generator can</a>
+<span class="sourceLineNo">823</span><a id="line.823">     *            create duplicate values</a>
+<span class="sourceLineNo">824</span><a id="line.824">     * @return unique generator instance</a>
+<span class="sourceLineNo">825</span><a id="line.825">     */</a>
+<span class="sourceLineNo">826</span><a id="line.826">    public static &lt;T&gt; StatefulGenerator&lt;T&gt; uniqueValues(Generator&lt;T&gt; generator) {</a>
+<span class="sourceLineNo">827</span><a id="line.827">        return Generators.uniqueValues(generator);</a>
+<span class="sourceLineNo">828</span><a id="line.828">    }</a>
+<span class="sourceLineNo">829</span><a id="line.829"></a>
+<span class="sourceLineNo">830</span><a id="line.830">    /**</a>
+<span class="sourceLineNo">831</span><a id="line.831">     * Create a generator that omits a given set of values.</a>
+<span class="sourceLineNo">832</span><a id="line.832">     *</a>
+<span class="sourceLineNo">833</span><a id="line.833">     * @param generator used to create the raw values.</a>
+<span class="sourceLineNo">834</span><a id="line.834">     * @param excluded values. These values will not be return</a>
+<span class="sourceLineNo">835</span><a id="line.835">     */</a>
+<span class="sourceLineNo">836</span><a id="line.836">    @SafeVarargs</a>
+<span class="sourceLineNo">837</span><a id="line.837">    public static &lt;T&gt; Generator&lt;T&gt; excludeValues(Generator&lt;T&gt; generator, T... excluded) {</a>
+<span class="sourceLineNo">838</span><a id="line.838">        return Generators.excludeValues(generator, excluded);</a>
+<span class="sourceLineNo">839</span><a id="line.839">    }</a>
+<span class="sourceLineNo">840</span><a id="line.840"></a>
+<span class="sourceLineNo">841</span><a id="line.841">    /**</a>
+<span class="sourceLineNo">842</span><a id="line.842">     * Create a generator that omits a given set of values.</a>
+<span class="sourceLineNo">843</span><a id="line.843">     *</a>
+<span class="sourceLineNo">844</span><a id="line.844">     * @param values of generator</a>
+<span class="sourceLineNo">845</span><a id="line.845">     * @param excluded values. These values will not be return</a>
+<span class="sourceLineNo">846</span><a id="line.846">     */</a>
+<span class="sourceLineNo">847</span><a id="line.847">    @SafeVarargs</a>
+<span class="sourceLineNo">848</span><a id="line.848">    public static &lt;T&gt; Generator&lt;T&gt; excludeValues(Iterable&lt;T&gt; values, T... excluded) {</a>
+<span class="sourceLineNo">849</span><a id="line.849">        return Generators.excludeValues(values, excluded);</a>
+<span class="sourceLineNo">850</span><a id="line.850">    }</a>
+<span class="sourceLineNo">851</span><a id="line.851"></a>
+<span class="sourceLineNo">852</span><a id="line.852">    /**</a>
+<span class="sourceLineNo">853</span><a id="line.853">     * Create a generator that omits a given set of values.</a>
+<span class="sourceLineNo">854</span><a id="line.854">     *</a>
+<span class="sourceLineNo">855</span><a id="line.855">     * @param values of generator</a>
+<span class="sourceLineNo">856</span><a id="line.856">     * @param excluded values. These values will not be return</a>
+<span class="sourceLineNo">857</span><a id="line.857">     */</a>
+<span class="sourceLineNo">858</span><a id="line.858">    public static &lt;T&gt; Generator&lt;T&gt; excludeValues(Iterable&lt;T&gt; values, Iterable&lt;T&gt; excluded) {</a>
+<span class="sourceLineNo">859</span><a id="line.859">        return Generators.excludeValues(values, excluded);</a>
+<span class="sourceLineNo">860</span><a id="line.860">    }</a>
+<span class="sourceLineNo">861</span><a id="line.861"></a>
+<span class="sourceLineNo">862</span><a id="line.862">    /**</a>
+<span class="sourceLineNo">863</span><a id="line.863">     * Create a generator that omits a given set of values.</a>
+<span class="sourceLineNo">864</span><a id="line.864">     *</a>
+<span class="sourceLineNo">865</span><a id="line.865">     * @param generator used to create the raw values.</a>
+<span class="sourceLineNo">866</span><a id="line.866">     * @param excluded values. These values will not be return</a>
+<span class="sourceLineNo">867</span><a id="line.867">     */</a>
+<span class="sourceLineNo">868</span><a id="line.868">    public static &lt;T&gt; Generator&lt;T&gt; excludeValues(Generator&lt;T&gt; generator, Iterable&lt;T&gt; excluded) {</a>
+<span class="sourceLineNo">869</span><a id="line.869">        return Generators.excludeValues(generator, excluded);</a>
+<span class="sourceLineNo">870</span><a id="line.870">    }</a>
+<span class="sourceLineNo">871</span><a id="line.871"></a>
+<span class="sourceLineNo">872</span><a id="line.872">    /**</a>
+<span class="sourceLineNo">873</span><a id="line.873">     * A generator for a lists. The values in the lists are strictly increasing.</a>
+<span class="sourceLineNo">874</span><a id="line.874">     * &lt;p&gt;</a>
+<span class="sourceLineNo">875</span><a id="line.875">     * For every element x in the list: x(n) &amp;lt; x(n+1).</a>
+<span class="sourceLineNo">876</span><a id="line.876">     * &lt;/p&gt;</a>
 <span class="sourceLineNo">877</span><a id="line.877">     *</a>
-<span class="sourceLineNo">878</span><a id="line.878">     * &lt;p&gt;</a>
-<span class="sourceLineNo">879</span><a id="line.879">     * For every element x in the list: x(n) &amp;lt; x(n+1).</a>
-<span class="sourceLineNo">880</span><a id="line.880">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">881</span><a id="line.881">     *</a>
-<span class="sourceLineNo">882</span><a id="line.882">     * @param input values generator</a>
-<span class="sourceLineNo">883</span><a id="line.883">     * @param low minimum size of the lists</a>
-<span class="sourceLineNo">884</span><a id="line.884">     * @param high maximum size of the lists</a>
-<span class="sourceLineNo">885</span><a id="line.885">     */</a>
-<span class="sourceLineNo">886</span><a id="line.886">    public static &lt;T extends Comparable&lt;T&gt;&gt; Generator&lt;List&lt;T&gt;&gt; strictlyOrdered(Generator&lt;T&gt; input,</a>
-<span class="sourceLineNo">887</span><a id="line.887">            int low, int high) {</a>
-<span class="sourceLineNo">888</span><a id="line.888">        return Generators.strictlyOrdered(input, low, high);</a>
-<span class="sourceLineNo">889</span><a id="line.889">    }</a>
-<span class="sourceLineNo">890</span><a id="line.890"></a>
-<span class="sourceLineNo">891</span><a id="line.891">    /**</a>
-<span class="sourceLineNo">892</span><a id="line.892">     * A generator for a lists. The values in the lists are strictly increasing.</a>
-<span class="sourceLineNo">893</span><a id="line.893">     * &lt;p&gt;</a>
-<span class="sourceLineNo">894</span><a id="line.894">     * For every element x in the list: x(n) &amp;lt; x(n+1).</a>
-<span class="sourceLineNo">895</span><a id="line.895">     * &lt;/p&gt;&lt;p&gt;</a>
-<span class="sourceLineNo">896</span><a id="line.896">     * This {@link Generator} can be used to generate a list of strictly decreasing values:</a>
-<span class="sourceLineNo">897</span><a id="line.897">     * {@code CombinedGenerators.strictlyOrdered(ts, Collections.&amp;lt;T&amp;gt; reverseOrder());}</a>
-<span class="sourceLineNo">898</span><a id="line.898">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">899</span><a id="line.899">     *</a>
-<span class="sourceLineNo">900</span><a id="line.900">     *</a>
-<span class="sourceLineNo">901</span><a id="line.901">     * @param input values generator</a>
-<span class="sourceLineNo">902</span><a id="line.902">     * @param comparator that orders the values</a>
-<span class="sourceLineNo">903</span><a id="line.903">     */</a>
-<span class="sourceLineNo">904</span><a id="line.904">    public static &lt;T&gt; Generator&lt;List&lt;T&gt;&gt; strictlyOrdered(Generator&lt;T&gt; input,</a>
-<span class="sourceLineNo">905</span><a id="line.905">            Comparator&lt;T&gt; comparator) {</a>
-<span class="sourceLineNo">906</span><a id="line.906">        return Generators.strictlyOrdered(input, comparator);</a>
-<span class="sourceLineNo">907</span><a id="line.907">    }</a>
-<span class="sourceLineNo">908</span><a id="line.908"></a>
-<span class="sourceLineNo">909</span><a id="line.909">    /**</a>
-<span class="sourceLineNo">910</span><a id="line.910">     * A generator for a lists. The values in the lists are strictly increasing.</a>
-<span class="sourceLineNo">911</span><a id="line.911">     * &lt;p&gt;</a>
-<span class="sourceLineNo">912</span><a id="line.912">     * For every element x in the list: x(n) &amp;lt; x(n+1).</a>
-<span class="sourceLineNo">913</span><a id="line.913">     * &lt;/p&gt;</a>
-<span class="sourceLineNo">914</span><a id="line.914">     *</a>
-<span class="sourceLineNo">915</span><a id="line.915">     * @param input values generator</a>
-<span class="sourceLineNo">916</span><a id="line.916">     * @param comparator that orders the values</a>
-<span class="sourceLineNo">917</span><a id="line.917">     * @param size of the resulting lists</a>
-<span class="sourceLineNo">918</span><a id="line.918">     */</a>
-<span class="sourceLineNo">919</span><a id="line.919">    public static &lt;T&gt; Generator&lt;List&lt;T&gt;&gt; strictlyOrdered(Generator&lt;T&gt; input,</a>
-<span class="sourceLineNo">920</span><a id="line.920">            Comparator&lt;T&gt; comparator, Generator&lt;Integer&gt; size) {</a>
-<span class="sourceLineNo">921</span><a id="line.921">        return Generators.strictlyOrdered(input, comparator, size);</a>
-<span class="sourceLineNo">922</span><a id="line.922">    }</a>
-<span class="sourceLineNo">923</span><a id="line.923">}</a>
+<span class="sourceLineNo">878</span><a id="line.878">     * @param input values generator</a>
+<span class="sourceLineNo">879</span><a id="line.879">     */</a>
+<span class="sourceLineNo">880</span><a id="line.880">    public static &lt;T extends Comparable&lt;T&gt;&gt; Generator&lt;List&lt;T&gt;&gt; strictlyOrdered(Generator&lt;T&gt; input) {</a>
+<span class="sourceLineNo">881</span><a id="line.881">        return Generators.strictlyOrdered(input);</a>
+<span class="sourceLineNo">882</span><a id="line.882">    }</a>
+<span class="sourceLineNo">883</span><a id="line.883"></a>
+<span class="sourceLineNo">884</span><a id="line.884">    /**</a>
+<span class="sourceLineNo">885</span><a id="line.885">     * A generator for a lists. The values in the lists are strictly increasing.</a>
+<span class="sourceLineNo">886</span><a id="line.886">     *</a>
+<span class="sourceLineNo">887</span><a id="line.887">     * &lt;p&gt;</a>
+<span class="sourceLineNo">888</span><a id="line.888">     * For every element x in the list: x(n) &amp;lt; x(n+1).</a>
+<span class="sourceLineNo">889</span><a id="line.889">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">890</span><a id="line.890">     *</a>
+<span class="sourceLineNo">891</span><a id="line.891">     * @param input values generator</a>
+<span class="sourceLineNo">892</span><a id="line.892">     * @param low minimum size of the lists</a>
+<span class="sourceLineNo">893</span><a id="line.893">     * @param high maximum size of the lists</a>
+<span class="sourceLineNo">894</span><a id="line.894">     */</a>
+<span class="sourceLineNo">895</span><a id="line.895">    public static &lt;T extends Comparable&lt;T&gt;&gt; Generator&lt;List&lt;T&gt;&gt; strictlyOrdered(Generator&lt;T&gt; input,</a>
+<span class="sourceLineNo">896</span><a id="line.896">            int low, int high) {</a>
+<span class="sourceLineNo">897</span><a id="line.897">        return Generators.strictlyOrdered(input, low, high);</a>
+<span class="sourceLineNo">898</span><a id="line.898">    }</a>
+<span class="sourceLineNo">899</span><a id="line.899"></a>
+<span class="sourceLineNo">900</span><a id="line.900">    /**</a>
+<span class="sourceLineNo">901</span><a id="line.901">     * A generator for a lists. The values in the lists are strictly increasing.</a>
+<span class="sourceLineNo">902</span><a id="line.902">     * &lt;p&gt;</a>
+<span class="sourceLineNo">903</span><a id="line.903">     * For every element x in the list: x(n) &amp;lt; x(n+1).</a>
+<span class="sourceLineNo">904</span><a id="line.904">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">905</span><a id="line.905">     * &lt;p&gt;</a>
+<span class="sourceLineNo">906</span><a id="line.906">     * This {@link Generator} can be used to generate a list of strictly decreasing values:</a>
+<span class="sourceLineNo">907</span><a id="line.907">     * {@code CombinedGenerators.strictlyOrdered(ts, Collections.&amp;lt;T&amp;gt; reverseOrder());}</a>
+<span class="sourceLineNo">908</span><a id="line.908">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">909</span><a id="line.909">     *</a>
+<span class="sourceLineNo">910</span><a id="line.910">     *</a>
+<span class="sourceLineNo">911</span><a id="line.911">     * @param input values generator</a>
+<span class="sourceLineNo">912</span><a id="line.912">     * @param comparator that orders the values</a>
+<span class="sourceLineNo">913</span><a id="line.913">     */</a>
+<span class="sourceLineNo">914</span><a id="line.914">    public static &lt;T&gt; Generator&lt;List&lt;T&gt;&gt; strictlyOrdered(Generator&lt;T&gt; input,</a>
+<span class="sourceLineNo">915</span><a id="line.915">            Comparator&lt;T&gt; comparator) {</a>
+<span class="sourceLineNo">916</span><a id="line.916">        return Generators.strictlyOrdered(input, comparator);</a>
+<span class="sourceLineNo">917</span><a id="line.917">    }</a>
+<span class="sourceLineNo">918</span><a id="line.918"></a>
+<span class="sourceLineNo">919</span><a id="line.919">    /**</a>
+<span class="sourceLineNo">920</span><a id="line.920">     * A generator for a lists. The values in the lists are strictly increasing.</a>
+<span class="sourceLineNo">921</span><a id="line.921">     * &lt;p&gt;</a>
+<span class="sourceLineNo">922</span><a id="line.922">     * For every element x in the list: x(n) &amp;lt; x(n+1).</a>
+<span class="sourceLineNo">923</span><a id="line.923">     * &lt;/p&gt;</a>
+<span class="sourceLineNo">924</span><a id="line.924">     *</a>
+<span class="sourceLineNo">925</span><a id="line.925">     * @param input values generator</a>
+<span class="sourceLineNo">926</span><a id="line.926">     * @param comparator that orders the values</a>
+<span class="sourceLineNo">927</span><a id="line.927">     * @param size of the resulting lists</a>
+<span class="sourceLineNo">928</span><a id="line.928">     */</a>
+<span class="sourceLineNo">929</span><a id="line.929">    public static &lt;T&gt; Generator&lt;List&lt;T&gt;&gt; strictlyOrdered(Generator&lt;T&gt; input,</a>
+<span class="sourceLineNo">930</span><a id="line.930">            Comparator&lt;T&gt; comparator, Generator&lt;Integer&gt; size) {</a>
+<span class="sourceLineNo">931</span><a id="line.931">        return Generators.strictlyOrdered(input, comparator, size);</a>
+<span class="sourceLineNo">932</span><a id="line.932">    }</a>
+<span class="sourceLineNo">933</span><a id="line.933">}</a>
 
 
 

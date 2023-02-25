@@ -96,7 +96,7 @@
 <span class="sourceLineNo">087</span><a id="line.87">     */</a>
 <span class="sourceLineNo">088</span><a id="line.88">    public List&lt;T&gt; list(final int count) {</a>
 <span class="sourceLineNo">089</span><a id="line.89">        final List&lt;T&gt; result = new ArrayList&lt;&gt;();</a>
-<span class="sourceLineNo">090</span><a id="line.90">        for (int i = 0; i &lt; count; i++) {</a>
+<span class="sourceLineNo">090</span><a id="line.90">        for (var i = 0; i &lt; count; i++) {</a>
 <span class="sourceLineNo">091</span><a id="line.91">            result.add(next());</a>
 <span class="sourceLineNo">092</span><a id="line.92">        }</a>
 <span class="sourceLineNo">093</span><a id="line.93">        return result;</a>
@@ -112,7 +112,7 @@
 <span class="sourceLineNo">103</span><a id="line.103">     */</a>
 <span class="sourceLineNo">104</span><a id="line.104">    public Set&lt;T&gt; set(final int count) {</a>
 <span class="sourceLineNo">105</span><a id="line.105">        final Set&lt;T&gt; result = mutableSet();</a>
-<span class="sourceLineNo">106</span><a id="line.106">        for (int i = 0; i &lt; count; i++) {</a>
+<span class="sourceLineNo">106</span><a id="line.106">        for (var i = 0; i &lt; count; i++) {</a>
 <span class="sourceLineNo">107</span><a id="line.107">            result.add(next());</a>
 <span class="sourceLineNo">108</span><a id="line.108">        }</a>
 <span class="sourceLineNo">109</span><a id="line.109">        return result;</a>

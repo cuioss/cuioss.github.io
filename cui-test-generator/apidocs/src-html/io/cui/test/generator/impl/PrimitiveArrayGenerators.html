@@ -28,9 +28,9 @@
 <span class="sourceLineNo">019</span><a id="line.19">        @Override</a>
 <span class="sourceLineNo">020</span><a id="line.20">        public Object next() {</a>
 <span class="sourceLineNo">021</span><a id="line.21">            final int size = sizeGenerator.next();</a>
-<span class="sourceLineNo">022</span><a id="line.22">            final TypedGenerator&lt;Boolean&gt; generator = Generators.booleans();</a>
-<span class="sourceLineNo">023</span><a id="line.23">            final boolean[] array = new boolean[size];</a>
-<span class="sourceLineNo">024</span><a id="line.24">            for (int index = 0; index &lt; size; index++) {</a>
+<span class="sourceLineNo">022</span><a id="line.22">            final var generator = Generators.booleans();</a>
+<span class="sourceLineNo">023</span><a id="line.23">            final var array = new boolean[size];</a>
+<span class="sourceLineNo">024</span><a id="line.24">            for (var index = 0; index &lt; size; index++) {</a>
 <span class="sourceLineNo">025</span><a id="line.25">                array[index] = generator.next();</a>
 <span class="sourceLineNo">026</span><a id="line.26">            }</a>
 <span class="sourceLineNo">027</span><a id="line.27">            return array;</a>
@@ -47,9 +47,9 @@
 <span class="sourceLineNo">038</span><a id="line.38">        @Override</a>
 <span class="sourceLineNo">039</span><a id="line.39">        public Object next() {</a>
 <span class="sourceLineNo">040</span><a id="line.40">            final int size = sizeGenerator.next();</a>
-<span class="sourceLineNo">041</span><a id="line.41">            final TypedGenerator&lt;Byte&gt; generator = Generators.bytes();</a>
-<span class="sourceLineNo">042</span><a id="line.42">            final byte[] array = new byte[size];</a>
-<span class="sourceLineNo">043</span><a id="line.43">            for (int index = 0; index &lt; size; index++) {</a>
+<span class="sourceLineNo">041</span><a id="line.41">            final var generator = Generators.bytes();</a>
+<span class="sourceLineNo">042</span><a id="line.42">            final var array = new byte[size];</a>
+<span class="sourceLineNo">043</span><a id="line.43">            for (var index = 0; index &lt; size; index++) {</a>
 <span class="sourceLineNo">044</span><a id="line.44">                array[index] = generator.next();</a>
 <span class="sourceLineNo">045</span><a id="line.45">            }</a>
 <span class="sourceLineNo">046</span><a id="line.46">            return array;</a>
@@ -66,9 +66,9 @@
 <span class="sourceLineNo">057</span><a id="line.57">        @Override</a>
 <span class="sourceLineNo">058</span><a id="line.58">        public Object next() {</a>
 <span class="sourceLineNo">059</span><a id="line.59">            final int size = sizeGenerator.next();</a>
-<span class="sourceLineNo">060</span><a id="line.60">            final TypedGenerator&lt;Character&gt; generator = Generators.characters();</a>
-<span class="sourceLineNo">061</span><a id="line.61">            final char[] array = new char[size];</a>
-<span class="sourceLineNo">062</span><a id="line.62">            for (int index = 0; index &lt; size; index++) {</a>
+<span class="sourceLineNo">060</span><a id="line.60">            final var generator = Generators.characters();</a>
+<span class="sourceLineNo">061</span><a id="line.61">            final var array = new char[size];</a>
+<span class="sourceLineNo">062</span><a id="line.62">            for (var index = 0; index &lt; size; index++) {</a>
 <span class="sourceLineNo">063</span><a id="line.63">                array[index] = generator.next();</a>
 <span class="sourceLineNo">064</span><a id="line.64">            }</a>
 <span class="sourceLineNo">065</span><a id="line.65">            return array;</a>
@@ -86,8 +86,8 @@
 <span class="sourceLineNo">077</span><a id="line.77">        public Object next() {</a>
 <span class="sourceLineNo">078</span><a id="line.78">            final int size = sizeGenerator.next();</a>
 <span class="sourceLineNo">079</span><a id="line.79">            final TypedGenerator&lt;Short&gt; generator = new ShortObjectGenerator();</a>
-<span class="sourceLineNo">080</span><a id="line.80">            final short[] array = new short[size];</a>
-<span class="sourceLineNo">081</span><a id="line.81">            for (int index = 0; index &lt; size; index++) {</a>
+<span class="sourceLineNo">080</span><a id="line.80">            final var array = new short[size];</a>
+<span class="sourceLineNo">081</span><a id="line.81">            for (var index = 0; index &lt; size; index++) {</a>
 <span class="sourceLineNo">082</span><a id="line.82">                array[index] = generator.next();</a>
 <span class="sourceLineNo">083</span><a id="line.83">            }</a>
 <span class="sourceLineNo">084</span><a id="line.84">            return array;</a>
@@ -104,9 +104,9 @@
 <span class="sourceLineNo">095</span><a id="line.95">        @Override</a>
 <span class="sourceLineNo">096</span><a id="line.96">        public Object next() {</a>
 <span class="sourceLineNo">097</span><a id="line.97">            final int size = sizeGenerator.next();</a>
-<span class="sourceLineNo">098</span><a id="line.98">            final TypedGenerator&lt;Integer&gt; generator = Generators.integers();</a>
-<span class="sourceLineNo">099</span><a id="line.99">            final int[] array = new int[size];</a>
-<span class="sourceLineNo">100</span><a id="line.100">            for (int index = 0; index &lt; size; index++) {</a>
+<span class="sourceLineNo">098</span><a id="line.98">            final var generator = Generators.integers();</a>
+<span class="sourceLineNo">099</span><a id="line.99">            final var array = new int[size];</a>
+<span class="sourceLineNo">100</span><a id="line.100">            for (var index = 0; index &lt; size; index++) {</a>
 <span class="sourceLineNo">101</span><a id="line.101">                array[index] = generator.next();</a>
 <span class="sourceLineNo">102</span><a id="line.102">            }</a>
 <span class="sourceLineNo">103</span><a id="line.103">            return array;</a>
@@ -123,9 +123,9 @@
 <span class="sourceLineNo">114</span><a id="line.114">        @Override</a>
 <span class="sourceLineNo">115</span><a id="line.115">        public Object next() {</a>
 <span class="sourceLineNo">116</span><a id="line.116">            final int size = sizeGenerator.next();</a>
-<span class="sourceLineNo">117</span><a id="line.117">            final TypedGenerator&lt;Long&gt; generator = Generators.longs();</a>
-<span class="sourceLineNo">118</span><a id="line.118">            final long[] array = new long[size];</a>
-<span class="sourceLineNo">119</span><a id="line.119">            for (int index = 0; index &lt; size; index++) {</a>
+<span class="sourceLineNo">117</span><a id="line.117">            final var generator = Generators.longs();</a>
+<span class="sourceLineNo">118</span><a id="line.118">            final var array = new long[size];</a>
+<span class="sourceLineNo">119</span><a id="line.119">            for (var index = 0; index &lt; size; index++) {</a>
 <span class="sourceLineNo">120</span><a id="line.120">                array[index] = generator.next();</a>
 <span class="sourceLineNo">121</span><a id="line.121">            }</a>
 <span class="sourceLineNo">122</span><a id="line.122">            return array;</a>
@@ -143,8 +143,8 @@
 <span class="sourceLineNo">134</span><a id="line.134">        public Object next() {</a>
 <span class="sourceLineNo">135</span><a id="line.135">            final int size = sizeGenerator.next();</a>
 <span class="sourceLineNo">136</span><a id="line.136">            final TypedGenerator&lt;Float&gt; generator = new FloatObjectGenerator();</a>
-<span class="sourceLineNo">137</span><a id="line.137">            final float[] array = new float[size];</a>
-<span class="sourceLineNo">138</span><a id="line.138">            for (int index = 0; index &lt; size; index++) {</a>
+<span class="sourceLineNo">137</span><a id="line.137">            final var array = new float[size];</a>
+<span class="sourceLineNo">138</span><a id="line.138">            for (var index = 0; index &lt; size; index++) {</a>
 <span class="sourceLineNo">139</span><a id="line.139">                array[index] = generator.next();</a>
 <span class="sourceLineNo">140</span><a id="line.140">            }</a>
 <span class="sourceLineNo">141</span><a id="line.141">            return array;</a>
@@ -161,9 +161,9 @@
 <span class="sourceLineNo">152</span><a id="line.152">        @Override</a>
 <span class="sourceLineNo">153</span><a id="line.153">        public Object next() {</a>
 <span class="sourceLineNo">154</span><a id="line.154">            final int size = sizeGenerator.next();</a>
-<span class="sourceLineNo">155</span><a id="line.155">            final TypedGenerator&lt;Double&gt; generator = Generators.doubles();</a>
-<span class="sourceLineNo">156</span><a id="line.156">            final double[] array = new double[size];</a>
-<span class="sourceLineNo">157</span><a id="line.157">            for (int index = 0; index &lt; size; index++) {</a>
+<span class="sourceLineNo">155</span><a id="line.155">            final var generator = Generators.doubles();</a>
+<span class="sourceLineNo">156</span><a id="line.156">            final var array = new double[size];</a>
+<span class="sourceLineNo">157</span><a id="line.157">            for (var index = 0; index &lt; size; index++) {</a>
 <span class="sourceLineNo">158</span><a id="line.158">                array[index] = generator.next();</a>
 <span class="sourceLineNo">159</span><a id="line.159">            }</a>
 <span class="sourceLineNo">160</span><a id="line.160">            return array;</a>

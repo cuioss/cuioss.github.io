@@ -136,15 +136,18 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code><a href="generator/support/ObjectDefaultMappingGenerator.html" title="class in io.cui.test.generator.internal.net.java.quickcheck.generator.support">ObjectDefaultMappingGenerator</a></code>, <code><a href="generator/support/ObjectGeneratorImpl.html" title="class in io.cui.test.generator.internal.net.java.quickcheck.generator.support">ObjectGeneratorImpl</a></code></dd>
 </dl>
 <hr>
-<pre>public interface <a href="../../../../../../../../src-html/io/cui/test/generator/internal/net/java/quickcheck/ObjectGenerator.html#line.30">ObjectGenerator</a>&lt;T&gt;
+<pre>public interface <a href="../../../../../../../../src-html/io/cui/test/generator/internal/net/java/quickcheck/ObjectGenerator.html#line.33">ObjectGenerator</a>&lt;T&gt;
 extends <a href="Generator.html" title="interface in io.cui.test.generator.internal.net.java.quickcheck">Generator</a>&lt;T&gt;</pre>
 <div class="block">Declarative object generator definition.
  <p>
- User should call implementation of ObjectGenerator as follows:</p>
+ User should call implementation of ObjectGenerator as follows:
+ </p>
+ 
  <pre><code>
-ObjectGenerator&lt;T&gt; g;
-Generator&lt;R&gt; methodGenerator;
-g.on(g.getRecorder().method()).returns(methodGenerator);</code></pre></div>
+ ObjectGenerator&lt;T&gt; g;
+ Generator&lt;R&gt; methodGenerator;
+ g.on(g.getRecorder().method()).returns(methodGenerator);
+ </code></pre></div>
 </li>
 </ul>
 </div>
@@ -233,7 +236,7 @@ g.on(g.getRecorder().method()).returns(methodGenerator);</code></pre></div>
 <ul class="blockList">
 <li class="blockList">
 <h4>getRecorder</h4>
-<pre class="methodSignature"><a href="ObjectGenerator.html" title="type parameter in ObjectGenerator">T</a>&nbsp;<a href="../../../../../../../../src-html/io/cui/test/generator/internal/net/java/quickcheck/ObjectGenerator.html#line.38">getRecorder</a>()</pre>
+<pre class="methodSignature"><a href="ObjectGenerator.html" title="type parameter in ObjectGenerator">T</a>&nbsp;<a href="../../../../../../../../src-html/io/cui/test/generator/internal/net/java/quickcheck/ObjectGenerator.html#line.41">getRecorder</a>()</pre>
 <div class="block">Implementation of T that is used to define the method a generator should
  be defined for.</div>
 <dl>
@@ -250,7 +253,7 @@ g.on(g.getRecorder().method()).returns(methodGenerator);</code></pre></div>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>on</h4>
-<pre class="methodSignature">&lt;R&gt;&nbsp;<a href="ObjectGenerator.ReturnValue.html" title="interface in io.cui.test.generator.internal.net.java.quickcheck">ObjectGenerator.ReturnValue</a>&lt;R&gt;&nbsp;<a href="../../../../../../../../src-html/io/cui/test/generator/internal/net/java/quickcheck/ObjectGenerator.html#line.50">on</a>&#8203;(R&nbsp;value)</pre>
+<pre class="methodSignature">&lt;R&gt;&nbsp;<a href="ObjectGenerator.ReturnValue.html" title="interface in io.cui.test.generator.internal.net.java.quickcheck">ObjectGenerator.ReturnValue</a>&lt;R&gt;&nbsp;<a href="../../../../../../../../src-html/io/cui/test/generator/internal/net/java/quickcheck/ObjectGenerator.html#line.53">on</a>&#8203;(R&nbsp;value)</pre>
 <div class="block">Define a method a generator should be defined for.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>

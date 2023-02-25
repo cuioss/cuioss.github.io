@@ -35,10 +35,10 @@
 <span class="sourceLineNo">026</span><a id="line.26">    @Override</a>
 <span class="sourceLineNo">027</span><a id="line.27">    public String next() {</a>
 <span class="sourceLineNo">028</span><a id="line.28">        final List&lt;String&gt; elements = new ArrayList&lt;&gt;();</a>
-<span class="sourceLineNo">029</span><a id="line.29">        for (int i = 0; i &lt; PrimitiveGenerators.integers(0, 3).next(); i++) {</a>
+<span class="sourceLineNo">029</span><a id="line.29">        for (var i = 0; i &lt; PrimitiveGenerators.integers(0, 3).next(); i++) {</a>
 <span class="sourceLineNo">030</span><a id="line.30">            elements.add(prefixes.next());</a>
 <span class="sourceLineNo">031</span><a id="line.31">        }</a>
-<span class="sourceLineNo">032</span><a id="line.32">        for (int i = 0; i &lt; PrimitiveGenerators.integers(0, 7).next(); i++) {</a>
+<span class="sourceLineNo">032</span><a id="line.32">        for (var i = 0; i &lt; PrimitiveGenerators.integers(0, 7).next(); i++) {</a>
 <span class="sourceLineNo">033</span><a id="line.33">            elements.add(contents.next());</a>
 <span class="sourceLineNo">034</span><a id="line.34">        }</a>
 <span class="sourceLineNo">035</span><a id="line.35">        return Joiner.on(' ').join(elements);</a>

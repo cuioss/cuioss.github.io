@@ -105,11 +105,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  number of different values. On the other hand it makes error cases reproducible see
  <a href="junit/EnableGeneratorController.html" title="annotation in io.cui.test.generator.junit"><code>EnableGeneratorController</code></a> and
  <a href="junit/GeneratorSeed.html" title="annotation in io.cui.test.generator.junit"><code>GeneratorSeed</code></a> for details.
- <h2>Provided Features </h2>
+ <h2>Provided Features</h2>
  The generators defined within this packages are the base for the cui-value-object test framework.
  In essence, it is a variant of <a href="https://bitbucket.org/blob79/quickcheck/">QuickCheck</a>.
- In the current implementation it actually uses code derived from QuickCheck, thanks guys, but mostly the
- generator part. These code is isolated <a href="internal/net/java/quickcheck/package-summary.html"><code>io.cui.test.generator.internal.net.java.quickcheck</code></a> and
+ In the current implementation it actually uses code derived from QuickCheck, thanks guys, but
+ mostly the
+ generator part. These code is isolated <a href="internal/net/java/quickcheck/package-summary.html"><code>io.cui.test.generator.internal.net.java.quickcheck</code></a>
+ and
  will be replaced in the future. Therefore: Do not use any of that code at all!
  Central elements are:
  <ul>
