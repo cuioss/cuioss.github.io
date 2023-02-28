@@ -20,6 +20,10 @@ Webpage for the cuioss projects
 
 [Generated Maven-Documentation](https://cuioss.github.io/cui-core-ui-model/about.html) 
 
+### cui-core-jsf
+
+[Generated Maven-Documentation](https://cuioss.github.io/cui-core-jsf/about.html) 
+
 
 ## Test-Modules
 
