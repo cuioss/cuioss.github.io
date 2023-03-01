@@ -38,3 +38,7 @@ Webpage for the cuioss projects
 ### cui-test-generator
 
 [Generated Maven-Documentation](https://cuioss.github.io/cui-test-generator/about.html) 
+
+### cui-jsf-test-basic
+
+[Generated Maven-Documentation](https://cuioss.github.io/cui-jsf-test-basic/about.html) 
