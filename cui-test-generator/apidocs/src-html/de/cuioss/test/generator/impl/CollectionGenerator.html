@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<main role="main">
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span><a id="line.1">package de.cuioss.test.generator.impl;</a>
+<span class="sourceLineNo">002</span><a id="line.2"></a>
+<span class="sourceLineNo">003</span><a id="line.3">import static de.cuioss.tools.collect.CollectionLiterals.mutableSet;</a>
+<span class="sourceLineNo">004</span><a id="line.4">import static java.util.Objects.requireNonNull;</a>
+<span class="sourceLineNo">005</span><a id="line.5"></a>
+<span class="sourceLineNo">006</span><a id="line.6">import java.util.ArrayList;</a>
+<span class="sourceLineNo">007</span><a id="line.7">import java.util.Collection;</a>
+<span class="sourceLineNo">008</span><a id="line.8">import java.util.List;</a>
+<span class="sourceLineNo">009</span><a id="line.9">import java.util.Set;</a>
+<span class="sourceLineNo">010</span><a id="line.10">import java.util.SortedSet;</a>
+<span class="sourceLineNo">011</span><a id="line.11">import java.util.TreeSet;</a>
+<span class="sourceLineNo">012</span><a id="line.12"></a>
+<span class="sourceLineNo">013</span><a id="line.13">import de.cuioss.test.generator.Generators;</a>
+<span class="sourceLineNo">014</span><a id="line.14">import de.cuioss.test.generator.TypedGenerator;</a>
+<span class="sourceLineNo">015</span><a id="line.15">import de.cuioss.tools.logging.CuiLogger;</a>
+<span class="sourceLineNo">016</span><a id="line.16"></a>
+<span class="sourceLineNo">017</span><a id="line.17">/**</a>
+<span class="sourceLineNo">018</span><a id="line.18"> * Wraps a given {@link TypedGenerator} and provides additional methods for creating {@link List}s</a>
+<span class="sourceLineNo">019</span><a id="line.19"> * and {@link Set}s</a>
+<span class="sourceLineNo">020</span><a id="line.20"> *</a>
+<span class="sourceLineNo">021</span><a id="line.21"> * @param &lt;T&gt; identifying the type of the object being generated</a>
+<span class="sourceLineNo">022</span><a id="line.22"> * @author Oliver Wolff</a>
+<span class="sourceLineNo">023</span><a id="line.23"> */</a>
+<span class="sourceLineNo">024</span><a id="line.24">public class CollectionGenerator&lt;T&gt; implements TypedGenerator&lt;T&gt; {</a>
+<span class="sourceLineNo">025</span><a id="line.25"></a>
+<span class="sourceLineNo">026</span><a id="line.26">    private static final CuiLogger log = new CuiLogger(CollectionGenerator.class);</a>
+<span class="sourceLineNo">027</span><a id="line.27">    private static final String JAVA_UTIL_SORTED_SET = "java.util.SortedSet";</a>
+<span class="sourceLineNo">028</span><a id="line.28"></a>
+<span class="sourceLineNo">029</span><a id="line.29">    private static final String JAVA_UTIL_COLLECTION = "java.util.Collection";</a>
+<span class="sourceLineNo">030</span><a id="line.30"></a>
+<span class="sourceLineNo">031</span><a id="line.31">    private static final String JAVA_UTIL_SET = "java.util.Set";</a>
+<span class="sourceLineNo">032</span><a id="line.32"></a>
+<span class="sourceLineNo">033</span><a id="line.33">    private static final String JAVA_UTIL_LIST = "java.util.List";</a>
+<span class="sourceLineNo">034</span><a id="line.34"></a>
+<span class="sourceLineNo">035</span><a id="line.35">    private final TypedGenerator&lt;T&gt; wrapped;</a>
+<span class="sourceLineNo">036</span><a id="line.36"></a>
+<span class="sourceLineNo">037</span><a id="line.37">    private final TypedGenerator&lt;Integer&gt; sizeGenerator;</a>
+<span class="sourceLineNo">038</span><a id="line.38"></a>
+<span class="sourceLineNo">039</span><a id="line.39">    /**</a>
+<span class="sourceLineNo">040</span><a id="line.40">     * @param wrapped must not be null</a>
+<span class="sourceLineNo">041</span><a id="line.41">     * @param sizeGenerator must not be null</a>
+<span class="sourceLineNo">042</span><a id="line.42">     */</a>
+<span class="sourceLineNo">043</span><a id="line.43">    public CollectionGenerator(final TypedGenerator&lt;T&gt; wrapped, final TypedGenerator&lt;Integer&gt; sizeGenerator) {</a>
+<span class="sourceLineNo">044</span><a id="line.44">        super();</a>
+<span class="sourceLineNo">045</span><a id="line.45">        this.wrapped = requireNonNull(wrapped, "wrapped must not be null");</a>
+<span class="sourceLineNo">046</span><a id="line.46">        this.sizeGenerator = requireNonNull(sizeGenerator, "sizeGenerator must not be null");</a>
+<span class="sourceLineNo">047</span><a id="line.47">    }</a>
+<span class="sourceLineNo">048</span><a id="line.48"></a>
+<span class="sourceLineNo">049</span><a id="line.49">    /**</a>
+<span class="sourceLineNo">050</span><a id="line.50">     * Constructor.</a>
+<span class="sourceLineNo">051</span><a id="line.51">     *</a>
+<span class="sourceLineNo">052</span><a id="line.52">     * @param wrapped generator, must not be null</a>
+<span class="sourceLineNo">053</span><a id="line.53">     * @param lowerBound defines the lower bound of the integer generator that determines the</a>
+<span class="sourceLineNo">054</span><a id="line.54">     *            of {@link Collection} size</a>
+<span class="sourceLineNo">055</span><a id="line.55">     * @param upperBound defines the upper bound of the integer generator that determines the</a>
+<span class="sourceLineNo">056</span><a id="line.56">     *            of {@link Collection} size</a>
+<span class="sourceLineNo">057</span><a id="line.57">     */</a>
+<span class="sourceLineNo">058</span><a id="line.58">    public CollectionGenerator(final TypedGenerator&lt;T&gt; wrapped, final int lowerBound,</a>
+<span class="sourceLineNo">059</span><a id="line.59">            final int upperBound) {</a>
+<span class="sourceLineNo">060</span><a id="line.60">        this(wrapped,</a>
+<span class="sourceLineNo">061</span><a id="line.61">                Generators.integers(lowerBound, upperBound));</a>
+<span class="sourceLineNo">062</span><a id="line.62">    }</a>
+<span class="sourceLineNo">063</span><a id="line.63"></a>
+<span class="sourceLineNo">064</span><a id="line.64">    /**</a>
+<span class="sourceLineNo">065</span><a id="line.65">     * Constructor.</a>
+<span class="sourceLineNo">066</span><a id="line.66">     * using 2 and 12 as bounds of the {@link Collection} size to be created.</a>
+<span class="sourceLineNo">067</span><a id="line.67">     *</a>
+<span class="sourceLineNo">068</span><a id="line.68">     * @param wrapped generator, must not be null</a>
+<span class="sourceLineNo">069</span><a id="line.69">     */</a>
+<span class="sourceLineNo">070</span><a id="line.70">    public CollectionGenerator(final TypedGenerator&lt;T&gt; wrapped) {</a>
+<span class="sourceLineNo">071</span><a id="line.71">        this(wrapped, 2, 12);</a>
+<span class="sourceLineNo">072</span><a id="line.72">    }</a>
+<span class="sourceLineNo">073</span><a id="line.73"></a>
+<span class="sourceLineNo">074</span><a id="line.74">    /**</a>
+<span class="sourceLineNo">075</span><a id="line.75">     * @return the next object from the contained {@link TypedGenerator}</a>
+<span class="sourceLineNo">076</span><a id="line.76">     */</a>
+<span class="sourceLineNo">077</span><a id="line.77">    @Override</a>
+<span class="sourceLineNo">078</span><a id="line.78">    public T next() {</a>
+<span class="sourceLineNo">079</span><a id="line.79">        return this.wrapped.next();</a>
+<span class="sourceLineNo">080</span><a id="line.80">    }</a>
+<span class="sourceLineNo">081</span><a id="line.81"></a>
+<span class="sourceLineNo">082</span><a id="line.82">    /**</a>
+<span class="sourceLineNo">083</span><a id="line.83">     * Returns a {@link List} of the elements provided by the generator</a>
+<span class="sourceLineNo">084</span><a id="line.84">     *</a>
+<span class="sourceLineNo">085</span><a id="line.85">     * @param count the number of elements within the list</a>
+<span class="sourceLineNo">086</span><a id="line.86">     * @return a list with a given number of elements.</a>
+<span class="sourceLineNo">087</span><a id="line.87">     */</a>
+<span class="sourceLineNo">088</span><a id="line.88">    public List&lt;T&gt; list(final int count) {</a>
+<span class="sourceLineNo">089</span><a id="line.89">        final List&lt;T&gt; result = new ArrayList&lt;&gt;();</a>
+<span class="sourceLineNo">090</span><a id="line.90">        for (var i = 0; i &lt; count; i++) {</a>
+<span class="sourceLineNo">091</span><a id="line.91">            result.add(next());</a>
+<span class="sourceLineNo">092</span><a id="line.92">        }</a>
+<span class="sourceLineNo">093</span><a id="line.93">        return result;</a>
+<span class="sourceLineNo">094</span><a id="line.94">    }</a>
+<span class="sourceLineNo">095</span><a id="line.95"></a>
+<span class="sourceLineNo">096</span><a id="line.96">    /**</a>
+<span class="sourceLineNo">097</span><a id="line.97">     * Returns a {@link Set} of the elements provided by the generator</a>
+<span class="sourceLineNo">098</span><a id="line.98">     *</a>
+<span class="sourceLineNo">099</span><a id="line.99">     * @param count the number of elements within the {@link Set}. It defines an upper bound of</a>
+<span class="sourceLineNo">100</span><a id="line.100">     *            elements, but depending on the elements / the entropy of the generator there may</a>
+<span class="sourceLineNo">101</span><a id="line.101">     *            be a lower number of elements.</a>
+<span class="sourceLineNo">102</span><a id="line.102">     * @return a {@link Set} with a given number of elements as maximum.</a>
+<span class="sourceLineNo">103</span><a id="line.103">     */</a>
+<span class="sourceLineNo">104</span><a id="line.104">    public Set&lt;T&gt; set(final int count) {</a>
+<span class="sourceLineNo">105</span><a id="line.105">        final Set&lt;T&gt; result = mutableSet();</a>
+<span class="sourceLineNo">106</span><a id="line.106">        for (var i = 0; i &lt; count; i++) {</a>
+<span class="sourceLineNo">107</span><a id="line.107">            result.add(next());</a>
+<span class="sourceLineNo">108</span><a id="line.108">        }</a>
+<span class="sourceLineNo">109</span><a id="line.109">        return result;</a>
+<span class="sourceLineNo">110</span><a id="line.110">    }</a>
+<span class="sourceLineNo">111</span><a id="line.111"></a>
+<span class="sourceLineNo">112</span><a id="line.112">    /**</a>
+<span class="sourceLineNo">113</span><a id="line.113">     * Returns a {@link SortedSet} of the elements provided by the generator</a>
+<span class="sourceLineNo">114</span><a id="line.114">     *</a>
+<span class="sourceLineNo">115</span><a id="line.115">     * @param count the number of elements within the {@link Set}. It defines an upper bound of</a>
+<span class="sourceLineNo">116</span><a id="line.116">     *            elements, but depending on the elements / the entropy of the generator there may</a>
+<span class="sourceLineNo">117</span><a id="line.117">     *            be a lower number of elements.</a>
+<span class="sourceLineNo">118</span><a id="line.118">     * @return a {@link Set} with a given number of elements as maximum.</a>
+<span class="sourceLineNo">119</span><a id="line.119">     */</a>
+<span class="sourceLineNo">120</span><a id="line.120">    public SortedSet&lt;T&gt; sortedSet(final int count) {</a>
+<span class="sourceLineNo">121</span><a id="line.121">        return new TreeSet&lt;&gt;(set(count));</a>
+<span class="sourceLineNo">122</span><a id="line.122">    }</a>
+<span class="sourceLineNo">123</span><a id="line.123"></a>
+<span class="sourceLineNo">124</span><a id="line.124">    /**</a>
+<span class="sourceLineNo">125</span><a id="line.125">     * @return a {@link Set} with a random number of elements as maximum.</a>
+<span class="sourceLineNo">126</span><a id="line.126">     */</a>
+<span class="sourceLineNo">127</span><a id="line.127">    public Set&lt;T&gt; set() {</a>
+<span class="sourceLineNo">128</span><a id="line.128">        return set(this.sizeGenerator.next());</a>
+<span class="sourceLineNo">129</span><a id="line.129">    }</a>
+<span class="sourceLineNo">130</span><a id="line.130"></a>
+<span class="sourceLineNo">131</span><a id="line.131">    /**</a>
+<span class="sourceLineNo">132</span><a id="line.132">     * @return a {@link List} with a random number of elements as maximum.</a>
+<span class="sourceLineNo">133</span><a id="line.133">     */</a>
+<span class="sourceLineNo">134</span><a id="line.134">    public List&lt;T&gt; list() {</a>
+<span class="sourceLineNo">135</span><a id="line.135">        return list(this.sizeGenerator.next());</a>
+<span class="sourceLineNo">136</span><a id="line.136">    }</a>
+<span class="sourceLineNo">137</span><a id="line.137"></a>
+<span class="sourceLineNo">138</span><a id="line.138">    /**</a>
+<span class="sourceLineNo">139</span><a id="line.139">     * @return a {@link SortedSet} with a random number of elements as maximum.</a>
+<span class="sourceLineNo">140</span><a id="line.140">     */</a>
+<span class="sourceLineNo">141</span><a id="line.141">    public SortedSet&lt;T&gt; sortedSet() {</a>
+<span class="sourceLineNo">142</span><a id="line.142">        return sortedSet(this.sizeGenerator.next());</a>
+<span class="sourceLineNo">143</span><a id="line.143">    }</a>
+<span class="sourceLineNo">144</span><a id="line.144"></a>
+<span class="sourceLineNo">145</span><a id="line.145">    /**</a>
+<span class="sourceLineNo">146</span><a id="line.146">     * Generates a concrete {@link Iterable}.</a>
+<span class="sourceLineNo">147</span><a id="line.147">     * It is smart enough to determine whether the elements are to be wrapped in a {@link List},</a>
+<span class="sourceLineNo">148</span><a id="line.148">     * {@link Set}, {@link Collection} or {@link SortedSet}.</a>
+<span class="sourceLineNo">149</span><a id="line.149">     *</a>
+<span class="sourceLineNo">150</span><a id="line.150">     * @param expectedType type of the expected {@link Iterable}</a>
+<span class="sourceLineNo">151</span><a id="line.151">     * @return depending on the given expectedType a corresponding {@link Iterable},</a>
+<span class="sourceLineNo">152</span><a id="line.152">     *         {@link Collection}, {@link List}, {@link SortedSet} or {@link Set}</a>
+<span class="sourceLineNo">153</span><a id="line.153">     */</a>
+<span class="sourceLineNo">154</span><a id="line.154">    public Iterable&lt;T&gt; nextCollection(final Class&lt;? extends Iterable&lt;?&gt;&gt; expectedType) {</a>
+<span class="sourceLineNo">155</span><a id="line.155">        requireNonNull(expectedType, "expectedType must not be null");</a>
+<span class="sourceLineNo">156</span><a id="line.156">        switch (expectedType.getName()) {</a>
+<span class="sourceLineNo">157</span><a id="line.157">            case JAVA_UTIL_LIST:</a>
+<span class="sourceLineNo">158</span><a id="line.158">                return list();</a>
+<span class="sourceLineNo">159</span><a id="line.159">            case JAVA_UTIL_SET:</a>
+<span class="sourceLineNo">160</span><a id="line.160">                return set();</a>
+<span class="sourceLineNo">161</span><a id="line.161">            case JAVA_UTIL_COLLECTION:</a>
+<span class="sourceLineNo">162</span><a id="line.162">                return list();</a>
+<span class="sourceLineNo">163</span><a id="line.163">            case JAVA_UTIL_SORTED_SET:</a>
+<span class="sourceLineNo">164</span><a id="line.164">                return sortedSet();</a>
+<span class="sourceLineNo">165</span><a id="line.165">            default:</a>
+<span class="sourceLineNo">166</span><a id="line.166">                log.info("No specific case defined for {}. Returning list-implementation.",</a>
+<span class="sourceLineNo">167</span><a id="line.167">                        expectedType.getName());</a>
+<span class="sourceLineNo">168</span><a id="line.168">                return list();</a>
+<span class="sourceLineNo">169</span><a id="line.169">        }</a>
+<span class="sourceLineNo">170</span><a id="line.170">    }</a>
+<span class="sourceLineNo">171</span><a id="line.171">}</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</main>
+</body>
+</html>
