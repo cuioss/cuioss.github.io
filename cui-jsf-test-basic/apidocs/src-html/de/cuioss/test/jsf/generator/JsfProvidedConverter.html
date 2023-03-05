@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<main role="main">
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span><a id="line.1">package de.cuioss.test.jsf.generator;</a>
+<span class="sourceLineNo">002</span><a id="line.2"></a>
+<span class="sourceLineNo">003</span><a id="line.3">import static de.cuioss.tools.collect.CollectionLiterals.immutableList;</a>
+<span class="sourceLineNo">004</span><a id="line.4"></a>
+<span class="sourceLineNo">005</span><a id="line.5">import java.math.BigDecimal;</a>
+<span class="sourceLineNo">006</span><a id="line.6">import java.math.BigInteger;</a>
+<span class="sourceLineNo">007</span><a id="line.7">import java.util.Date;</a>
+<span class="sourceLineNo">008</span><a id="line.8">import java.util.List;</a>
+<span class="sourceLineNo">009</span><a id="line.9">import java.util.stream.Collectors;</a>
+<span class="sourceLineNo">010</span><a id="line.10"></a>
+<span class="sourceLineNo">011</span><a id="line.11">import javax.faces.convert.BigDecimalConverter;</a>
+<span class="sourceLineNo">012</span><a id="line.12">import javax.faces.convert.BigIntegerConverter;</a>
+<span class="sourceLineNo">013</span><a id="line.13">import javax.faces.convert.BooleanConverter;</a>
+<span class="sourceLineNo">014</span><a id="line.14">import javax.faces.convert.ByteConverter;</a>
+<span class="sourceLineNo">015</span><a id="line.15">import javax.faces.convert.CharacterConverter;</a>
+<span class="sourceLineNo">016</span><a id="line.16">import javax.faces.convert.Converter;</a>
+<span class="sourceLineNo">017</span><a id="line.17">import javax.faces.convert.DateTimeConverter;</a>
+<span class="sourceLineNo">018</span><a id="line.18">import javax.faces.convert.DoubleConverter;</a>
+<span class="sourceLineNo">019</span><a id="line.19">import javax.faces.convert.EnumConverter;</a>
+<span class="sourceLineNo">020</span><a id="line.20">import javax.faces.convert.FloatConverter;</a>
+<span class="sourceLineNo">021</span><a id="line.21">import javax.faces.convert.IntegerConverter;</a>
+<span class="sourceLineNo">022</span><a id="line.22">import javax.faces.convert.LongConverter;</a>
+<span class="sourceLineNo">023</span><a id="line.23">import javax.faces.convert.NumberConverter;</a>
+<span class="sourceLineNo">024</span><a id="line.24">import javax.faces.convert.ShortConverter;</a>
+<span class="sourceLineNo">025</span><a id="line.25"></a>
+<span class="sourceLineNo">026</span><a id="line.26">import de.cuioss.test.generator.Generators;</a>
+<span class="sourceLineNo">027</span><a id="line.27">import de.cuioss.test.generator.TypedGenerator;</a>
+<span class="sourceLineNo">028</span><a id="line.28">import de.cuioss.test.jsf.config.ComponentConfigurator;</a>
+<span class="sourceLineNo">029</span><a id="line.29"></a>
+<span class="sourceLineNo">030</span><a id="line.30">/**</a>
+<span class="sourceLineNo">031</span><a id="line.31"> * Hybrid class that acts as an {@link TypedGenerator} and {@link ComponentConfigurator}.</a>
+<span class="sourceLineNo">032</span><a id="line.32"> *</a>
+<span class="sourceLineNo">033</span><a id="line.33"> * @author Oliver Wolff</a>
+<span class="sourceLineNo">034</span><a id="line.34"> */</a>
+<span class="sourceLineNo">035</span><a id="line.35">@SuppressWarnings("rawtypes")</a>
+<span class="sourceLineNo">036</span><a id="line.36">public class JsfProvidedConverter implements TypedGenerator&lt;Class&gt; {</a>
+<span class="sourceLineNo">037</span><a id="line.37"></a>
+<span class="sourceLineNo">038</span><a id="line.38">    /** Defines all converter types provided by JSF. */</a>
+<span class="sourceLineNo">039</span><a id="line.39">    @SuppressWarnings("java:S2386") // owolff: false positive -&gt; immutableList</a>
+<span class="sourceLineNo">040</span><a id="line.40">    public static final List&lt;ConverterDescriptor&gt; JSF_CONVERTER =</a>
+<span class="sourceLineNo">041</span><a id="line.41">    immutableList(new ConverterDescriptor(BigDecimalConverter.class, BigDecimal.class,</a>
+<span class="sourceLineNo">042</span><a id="line.42">            BigDecimalConverter.CONVERTER_ID),</a>
+<span class="sourceLineNo">043</span><a id="line.43">            new ConverterDescriptor(BigIntegerConverter.class, BigInteger.class,</a>
+<span class="sourceLineNo">044</span><a id="line.44">                    BigIntegerConverter.CONVERTER_ID),</a>
+<span class="sourceLineNo">045</span><a id="line.45">            new ConverterDescriptor(BooleanConverter.class, Boolean.class,</a>
+<span class="sourceLineNo">046</span><a id="line.46">                    BooleanConverter.CONVERTER_ID),</a>
+<span class="sourceLineNo">047</span><a id="line.47">            new ConverterDescriptor(ByteConverter.class, Byte.class,</a>
+<span class="sourceLineNo">048</span><a id="line.48">                    ByteConverter.CONVERTER_ID),</a>
+<span class="sourceLineNo">049</span><a id="line.49">            new ConverterDescriptor(CharacterConverter.class, Character.class,</a>
+<span class="sourceLineNo">050</span><a id="line.50">                    CharacterConverter.CONVERTER_ID),</a>
+<span class="sourceLineNo">051</span><a id="line.51">            new ConverterDescriptor(DateTimeConverter.class, Date.class,</a>
+<span class="sourceLineNo">052</span><a id="line.52">                    DateTimeConverter.CONVERTER_ID),</a>
+<span class="sourceLineNo">053</span><a id="line.53">            new ConverterDescriptor(DoubleConverter.class, Double.class,</a>
+<span class="sourceLineNo">054</span><a id="line.54">                    DoubleConverter.CONVERTER_ID),</a>
+<span class="sourceLineNo">055</span><a id="line.55">            new ConverterDescriptor(EnumConverter.class, Enum.class,</a>
+<span class="sourceLineNo">056</span><a id="line.56">                    EnumConverter.CONVERTER_ID),</a>
+<span class="sourceLineNo">057</span><a id="line.57">            new ConverterDescriptor(FloatConverter.class, Float.class,</a>
+<span class="sourceLineNo">058</span><a id="line.58">                    FloatConverter.CONVERTER_ID),</a>
+<span class="sourceLineNo">059</span><a id="line.59">            new ConverterDescriptor(IntegerConverter.class, Integer.class,</a>
+<span class="sourceLineNo">060</span><a id="line.60">                    IntegerConverter.CONVERTER_ID),</a>
+<span class="sourceLineNo">061</span><a id="line.61">            new ConverterDescriptor(LongConverter.class, Long.class,</a>
+<span class="sourceLineNo">062</span><a id="line.62">                    LongConverter.CONVERTER_ID),</a>
+<span class="sourceLineNo">063</span><a id="line.63">            new ConverterDescriptor(NumberConverter.class, Number.class,</a>
+<span class="sourceLineNo">064</span><a id="line.64">                    NumberConverter.CONVERTER_ID),</a>
+<span class="sourceLineNo">065</span><a id="line.65">            new ConverterDescriptor(ShortConverter.class, Short.class,</a>
+<span class="sourceLineNo">066</span><a id="line.66">                    ShortConverter.CONVERTER_ID));</a>
+<span class="sourceLineNo">067</span><a id="line.67"></a>
+<span class="sourceLineNo">068</span><a id="line.68">    /** Defines a generator for all converter types provided by JSF. */</a>
+<span class="sourceLineNo">069</span><a id="line.69">    public static final TypedGenerator&lt;ConverterDescriptor&gt; CONVERTER_CLASS_GERNERATOR =</a>
+<span class="sourceLineNo">070</span><a id="line.70">            Generators.fixedValues(JSF_CONVERTER);</a>
+<span class="sourceLineNo">071</span><a id="line.71"></a>
+<span class="sourceLineNo">072</span><a id="line.72">    /** A generator for every id of registered generator. */</a>
+<span class="sourceLineNo">073</span><a id="line.73">    public static final TypedGenerator&lt;String&gt; CONVERTER_ID_GENERATOR =</a>
+<span class="sourceLineNo">074</span><a id="line.74">            Generators.fixedValues(</a>
+<span class="sourceLineNo">075</span><a id="line.75">                    JSF_CONVERTER.stream().map(ConverterDescriptor::getConverterId).collect(Collectors.toList()));</a>
+<span class="sourceLineNo">076</span><a id="line.76"></a>
+<span class="sourceLineNo">077</span><a id="line.77">    /** A generator for a subset of types a generator is registered as default. */</a>
+<span class="sourceLineNo">078</span><a id="line.78">    public static final TypedGenerator&lt;Class&lt;?&gt;&gt; TARGET_TYPE_GENERATOR =</a>
+<span class="sourceLineNo">079</span><a id="line.79">            Generators.fixedValues(</a>
+<span class="sourceLineNo">080</span><a id="line.80">                    immutableList(Integer.class, Double.class, Float.class, Boolean.class,</a>
+<span class="sourceLineNo">081</span><a id="line.81">                            BigInteger.class));</a>
+<span class="sourceLineNo">082</span><a id="line.82"></a>
+<span class="sourceLineNo">083</span><a id="line.83">    @SuppressWarnings("unchecked")</a>
+<span class="sourceLineNo">084</span><a id="line.84">    @Override</a>
+<span class="sourceLineNo">085</span><a id="line.85">    public Class&lt;Converter&gt; next() {</a>
+<span class="sourceLineNo">086</span><a id="line.86">        return (Class&lt;Converter&gt;) CONVERTER_CLASS_GERNERATOR.next().getConverterClass();</a>
+<span class="sourceLineNo">087</span><a id="line.87">    }</a>
+<span class="sourceLineNo">088</span><a id="line.88"></a>
+<span class="sourceLineNo">089</span><a id="line.89">    @Override</a>
+<span class="sourceLineNo">090</span><a id="line.90">    public Class&lt;Class&gt; getType() {</a>
+<span class="sourceLineNo">091</span><a id="line.91">        return Class.class;</a>
+<span class="sourceLineNo">092</span><a id="line.92">    }</a>
+<span class="sourceLineNo">093</span><a id="line.93"></a>
+<span class="sourceLineNo">094</span><a id="line.94">}</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</main>
+</body>
+</html>
