@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":6,"i3":10,"i4":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":6,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -149,7 +149,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code><a href="AbstractComponentRendererTest.html" title="class in de.cuioss.test.jsf.renderer">AbstractComponentRendererTest</a></code></dd>
 </dl>
 <hr>
-<pre>public abstract class <a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.61">AbstractRendererTestBase</a>&lt;R extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink">Renderer</a>&gt;
+<pre>public abstract class <a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.64">AbstractRendererTestBase</a>&lt;R extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink">Renderer</a>&gt;
 extends <a href="../junit5/JsfEnabledTestEnvironment.html" title="class in de.cuioss.test.jsf.junit5">JsfEnabledTestEnvironment</a>
 implements de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler&lt;R&gt;</pre>
 <div class="block">Base class for testing implementations of <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>Renderer</code></a>. It focuses on conveniences and the
@@ -229,6 +229,13 @@ implements de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler&lt;R
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#assertEmptyRenderResult(javax.faces.component.UIComponent)">assertEmptyRenderResult</a></span>&#8203;(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;toBeRendered)</code></th>
+<td class="colLast">
+<div class="block">Assert, that the given component does not render any output.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#assertRenderResult(javax.faces.component.UIComponent,java.lang.String)">assertRenderResult</a></span>&#8203;(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;toBeRendered,
                   <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;expected)</code></th>
 <td class="colLast">
@@ -236,7 +243,7 @@ implements de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler&lt;R
  <a href="util/DomUtils.html#htmlStringToDocument(java.lang.String)"><code>DomUtils.htmlStringToDocument(String)</code></a></div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#assertRenderResult(javax.faces.component.UIComponent,org.jdom2.Document)">assertRenderResult</a></span>&#8203;(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;toBeRendered,
                   org.jdom2.Document&nbsp;expected)</code></th>
@@ -244,17 +251,17 @@ implements de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler&lt;R
 <div class="block">Calls the renderer and checks the result against the given expected <code>Document</code></div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected abstract <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getComponent()">getComponent</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="AbstractRendererTestBase.html" title="type parameter in AbstractRendererTestBase">R</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRenderer()">getRenderer</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#renderToString(javax.faces.component.UIComponent)">renderToString</a></span>&#8203;(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;toBeRendered)</code></th>
 <td class="colLast">
@@ -312,7 +319,7 @@ implements de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler&lt;R
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractRendererTestBase</h4>
-<pre>public&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.61">AbstractRendererTestBase</a>()</pre>
+<pre>public&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.64">AbstractRendererTestBase</a>()</pre>
 </li>
 </ul>
 </li>
@@ -331,7 +338,7 @@ implements de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler&lt;R
 <ul class="blockList">
 <li class="blockList">
 <h4>getComponent</h4>
-<pre class="methodSignature">protected abstract&nbsp;<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.84">getComponent</a>()</pre>
+<pre class="methodSignature">protected abstract&nbsp;<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.87">getComponent</a>()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the configured <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink"><code>UIComponent</code></a>. <em>Caution: </em> you must always create a
@@ -345,13 +352,16 @@ implements de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler&lt;R
 <ul class="blockList">
 <li class="blockList">
 <h4>renderToString</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.92">renderToString</a>&#8203;(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;toBeRendered)</pre>
+<pre class="methodSignature">public&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.96">renderToString</a>&#8203;(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;toBeRendered)
+                      throws <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></pre>
 <div class="block">Renders the given component / renderer into a String representation</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>toBeRendered</code> - the component to be passed to the renderer, must not be null</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the String-result of the rendering</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/IOException.html?is-external=true" title="class or interface in java.io" class="externalLink">IOException</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -361,7 +371,7 @@ implements de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler&lt;R
 <ul class="blockList">
 <li class="blockList">
 <h4>assertRenderResult</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.111">assertRenderResult</a>&#8203;(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;toBeRendered,
+<pre class="methodSignature">public&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.113">assertRenderResult</a>&#8203;(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;toBeRendered,
                                org.jdom2.Document&nbsp;expected)</pre>
 <div class="block">Calls the renderer and checks the result against the given expected <code>Document</code></div>
 <dl>
@@ -377,7 +387,7 @@ implements de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler&lt;R
 <ul class="blockList">
 <li class="blockList">
 <h4>assertRenderResult</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.124">assertRenderResult</a>&#8203;(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;toBeRendered,
+<pre class="methodSignature">public&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.126">assertRenderResult</a>&#8203;(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;toBeRendered,
                                <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;expected)</pre>
 <div class="block">Shorthand for <a href="#assertRenderResult(javax.faces.component.UIComponent,org.jdom2.Document)"><code>assertRenderResult(UIComponent, Document)</code></a> and
  <a href="util/DomUtils.html#htmlStringToDocument(java.lang.String)"><code>DomUtils.htmlStringToDocument(String)</code></a></div>
@@ -388,13 +398,27 @@ implements de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler&lt;R
 </dl>
 </li>
 </ul>
+<a id="assertEmptyRenderResult(javax.faces.component.UIComponent)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>assertEmptyRenderResult</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.136">assertEmptyRenderResult</a>&#8203;(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;toBeRendered)</pre>
+<div class="block">Assert, that the given component does not render any output.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>toBeRendered</code> - the component to be passed to the renderer, must not be null</dd>
+</dl>
+</li>
+</ul>
 <a id="getRenderer()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getRenderer</h4>
-<pre class="methodSignature">public&nbsp;<a href="AbstractRendererTestBase.html" title="type parameter in AbstractRendererTestBase">R</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.160">getRenderer</a>()</pre>
+<pre class="methodSignature">public&nbsp;<a href="AbstractRendererTestBase.html" title="type parameter in AbstractRendererTestBase">R</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractRendererTestBase.html#line.172">getRenderer</a>()</pre>
 </li>
 </ul>
 </li>
