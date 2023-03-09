@@ -136,7 +136,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html?is-external=true" title="class or interface in java.io" class="externalLink">Serializable</a></code></dd>
 </dl>
 <hr>
-<pre>public class <a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.16">DisplayMessageFormat</a>
+<pre>public class <a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.20">DisplayMessageFormat</a>
 extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
 implements <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html?is-external=true" title="class or interface in java.io" class="externalLink">Serializable</a></pre>
 <div class="block">Content which can be used to transfer message key and arguments.
@@ -169,8 +169,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="DisplayMessageFormat.DisplayMessageFormatBuilder.html" title="class in de.cuioss.uimodel.nameprovider">DisplayMessageFormat.DisplayMessageFormatBuilder</a></span></code></th>
-<td class="colLast">&nbsp;</td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="DisplayMessageFormat.Builder.html" title="class in de.cuioss.uimodel.nameprovider">DisplayMessageFormat.Builder</a></span></code></th>
+<td class="colLast">
+<div class="block">Provide creation of <a href="DisplayMessageProvider.html" title="class in de.cuioss.uimodel.nameprovider">DisplayMessageProvider</a></div>
+</td>
 </tr>
 </table>
 </li>
@@ -222,7 +224,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static <a href="DisplayMessageFormat.DisplayMessageFormatBuilder.html" title="class in de.cuioss.uimodel.nameprovider">DisplayMessageFormat.DisplayMessageFormatBuilder</a></code></td>
+<td class="colFirst"><code>static <a href="DisplayMessageFormat.Builder.html" title="class in de.cuioss.uimodel.nameprovider">DisplayMessageFormat.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#builder()">builder</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -243,7 +245,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMessageKey()">getMessageKey</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMsgKey()">getMsgKey</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -286,7 +288,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base
 <ul class="blockList">
 <li class="blockList">
 <h4>DisplayMessageFormat</h4>
-<pre>public&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.27">DisplayMessageFormat</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;messageKey,
+<pre>public&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.31">DisplayMessageFormat</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;messageKey,
                             <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html?is-external=true" title="class or interface in java.io" class="externalLink">Serializable</a>&gt;&nbsp;messageArguments)</pre>
 <div class="block">Create DisplayMessageFormat</div>
 <dl>
@@ -302,13 +304,13 @@ implements <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base
 <ul class="blockListLast">
 <li class="blockList">
 <h4>DisplayMessageFormat</h4>
-<pre>public&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.38">DisplayMessageFormat</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;messageKey,
+<pre>public&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.42">DisplayMessageFormat</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;messageKey,
                             <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html?is-external=true" title="class or interface in java.io" class="externalLink">Serializable</a>...&nbsp;messageArguments)</pre>
 <div class="block">Create DisplayMessageFormat</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>messageKey</code> - must not be <code>null</code> or empty</dd>
-<dd><code>messageArguments</code> - must not be <code>null</code></dd>
+<dd><code>messageArguments</code> - may be null or empty</dd>
 </dl>
 </li>
 </ul>
@@ -328,7 +330,11 @@ implements <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base
 <ul class="blockList">
 <li class="blockList">
 <h4>builder</h4>
-<pre class="methodSignature">public static&nbsp;<a href="DisplayMessageFormat.DisplayMessageFormatBuilder.html" title="class in de.cuioss.uimodel.nameprovider">DisplayMessageFormat.DisplayMessageFormatBuilder</a>&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.119">builder</a>()</pre>
+<pre class="methodSignature">public static final&nbsp;<a href="DisplayMessageFormat.Builder.html" title="class in de.cuioss.uimodel.nameprovider">DisplayMessageFormat.Builder</a>&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.119">builder</a>()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><a href="DisplayMessageFormat.Builder.html" title="class in de.cuioss.uimodel.nameprovider">DisplayMessageFormat.Builder</a> in fluent api style</dd>
+</dl>
 </li>
 </ul>
 <a id="toString()">
@@ -337,7 +343,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base
 <ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.125">toString</a>()</pre>
+<pre class="methodSignature">public&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.123">toString</a>()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
@@ -350,7 +356,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base
 <ul class="blockList">
 <li class="blockList">
 <h4>equals</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.132">equals</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;o)</pre>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.130">equals</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;o)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
@@ -363,7 +369,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base
 <ul class="blockList">
 <li class="blockList">
 <h4>canEqual</h4>
-<pre class="methodSignature">protected&nbsp;boolean&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.149">canEqual</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;other)</pre>
+<pre class="methodSignature">protected&nbsp;boolean&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.147">canEqual</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;other)</pre>
 </li>
 </ul>
 <a id="hashCode()">
@@ -372,20 +378,20 @@ implements <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base
 <ul class="blockList">
 <li class="blockList">
 <h4>hashCode</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.155">hashCode</a>()</pre>
+<pre class="methodSignature">public&nbsp;int&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.153">hashCode</a>()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></code></dd>
 </dl>
 </li>
 </ul>
-<a id="getMessageKey()">
+<a id="getMsgKey()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getMessageKey</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.168">getMessageKey</a>()</pre>
+<h4>getMsgKey</h4>
+<pre class="methodSignature">public&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.166">getMsgKey</a>()</pre>
 </li>
 </ul>
 <a id="getArguments()">
@@ -394,7 +400,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getArguments</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html?is-external=true" title="class or interface in java.io" class="externalLink">Serializable</a>&gt;&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.174">getArguments</a>()</pre>
+<pre class="methodSignature">public&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/Serializable.html?is-external=true" title="class or interface in java.io" class="externalLink">Serializable</a>&gt;&nbsp;<a href="../../../../src-html/de/cuioss/uimodel/nameprovider/DisplayMessageFormat.html#line.172">getArguments</a>()</pre>
 </li>
 </ul>
 </li>
