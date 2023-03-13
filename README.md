@@ -24,6 +24,11 @@ Webpage for the cuioss projects
 
 [Generated Maven-Documentation](https://cuioss.github.io/cui-jsf-components/about.html) 
 
+## Portal-Modules
+
+### cui-portal-core
+
+[Generated Maven-Documentation](https://cuioss.github.io/cui-portal-core/about.html) 
 
 ## Test-Modules
 
