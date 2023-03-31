@@ -47,3 +47,8 @@ Webpage for the cuioss projects
 ### cui-jsf-test-basic
 
 [Generated Maven-Documentation](https://cuioss.github.io/cui-jsf-test-basic/about.html) 
+
+## Portal-Samples
+
+### portal-vault-sample
+[Generated Maven-Documentation](https://cuioss.github.io/portal-vault-sample/about.html) 
