@@ -30,6 +30,10 @@ Webpage for the cuioss projects
 
 [Generated Maven-Documentation](https://cuioss.github.io/cui-portal-core/about.html) 
 
+### cui-portal-ui
+
+[Generated Maven-Documentation](https://cuioss.github.io/cui-portal-ui/about.html) 
+
 ### portal-tomcat-runtime
 
 [Generated Maven-Documentation](https://cuioss.github.io/portal-tomcat-runtime/about.html) 
