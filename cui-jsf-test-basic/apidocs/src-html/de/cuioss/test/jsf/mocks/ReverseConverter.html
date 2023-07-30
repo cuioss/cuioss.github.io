@@ -32,27 +32,25 @@
 <span class="sourceLineNo">023</span><a id="line.23">    public static final String CONVERTER_ID = "de.cuioss.test.jsf.mocks.ReserveConverter";</a>
 <span class="sourceLineNo">024</span><a id="line.24"></a>
 <span class="sourceLineNo">025</span><a id="line.25">    @Override</a>
-<span class="sourceLineNo">026</span><a id="line.26">    public String getAsObject(final FacesContext context, final UIComponent component,</a>
-<span class="sourceLineNo">027</span><a id="line.27">            final String value) {</a>
-<span class="sourceLineNo">028</span><a id="line.28">        return reverse(context, component, value);</a>
-<span class="sourceLineNo">029</span><a id="line.29">    }</a>
-<span class="sourceLineNo">030</span><a id="line.30"></a>
-<span class="sourceLineNo">031</span><a id="line.31">    @Override</a>
-<span class="sourceLineNo">032</span><a id="line.32">    public String getAsString(final FacesContext context, final UIComponent component,</a>
-<span class="sourceLineNo">033</span><a id="line.33">            final String value) {</a>
-<span class="sourceLineNo">034</span><a id="line.34">        return reverse(context, component, value);</a>
-<span class="sourceLineNo">035</span><a id="line.35">    }</a>
-<span class="sourceLineNo">036</span><a id="line.36"></a>
-<span class="sourceLineNo">037</span><a id="line.37">    private String reverse(final FacesContext context, final UIComponent component, final String value) {</a>
-<span class="sourceLineNo">038</span><a id="line.38">        requireNonNull(component);</a>
-<span class="sourceLineNo">039</span><a id="line.39">        requireNonNull(context);</a>
-<span class="sourceLineNo">040</span><a id="line.40">        if (null == value) {</a>
-<span class="sourceLineNo">041</span><a id="line.41">            return "";</a>
-<span class="sourceLineNo">042</span><a id="line.42">        }</a>
-<span class="sourceLineNo">043</span><a id="line.43">        return new StringBuilder(value).reverse().toString();</a>
-<span class="sourceLineNo">044</span><a id="line.44">    }</a>
-<span class="sourceLineNo">045</span><a id="line.45"></a>
-<span class="sourceLineNo">046</span><a id="line.46">}</a>
+<span class="sourceLineNo">026</span><a id="line.26">    public String getAsObject(final FacesContext context, final UIComponent component, final String value) {</a>
+<span class="sourceLineNo">027</span><a id="line.27">        return reverse(context, component, value);</a>
+<span class="sourceLineNo">028</span><a id="line.28">    }</a>
+<span class="sourceLineNo">029</span><a id="line.29"></a>
+<span class="sourceLineNo">030</span><a id="line.30">    @Override</a>
+<span class="sourceLineNo">031</span><a id="line.31">    public String getAsString(final FacesContext context, final UIComponent component, final String value) {</a>
+<span class="sourceLineNo">032</span><a id="line.32">        return reverse(context, component, value);</a>
+<span class="sourceLineNo">033</span><a id="line.33">    }</a>
+<span class="sourceLineNo">034</span><a id="line.34"></a>
+<span class="sourceLineNo">035</span><a id="line.35">    private String reverse(final FacesContext context, final UIComponent component, final String value) {</a>
+<span class="sourceLineNo">036</span><a id="line.36">        requireNonNull(component);</a>
+<span class="sourceLineNo">037</span><a id="line.37">        requireNonNull(context);</a>
+<span class="sourceLineNo">038</span><a id="line.38">        if (null == value) {</a>
+<span class="sourceLineNo">039</span><a id="line.39">            return "";</a>
+<span class="sourceLineNo">040</span><a id="line.40">        }</a>
+<span class="sourceLineNo">041</span><a id="line.41">        return new StringBuilder(value).reverse().toString();</a>
+<span class="sourceLineNo">042</span><a id="line.42">    }</a>
+<span class="sourceLineNo">043</span><a id="line.43"></a>
+<span class="sourceLineNo">044</span><a id="line.44">}</a>
 
 
 

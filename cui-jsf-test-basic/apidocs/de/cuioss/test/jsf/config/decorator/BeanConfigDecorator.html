@@ -14,7 +14,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="../../../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../../../jquery/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="../../../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
@@ -215,8 +215,8 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkManagedBeanKey(java.lang.String)">checkManagedBeanKey</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;managedBeanKey)</code></th>
 <td class="colLast">
-<div class="block">In case the beanKey is not an el expression (starting not with '#{') this method wraps the
- expression accordingly.</div>
+<div class="block">In case the beanKey is not an el expression (starting not with '#{') this
+ method wraps the expression accordingly.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -311,7 +311,7 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockListLast">
 <li class="blockList">
 <h4>BeanConfigDecorator</h4>
-<pre>public&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/BeanConfigDecorator.html#line.107">BeanConfigDecorator</a>&#8203;(@NonNull
+<pre>public&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/BeanConfigDecorator.html#line.110">BeanConfigDecorator</a>&#8203;(@NonNull
                            @NonNull <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context" class="externalLink">FacesContext</a>&nbsp;facesContext)</pre>
 </li>
 </ul>
@@ -331,16 +331,17 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>register</h4>
-<pre class="methodSignature">public&nbsp;<a href="BeanConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">BeanConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/BeanConfigDecorator.html#line.40">register</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;managedBean,
+<pre class="methodSignature">public&nbsp;<a href="BeanConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">BeanConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/BeanConfigDecorator.html#line.41">register</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;managedBean,
                                     <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name)</pre>
 <div class="block">Registers a given Object as jsf-managed bean for the given key</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>managedBean</code> - to be registered, must not be null</dd>
-<dd><code>name</code> - to be registered to. May be a correct value-expression or not (actual name only).
-            Must not be null nor empty.</dd>
+<dd><code>name</code> - to be registered to. May be a correct value-expression or
+                    not (actual name only). Must not be null nor empty.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="BeanConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>BeanConfigDecorator</code></a> itself in order to enable a fluent-api style usage</dd>
+<dd>the <a href="BeanConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>BeanConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -350,16 +351,17 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>register</h4>
-<pre class="methodSignature">public&nbsp;<a href="BeanConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">BeanConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/BeanConfigDecorator.html#line.58">register</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;managedBean)</pre>
-<div class="block">Registers a given Object as jsf-managed bean. It checks the given bean for the annotation
- <a href="https://javaee.github.io/javaee-spec/javadocs/javax/inject/Named.html?is-external=true" title="class or interface in javax.inject" class="externalLink"><code>Named</code></a> in oder to extract the corresponding value attribute.
- If none could be found it uses the <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true#getSimpleName()" title="class or interface in java.lang" class="externalLink"><code>Class.getSimpleName()</code></a> with the first letter being
- lower-cased</div>
+<pre class="methodSignature">public&nbsp;<a href="BeanConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">BeanConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/BeanConfigDecorator.html#line.60">register</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>&nbsp;managedBean)</pre>
+<div class="block">Registers a given Object as jsf-managed bean. It checks the given bean for
+ the annotation <a href="https://javaee.github.io/javaee-spec/javadocs/javax/inject/Named.html?is-external=true" title="class or interface in javax.inject" class="externalLink"><code>Named</code></a> in oder to extract the corresponding value
+ attribute. If none could be found it uses the <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true#getSimpleName()" title="class or interface in java.lang" class="externalLink"><code>Class.getSimpleName()</code></a>
+ with the first letter being lower-cased</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>managedBean</code> - to be registered, must not be null</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="BeanConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>BeanConfigDecorator</code></a> itself in order to enable a fluent-api style usage</dd>
+<dd>the <a href="BeanConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>BeanConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -369,14 +371,15 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>checkManagedBeanKey</h4>
-<pre class="methodSignature">public static&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/BeanConfigDecorator.html#line.82">checkManagedBeanKey</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;managedBeanKey)</pre>
-<div class="block">In case the beanKey is not an el expression (starting not with '#{') this method wraps the
- expression accordingly.</div>
+<pre class="methodSignature">public static&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/BeanConfigDecorator.html#line.85">checkManagedBeanKey</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;managedBeanKey)</pre>
+<div class="block">In case the beanKey is not an el expression (starting not with '#{') this
+ method wraps the expression accordingly.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>managedBeanKey</code> - must not be null or empty</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the key wrapped as an EL-Expression if needed, otherwise the given key.</dd>
+<dd>the key wrapped as an EL-Expression if needed, otherwise the given
+         key.</dd>
 </dl>
 </li>
 </ul>
@@ -386,14 +389,14 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getBean</h4>
-<pre class="methodSignature">public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/BeanConfigDecorator.html#line.100">getBean</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
+<pre class="methodSignature">public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/BeanConfigDecorator.html#line.103">getBean</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;name,
                             <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context" class="externalLink">FacesContext</a>&nbsp;facesContext,
                             <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;T&gt;&nbsp;expectedType)</pre>
 <div class="block">Utility method for accessing a concrete bean</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>name</code> - May be a correct value-expression or not (actual name only).
-            Must not be null nor empty.</dd>
+<dd><code>name</code> - May be a correct value-expression or not (actual name
+                     only). Must not be null nor empty.</dd>
 <dd><code>facesContext</code> - to be used for accessing the bean</dd>
 <dd><code>expectedType</code> - identifying the type to be checked</dd>
 <dt><span class="returnLabel">Returns:</span></dt>

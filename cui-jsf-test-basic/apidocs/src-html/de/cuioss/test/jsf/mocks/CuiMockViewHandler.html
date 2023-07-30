@@ -18,10 +18,10 @@
 <span class="sourceLineNo">009</span><a id="line.9"></a>
 <span class="sourceLineNo">010</span><a id="line.10">/**</a>
 <span class="sourceLineNo">011</span><a id="line.11"> * In addition to {@link MockViewHandler20} this extension provides a mocked</a>
-<span class="sourceLineNo">012</span><a id="line.12"> * {@link #getViewDeclarationLanguage(FacesContext, String)} using {@link EasyMock} and a method for</a>
-<span class="sourceLineNo">013</span><a id="line.13"> * dynamically adding Composite-Component:</a>
-<span class="sourceLineNo">014</span><a id="line.14"> * {@link #registerCompositeComponent(String, String, UIComponent)}</a>
-<span class="sourceLineNo">015</span><a id="line.15"> * Technically they have not other use but being defined.</a>
+<span class="sourceLineNo">012</span><a id="line.12"> * {@link #getViewDeclarationLanguage(FacesContext, String)} using</a>
+<span class="sourceLineNo">013</span><a id="line.13"> * {@link EasyMock} and a method for dynamically adding Composite-Component:</a>
+<span class="sourceLineNo">014</span><a id="line.14"> * {@link #registerCompositeComponent(String, String, UIComponent)} Technically</a>
+<span class="sourceLineNo">015</span><a id="line.15"> * they have not other use but being defined.</a>
 <span class="sourceLineNo">016</span><a id="line.16"> *</a>
 <span class="sourceLineNo">017</span><a id="line.17"> * @author Oliver Wolff</a>
 <span class="sourceLineNo">018</span><a id="line.18"> *</a>
@@ -37,16 +37,15 @@
 <span class="sourceLineNo">028</span><a id="line.28"></a>
 <span class="sourceLineNo">029</span><a id="line.29">    /**</a>
 <span class="sourceLineNo">030</span><a id="line.30">     * @param libraryName must not be null</a>
-<span class="sourceLineNo">031</span><a id="line.31">     * @param tagName must not be null</a>
+<span class="sourceLineNo">031</span><a id="line.31">     * @param tagName     must not be null</a>
 <span class="sourceLineNo">032</span><a id="line.32">     * @param uiComponent must not be null</a>
 <span class="sourceLineNo">033</span><a id="line.33">     */</a>
 <span class="sourceLineNo">034</span><a id="line.34">    public void registerCompositeComponent(String libraryName, String tagName, UIComponent uiComponent) {</a>
 <span class="sourceLineNo">035</span><a id="line.35">        EasyMock.expect(mock.createComponent(EasyMock.anyObject(), EasyMock.eq(libraryName), EasyMock.eq(tagName),</a>
-<span class="sourceLineNo">036</span><a id="line.36">                EasyMock.anyObject()))</a>
-<span class="sourceLineNo">037</span><a id="line.37">                .andReturn(uiComponent).anyTimes();</a>
-<span class="sourceLineNo">038</span><a id="line.38">        EasyMock.replay(mock);</a>
-<span class="sourceLineNo">039</span><a id="line.39">    }</a>
-<span class="sourceLineNo">040</span><a id="line.40">}</a>
+<span class="sourceLineNo">036</span><a id="line.36">                EasyMock.anyObject())).andReturn(uiComponent).anyTimes();</a>
+<span class="sourceLineNo">037</span><a id="line.37">        EasyMock.replay(mock);</a>
+<span class="sourceLineNo">038</span><a id="line.38">    }</a>
+<span class="sourceLineNo">039</span><a id="line.39">}</a>
 
 
 

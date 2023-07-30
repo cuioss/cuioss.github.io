@@ -14,7 +14,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="../../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../../jquery/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="../../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
@@ -132,32 +132,36 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <hr>
-<pre>public class <a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.65">ConfigurableFacesTest</a>
+<pre>public class <a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.69">ConfigurableFacesTest</a>
 extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
-<div class="block">Base class for configuring the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context" class="externalLink"><code>FacesContext</code></a> provided by MyFaces-Test. The configuration
- is implemented using some kind of decorator pattern (roughly). The actual configuration relies on
- two sources:
+<div class="block">Base class for configuring the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context" class="externalLink"><code>FacesContext</code></a> provided by MyFaces-Test.
+ The configuration is implemented using some kind of decorator pattern
+ (roughly). The actual configuration relies on two sources:
  <ul>
- <li>It scans for the annotations of type <a href="../config/JsfTestConfiguration.html" title="annotation in de.cuioss.test.jsf.config"><code>JsfTestConfiguration</code></a> instantiates the
- corresponding classes and configures the environment accordingly</li>
- <li>It checks whether the actual test-class implements one of <a href="../config/ApplicationConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ApplicationConfigurator</code></a>,
- <a href="../config/BeanConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>BeanConfigurator</code></a>, <a href="../config/RequestConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>RequestConfigurator</code></a> or <a href="../config/ComponentConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ComponentConfigurator</code></a> and calls
- the corresponding methods accordingly, <em>after</em> the configurator derived by the
- annotations</li>
+ <li>It scans for the annotations of type <a href="../config/JsfTestConfiguration.html" title="annotation in de.cuioss.test.jsf.config"><code>JsfTestConfiguration</code></a>
+ instantiates the corresponding classes and configures the environment
+ accordingly</li>
+ <li>It checks whether the actual test-class implements one of
+ <a href="../config/ApplicationConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ApplicationConfigurator</code></a>, <a href="../config/BeanConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>BeanConfigurator</code></a>,
+ <a href="../config/RequestConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>RequestConfigurator</code></a> or <a href="../config/ComponentConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ComponentConfigurator</code></a> and calls the
+ corresponding methods accordingly, <em>after</em> the configurator derived by
+ the annotations</li>
  </ul>
  <p>
- The corresponding objects <a href="../config/ComponentConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ComponentConfigurator</code></a>, <a href="../config/decorator/BeanConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>BeanConfigDecorator</code></a>,
- <a href="../config/decorator/RequestConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>RequestConfigDecorator</code></a> and <a href="../config/ApplicationConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ApplicationConfigurator</code></a> can be accessed by the
- getter-methods, in case you need to configure elements for a certain test only.
+ The corresponding objects <a href="../config/ComponentConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ComponentConfigurator</code></a>,
+ <a href="../config/decorator/BeanConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>BeanConfigDecorator</code></a>, <a href="../config/decorator/RequestConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>RequestConfigDecorator</code></a> and
+ <a href="../config/ApplicationConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ApplicationConfigurator</code></a> can be accessed by the getter-methods, in
+ case you need to configure elements for a certain test only.
  </p>
  <p>
- In addition there is a new way of dealing with localized messages for unit-tests. In essence
- there is the <code>IdentityResourceBundle</code> configured: This is helpful for tests
- where you want to ensure that a certain message key is used to create a message but do not want
- to test the actual ResourceBundle mechanism itself. It will always return the given key itself.
+ In addition there is a new way of dealing with localized messages for
+ unit-tests. In essence there is the <code>IdentityResourceBundle</code>
+ configured: This is helpful for tests where you want to ensure that a certain
+ message key is used to create a message but do not want to test the actual
+ ResourceBundle mechanism itself. It will always return the given key itself.
  As default this mechanism is active, you can change this by overwriting
- #isUseIdentityResouceBundle(). If it is active it is used as well for resolving
- the MessageBundle
+ #isUseIdentityResouceBundle(). If it is active it is used as well for
+ resolving the MessageBundle
  </p></div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
@@ -327,7 +331,7 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockListLast">
 <li class="blockList">
 <h4>LOCATION_HEADER</h4>
-<pre>public static final&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a> <a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.70">LOCATION_HEADER</a></pre>
+<pre>public static final&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a> <a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.74">LOCATION_HEADER</a></pre>
 <div class="block">"Location"</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -351,7 +355,7 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ConfigurableFacesTest</h4>
-<pre>public&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.66">ConfigurableFacesTest</a>()</pre>
+<pre>public&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.70">ConfigurableFacesTest</a>()</pre>
 </li>
 </ul>
 </li>
@@ -371,7 +375,7 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <li class="blockList">
 <h4>setupAdditionalConfiguration</h4>
 <pre class="methodSignature">@BeforeEach
-protected&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.81">setupAdditionalConfiguration</a>()</pre>
+protected&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.85">setupAdditionalConfiguration</a>()</pre>
 <div class="block">See class documentation of <a href="ConfigurableFacesTest.html" title="class in de.cuioss.test.jsf.util"><code>ConfigurableFacesTest</code></a> for details.</div>
 </li>
 </ul>
@@ -381,7 +385,7 @@ protected&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/uti
 <ul class="blockList">
 <li class="blockList">
 <h4>getFacesContext</h4>
-<pre class="methodSignature">protected&nbsp;<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context" class="externalLink">FacesContext</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.104">getFacesContext</a>()</pre>
+<pre class="methodSignature">protected&nbsp;<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context" class="externalLink">FacesContext</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.109">getFacesContext</a>()</pre>
 </li>
 </ul>
 <a id="getApplication()">
@@ -390,7 +394,7 @@ protected&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/uti
 <ul class="blockList">
 <li class="blockList">
 <h4>getApplication</h4>
-<pre class="methodSignature">protected&nbsp;<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/application/Application.html?is-external=true" title="class or interface in javax.faces.application" class="externalLink">Application</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.108">getApplication</a>()</pre>
+<pre class="methodSignature">protected&nbsp;<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/application/Application.html?is-external=true" title="class or interface in javax.faces.application" class="externalLink">Application</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.113">getApplication</a>()</pre>
 </li>
 </ul>
 <a id="getExternalContext()">
@@ -399,7 +403,7 @@ protected&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/uti
 <ul class="blockList">
 <li class="blockList">
 <h4>getExternalContext</h4>
-<pre class="methodSignature">protected&nbsp;<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/ExternalContext.html?is-external=true" title="class or interface in javax.faces.context" class="externalLink">ExternalContext</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.112">getExternalContext</a>()</pre>
+<pre class="methodSignature">protected&nbsp;<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/ExternalContext.html?is-external=true" title="class or interface in javax.faces.context" class="externalLink">ExternalContext</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.117">getExternalContext</a>()</pre>
 </li>
 </ul>
 <a id="getResponse()">
@@ -408,7 +412,7 @@ protected&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/uti
 <ul class="blockList">
 <li class="blockList">
 <h4>getResponse</h4>
-<pre class="methodSignature">protected&nbsp;org.apache.myfaces.test.mock.MockHttpServletResponse&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.116">getResponse</a>()</pre>
+<pre class="methodSignature">protected&nbsp;org.apache.myfaces.test.mock.MockHttpServletResponse&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.121">getResponse</a>()</pre>
 </li>
 </ul>
 <a id="isUseIdentityResourceBundle()">
@@ -417,7 +421,7 @@ protected&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/uti
 <ul class="blockList">
 <li class="blockList">
 <h4>isUseIdentityResourceBundle</h4>
-<pre class="methodSignature">protected&nbsp;boolean&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.120">isUseIdentityResourceBundle</a>()</pre>
+<pre class="methodSignature">protected&nbsp;boolean&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.125">isUseIdentityResourceBundle</a>()</pre>
 </li>
 </ul>
 <a id="assertNavigatedWithOutcome(java.lang.String)">
@@ -426,7 +430,7 @@ protected&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/uti
 <ul class="blockList">
 <li class="blockList">
 <h4>assertNavigatedWithOutcome</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.130">assertNavigatedWithOutcome</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;outcome)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.135">assertNavigatedWithOutcome</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;outcome)</pre>
 <div class="block">Asserts whether a navigation was handled by calling
  <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/application/NavigationHandler.html?is-external=true#handleNavigation(javax.faces.context.FacesContext,java.lang.String,java.lang.String)" title="class or interface in javax.faces.application" class="externalLink"><code>NavigationHandler.handleNavigation(javax.faces.context.FacesContext, String, String)</code></a></div>
 <dl>
@@ -441,7 +445,7 @@ protected&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/uti
 <ul class="blockList">
 <li class="blockList">
 <h4>assertRedirect</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.144">assertRedirect</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;redirectUrl)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.149">assertRedirect</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;redirectUrl)</pre>
 <div class="block">Asserts whether a navigation was initialized by calling
  <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/ExternalContext.html?is-external=true#redirect(java.lang.String)" title="class or interface in javax.faces.context" class="externalLink"><code>ExternalContext.redirect(String)</code></a></div>
 <dl>
@@ -456,7 +460,7 @@ protected&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/uti
 <ul class="blockList">
 <li class="blockList">
 <h4>getComponentConfigDecorator</h4>
-<pre class="methodSignature">protected&nbsp;<a href="../config/decorator/ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.152">getComponentConfigDecorator</a>()</pre>
+<pre class="methodSignature">protected&nbsp;<a href="../config/decorator/ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.157">getComponentConfigDecorator</a>()</pre>
 </li>
 </ul>
 <a id="getBeanConfigDecorator()">
@@ -465,7 +469,7 @@ protected&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/uti
 <ul class="blockList">
 <li class="blockList">
 <h4>getBeanConfigDecorator</h4>
-<pre class="methodSignature">protected&nbsp;<a href="../config/decorator/BeanConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">BeanConfigDecorator</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.158">getBeanConfigDecorator</a>()</pre>
+<pre class="methodSignature">protected&nbsp;<a href="../config/decorator/BeanConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">BeanConfigDecorator</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.163">getBeanConfigDecorator</a>()</pre>
 </li>
 </ul>
 <a id="getApplicationConfigDecorator()">
@@ -474,7 +478,7 @@ protected&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/uti
 <ul class="blockList">
 <li class="blockList">
 <h4>getApplicationConfigDecorator</h4>
-<pre class="methodSignature">protected&nbsp;<a href="../config/decorator/ApplicationConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ApplicationConfigDecorator</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.164">getApplicationConfigDecorator</a>()</pre>
+<pre class="methodSignature">protected&nbsp;<a href="../config/decorator/ApplicationConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ApplicationConfigDecorator</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.169">getApplicationConfigDecorator</a>()</pre>
 </li>
 </ul>
 <a id="getRequestConfigDecorator()">
@@ -483,7 +487,7 @@ protected&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/uti
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getRequestConfigDecorator</h4>
-<pre class="methodSignature">public&nbsp;<a href="../config/decorator/RequestConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">RequestConfigDecorator</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.170">getRequestConfigDecorator</a>()</pre>
+<pre class="methodSignature">public&nbsp;<a href="../config/decorator/RequestConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">RequestConfigDecorator</a>&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/util/ConfigurableFacesTest.html#line.175">getRequestConfigDecorator</a>()</pre>
 </li>
 </ul>
 </li>

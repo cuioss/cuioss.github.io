@@ -22,35 +22,35 @@
 <span class="sourceLineNo">013</span><a id="line.13">/**</a>
 <span class="sourceLineNo">014</span><a id="line.14"> * Provides some default configuration for the tests. The defaults are:</a>
 <span class="sourceLineNo">015</span><a id="line.15"> * &lt;ul&gt;</a>
-<span class="sourceLineNo">016</span><a id="line.16"> * &lt;li&gt;Setting the supported locales to {@link Locale#ENGLISH} and {@link Locale#GERMANY}&lt;/li&gt;</a>
-<span class="sourceLineNo">017</span><a id="line.17"> * &lt;li&gt;Setting the default locale to {@link Locale#ENGLISH}&lt;/li&gt;</a>
-<span class="sourceLineNo">018</span><a id="line.18"> * &lt;li&gt;Setting the user-agent to {@value #FIREFOX}&lt;/li&gt;</a>
-<span class="sourceLineNo">019</span><a id="line.19"> * &lt;/ul&gt;</a>
-<span class="sourceLineNo">020</span><a id="line.20"> *</a>
-<span class="sourceLineNo">021</span><a id="line.21"> * @author Oliver Wolff</a>
-<span class="sourceLineNo">022</span><a id="line.22"> */</a>
-<span class="sourceLineNo">023</span><a id="line.23">public class BasicApplicationConfiguration</a>
-<span class="sourceLineNo">024</span><a id="line.24">        implements ApplicationConfigurator, RequestConfigurator {</a>
+<span class="sourceLineNo">016</span><a id="line.16"> * &lt;li&gt;Setting the supported locales to {@link Locale#ENGLISH} and</a>
+<span class="sourceLineNo">017</span><a id="line.17"> * {@link Locale#GERMANY}&lt;/li&gt;</a>
+<span class="sourceLineNo">018</span><a id="line.18"> * &lt;li&gt;Setting the default locale to {@link Locale#ENGLISH}&lt;/li&gt;</a>
+<span class="sourceLineNo">019</span><a id="line.19"> * &lt;li&gt;Setting the user-agent to {@value #FIREFOX}&lt;/li&gt;</a>
+<span class="sourceLineNo">020</span><a id="line.20"> * &lt;/ul&gt;</a>
+<span class="sourceLineNo">021</span><a id="line.21"> *</a>
+<span class="sourceLineNo">022</span><a id="line.22"> * @author Oliver Wolff</a>
+<span class="sourceLineNo">023</span><a id="line.23"> */</a>
+<span class="sourceLineNo">024</span><a id="line.24">public class BasicApplicationConfiguration implements ApplicationConfigurator, RequestConfigurator {</a>
 <span class="sourceLineNo">025</span><a id="line.25"></a>
 <span class="sourceLineNo">026</span><a id="line.26">    /** Firefox user-agent */</a>
-<span class="sourceLineNo">027</span><a id="line.27">    public static final String FIREFOX =</a>
-<span class="sourceLineNo">028</span><a id="line.28">        "Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0";</a>
-<span class="sourceLineNo">029</span><a id="line.29"></a>
-<span class="sourceLineNo">030</span><a id="line.30">    /** User-agent identifier. */</a>
-<span class="sourceLineNo">031</span><a id="line.31">    public static final String USER_AGENT = "user-agent";</a>
-<span class="sourceLineNo">032</span><a id="line.32"></a>
-<span class="sourceLineNo">033</span><a id="line.33">    /** The supported {@link Locale}s */</a>
-<span class="sourceLineNo">034</span><a id="line.34">    @SuppressWarnings("java:S2386") // owolff: false positive -&gt; immutableSet</a>
-<span class="sourceLineNo">035</span><a id="line.35">    public static final Collection&lt;Locale&gt; SUPPORTED_LOCALES =</a>
-<span class="sourceLineNo">036</span><a id="line.36">        immutableSet(Locale.ENGLISH, Locale.GERMANY, Locale.FRENCH);</a>
-<span class="sourceLineNo">037</span><a id="line.37"></a>
-<span class="sourceLineNo">038</span><a id="line.38">    /** The default {@link Locale} */</a>
-<span class="sourceLineNo">039</span><a id="line.39">    public static final Locale DEFAULT_LOCALE = Locale.ENGLISH;</a>
-<span class="sourceLineNo">040</span><a id="line.40"></a>
-<span class="sourceLineNo">041</span><a id="line.41">    @Override</a>
-<span class="sourceLineNo">042</span><a id="line.42">    public void configureApplication(final ApplicationConfigDecorator config) {</a>
-<span class="sourceLineNo">043</span><a id="line.43">        config.registerSupportedLocales(SUPPORTED_LOCALES)</a>
-<span class="sourceLineNo">044</span><a id="line.44">                .registerDefaultLocale(DEFAULT_LOCALE).setContextPath(""); // default context path</a>
+<span class="sourceLineNo">027</span><a id="line.27">    public static final String FIREFOX = "Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0";</a>
+<span class="sourceLineNo">028</span><a id="line.28"></a>
+<span class="sourceLineNo">029</span><a id="line.29">    /** User-agent identifier. */</a>
+<span class="sourceLineNo">030</span><a id="line.30">    public static final String USER_AGENT = "user-agent";</a>
+<span class="sourceLineNo">031</span><a id="line.31"></a>
+<span class="sourceLineNo">032</span><a id="line.32">    /** The supported {@link Locale}s */</a>
+<span class="sourceLineNo">033</span><a id="line.33">    @SuppressWarnings("java:S2386") // owolff: false positive -&gt; immutableSet</a>
+<span class="sourceLineNo">034</span><a id="line.34">    public static final Collection&lt;Locale&gt; SUPPORTED_LOCALES = immutableSet(Locale.ENGLISH, Locale.GERMANY,</a>
+<span class="sourceLineNo">035</span><a id="line.35">            Locale.FRENCH);</a>
+<span class="sourceLineNo">036</span><a id="line.36"></a>
+<span class="sourceLineNo">037</span><a id="line.37">    /** The default {@link Locale} */</a>
+<span class="sourceLineNo">038</span><a id="line.38">    public static final Locale DEFAULT_LOCALE = Locale.ENGLISH;</a>
+<span class="sourceLineNo">039</span><a id="line.39"></a>
+<span class="sourceLineNo">040</span><a id="line.40">    @Override</a>
+<span class="sourceLineNo">041</span><a id="line.41">    public void configureApplication(final ApplicationConfigDecorator config) {</a>
+<span class="sourceLineNo">042</span><a id="line.42">        config.registerSupportedLocales(SUPPORTED_LOCALES).registerDefaultLocale(DEFAULT_LOCALE).setContextPath(""); // default</a>
+<span class="sourceLineNo">043</span><a id="line.43">                                                                                                                     // context</a>
+<span class="sourceLineNo">044</span><a id="line.44">                                                                                                                     // path</a>
 <span class="sourceLineNo">045</span><a id="line.45">        // for myfaces test is</a>
 <span class="sourceLineNo">046</span><a id="line.46">        // 'null'</a>
 <span class="sourceLineNo">047</span><a id="line.47">    }</a>

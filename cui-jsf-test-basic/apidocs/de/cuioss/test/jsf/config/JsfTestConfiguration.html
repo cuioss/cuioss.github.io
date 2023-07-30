@@ -14,7 +14,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="../../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../../jquery/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="../../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
@@ -119,13 +119,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/annotation/Retention.html?is-external=true" title="class or interface in java.lang.annotation" class="externalLink">@Retention</a>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/annotation/RetentionPolicy.html?is-external=true#RUNTIME" title="class or interface in java.lang.annotation" class="externalLink">RUNTIME</a>)
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation" class="externalLink">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation" class="externalLink">TYPE</a>)
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/annotation/Repeatable.html?is-external=true" title="class or interface in java.lang.annotation" class="externalLink">@Repeatable</a>(de.cuioss.test.jsf.config.JsfTestConfigurations.class)
-public @interface <a href="../../../../../src-html/de/cuioss/test/jsf/config/JsfTestConfiguration.html#line.20">JsfTestConfiguration</a></pre>
-<div class="block">This annotations can be used to configure certain aspects of the configuration of the jsf-runtime
- for unit-testing. For simple cases the test-class can implement the corresponding interfaces
- itself: <a href="ApplicationConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ApplicationConfigurator</code></a>, <a href="ComponentConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ComponentConfigurator</code></a>,
- <a href="RequestConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>RequestConfigurator</code></a> or <a href="BeanConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>BeanConfigurator</code></a>. The base-class will ensure that the
- corresponding methods will be called at setup-time. This is useful for cases, where there is no
- need to reuse a certain configuration.</div>
+public @interface <a href="../../../../../src-html/de/cuioss/test/jsf/config/JsfTestConfiguration.html#line.21">JsfTestConfiguration</a></pre>
+<div class="block">This annotations can be used to configure certain aspects of the
+ configuration of the jsf-runtime for unit-testing. For simple cases the
+ test-class can implement the corresponding interfaces itself:
+ <a href="ApplicationConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ApplicationConfigurator</code></a>, <a href="ComponentConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ComponentConfigurator</code></a>,
+ <a href="RequestConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>RequestConfigurator</code></a> or <a href="BeanConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>BeanConfigurator</code></a>. The base-class will
+ ensure that the corresponding methods will be called at setup-time. This is
+ useful for cases, where there is no need to reuse a certain configuration.</div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Oliver Wolff</dd>
@@ -178,7 +179,7 @@ public @interface <a href="../../../../../src-html/de/cuioss/test/jsf/config/Jsf
 <ul class="blockListLast">
 <li class="blockList">
 <h4>value</h4>
-<pre><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="JsfTestContextConfigurator.html" title="interface in de.cuioss.test.jsf.config">JsfTestContextConfigurator</a>&gt;[]&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/config/JsfTestConfiguration.html#line.28">value</a></pre>
+<pre><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="JsfTestContextConfigurator.html" title="interface in de.cuioss.test.jsf.config">JsfTestContextConfigurator</a>&gt;[]&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/config/JsfTestConfiguration.html#line.29">value</a></pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>one or more concrete instances of <a href="JsfTestContextConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>JsfTestContextConfigurator</code></a></dd>

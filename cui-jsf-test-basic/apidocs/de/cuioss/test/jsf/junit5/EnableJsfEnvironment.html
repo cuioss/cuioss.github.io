@@ -14,7 +14,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="../../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../../jquery/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="../../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
@@ -121,17 +121,20 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation" class="externalLink">@Target</a>(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation" class="externalLink">TYPE</a>)
 @ExtendWith(<a href="JsfSetupExtension.html" title="class in de.cuioss.test.jsf.junit5">JsfSetupExtension.class</a>)
 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/annotation/Repeatable.html?is-external=true" title="class or interface in java.lang.annotation" class="externalLink">@Repeatable</a>(de.cuioss.test.jsf.junit5.EnableJsfEnvironments.class)
-public @interface <a href="../../../../../src-html/de/cuioss/test/jsf/junit5/EnableJsfEnvironment.html#line.80">EnableJsfEnvironment</a></pre>
-<div class="block">Using this annotations at type-level of a junit 5 test enable the myfaces-test-based
- test-framework for unit-tests. The configuration is implemented using some kind of decorator
- pattern (roughly). The actual configuration relies on two sources:
+public @interface <a href="../../../../../src-html/de/cuioss/test/jsf/junit5/EnableJsfEnvironment.html#line.86">EnableJsfEnvironment</a></pre>
+<div class="block">Using this annotations at type-level of a junit 5 test enable the
+ myfaces-test-based test-framework for unit-tests. The configuration is
+ implemented using some kind of decorator pattern (roughly). The actual
+ configuration relies on two sources:
  <ul>
- <li>It scans for the annotations of type <a href="../config/JsfTestConfiguration.html" title="annotation in de.cuioss.test.jsf.config"><code>JsfTestConfiguration</code></a> instantiates the
- corresponding classes and configures the environment accordingly</li>
- <li>It checks whether the actual test-class implements one of <a href="../config/ApplicationConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ApplicationConfigurator</code></a>,
- <a href="../config/BeanConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>BeanConfigurator</code></a>, <a href="../config/RequestConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>RequestConfigurator</code></a> or <a href="../config/ComponentConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ComponentConfigurator</code></a> and calls
- the corresponding methods accordingly, <em>after</em> the configurator derived by the
- annotations</li>
+ <li>It scans for the annotations of type <a href="../config/JsfTestConfiguration.html" title="annotation in de.cuioss.test.jsf.config"><code>JsfTestConfiguration</code></a>
+ instantiates the corresponding classes and configures the environment
+ accordingly</li>
+ <li>It checks whether the actual test-class implements one of
+ <a href="../config/ApplicationConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ApplicationConfigurator</code></a>, <a href="../config/BeanConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>BeanConfigurator</code></a>,
+ <a href="../config/RequestConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>RequestConfigurator</code></a> or <a href="../config/ComponentConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ComponentConfigurator</code></a> and calls the
+ corresponding methods accordingly, <em>after</em> the configurator derived by
+ the annotations</li>
  </ul>
  <h3>Using</h3>
  <p>
@@ -148,9 +151,10 @@ public @interface <a href="../../../../../src-html/de/cuioss/test/jsf/junit5/Ena
  </pre>
 
  <p>
- Complex Sample: Use a preconfigured JSF-context with access to the context information like
- <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context" class="externalLink"><code>FacesContext</code></a>, <a href="../config/ComponentConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ComponentConfigurator</code></a>, ... as defined within
- <a href="../util/JsfEnvironmentHolder.html" title="class in de.cuioss.test.jsf.util"><code>JsfEnvironmentHolder</code></a> With this setup you can programmatically access the element
+ Complex Sample: Use a preconfigured JSF-context with access to the context
+ information like <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context" class="externalLink"><code>FacesContext</code></a>, <a href="../config/ComponentConfigurator.html" title="interface in de.cuioss.test.jsf.config"><code>ComponentConfigurator</code></a>, ... as
+ defined within <a href="../util/JsfEnvironmentHolder.html" title="class in de.cuioss.test.jsf.util"><code>JsfEnvironmentHolder</code></a> With this setup you can
+ programmatically access the element
  </p>
 
  <pre>
@@ -165,14 +169,16 @@ public @interface <a href="../../../../../src-html/de/cuioss/test/jsf/junit5/Ena
  </pre>
 
  <p>
- In addition there is a new way of dealing with localized messages for unit-tests. In essence
- there is the <code>IdentityResourceBundle</code> configured: This is helpful for tests
- where you want to ensure that a certain message key is used to create a message but do not want
- to test the actual ResourceBundle mechanism itself. It will always return the given key itself.
+ In addition there is a new way of dealing with localized messages for
+ unit-tests. In essence there is the <code>IdentityResourceBundle</code>
+ configured: This is helpful for tests where you want to ensure that a certain
+ message key is used to create a message but do not want to test the actual
+ ResourceBundle mechanism itself. It will always return the given key itself.
  As default this mechanism is active, you can change this by setting
- <a href="#useIdentityResourceBundle()"><code>useIdentityResourceBundle()</code></a>. If it is active it is used as well for resolving
- the MessageBundle. In case of many annotations of <a href="EnableJsfEnvironment.html" title="annotation in de.cuioss.test.jsf.junit5"><code>EnableJsfEnvironment</code></a> are in the type
- hierarchy, the one on the most concrete Type will be chosen, usually on the actual unit-test.
+ <a href="#useIdentityResourceBundle()"><code>useIdentityResourceBundle()</code></a>. If it is active it is used as well for
+ resolving the MessageBundle. In case of many annotations of
+ <a href="EnableJsfEnvironment.html" title="annotation in de.cuioss.test.jsf.junit5"><code>EnableJsfEnvironment</code></a> are in the type hierarchy, the one on the most
+ concrete Type will be chosen, usually on the actual unit-test.
  </p></div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
@@ -226,7 +232,7 @@ public @interface <a href="../../../../../src-html/de/cuioss/test/jsf/junit5/Ena
 <ul class="blockListLast">
 <li class="blockList">
 <h4>useIdentityResourceBundle</h4>
-<pre>boolean&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/junit5/EnableJsfEnvironment.html#line.90">useIdentityResourceBundle</a></pre>
+<pre>boolean&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/junit5/EnableJsfEnvironment.html#line.96">useIdentityResourceBundle</a></pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>boolean</dd>

@@ -14,7 +14,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="../../../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../../../jquery/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="../../../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
@@ -224,10 +224,10 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>assertHtmlTreeEquals</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/renderer/util/HtmlTreeAsserts.html#line.31">assertHtmlTreeEquals</a>&#8203;(org.jdom2.Document&nbsp;expected,
+<pre class="methodSignature">public static&nbsp;void&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/renderer/util/HtmlTreeAsserts.html#line.29">assertHtmlTreeEquals</a>&#8203;(org.jdom2.Document&nbsp;expected,
                                         org.jdom2.Document&nbsp;actual)</pre>
-<div class="block">Compares two instances of <code>Document</code> for equality. Attribute order
- is not relevant, but element order is.</div>
+<div class="block">Compares two instances of <code>Document</code> for equality. Attribute order is
+ not relevant, but element order is.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>expected</code> - expected value</dd>
@@ -241,11 +241,11 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>assertElementWithChildrenEquals</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/renderer/util/HtmlTreeAsserts.html#line.49">assertElementWithChildrenEquals</a>&#8203;(org.jdom2.Element&nbsp;expected,
+<pre class="methodSignature">public static&nbsp;void&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/renderer/util/HtmlTreeAsserts.html#line.45">assertElementWithChildrenEquals</a>&#8203;(org.jdom2.Element&nbsp;expected,
                                                    org.jdom2.Element&nbsp;actual,
                                                    <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pointer)</pre>
-<div class="block">Compares two instances of <code>Element</code> for equality. Attribute order
- is not relevant.It checks the children recursively as well.</div>
+<div class="block">Compares two instances of <code>Element</code> for equality. Attribute order is
+ not relevant.It checks the children recursively as well.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>expected</code> - expected value</dd>
@@ -260,17 +260,16 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>assertElementEquals</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/renderer/util/HtmlTreeAsserts.html#line.81">assertElementEquals</a>&#8203;(org.jdom2.Element&nbsp;expected,
+<pre class="methodSignature">public static&nbsp;void&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/renderer/util/HtmlTreeAsserts.html#line.76">assertElementEquals</a>&#8203;(org.jdom2.Element&nbsp;expected,
                                        org.jdom2.Element&nbsp;actual,
                                        <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pointer)</pre>
-<div class="block">Compares two instances of <code>Element</code> for equality. Attribute order
- is not relevant. It checks the name of the elements and the attributes,
+<div class="block">Compares two instances of <code>Element</code> for equality. Attribute order is
+ not relevant. It checks the name of the elements and the attributes,
  <em>not</em> the children</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>expected</code> - expected value</dd>
-<dd><code>actual</code> - actual
-            the value to check against <code>expected</code></dd>
+<dd><code>actual</code> - actual the value to check against <code>expected</code></dd>
 <dd><code>pointer</code> - String based path identifier</dd>
 </dl>
 </li>
@@ -281,7 +280,7 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockListLast">
 <li class="blockList">
 <h4>assertAttributeEquals</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/renderer/util/HtmlTreeAsserts.html#line.109">assertAttributeEquals</a>&#8203;(org.jdom2.Attribute&nbsp;expected,
+<pre class="methodSignature">public static&nbsp;void&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/renderer/util/HtmlTreeAsserts.html#line.102">assertAttributeEquals</a>&#8203;(org.jdom2.Attribute&nbsp;expected,
                                          org.jdom2.Attribute&nbsp;actual,
                                          <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pointer)</pre>
 <div class="block">Compares two instances of <code>Attribute</code> for equality.</div>

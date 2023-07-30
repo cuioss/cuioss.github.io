@@ -14,7 +14,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="../../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../../jquery/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="../../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
@@ -136,12 +136,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code><a href="../config/ApplicationConfigurator.html" title="interface in de.cuioss.test.jsf.config">ApplicationConfigurator</a></code>, <code><a href="../config/JsfTestContextConfigurator.html" title="interface in de.cuioss.test.jsf.config">JsfTestContextConfigurator</a></code>, <code><a href="../config/RequestConfigurator.html" title="interface in de.cuioss.test.jsf.config">RequestConfigurator</a></code></dd>
 </dl>
 <hr>
-<pre>public class <a href="../../../../../src-html/de/cuioss/test/jsf/defaults/BasicApplicationConfiguration.html#line.23">BasicApplicationConfiguration</a>
+<pre>public class <a href="../../../../../src-html/de/cuioss/test/jsf/defaults/BasicApplicationConfiguration.html#line.24">BasicApplicationConfiguration</a>
 extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a>
 implements <a href="../config/ApplicationConfigurator.html" title="interface in de.cuioss.test.jsf.config">ApplicationConfigurator</a>, <a href="../config/RequestConfigurator.html" title="interface in de.cuioss.test.jsf.config">RequestConfigurator</a></pre>
 <div class="block">Provides some default configuration for the tests. The defaults are:
  <ul>
- <li>Setting the supported locales to <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Locale.html?is-external=true#ENGLISH" title="class or interface in java.util" class="externalLink"><code>Locale.ENGLISH</code></a> and <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Locale.html?is-external=true#GERMANY" title="class or interface in java.util" class="externalLink"><code>Locale.GERMANY</code></a></li>
+ <li>Setting the supported locales to <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Locale.html?is-external=true#ENGLISH" title="class or interface in java.util" class="externalLink"><code>Locale.ENGLISH</code></a> and
+ <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Locale.html?is-external=true#GERMANY" title="class or interface in java.util" class="externalLink"><code>Locale.GERMANY</code></a></li>
  <li>Setting the default locale to <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Locale.html?is-external=true#ENGLISH" title="class or interface in java.util" class="externalLink"><code>Locale.ENGLISH</code></a></li>
  <li>Setting the user-agent to <a href="#FIREFOX">"Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0"</a></li>
  </ul></div>
@@ -240,16 +241,16 @@ implements <a href="../config/ApplicationConfigurator.html" title="interface in 
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#configureApplication(de.cuioss.test.jsf.config.decorator.ApplicationConfigDecorator)">configureApplication</a></span>&#8203;(<a href="../config/decorator/ApplicationConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ApplicationConfigDecorator</a>&nbsp;config)</code></th>
 <td class="colLast">
-<div class="block">Callback method for interacting with the <a href="../config/decorator/ApplicationConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ApplicationConfigDecorator</code></a> at the correct
- time.</div>
+<div class="block">Callback method for interacting with the <a href="../config/decorator/ApplicationConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ApplicationConfigDecorator</code></a>
+ at the correct time.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#configureRequest(de.cuioss.test.jsf.config.decorator.RequestConfigDecorator)">configureRequest</a></span>&#8203;(<a href="../config/decorator/RequestConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">RequestConfigDecorator</a>&nbsp;decorator)</code></th>
 <td class="colLast">
-<div class="block">Callback method for interacting with the <a href="../config/decorator/RequestConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>RequestConfigDecorator</code></a> at the correct
- time.</div>
+<div class="block">Callback method for interacting with the <a href="../config/decorator/RequestConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>RequestConfigDecorator</code></a> at
+ the correct time.</div>
 </td>
 </tr>
 </table>
@@ -296,7 +297,7 @@ implements <a href="../config/ApplicationConfigurator.html" title="interface in 
 <ul class="blockList">
 <li class="blockList">
 <h4>USER_AGENT</h4>
-<pre>public static final&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a> <a href="../../../../../src-html/de/cuioss/test/jsf/defaults/BasicApplicationConfiguration.html#line.31">USER_AGENT</a></pre>
+<pre>public static final&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a> <a href="../../../../../src-html/de/cuioss/test/jsf/defaults/BasicApplicationConfiguration.html#line.30">USER_AGENT</a></pre>
 <div class="block">User-agent identifier.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -310,7 +311,7 @@ implements <a href="../config/ApplicationConfigurator.html" title="interface in 
 <ul class="blockList">
 <li class="blockList">
 <h4>SUPPORTED_LOCALES</h4>
-<pre>public static final&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Locale.html?is-external=true" title="class or interface in java.util" class="externalLink">Locale</a>&gt; <a href="../../../../../src-html/de/cuioss/test/jsf/defaults/BasicApplicationConfiguration.html#line.34">SUPPORTED_LOCALES</a></pre>
+<pre>public static final&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html?is-external=true" title="class or interface in java.util" class="externalLink">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Locale.html?is-external=true" title="class or interface in java.util" class="externalLink">Locale</a>&gt; <a href="../../../../../src-html/de/cuioss/test/jsf/defaults/BasicApplicationConfiguration.html#line.33">SUPPORTED_LOCALES</a></pre>
 <div class="block">The supported <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Locale.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>Locale</code></a>s</div>
 </li>
 </ul>
@@ -320,7 +321,7 @@ implements <a href="../config/ApplicationConfigurator.html" title="interface in 
 <ul class="blockListLast">
 <li class="blockList">
 <h4>DEFAULT_LOCALE</h4>
-<pre>public static final&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Locale.html?is-external=true" title="class or interface in java.util" class="externalLink">Locale</a> <a href="../../../../../src-html/de/cuioss/test/jsf/defaults/BasicApplicationConfiguration.html#line.39">DEFAULT_LOCALE</a></pre>
+<pre>public static final&nbsp;<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Locale.html?is-external=true" title="class or interface in java.util" class="externalLink">Locale</a> <a href="../../../../../src-html/de/cuioss/test/jsf/defaults/BasicApplicationConfiguration.html#line.38">DEFAULT_LOCALE</a></pre>
 <div class="block">The default <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Locale.html?is-external=true" title="class or interface in java.util" class="externalLink"><code>Locale</code></a></div>
 </li>
 </ul>
@@ -340,7 +341,7 @@ implements <a href="../config/ApplicationConfigurator.html" title="interface in 
 <ul class="blockListLast">
 <li class="blockList">
 <h4>BasicApplicationConfiguration</h4>
-<pre>public&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/defaults/BasicApplicationConfiguration.html#line.23">BasicApplicationConfiguration</a>()</pre>
+<pre>public&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/defaults/BasicApplicationConfiguration.html#line.24">BasicApplicationConfiguration</a>()</pre>
 </li>
 </ul>
 </li>
@@ -359,10 +360,10 @@ implements <a href="../config/ApplicationConfigurator.html" title="interface in 
 <ul class="blockList">
 <li class="blockList">
 <h4>configureApplication</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/defaults/BasicApplicationConfiguration.html#line.41">configureApplication</a>&#8203;(<a href="../config/decorator/ApplicationConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ApplicationConfigDecorator</a>&nbsp;config)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/defaults/BasicApplicationConfiguration.html#line.40">configureApplication</a>&#8203;(<a href="../config/decorator/ApplicationConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ApplicationConfigDecorator</a>&nbsp;config)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../config/ApplicationConfigurator.html#configureApplication(de.cuioss.test.jsf.config.decorator.ApplicationConfigDecorator)">ApplicationConfigurator</a></code></span></div>
-<div class="block">Callback method for interacting with the <a href="../config/decorator/ApplicationConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ApplicationConfigDecorator</code></a> at the correct
- time.</div>
+<div class="block">Callback method for interacting with the <a href="../config/decorator/ApplicationConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ApplicationConfigDecorator</code></a>
+ at the correct time.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../config/ApplicationConfigurator.html#configureApplication(de.cuioss.test.jsf.config.decorator.ApplicationConfigDecorator)">configureApplication</a></code>&nbsp;in interface&nbsp;<code><a href="../config/ApplicationConfigurator.html" title="interface in de.cuioss.test.jsf.config">ApplicationConfigurator</a></code></dd>
@@ -379,8 +380,8 @@ implements <a href="../config/ApplicationConfigurator.html" title="interface in 
 <h4>configureRequest</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;<a href="../../../../../src-html/de/cuioss/test/jsf/defaults/BasicApplicationConfiguration.html#line.49">configureRequest</a>&#8203;(<a href="../config/decorator/RequestConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">RequestConfigDecorator</a>&nbsp;decorator)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../config/RequestConfigurator.html#configureRequest(de.cuioss.test.jsf.config.decorator.RequestConfigDecorator)">RequestConfigurator</a></code></span></div>
-<div class="block">Callback method for interacting with the <a href="../config/decorator/RequestConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>RequestConfigDecorator</code></a> at the correct
- time.</div>
+<div class="block">Callback method for interacting with the <a href="../config/decorator/RequestConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>RequestConfigDecorator</code></a> at
+ the correct time.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../config/RequestConfigurator.html#configureRequest(de.cuioss.test.jsf.config.decorator.RequestConfigDecorator)">configureRequest</a></code>&nbsp;in interface&nbsp;<code><a href="../config/RequestConfigurator.html" title="interface in de.cuioss.test.jsf.config">RequestConfigurator</a></code></dd>

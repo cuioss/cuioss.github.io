@@ -14,7 +14,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="../../../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../../../jquery/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="../../../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
@@ -134,8 +134,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.43">ComponentConfigDecorator</a>
 extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
-<div class="block">Helper class acting as runtime-registry for <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink"><code>UIComponent</code></a>, <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert" class="externalLink"><code>Converter</code></a>,
- <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> and <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>Renderer</code></a></div>
+<div class="block">Helper class acting as runtime-registry for <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink"><code>UIComponent</code></a>,
+ <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert" class="externalLink"><code>Converter</code></a>, <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> and <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>Renderer</code></a></div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Oliver Wolff</dd>
@@ -242,7 +242,8 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <td class="colFirst"><code><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerCuiMockComponentWithRenderer()">registerCuiMockComponentWithRenderer</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockComponent.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockComponent</code></a> with a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a>.</div>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockComponent.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockComponent</code></a> with a
+ <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a>.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
@@ -257,7 +258,8 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <td class="colFirst"><code><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerMockRendererForCommandButton()">registerMockRendererForCommandButton</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlCommandButton.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlCommandButton</code></a>.</div>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
+ <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlCommandButton.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlCommandButton</code></a>.</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
@@ -271,36 +273,40 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <td class="colFirst"><code><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerMockRendererForHtmlInputText()">registerMockRendererForHtmlInputText</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlInputText.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlInputText</code></a>.</div>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
+ <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlInputText.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlInputText</code></a>.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerMockRendererForHtmlOutputText()">registerMockRendererForHtmlOutputText</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlOutputText.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlOutputText</code></a>.</div>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
+ <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlOutputText.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlOutputText</code></a>.</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerMockRendererForHtmlSelectBooleanCheckbox()">registerMockRendererForHtmlSelectBooleanCheckbox</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlSelectBooleanCheckbox.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlSelectBooleanCheckbox</code></a>.</div>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
+ <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlSelectBooleanCheckbox.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlSelectBooleanCheckbox</code></a>.</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerMockRendererForHtmlSelectOneRadio()">registerMockRendererForHtmlSelectOneRadio</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlSelectOneRadio.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlSelectOneRadio</code></a>.</div>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
+ <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlSelectOneRadio.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlSelectOneRadio</code></a>.</div>
 </td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerRenderer(java.lang.Class)">registerRenderer</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink">Renderer</a>&gt;&nbsp;renderer)</code></th>
 <td class="colLast">
-<div class="block">Registers a <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>Renderer</code></a> The family and rendererType will be derived by the mandatory
- <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/FacesRenderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>FacesRenderer</code></a> annotation</div>
+<div class="block">Registers a <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>Renderer</code></a> The family and rendererType will be derived by
+ the mandatory <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/FacesRenderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>FacesRenderer</code></a> annotation</div>
 </td>
 </tr>
 <tr id="i16" class="altColor">
@@ -331,7 +337,8 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <td class="colFirst"><code><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#registerValidator(java.lang.Class)">registerValidator</a></span>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink">Validator</a>&gt;&nbsp;validator)</code></th>
 <td class="colLast">
-<div class="block">Adds add <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> the needed validatorId is retrieved from <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/FacesValidator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>FacesValidator</code></a>.</div>
+<div class="block">Adds add <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> the needed validatorId is retrieved from
+ <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/FacesValidator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>FacesValidator</code></a>.</div>
 </td>
 </tr>
 <tr id="i20" class="altColor">
@@ -372,7 +379,7 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ComponentConfigDecorator</h4>
-<pre>public&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.370">ComponentConfigDecorator</a>&#8203;(@NonNull
+<pre>public&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.388">ComponentConfigDecorator</a>&#8203;(@NonNull
                                 @NonNull <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/application/Application.html?is-external=true" title="class or interface in javax.faces.application" class="externalLink">Application</a>&nbsp;application,
                                 @NonNull
                                 @NonNull <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context" class="externalLink">FacesContext</a>&nbsp;facesContext)</pre>
@@ -394,16 +401,17 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerValidator</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.73">registerValidator</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;validatorId,
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.74">registerValidator</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;validatorId,
                                                   <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink">Validator</a>&gt;&nbsp;validator)</pre>
 <div class="block">Adds add <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> to the given id.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>validatorId</code> - the id the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> should be registered with, must not be null</dd>
+<dd><code>validatorId</code> - the id the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> should be registered with,
+                    must not be null</dd>
 <dd><code>validator</code> - the actual <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> class, must not be null.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -413,16 +421,18 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerValidator</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.89">registerValidator</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink">Validator</a>&gt;&nbsp;validator)</pre>
-<div class="block">Adds add <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> the needed validatorId is retrieved from <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/FacesValidator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>FacesValidator</code></a>.</div>
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.92">registerValidator</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink">Validator</a>&gt;&nbsp;validator)</pre>
+<div class="block">Adds add <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> the needed validatorId is retrieved from
+ <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/FacesValidator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>FacesValidator</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>validator</code> - the actual <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> class, must not be null. In order to work the
-            <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> must provide the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/FacesValidator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>FacesValidator</code></a> annotation in order to
-            identify the the needed validatorId</dd>
+<dd><code>validator</code> - the actual <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> class, must not be null. In
+                  order to work the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>Validator</code></a> must provide the
+                  <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/validator/FacesValidator.html?is-external=true" title="class or interface in javax.faces.validator" class="externalLink"><code>FacesValidator</code></a> annotation in order to identify the
+                  the needed validatorId</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -432,7 +442,7 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerConverter</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.103">registerConverter</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert" class="externalLink">Converter</a>&gt;&nbsp;converter,
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.106">registerConverter</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert" class="externalLink">Converter</a>&gt;&nbsp;converter,
                                                   <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;?&gt;&nbsp;targetClass)</pre>
 <div class="block">Register a <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert" class="externalLink"><code>Converter</code></a> for a given target class.</div>
 <dl>
@@ -440,8 +450,8 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <dd><code>converter</code> - to be registered , must not be null</dd>
 <dd><code>targetClass</code> - must not be null</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -451,15 +461,16 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerConverter</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.118">registerConverter</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert" class="externalLink">Converter</a>&gt;&nbsp;converter)</pre>
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.122">registerConverter</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert" class="externalLink">Converter</a>&gt;&nbsp;converter)</pre>
 <div class="block">Register a <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert" class="externalLink"><code>Converter</code></a> for a given target class.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>converter</code> - to be registered , must not be null and must provide a
-            <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/convert/FacesConverter.html?is-external=true" title="class or interface in javax.faces.convert" class="externalLink"><code>FacesConverter</code></a> annotation for deriving targetType or converter.id</dd>
+                  <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/convert/FacesConverter.html?is-external=true" title="class or interface in javax.faces.convert" class="externalLink"><code>FacesConverter</code></a> annotation for deriving targetType or
+                  converter.id</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -469,7 +480,7 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerConverter</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.139">registerConverter</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert" class="externalLink">Converter</a>&gt;&nbsp;converter,
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.143">registerConverter</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert" class="externalLink">Converter</a>&gt;&nbsp;converter,
                                                   <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;converterId)</pre>
 <div class="block">Register a <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert" class="externalLink"><code>Converter</code></a> to a given converterId.</div>
 <dl>
@@ -477,8 +488,8 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <dd><code>converter</code> - to be registered , must not be null</dd>
 <dd><code>converterId</code> - must not be null</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -488,7 +499,7 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerUIComponent</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.154">registerUIComponent</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;componentType,
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.158">registerUIComponent</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;componentType,
                                                     <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&gt;&nbsp;component)</pre>
 <div class="block">Registers a <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink"><code>UIComponent</code></a></div>
 <dl>
@@ -496,8 +507,8 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <dd><code>componentType</code> - identifying the component, must not be null</dd>
 <dd><code>component</code> - the actual component, must not be null</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -507,15 +518,16 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerUIComponent</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.169">registerUIComponent</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&gt;&nbsp;component)</pre>
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.174">registerUIComponent</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&gt;&nbsp;component)</pre>
 <div class="block">Registers a <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink"><code>UIComponent</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>component</code> - the actual component, must not be null must provide the
-            <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/FacesComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink"><code>FacesComponent</code></a> annotation to derive the componentId to be registered to.</dd>
+                  <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/FacesComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink"><code>FacesComponent</code></a> annotation to derive the componentId
+                  to be registered to.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -525,12 +537,13 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerCuiMockComponentWithRenderer</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.181">registerCuiMockComponentWithRenderer</a>()</pre>
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockComponent.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockComponent</code></a> with a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a>.</div>
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.187">registerCuiMockComponentWithRenderer</a>()</pre>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockComponent.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockComponent</code></a> with a
+ <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -540,16 +553,18 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerMockRenderer</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.195">registerMockRenderer</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;family,
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.203">registerMockRenderer</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;family,
                                                      <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;rendererType)</pre>
 <div class="block">Registers a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for the given attributes.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>family</code> - identifying the component-family the renderer is related to, must not be null</dd>
-<dd><code>rendererType</code> - identifying the type of the renderer is related to, must not be null</dd>
+<dd><code>family</code> - identifying the component-family the renderer is related
+                     to, must not be null</dd>
+<dd><code>rendererType</code> - identifying the type of the renderer is related to, must
+                     not be null</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -559,12 +574,13 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerMockRendererForHtmlOutputText</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.208">registerMockRendererForHtmlOutputText</a>()</pre>
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlOutputText.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlOutputText</code></a>.</div>
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.217">registerMockRendererForHtmlOutputText</a>()</pre>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
+ <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlOutputText.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlOutputText</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -574,12 +590,13 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerMockRendererForHtmlSelectBooleanCheckbox</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.219">registerMockRendererForHtmlSelectBooleanCheckbox</a>()</pre>
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlSelectBooleanCheckbox.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlSelectBooleanCheckbox</code></a>.</div>
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.229">registerMockRendererForHtmlSelectBooleanCheckbox</a>()</pre>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
+ <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlSelectBooleanCheckbox.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlSelectBooleanCheckbox</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -589,12 +606,13 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerMockRendererForHtmlSelectOneRadio</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.230">registerMockRendererForHtmlSelectOneRadio</a>()</pre>
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlSelectOneRadio.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlSelectOneRadio</code></a>.</div>
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.241">registerMockRendererForHtmlSelectOneRadio</a>()</pre>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
+ <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlSelectOneRadio.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlSelectOneRadio</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -604,12 +622,13 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerMockRendererForHtmlInputText</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.241">registerMockRendererForHtmlInputText</a>()</pre>
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlInputText.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlInputText</code></a>.</div>
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.253">registerMockRendererForHtmlInputText</a>()</pre>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
+ <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlInputText.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlInputText</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -619,12 +638,12 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerMockRendererForHtmlForm</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.252">registerMockRendererForHtmlForm</a>()</pre>
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.264">registerMockRendererForHtmlForm</a>()</pre>
 <div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlForm.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlForm</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -634,12 +653,13 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerMockRendererForCommandButton</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.263">registerMockRendererForCommandButton</a>()</pre>
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlCommandButton.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlCommandButton</code></a>.</div>
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.276">registerMockRendererForCommandButton</a>()</pre>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
+ <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/html/HtmlCommandButton.html?is-external=true" title="class or interface in javax.faces.component.html" class="externalLink"><code>HtmlCommandButton</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -649,18 +669,20 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerRenderer</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.277">registerRenderer</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;family,
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.292">registerRenderer</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;family,
                                                  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;rendererType,
                                                  <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink">Renderer</a>&nbsp;renderer)</pre>
 <div class="block">Registers a <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>Renderer</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>family</code> - identifying the component-family the renderer is related to, must not be null</dd>
-<dd><code>rendererType</code> - identifying the type of the renderer is related to, must not be null</dd>
+<dd><code>family</code> - identifying the component-family the renderer is related
+                     to, must not be null</dd>
+<dd><code>rendererType</code> - identifying the type of the renderer is related to, must
+                     not be null</dd>
 <dd><code>renderer</code> - the actual renderer to be registered, must not be null</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -670,16 +692,17 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerRenderer</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.294">registerRenderer</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink">Renderer</a>&gt;&nbsp;renderer)</pre>
-<div class="block">Registers a <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>Renderer</code></a> The family and rendererType will be derived by the mandatory
- <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/FacesRenderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>FacesRenderer</code></a> annotation</div>
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.310">registerRenderer</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink">Renderer</a>&gt;&nbsp;renderer)</pre>
+<div class="block">Registers a <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>Renderer</code></a> The family and rendererType will be derived by
+ the mandatory <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/FacesRenderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>FacesRenderer</code></a> annotation</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>renderer</code> - the actual renderer to be registered, must not be null, must provide
-            <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/FacesRenderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>FacesRenderer</code></a> annotation and a no arg public constructor.</dd>
+<dd><code>renderer</code> - the actual renderer to be registered, must not be null, must
+                 provide <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/render/FacesRenderer.html?is-external=true" title="class or interface in javax.faces.render" class="externalLink"><code>FacesRenderer</code></a> annotation and a no arg public
+                 constructor.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -689,17 +712,18 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerBehavior</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.312">registerBehavior</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;behaviorId,
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.329">registerBehavior</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;behaviorId,
                                                  <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/ClientBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink">ClientBehavior</a>&gt;&nbsp;behaviorClass)</pre>
 <div class="block">Register a <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/ClientBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink"><code>ClientBehavior</code></a> for a given behaviorId</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>behaviorId</code> - the id the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/ClientBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink"><code>ClientBehavior</code></a> should be registered with, must not be
-            null</dd>
-<dd><code>behaviorClass</code> - the actual type of the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/ClientBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink"><code>ClientBehavior</code></a> must not be null</dd>
+<dd><code>behaviorId</code> - the id the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/ClientBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink"><code>ClientBehavior</code></a> should be registered
+                      with, must not be null</dd>
+<dd><code>behaviorClass</code> - the actual type of the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/ClientBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink"><code>ClientBehavior</code></a> must not
+                      be null</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -709,17 +733,17 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerBehavior</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.329">registerBehavior</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/ClientBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink">ClientBehavior</a>&gt;&nbsp;behaviorClass)</pre>
-<div class="block">Register a <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/ClientBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink"><code>ClientBehavior</code></a>. The behaviorId will be extracted by the mandatory
- <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/FacesBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink"><code>FacesBehavior</code></a> annotation</div>
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.346">registerBehavior</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html?is-external=true" title="class or interface in java.lang" class="externalLink">Class</a>&lt;? extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/ClientBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink">ClientBehavior</a>&gt;&nbsp;behaviorClass)</pre>
+<div class="block">Register a <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/ClientBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink"><code>ClientBehavior</code></a>. The behaviorId will be extracted by the
+ mandatory <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/FacesBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink"><code>FacesBehavior</code></a> annotation</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>behaviorClass</code> - the actual type of the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/ClientBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink"><code>ClientBehavior</code></a> must not be null and
-            provide the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/FacesBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink"><code>FacesBehavior</code></a> annotation in order to extract the correct
-            behaviorId</dd>
+<dd><code>behaviorClass</code> - the actual type of the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/ClientBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink"><code>ClientBehavior</code></a> must not
+                      be null and provide the <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/behavior/FacesBehavior.html?is-external=true" title="class or interface in javax.faces.component.behavior" class="externalLink"><code>FacesBehavior</code></a> annotation
+                      in order to extract the correct behaviorId</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -729,19 +753,20 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockList">
 <li class="blockList">
 <h4>registerCompositeComponent</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.345">registerCompositeComponent</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;libraryName,
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.363">registerCompositeComponent</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;libraryName,
                                                            <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;tagName,
                                                            <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;uiComponent)</pre>
 <div class="block">Register a composite component to be rendered.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>libraryName</code> - the library name like "http://xmlns.jcp.org/jsf/composite/" or "</dd>
+<dd><code>libraryName</code> - the library name like
+                    "http://xmlns.jcp.org/jsf/composite/" or "</dd>
 <dd><code>tagName</code> - the tag name</dd>
-<dd><code>uiComponent</code> - the component that should be returned as mock / placeholder for the
-            composite component</dd>
+<dd><code>uiComponent</code> - the component that should be returned as mock /
+                    placeholder for the composite component</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>
@@ -751,7 +776,7 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <ul class="blockListLast">
 <li class="blockList">
 <h4>addUiComponent</h4>
-<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.362">addUiComponent</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;expr,
+<pre class="methodSignature">public&nbsp;<a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a>&nbsp;<a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line.380">addUiComponent</a>&#8203;(<a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;expr,
                                                <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component" class="externalLink">UIComponent</a>&nbsp;component)</pre>
 <div class="block">Add a component to the view root to be found when searching via
  <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/component/UIComponentBase.html?is-external=true#findComponent(java.lang.String)" title="class or interface in javax.faces.component" class="externalLink"><code>UIComponentBase.findComponent(String)</code></a>.</div>
@@ -760,8 +785,8 @@ extends <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/ja
 <dd><code>expr</code> - the expression the component should be found with</dd>
 <dd><code>component</code> - the component</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a fluent-api style
-         usage</dd>
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+         fluent-api style usage</dd>
 </dl>
 </li>
 </ul>

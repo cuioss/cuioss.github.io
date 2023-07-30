@@ -16,18 +16,18 @@
 <span class="sourceLineNo">007</span><a id="line.7">import org.junit.jupiter.api.Test;</a>
 <span class="sourceLineNo">008</span><a id="line.8"></a>
 <span class="sourceLineNo">009</span><a id="line.9">/**</a>
-<span class="sourceLineNo">010</span><a id="line.10"> * Extension of {@linkplain AbstractConverterTest} to also test the sanitizing inside the</a>
-<span class="sourceLineNo">011</span><a id="line.11"> * getAsString function.</a>
+<span class="sourceLineNo">010</span><a id="line.10"> * Extension of {@linkplain AbstractConverterTest} to also test the sanitizing</a>
+<span class="sourceLineNo">011</span><a id="line.11"> * inside the getAsString function.</a>
 <span class="sourceLineNo">012</span><a id="line.12"> *</a>
 <span class="sourceLineNo">013</span><a id="line.13"> * @param &lt;C&gt; identifying the concrete {@link Converter} to be tested.</a>
-<span class="sourceLineNo">014</span><a id="line.14"> * @param &lt;T&gt; identifying the type of elements to be used for values to be given to the</a>
-<span class="sourceLineNo">015</span><a id="line.15"> *            {@link Converter}</a>
+<span class="sourceLineNo">014</span><a id="line.14"> * @param &lt;T&gt; identifying the type of elements to be used for values to be given</a>
+<span class="sourceLineNo">015</span><a id="line.15"> *            to the {@link Converter}</a>
 <span class="sourceLineNo">016</span><a id="line.16"> */</a>
 <span class="sourceLineNo">017</span><a id="line.17">public abstract class AbstractSanitizingConverterTest&lt;C extends Converter&lt;T&gt;, T&gt; extends AbstractConverterTest&lt;C, T&gt; {</a>
 <span class="sourceLineNo">018</span><a id="line.18"></a>
 <span class="sourceLineNo">019</span><a id="line.19">    /**</a>
-<span class="sourceLineNo">020</span><a id="line.20">     * Create an instance of the object containing a given malicious content that is to be converted</a>
-<span class="sourceLineNo">021</span><a id="line.21">     * into a string by this converter.</a>
+<span class="sourceLineNo">020</span><a id="line.20">     * Create an instance of the object containing a given malicious content that is</a>
+<span class="sourceLineNo">021</span><a id="line.21">     * to be converted into a string by this converter.</a>
 <span class="sourceLineNo">022</span><a id="line.22">     *</a>
 <span class="sourceLineNo">023</span><a id="line.23">     * @param content</a>
 <span class="sourceLineNo">024</span><a id="line.24">     * @return</a>

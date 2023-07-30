@@ -14,20 +14,21 @@
 <span class="sourceLineNo">005</span><a id="line.5">import de.cuioss.test.jsf.config.decorator.BeanConfigDecorator;</a>
 <span class="sourceLineNo">006</span><a id="line.6"></a>
 <span class="sourceLineNo">007</span><a id="line.7">/**</a>
-<span class="sourceLineNo">008</span><a id="line.8"> * Provides a callback method for registering {@link Named} beans for unit-testing</a>
-<span class="sourceLineNo">009</span><a id="line.9"> *</a>
-<span class="sourceLineNo">010</span><a id="line.10"> * @author Oliver Wolff</a>
-<span class="sourceLineNo">011</span><a id="line.11"> */</a>
-<span class="sourceLineNo">012</span><a id="line.12">public interface BeanConfigurator extends JsfTestContextConfigurator {</a>
-<span class="sourceLineNo">013</span><a id="line.13"></a>
-<span class="sourceLineNo">014</span><a id="line.14">    /**</a>
-<span class="sourceLineNo">015</span><a id="line.15">     * Callback method for interacting with the {@link BeanConfigDecorator} at the correct</a>
-<span class="sourceLineNo">016</span><a id="line.16">     * time.</a>
-<span class="sourceLineNo">017</span><a id="line.17">     *</a>
-<span class="sourceLineNo">018</span><a id="line.18">     * @param decorator is never null</a>
-<span class="sourceLineNo">019</span><a id="line.19">     */</a>
-<span class="sourceLineNo">020</span><a id="line.20">    void configureBeans(BeanConfigDecorator decorator);</a>
-<span class="sourceLineNo">021</span><a id="line.21">}</a>
+<span class="sourceLineNo">008</span><a id="line.8"> * Provides a callback method for registering {@link Named} beans for</a>
+<span class="sourceLineNo">009</span><a id="line.9"> * unit-testing</a>
+<span class="sourceLineNo">010</span><a id="line.10"> *</a>
+<span class="sourceLineNo">011</span><a id="line.11"> * @author Oliver Wolff</a>
+<span class="sourceLineNo">012</span><a id="line.12"> */</a>
+<span class="sourceLineNo">013</span><a id="line.13">public interface BeanConfigurator extends JsfTestContextConfigurator {</a>
+<span class="sourceLineNo">014</span><a id="line.14"></a>
+<span class="sourceLineNo">015</span><a id="line.15">    /**</a>
+<span class="sourceLineNo">016</span><a id="line.16">     * Callback method for interacting with the {@link BeanConfigDecorator} at the</a>
+<span class="sourceLineNo">017</span><a id="line.17">     * correct time.</a>
+<span class="sourceLineNo">018</span><a id="line.18">     *</a>
+<span class="sourceLineNo">019</span><a id="line.19">     * @param decorator is never null</a>
+<span class="sourceLineNo">020</span><a id="line.20">     */</a>
+<span class="sourceLineNo">021</span><a id="line.21">    void configureBeans(BeanConfigDecorator decorator);</a>
+<span class="sourceLineNo">022</span><a id="line.22">}</a>
 
 
 
