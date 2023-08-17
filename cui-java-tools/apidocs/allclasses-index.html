@@ -88,6 +88,15 @@ loadScripts(document, 'script');</script>
 <div class="block">Provides some helper-methods taken from com.google.common.util.concurrent
  package</div>
 </div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/logging/CuiLogger.html" title="class in de.cuioss.tools.logging">CuiLogger</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">
+ Wrapper around java-util <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.logging/java/util/logging/Logger.html" title="class or interface in java.util.logging" class="external-link"><code>Logger</code></a> that simplifies its usage.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/logging/CuiLoggerFactory.html" title="class in de.cuioss.tools.logging">CuiLoggerFactory</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Class provide factory method for CuiLogger instance</div>
+</div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab5"><a href="de.cuioss.java.tools/de/cuioss/tools/codec/DecoderException.html" title="class in de.cuioss.tools.codec">DecoderException</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab5">
 <div class="block">Thrown when there is a failure condition during the decoding process.</div>
@@ -197,173 +206,185 @@ loadScripts(document, 'script');</script>
 <div class="block">
  Operations to assist when working with a <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Locale.html" title="class or interface in java.util" class="external-link"><code>Locale</code></a>.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapBuilder.html" title="class in de.cuioss.tools.collect">MapBuilder</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapBuilder.html" title="type parameter in MapBuilder">K</a>,<wbr><a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapBuilder.html" title="type parameter in MapBuilder">V</a>&gt;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="de.cuioss.java.tools/de/cuioss/tools/logging/LogLevel.html" title="enum class in de.cuioss.tools.logging">LogLevel</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="block">Defines the log-levels with implicit mapping</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="de.cuioss.java.tools/de/cuioss/tools/logging/LogRecord.html" title="interface in de.cuioss.tools.logging">LogRecord</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="block">Provides additional information for simplifying logging</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/logging/LogRecordModel.html" title="class in de.cuioss.tools.logging">LogRecordModel</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Represents a log-entry.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapBuilder.html" title="class in de.cuioss.tools.collect">MapBuilder</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapBuilder.html" title="type parameter in MapBuilder">K</a>,<wbr><a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapBuilder.html" title="type parameter in MapBuilder">V</a>&gt;</div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Overview</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapDifference.html" title="interface in de.cuioss.tools.collect">MapDifference</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapDifference.html" title="type parameter in MapDifference">K</a>,<wbr><a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapDifference.html" title="type parameter in MapDifference">V</a>&gt;</div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapDifference.html" title="interface in de.cuioss.tools.collect">MapDifference</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapDifference.html" title="type parameter in MapDifference">K</a>,<wbr><a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapDifference.html" title="type parameter in MapDifference">V</a>&gt;</div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block">An object representing the differences between two maps.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapDifference.ValueDifference.html" title="interface in de.cuioss.tools.collect">MapDifference.ValueDifference</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapDifference.ValueDifference.html" title="type parameter in MapDifference.ValueDifference">V</a>&gt;</div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapDifference.ValueDifference.html" title="interface in de.cuioss.tools.collect">MapDifference.ValueDifference</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/collect/MapDifference.ValueDifference.html" title="type parameter in MapDifference.ValueDifference">V</a>&gt;</div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
 <div class="block">A difference between the mappings from two maps with the same key.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/lang/MoreArrays.html" title="class in de.cuioss.tools.lang">MoreArrays</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/lang/MoreArrays.html" title="class in de.cuioss.tools.lang">MoreArrays</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Overladed methods to check the emptiness of given primitive arrays.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/collect/MoreCollections.html" title="class in de.cuioss.tools.collect">MoreCollections</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/collect/MoreCollections.html" title="class in de.cuioss.tools.collect">MoreCollections</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Overview</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/lang/MoreObjects.html" title="class in de.cuioss.tools.lang">MoreObjects</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/lang/MoreObjects.html" title="class in de.cuioss.tools.lang">MoreObjects</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Provides some utilities in the context of <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link"><code>Object</code></a></div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/io/MorePaths.html" title="class in de.cuioss.tools.io">MorePaths</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/io/MorePaths.html" title="class in de.cuioss.tools.io">MorePaths</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Provides <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link"><code>Path</code></a> related utilities</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="de.cuioss.java.tools/de/cuioss/tools/io/MorePaths.FileWriteHandler.html" title="interface in de.cuioss.tools.io">MorePaths.FileWriteHandler</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="de.cuioss.java.tools/de/cuioss/tools/io/MorePaths.FileWriteHandler.html" title="interface in de.cuioss.tools.io">MorePaths.FileWriteHandler</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block">Command pattern interface delegating the file write operation to its caller.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/reflect/MoreReflection.html" title="class in de.cuioss.tools.reflect">MoreReflection</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/reflect/MoreReflection.html" title="class in de.cuioss.tools.reflect">MoreReflection</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Provides a number of methods simplifying the usage of Reflection-based
  access.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/string/MoreStrings.html" title="class in de.cuioss.tools.string">MoreStrings</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/string/MoreStrings.html" title="class in de.cuioss.tools.string">MoreStrings</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Provides some extensions to String handling like
  com.google.common.base.Strings.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/net/ParameterFilter.html" title="class in de.cuioss.tools.net">ParameterFilter</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/net/ParameterFilter.html" title="class in de.cuioss.tools.net">ParameterFilter</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Defines a filter identifying which parameters are not to be included within
  url parameter handling.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/collect/PartialArrayList.html" title="class in de.cuioss.tools.collect">PartialArrayList</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/collect/PartialArrayList.html" title="type parameter in PartialArrayList">T</a> extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a>&gt;</div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
-<div class="block">Overview</div>
-</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="de.cuioss.java.tools/de/cuioss/tools/collect/PartialCollection.html" title="interface in de.cuioss.tools.collect">PartialCollection</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/collect/PartialCollection.html" title="type parameter in PartialCollection">T</a> extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a>&gt;</div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
-<div class="block">Represents a partial collection / sub-collection.</div>
-</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/base/Preconditions.html" title="class in de.cuioss.tools.base">Preconditions</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
-<div class="block">Inspired by com.google.common.base.Preconditions.</div>
-</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/property/PropertyHolder.html" title="class in de.cuioss.tools.property">PropertyHolder</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/collect/PartialArrayList.html" title="class in de.cuioss.tools.collect">PartialArrayList</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/collect/PartialArrayList.html" title="type parameter in PartialArrayList">T</a> extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a>&gt;</div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Overview</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="de.cuioss.java.tools/de/cuioss/tools/property/PropertyMemberInfo.html" title="enum class in de.cuioss.tools.property">PropertyMemberInfo</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="de.cuioss.java.tools/de/cuioss/tools/collect/PartialCollection.html" title="interface in de.cuioss.tools.collect">PartialCollection</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/collect/PartialCollection.html" title="type parameter in PartialCollection">T</a> extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a>&gt;</div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="block">Represents a partial collection / sub-collection.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/base/Preconditions.html" title="class in de.cuioss.tools.base">Preconditions</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Inspired by com.google.common.base.Preconditions.</div>
+</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/property/PropertyHolder.html" title="class in de.cuioss.tools.property">PropertyHolder</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Overview</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="de.cuioss.java.tools/de/cuioss/tools/property/PropertyMemberInfo.html" title="enum class in de.cuioss.tools.property">PropertyMemberInfo</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Members of this enum define the way the corresponding property is subject to
  the contracts regarding the canonical <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link"><code>Object</code></a> methods like
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link"><code>Object.equals(Object)</code></a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link"><code>Object.hashCode()</code></a> and
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link"><code>Object.toString()</code></a> and the <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link"><code>Serializable</code></a> contract</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="de.cuioss.java.tools/de/cuioss/tools/property/PropertyReadWrite.html" title="enum class in de.cuioss.tools.property">PropertyReadWrite</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="de.cuioss.java.tools/de/cuioss/tools/property/PropertyReadWrite.html" title="enum class in de.cuioss.tools.property">PropertyReadWrite</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Defines the read write permissions for a given property.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/property/PropertyUtil.html" title="class in de.cuioss.tools.property">PropertyUtil</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/property/PropertyUtil.html" title="class in de.cuioss.tools.property">PropertyUtil</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Helper class providing convenient methods for reading from / writing to java
  beans.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/lang/SecuritySupport.html" title="class in de.cuioss.tools.lang">SecuritySupport</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">Deprecated, for removal: This API element is subject to removal in a future version.
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/lang/SecuritySupport.html" title="class in de.cuioss.tools.lang">SecuritySupport</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">Deprecated, for removal: This API element is subject to removal in a future version.
 <div class="deprecation-comment">SecurityManager hard deprecated by Java 18+</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/SimpleFormatter.html" title="class in de.cuioss.tools.formatting">SimpleFormatter</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/SimpleFormatter.html" title="class in de.cuioss.tools.formatting">SimpleFormatter</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Provide concatenation of strings by using
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.CharSequence...)" title="class or interface in java.lang" class="external-link">String.join(CharSequence, CharSequence...)</a>.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/SimpleFormatter.SimpleFormatterBuilder.html" title="class in de.cuioss.tools.formatting">SimpleFormatter.SimpleFormatterBuilder</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/SimpleFormatter.SimpleFormatterBuilder.html" title="class in de.cuioss.tools.formatting">SimpleFormatter.SimpleFormatterBuilder</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Internal Builder representation</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/SimpleFormatter.SimpleFormatterBuilder.BuilderWithStrategy.html" title="class in de.cuioss.tools.formatting">SimpleFormatter.SimpleFormatterBuilder.BuilderWithStrategy</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/SimpleFormatter.SimpleFormatterBuilder.BuilderWithStrategy.html" title="class in de.cuioss.tools.formatting">SimpleFormatter.SimpleFormatterBuilder.BuilderWithStrategy</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Internal Builder representation incorporating a strategy</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/SimpleFormatter.ValueHandling.html" title="enum class in de.cuioss.tools.formatting">SimpleFormatter.ValueHandling</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab3">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/string/Splitter.html" title="class in de.cuioss.tools.string">Splitter</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/SimpleFormatter.ValueHandling.html" title="enum class in de.cuioss.tools.formatting">SimpleFormatter.ValueHandling</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/string/Splitter.html" title="class in de.cuioss.tools.string">Splitter</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Derived from Googles Splitter.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/concurrent/StopWatch.html" title="class in de.cuioss.tools.concurrent">StopWatch</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/concurrent/StopWatch.html" title="class in de.cuioss.tools.concurrent">StopWatch</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">An object that measures elapsed time in nanoseconds.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/token/StringToken.html" title="class in de.cuioss.tools.formatting.template.token">StringToken</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/token/StringToken.html" title="class in de.cuioss.tools.formatting.template.token">StringToken</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Simple String token, this token returns always his value on
  <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/token/StringToken.html#substituteAttribute(de.cuioss.tools.formatting.template.FormatterSupport)">StringToken.substituteAttribute(FormatterSupport)</a></div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/io/StructuredFilename.html" title="class in de.cuioss.tools.io">StructuredFilename</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/io/StructuredFilename.html" title="class in de.cuioss.tools.io">StructuredFilename</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Helper class for splitting / interacting with Filename and corresponding
  suffixes.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateFormatter.html" title="interface in de.cuioss.tools.formatting.template">TemplateFormatter</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateFormatter.html" title="type parameter in TemplateFormatter">T</a> extends <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template">FormatterSupport</a>&gt;</div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateFormatter.html" title="interface in de.cuioss.tools.formatting.template">TemplateFormatter</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateFormatter.html" title="type parameter in TemplateFormatter">T</a> extends <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template">FormatterSupport</a>&gt;</div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block">The formatter should be able to convert complex type based on
  <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template"><code>FormatterSupport</code></a> into text by using a defined template.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateFormatterImpl.html" title="class in de.cuioss.tools.formatting.template">TemplateFormatterImpl</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateFormatterImpl.html" title="type parameter in TemplateFormatterImpl">T</a> extends <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template">FormatterSupport</a>&gt;</div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateFormatterImpl.html" title="class in de.cuioss.tools.formatting.template">TemplateFormatterImpl</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateFormatterImpl.html" title="type parameter in TemplateFormatterImpl">T</a> extends <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template">FormatterSupport</a>&gt;</div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Formatter which is able to replace parameter inside the template based on
  <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template"><code>FormatterSupport</code></a> information.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateFormatterImpl.TemplateBuilder.html" title="class in de.cuioss.tools.formatting.template">TemplateFormatterImpl.TemplateBuilder</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateFormatterImpl.TemplateBuilder.html" title="class in de.cuioss.tools.formatting.template">TemplateFormatterImpl.TemplateBuilder</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Template Builder</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateManager.html" title="class in de.cuioss.tools.formatting.template">TemplateManager</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateManager.html" title="type parameter in TemplateManager">T</a> extends <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template">FormatterSupport</a>&gt;</div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateManager.TemplateManagerBuilder.html" title="class in de.cuioss.tools.formatting.template">TemplateManager.TemplateManagerBuilder</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateManager.TemplateManagerBuilder.html" title="type parameter in TemplateManager.TemplateManagerBuilder">B</a> extends <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template">FormatterSupport</a>&gt;</div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateManager.html" title="class in de.cuioss.tools.formatting.template">TemplateManager</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateManager.html" title="type parameter in TemplateManager">T</a> extends <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template">FormatterSupport</a>&gt;</div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateManager.TemplateManagerBuilder.html" title="class in de.cuioss.tools.formatting.template">TemplateManager.TemplateManagerBuilder</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/TemplateManager.TemplateManagerBuilder.html" title="type parameter in TemplateManager.TemplateManagerBuilder">B</a> extends <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template">FormatterSupport</a>&gt;</div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Builder inner class for the template manager</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/string/TextSplitter.html" title="class in de.cuioss.tools.string">TextSplitter</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/string/TextSplitter.html" title="class in de.cuioss.tools.string">TextSplitter</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">This class provide functionality to transform long text to several html
  useful representation and encapsulate this as an object.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/concurrent/Ticker.html" title="class in de.cuioss.tools.concurrent">Ticker</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/concurrent/Ticker.html" title="class in de.cuioss.tools.concurrent">Ticker</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">A time source; returns a time value representing the number of nanoseconds
  elapsed since some fixed but arbitrary point in time.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/token/Token.html" title="interface in de.cuioss.tools.formatting.template.token">Token</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab1">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/token/Token.html" title="interface in de.cuioss.tools.formatting.template.token">Token</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
 <div class="block">Any token should provide a method to substitute "placeholder" with his value</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/net/UrlHelper.html" title="class in de.cuioss.tools.net">UrlHelper</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/net/UrlHelper.html" title="class in de.cuioss.tools.net">UrlHelper</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Provides some utility methods for url / path related data</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/io/UrlLoader.html" title="class in de.cuioss.tools.io">UrlLoader</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/io/UrlLoader.html" title="class in de.cuioss.tools.io">UrlLoader</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">This <a href="de.cuioss.java.tools/de/cuioss/tools/io/FileLoader.html" title="interface in de.cuioss.tools.io"><code>FileLoader</code></a> takes a <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URL.html" title="class or interface in java.net" class="external-link"><code>URL</code></a> as its parameter which is useful
  when e.g.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/net/UrlParameter.html" title="class in de.cuioss.tools.net">UrlParameter</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/net/UrlParameter.html" title="class in de.cuioss.tools.net">UrlParameter</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Simple wrapper around an Url Parameter Object.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/Validator.html" title="class in de.cuioss.tools.formatting.template">Validator</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/Validator.html" title="type parameter in Validator">F</a> extends <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template">FormatterSupport</a>&gt;</div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/Validator.ValidatorBuilder.html" title="class in de.cuioss.tools.formatting.template">Validator.ValidatorBuilder</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/Validator.ValidatorBuilder.html" title="type parameter in Validator.ValidatorBuilder">E</a> extends <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template">FormatterSupport</a>&gt;</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/Validator.html" title="class in de.cuioss.tools.formatting.template">Validator</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/Validator.html" title="type parameter in Validator">F</a> extends <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template">FormatterSupport</a>&gt;</div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/Validator.ValidatorBuilder.html" title="class in de.cuioss.tools.formatting.template">Validator.ValidatorBuilder</a>&lt;<a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/Validator.ValidatorBuilder.html" title="type parameter in Validator.ValidatorBuilder">E</a> extends <a href="de.cuioss.java.tools/de/cuioss/tools/formatting/template/FormatterSupport.html" title="interface in de.cuioss.tools.formatting.template">FormatterSupport</a>&gt;</div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">&nbsp;</div>
 </div>
 </div>
 </div>
