@@ -52,53 +52,52 @@
 <span class="source-line-no">039</span><span id="line-39">     * {@link #initCause}.</span>
 <span class="source-line-no">040</span><span id="line-40">     */</span>
 <span class="source-line-no">041</span><span id="line-41">    public EncoderException() {</span>
-<span class="source-line-no">042</span><span id="line-42">        super();</span>
-<span class="source-line-no">043</span><span id="line-43">    }</span>
-<span class="source-line-no">044</span><span id="line-44"></span>
-<span class="source-line-no">045</span><span id="line-45">    /**</span>
-<span class="source-line-no">046</span><span id="line-46">     * Constructs a new exception with the specified detail message. The cause is</span>
-<span class="source-line-no">047</span><span id="line-47">     * not initialized, and may subsequently be initialized by a call to</span>
-<span class="source-line-no">048</span><span id="line-48">     * {@link #initCause}.</span>
-<span class="source-line-no">049</span><span id="line-49">     *</span>
-<span class="source-line-no">050</span><span id="line-50">     * @param message a useful message relating to the encoder specific error.</span>
-<span class="source-line-no">051</span><span id="line-51">     */</span>
-<span class="source-line-no">052</span><span id="line-52">    public EncoderException(final String message) {</span>
-<span class="source-line-no">053</span><span id="line-53">        super(message);</span>
-<span class="source-line-no">054</span><span id="line-54">    }</span>
-<span class="source-line-no">055</span><span id="line-55"></span>
-<span class="source-line-no">056</span><span id="line-56">    /**</span>
-<span class="source-line-no">057</span><span id="line-57">     * Constructs a new exception with the specified detail message and cause.</span>
-<span class="source-line-no">058</span><span id="line-58">     *</span>
-<span class="source-line-no">059</span><span id="line-59">     * &lt;p&gt;</span>
-<span class="source-line-no">060</span><span id="line-60">     * Note that the detail message associated with {@code cause} is not</span>
-<span class="source-line-no">061</span><span id="line-61">     * automatically incorporated into this exception's detail message.</span>
-<span class="source-line-no">062</span><span id="line-62">     * &lt;/p&gt;</span>
-<span class="source-line-no">063</span><span id="line-63">     *</span>
-<span class="source-line-no">064</span><span id="line-64">     * @param message The detail message which is saved for later retrieval by the</span>
-<span class="source-line-no">065</span><span id="line-65">     *                {@link #getMessage()} method.</span>
-<span class="source-line-no">066</span><span id="line-66">     * @param cause   The cause which is saved for later retrieval by the</span>
-<span class="source-line-no">067</span><span id="line-67">     *                {@link #getCause()} method. A {@code null} value is permitted,</span>
-<span class="source-line-no">068</span><span id="line-68">     *                and indicates that the cause is nonexistent or unknown.</span>
-<span class="source-line-no">069</span><span id="line-69">     */</span>
-<span class="source-line-no">070</span><span id="line-70">    public EncoderException(final String message, final Throwable cause) {</span>
-<span class="source-line-no">071</span><span id="line-71">        super(message, cause);</span>
-<span class="source-line-no">072</span><span id="line-72">    }</span>
-<span class="source-line-no">073</span><span id="line-73"></span>
-<span class="source-line-no">074</span><span id="line-74">    /**</span>
-<span class="source-line-no">075</span><span id="line-75">     * Constructs a new exception with the specified cause and a detail message of</span>
-<span class="source-line-no">076</span><span id="line-76">     * &lt;code&gt;(cause==null ?</span>
-<span class="source-line-no">077</span><span id="line-77">     * null : cause.toString())&lt;/code&gt; (which typically contains the class and</span>
-<span class="source-line-no">078</span><span id="line-78">     * detail message of {@code cause}). This constructor is useful for exceptions</span>
-<span class="source-line-no">079</span><span id="line-79">     * that are little more than wrappers for other throwables.</span>
-<span class="source-line-no">080</span><span id="line-80">     *</span>
-<span class="source-line-no">081</span><span id="line-81">     * @param cause The cause which is saved for later retrieval by the</span>
-<span class="source-line-no">082</span><span id="line-82">     *              {@link #getCause()} method. A {@code null} value is permitted,</span>
-<span class="source-line-no">083</span><span id="line-83">     *              and indicates that the cause is nonexistent or unknown.</span>
-<span class="source-line-no">084</span><span id="line-84">     */</span>
-<span class="source-line-no">085</span><span id="line-85">    public EncoderException(final Throwable cause) {</span>
-<span class="source-line-no">086</span><span id="line-86">        super(cause);</span>
-<span class="source-line-no">087</span><span id="line-87">    }</span>
-<span class="source-line-no">088</span><span id="line-88">}</span>
+<span class="source-line-no">042</span><span id="line-42">    }</span>
+<span class="source-line-no">043</span><span id="line-43"></span>
+<span class="source-line-no">044</span><span id="line-44">    /**</span>
+<span class="source-line-no">045</span><span id="line-45">     * Constructs a new exception with the specified detail message. The cause is</span>
+<span class="source-line-no">046</span><span id="line-46">     * not initialized, and may subsequently be initialized by a call to</span>
+<span class="source-line-no">047</span><span id="line-47">     * {@link #initCause}.</span>
+<span class="source-line-no">048</span><span id="line-48">     *</span>
+<span class="source-line-no">049</span><span id="line-49">     * @param message a useful message relating to the encoder specific error.</span>
+<span class="source-line-no">050</span><span id="line-50">     */</span>
+<span class="source-line-no">051</span><span id="line-51">    public EncoderException(final String message) {</span>
+<span class="source-line-no">052</span><span id="line-52">        super(message);</span>
+<span class="source-line-no">053</span><span id="line-53">    }</span>
+<span class="source-line-no">054</span><span id="line-54"></span>
+<span class="source-line-no">055</span><span id="line-55">    /**</span>
+<span class="source-line-no">056</span><span id="line-56">     * Constructs a new exception with the specified detail message and cause.</span>
+<span class="source-line-no">057</span><span id="line-57">     *</span>
+<span class="source-line-no">058</span><span id="line-58">     * &lt;p&gt;</span>
+<span class="source-line-no">059</span><span id="line-59">     * Note that the detail message associated with {@code cause} is not</span>
+<span class="source-line-no">060</span><span id="line-60">     * automatically incorporated into this exception's detail message.</span>
+<span class="source-line-no">061</span><span id="line-61">     * &lt;/p&gt;</span>
+<span class="source-line-no">062</span><span id="line-62">     *</span>
+<span class="source-line-no">063</span><span id="line-63">     * @param message The detail message which is saved for later retrieval by the</span>
+<span class="source-line-no">064</span><span id="line-64">     *                {@link #getMessage()} method.</span>
+<span class="source-line-no">065</span><span id="line-65">     * @param cause   The cause which is saved for later retrieval by the</span>
+<span class="source-line-no">066</span><span id="line-66">     *                {@link #getCause()} method. A {@code null} value is permitted,</span>
+<span class="source-line-no">067</span><span id="line-67">     *                and indicates that the cause is nonexistent or unknown.</span>
+<span class="source-line-no">068</span><span id="line-68">     */</span>
+<span class="source-line-no">069</span><span id="line-69">    public EncoderException(final String message, final Throwable cause) {</span>
+<span class="source-line-no">070</span><span id="line-70">        super(message, cause);</span>
+<span class="source-line-no">071</span><span id="line-71">    }</span>
+<span class="source-line-no">072</span><span id="line-72"></span>
+<span class="source-line-no">073</span><span id="line-73">    /**</span>
+<span class="source-line-no">074</span><span id="line-74">     * Constructs a new exception with the specified cause and a detail message of</span>
+<span class="source-line-no">075</span><span id="line-75">     * &lt;code&gt;(cause==null ?</span>
+<span class="source-line-no">076</span><span id="line-76">     * null : cause.toString())&lt;/code&gt; (which typically contains the class and</span>
+<span class="source-line-no">077</span><span id="line-77">     * detail message of {@code cause}). This constructor is useful for exceptions</span>
+<span class="source-line-no">078</span><span id="line-78">     * that are little more than wrappers for other throwables.</span>
+<span class="source-line-no">079</span><span id="line-79">     *</span>
+<span class="source-line-no">080</span><span id="line-80">     * @param cause The cause which is saved for later retrieval by the</span>
+<span class="source-line-no">081</span><span id="line-81">     *              {@link #getCause()} method. A {@code null} value is permitted,</span>
+<span class="source-line-no">082</span><span id="line-82">     *              and indicates that the cause is nonexistent or unknown.</span>
+<span class="source-line-no">083</span><span id="line-83">     */</span>
+<span class="source-line-no">084</span><span id="line-84">    public EncoderException(final Throwable cause) {</span>
+<span class="source-line-no">085</span><span id="line-85">        super(cause);</span>
+<span class="source-line-no">086</span><span id="line-86">    }</span>
+<span class="source-line-no">087</span><span id="line-87">}</span>
 
 
 

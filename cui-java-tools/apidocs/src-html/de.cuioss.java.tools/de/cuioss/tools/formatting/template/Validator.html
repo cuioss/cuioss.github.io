@@ -104,40 +104,39 @@
 <span class="source-line-no">091</span><span id="line-91">        new Validator.ValidatorBuilder&lt;E&gt;().withLexer(lexer).validate(template);</span>
 <span class="source-line-no">092</span><span id="line-92">    }</span>
 <span class="source-line-no">093</span><span id="line-93"></span>
-<span class="source-line-no">094</span><span id="line-94">    @SuppressWarnings("javadoc")</span>
-<span class="source-line-no">095</span><span id="line-95">    @NoArgsConstructor</span>
-<span class="source-line-no">096</span><span id="line-96">    public static final class ValidatorBuilder&lt;E extends FormatterSupport&gt; {</span>
-<span class="source-line-no">097</span><span id="line-97"></span>
-<span class="source-line-no">098</span><span id="line-98">        private Lexer&lt;E&gt; lexer;</span>
-<span class="source-line-no">099</span><span id="line-99"></span>
-<span class="source-line-no">100</span><span id="line-100">        public Validator&lt;E&gt; forType(final Class&lt;E&gt; source) {</span>
-<span class="source-line-no">101</span><span id="line-101">            if (null == lexer) {</span>
-<span class="source-line-no">102</span><span id="line-102">                lexer = useSimpleElWithSquaredBrackets(source);</span>
-<span class="source-line-no">103</span><span id="line-103">            }</span>
-<span class="source-line-no">104</span><span id="line-104">            return new Validator&lt;&gt;(lexer);</span>
-<span class="source-line-no">105</span><span id="line-105">        }</span>
-<span class="source-line-no">106</span><span id="line-106"></span>
-<span class="source-line-no">107</span><span id="line-107">        public Validator&lt;E&gt; withLexer(final Lexer&lt;E&gt; lexerInstance) {</span>
-<span class="source-line-no">108</span><span id="line-108">            return new Validator&lt;&gt;(lexerInstance);</span>
-<span class="source-line-no">109</span><span id="line-109">        }</span>
-<span class="source-line-no">110</span><span id="line-110"></span>
-<span class="source-line-no">111</span><span id="line-111">        public Validator&lt;E&gt; forSource(E source) {</span>
-<span class="source-line-no">112</span><span id="line-112">            if (null == lexer) {</span>
-<span class="source-line-no">113</span><span id="line-113">                lexer = useSimpleElWithSquaredBrackets(source);</span>
-<span class="source-line-no">114</span><span id="line-114">            }</span>
-<span class="source-line-no">115</span><span id="line-115">            return new Validator&lt;&gt;(lexer);</span>
-<span class="source-line-no">116</span><span id="line-116">        }</span>
-<span class="source-line-no">117</span><span id="line-117"></span>
-<span class="source-line-no">118</span><span id="line-118">        private Lexer&lt;E&gt; useSimpleElWithSquaredBrackets(final Class&lt;E&gt; source) {</span>
-<span class="source-line-no">119</span><span id="line-119">            return LexerBuilder.useSimpleElWithSquaredBrackets().build(source);</span>
-<span class="source-line-no">120</span><span id="line-120">        }</span>
-<span class="source-line-no">121</span><span id="line-121"></span>
-<span class="source-line-no">122</span><span id="line-122">        private Lexer&lt;E&gt; useSimpleElWithSquaredBrackets(E source) {</span>
-<span class="source-line-no">123</span><span id="line-123">            return LexerBuilder.useSimpleElWithSquaredBrackets().build(source);</span>
-<span class="source-line-no">124</span><span id="line-124">        }</span>
-<span class="source-line-no">125</span><span id="line-125"></span>
-<span class="source-line-no">126</span><span id="line-126">    }</span>
-<span class="source-line-no">127</span><span id="line-127">}</span>
+<span class="source-line-no">094</span><span id="line-94">    @NoArgsConstructor</span>
+<span class="source-line-no">095</span><span id="line-95">    public static final class ValidatorBuilder&lt;E extends FormatterSupport&gt; {</span>
+<span class="source-line-no">096</span><span id="line-96"></span>
+<span class="source-line-no">097</span><span id="line-97">        private Lexer&lt;E&gt; lexer;</span>
+<span class="source-line-no">098</span><span id="line-98"></span>
+<span class="source-line-no">099</span><span id="line-99">        public Validator&lt;E&gt; forType(final Class&lt;E&gt; source) {</span>
+<span class="source-line-no">100</span><span id="line-100">            if (null == lexer) {</span>
+<span class="source-line-no">101</span><span id="line-101">                lexer = useSimpleElWithSquaredBrackets(source);</span>
+<span class="source-line-no">102</span><span id="line-102">            }</span>
+<span class="source-line-no">103</span><span id="line-103">            return new Validator&lt;&gt;(lexer);</span>
+<span class="source-line-no">104</span><span id="line-104">        }</span>
+<span class="source-line-no">105</span><span id="line-105"></span>
+<span class="source-line-no">106</span><span id="line-106">        public Validator&lt;E&gt; withLexer(final Lexer&lt;E&gt; lexerInstance) {</span>
+<span class="source-line-no">107</span><span id="line-107">            return new Validator&lt;&gt;(lexerInstance);</span>
+<span class="source-line-no">108</span><span id="line-108">        }</span>
+<span class="source-line-no">109</span><span id="line-109"></span>
+<span class="source-line-no">110</span><span id="line-110">        public Validator&lt;E&gt; forSource(E source) {</span>
+<span class="source-line-no">111</span><span id="line-111">            if (null == lexer) {</span>
+<span class="source-line-no">112</span><span id="line-112">                lexer = useSimpleElWithSquaredBrackets(source);</span>
+<span class="source-line-no">113</span><span id="line-113">            }</span>
+<span class="source-line-no">114</span><span id="line-114">            return new Validator&lt;&gt;(lexer);</span>
+<span class="source-line-no">115</span><span id="line-115">        }</span>
+<span class="source-line-no">116</span><span id="line-116"></span>
+<span class="source-line-no">117</span><span id="line-117">        private Lexer&lt;E&gt; useSimpleElWithSquaredBrackets(final Class&lt;E&gt; source) {</span>
+<span class="source-line-no">118</span><span id="line-118">            return LexerBuilder.useSimpleElWithSquaredBrackets().build(source);</span>
+<span class="source-line-no">119</span><span id="line-119">        }</span>
+<span class="source-line-no">120</span><span id="line-120"></span>
+<span class="source-line-no">121</span><span id="line-121">        private Lexer&lt;E&gt; useSimpleElWithSquaredBrackets(E source) {</span>
+<span class="source-line-no">122</span><span id="line-122">            return LexerBuilder.useSimpleElWithSquaredBrackets().build(source);</span>
+<span class="source-line-no">123</span><span id="line-123">        }</span>
+<span class="source-line-no">124</span><span id="line-124"></span>
+<span class="source-line-no">125</span><span id="line-125">    }</span>
+<span class="source-line-no">126</span><span id="line-126">}</span>
 
 
 

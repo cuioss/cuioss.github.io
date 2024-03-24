@@ -86,7 +86,7 @@
 <span class="source-line-no">073</span><span id="line-73">                "AvailablePropertyValues must not be null. ");</span>
 <span class="source-line-no">074</span><span id="line-74">        final var result = new StringBuilder();</span>
 <span class="source-line-no">075</span><span id="line-75">        if (attributeValues.containsKey(attribute)) {</span>
-<span class="source-line-no">076</span><span id="line-76">            if (attributeValues.keySet().size() &gt; 1) {</span>
+<span class="source-line-no">076</span><span id="line-76">            if (attributeValues.size() &gt; 1) {</span>
 <span class="source-line-no">077</span><span id="line-77">                result.append(before).append(attributeValues.get(attribute)).append(after);</span>
 <span class="source-line-no">078</span><span id="line-78">            } else {</span>
 <span class="source-line-no">079</span><span id="line-79">                // special case : if only one value exists no stored before + after are needed</span>
