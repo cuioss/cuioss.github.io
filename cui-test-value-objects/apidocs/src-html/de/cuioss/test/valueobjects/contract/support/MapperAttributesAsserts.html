@@ -75,98 +75,97 @@
 <span class="source-line-no">062</span><span id="line-62">     */</span>
 <span class="source-line-no">063</span><span id="line-63">    public MapperAttributesAsserts(VerifyMapperConfiguration config, RuntimeProperties targetProperties,</span>
 <span class="source-line-no">064</span><span id="line-64">            RuntimeProperties sourceProperties) {</span>
-<span class="source-line-no">065</span><span id="line-65">        super();</span>
-<span class="source-line-no">066</span><span id="line-66">        var targetPropertyMap = targetProperties.asMapView(false);</span>
-<span class="source-line-no">067</span><span id="line-67">        var sourcePropertyMap = sourceProperties.asMapView(false);</span>
-<span class="source-line-no">068</span><span id="line-68">        List&lt;MappingTuple&gt; mapping = new ArrayList&lt;&gt;(MappingAssertStrategy.EQUALS.readConfiguration(config));</span>
-<span class="source-line-no">069</span><span id="line-69"></span>
-<span class="source-line-no">070</span><span id="line-70">        mapping.addAll(MappingAssertStrategy.NOT_NULL.readConfiguration(config));</span>
-<span class="source-line-no">071</span><span id="line-71"></span>
-<span class="source-line-no">072</span><span id="line-72">        for (MappingTuple tuple : mapping) {</span>
-<span class="source-line-no">073</span><span id="line-73">            assertTrue(targetPropertyMap.containsKey(tuple.getTarget()),</span>
-<span class="source-line-no">074</span><span id="line-74">                    "Invalid (unmapped) attribute-name for target: " + tuple.toString());</span>
-<span class="source-line-no">075</span><span id="line-75">            assertTrue(sourcePropertyMap.containsKey(tuple.getSource()),</span>
-<span class="source-line-no">076</span><span id="line-76">                    "Invalid (unmapped) attribute-name for source: " + tuple.toString());</span>
-<span class="source-line-no">077</span><span id="line-77">        }</span>
-<span class="source-line-no">078</span><span id="line-78"></span>
-<span class="source-line-no">079</span><span id="line-79">        sourceAsserts = new ArrayList&lt;&gt;();</span>
-<span class="source-line-no">080</span><span id="line-80">        for (MappingTuple tuple : mapping) {</span>
-<span class="source-line-no">081</span><span id="line-81">            sourceAsserts.add(new AssertTuple(sourcePropertyMap.get(tuple.getSource()),</span>
-<span class="source-line-no">082</span><span id="line-82">                    targetPropertyMap.get(tuple.getTarget()), tuple));</span>
-<span class="source-line-no">083</span><span id="line-83">        }</span>
-<span class="source-line-no">084</span><span id="line-84">        logConfigurationStatus(targetProperties, sourceProperties);</span>
-<span class="source-line-no">085</span><span id="line-85">    }</span>
-<span class="source-line-no">086</span><span id="line-86"></span>
-<span class="source-line-no">087</span><span id="line-87">    private void logConfigurationStatus(RuntimeProperties targetProperties, RuntimeProperties sourceProperties) {</span>
-<span class="source-line-no">088</span><span id="line-88">        if (sourceAsserts.isEmpty()) {</span>
-<span class="source-line-no">089</span><span id="line-89">            log.warn(</span>
-<span class="source-line-no">090</span><span id="line-90">                    "No attribute specific mapping found. use @VerifyMapperConfiguration(equals(\"name:firstName\")) or @VerifyMapperConfiguration(notNull(\"name:lastName\")) in order to activate");</span>
-<span class="source-line-no">091</span><span id="line-91">        }</span>
-<span class="source-line-no">092</span><span id="line-92">        Set&lt;String&gt; sourceMappingNames = sourceAsserts.stream().map(a -&gt; a.getMappingTuple().getSource())</span>
-<span class="source-line-no">093</span><span id="line-93">                .collect(Collectors.toSet());</span>
-<span class="source-line-no">094</span><span id="line-94">        Set&lt;String&gt; targetMappingNames = sourceAsserts.stream().map(a -&gt; a.getMappingTuple().getTarget())</span>
-<span class="source-line-no">095</span><span id="line-95">                .collect(Collectors.toSet());</span>
-<span class="source-line-no">096</span><span id="line-96">        var sourceTypeProperties = RuntimeProperties.extractNames(sourceProperties.getAllProperties());</span>
-<span class="source-line-no">097</span><span id="line-97">        var targetTypeProperties = RuntimeProperties.extractNames(targetProperties.getAllProperties());</span>
-<span class="source-line-no">098</span><span id="line-98"></span>
-<span class="source-line-no">099</span><span id="line-99">        sourceTypeProperties.removeAll(sourceMappingNames);</span>
-<span class="source-line-no">100</span><span id="line-100">        targetTypeProperties.removeAll(targetMappingNames);</span>
-<span class="source-line-no">101</span><span id="line-101">        if (sourceTypeProperties.isEmpty()) {</span>
-<span class="source-line-no">102</span><span id="line-102">            log.info("All source-properties are covered.");</span>
-<span class="source-line-no">103</span><span id="line-103">        } else {</span>
-<span class="source-line-no">104</span><span id="line-104">            log.warn(PROPERTY_MAPPING_INCOMPLETE, "source", sourceTypeProperties);</span>
-<span class="source-line-no">105</span><span id="line-105">        }</span>
-<span class="source-line-no">106</span><span id="line-106">        if (targetTypeProperties.isEmpty()) {</span>
-<span class="source-line-no">107</span><span id="line-107">            log.info("All target-properties are covered.");</span>
-<span class="source-line-no">108</span><span id="line-108">        } else {</span>
-<span class="source-line-no">109</span><span id="line-109">            log.warn(PROPERTY_MAPPING_INCOMPLETE, "target", targetTypeProperties);</span>
-<span class="source-line-no">110</span><span id="line-110">        }</span>
-<span class="source-line-no">111</span><span id="line-111">    }</span>
-<span class="source-line-no">112</span><span id="line-112"></span>
-<span class="source-line-no">113</span><span id="line-113">    /**</span>
-<span class="source-line-no">114</span><span id="line-114">     * @param sourceAttributes to be tested</span>
-<span class="source-line-no">115</span><span id="line-115">     * @param source</span>
-<span class="source-line-no">116</span><span id="line-116">     * @param target</span>
-<span class="source-line-no">117</span><span id="line-117">     */</span>
-<span class="source-line-no">118</span><span id="line-118">    public void assertMappingForSourceAttributes(Collection&lt;String&gt; sourceAttributes, Object source, Object target) {</span>
-<span class="source-line-no">119</span><span id="line-119">        if (sourceAsserts.isEmpty()) {</span>
-<span class="source-line-no">120</span><span id="line-120">            return;</span>
-<span class="source-line-no">121</span><span id="line-121">        }</span>
-<span class="source-line-no">122</span><span id="line-122">        Map&lt;String, List&lt;AssertTuple&gt;&gt; asserts = new HashMap&lt;&gt;();</span>
-<span class="source-line-no">123</span><span id="line-123">        for (String name : sourceAttributes) {</span>
-<span class="source-line-no">124</span><span id="line-124">            var concreteAsserts = sourceAsserts.stream().filter(a -&gt; a.isResponsibleForSource(name)).toList();</span>
-<span class="source-line-no">125</span><span id="line-125">            if (concreteAsserts.isEmpty()) {</span>
-<span class="source-line-no">126</span><span id="line-126">                log.info("Checked property '{}' is not configured to be asserted, ist this intentional?", name);</span>
-<span class="source-line-no">127</span><span id="line-127">            } else {</span>
-<span class="source-line-no">128</span><span id="line-128">                asserts.put(name, concreteAsserts);</span>
-<span class="source-line-no">129</span><span id="line-129">            }</span>
-<span class="source-line-no">130</span><span id="line-130">        }</span>
-<span class="source-line-no">131</span><span id="line-131">        if (asserts.isEmpty()) {</span>
-<span class="source-line-no">132</span><span id="line-132">            return;</span>
-<span class="source-line-no">133</span><span id="line-133">        }</span>
-<span class="source-line-no">134</span><span id="line-134">        // Defines the elements that should not be affected in the correct instance and</span>
-<span class="source-line-no">135</span><span id="line-135">        // should</span>
-<span class="source-line-no">136</span><span id="line-136">        // therefore not be changed</span>
-<span class="source-line-no">137</span><span id="line-137">        Set&lt;AssertTuple&gt; activeAsserts = new HashSet&lt;&gt;();</span>
-<span class="source-line-no">138</span><span id="line-138">        asserts.values().forEach(activeAsserts::addAll);</span>
-<span class="source-line-no">139</span><span id="line-139">        List&lt;AssertTuple&gt; nullAsserts = new ArrayList&lt;&gt;(sourceAsserts);</span>
-<span class="source-line-no">140</span><span id="line-140">        nullAsserts.removeAll(activeAsserts);</span>
-<span class="source-line-no">141</span><span id="line-141"></span>
-<span class="source-line-no">142</span><span id="line-142">        // Now do the actual checks</span>
-<span class="source-line-no">143</span><span id="line-143">        for (Entry&lt;String, List&lt;AssertTuple&gt;&gt; entry : asserts.entrySet()) {</span>
-<span class="source-line-no">144</span><span id="line-144">            log.debug("Asserting attribute {}", entry.getKey());</span>
-<span class="source-line-no">145</span><span id="line-145">            entry.getValue().forEach(a -&gt; a.assertContract(source, target));</span>
-<span class="source-line-no">146</span><span id="line-146">        }</span>
-<span class="source-line-no">147</span><span id="line-147">        // All not affected elements that provide no default should be null / empty</span>
-<span class="source-line-no">148</span><span id="line-148">        for (AssertTuple nullAssert : nullAsserts) {</span>
-<span class="source-line-no">149</span><span id="line-149">            log.debug("Asserting attribute to be null / not set {}", nullAssert.getTargetSupport().getName());</span>
-<span class="source-line-no">150</span><span id="line-150">            MappingAssertStrategy.NULL_OR_DEFAULT.assertMapping(nullAssert.getSourceSupport(), source,</span>
-<span class="source-line-no">151</span><span id="line-151">                    nullAssert.getTargetSupport(), target);</span>
-<span class="source-line-no">152</span><span id="line-152">        }</span>
-<span class="source-line-no">153</span><span id="line-153"></span>
-<span class="source-line-no">154</span><span id="line-154">    }</span>
-<span class="source-line-no">155</span><span id="line-155"></span>
-<span class="source-line-no">156</span><span id="line-156">}</span>
+<span class="source-line-no">065</span><span id="line-65">        var targetPropertyMap = targetProperties.asMapView(false);</span>
+<span class="source-line-no">066</span><span id="line-66">        var sourcePropertyMap = sourceProperties.asMapView(false);</span>
+<span class="source-line-no">067</span><span id="line-67">        List&lt;MappingTuple&gt; mapping = new ArrayList&lt;&gt;(MappingAssertStrategy.EQUALS.readConfiguration(config));</span>
+<span class="source-line-no">068</span><span id="line-68"></span>
+<span class="source-line-no">069</span><span id="line-69">        mapping.addAll(MappingAssertStrategy.NOT_NULL.readConfiguration(config));</span>
+<span class="source-line-no">070</span><span id="line-70"></span>
+<span class="source-line-no">071</span><span id="line-71">        for (MappingTuple tuple : mapping) {</span>
+<span class="source-line-no">072</span><span id="line-72">            assertTrue(targetPropertyMap.containsKey(tuple.getTarget()),</span>
+<span class="source-line-no">073</span><span id="line-73">                    "Invalid (unmapped) attribute-name for target: " + tuple.toString());</span>
+<span class="source-line-no">074</span><span id="line-74">            assertTrue(sourcePropertyMap.containsKey(tuple.getSource()),</span>
+<span class="source-line-no">075</span><span id="line-75">                    "Invalid (unmapped) attribute-name for source: " + tuple.toString());</span>
+<span class="source-line-no">076</span><span id="line-76">        }</span>
+<span class="source-line-no">077</span><span id="line-77"></span>
+<span class="source-line-no">078</span><span id="line-78">        sourceAsserts = new ArrayList&lt;&gt;();</span>
+<span class="source-line-no">079</span><span id="line-79">        for (MappingTuple tuple : mapping) {</span>
+<span class="source-line-no">080</span><span id="line-80">            sourceAsserts.add(new AssertTuple(sourcePropertyMap.get(tuple.getSource()),</span>
+<span class="source-line-no">081</span><span id="line-81">                    targetPropertyMap.get(tuple.getTarget()), tuple));</span>
+<span class="source-line-no">082</span><span id="line-82">        }</span>
+<span class="source-line-no">083</span><span id="line-83">        logConfigurationStatus(targetProperties, sourceProperties);</span>
+<span class="source-line-no">084</span><span id="line-84">    }</span>
+<span class="source-line-no">085</span><span id="line-85"></span>
+<span class="source-line-no">086</span><span id="line-86">    private void logConfigurationStatus(RuntimeProperties targetProperties, RuntimeProperties sourceProperties) {</span>
+<span class="source-line-no">087</span><span id="line-87">        if (sourceAsserts.isEmpty()) {</span>
+<span class="source-line-no">088</span><span id="line-88">            log.warn(</span>
+<span class="source-line-no">089</span><span id="line-89">                    "No attribute specific mapping found. use @VerifyMapperConfiguration(equals(\"name:firstName\")) or @VerifyMapperConfiguration(notNull(\"name:lastName\")) in order to activate");</span>
+<span class="source-line-no">090</span><span id="line-90">        }</span>
+<span class="source-line-no">091</span><span id="line-91">        Set&lt;String&gt; sourceMappingNames = sourceAsserts.stream().map(a -&gt; a.getMappingTuple().getSource())</span>
+<span class="source-line-no">092</span><span id="line-92">                .collect(Collectors.toSet());</span>
+<span class="source-line-no">093</span><span id="line-93">        Set&lt;String&gt; targetMappingNames = sourceAsserts.stream().map(a -&gt; a.getMappingTuple().getTarget())</span>
+<span class="source-line-no">094</span><span id="line-94">                .collect(Collectors.toSet());</span>
+<span class="source-line-no">095</span><span id="line-95">        var sourceTypeProperties = RuntimeProperties.extractNames(sourceProperties.getAllProperties());</span>
+<span class="source-line-no">096</span><span id="line-96">        var targetTypeProperties = RuntimeProperties.extractNames(targetProperties.getAllProperties());</span>
+<span class="source-line-no">097</span><span id="line-97"></span>
+<span class="source-line-no">098</span><span id="line-98">        sourceTypeProperties.removeAll(sourceMappingNames);</span>
+<span class="source-line-no">099</span><span id="line-99">        targetTypeProperties.removeAll(targetMappingNames);</span>
+<span class="source-line-no">100</span><span id="line-100">        if (sourceTypeProperties.isEmpty()) {</span>
+<span class="source-line-no">101</span><span id="line-101">            log.info("All source-properties are covered.");</span>
+<span class="source-line-no">102</span><span id="line-102">        } else {</span>
+<span class="source-line-no">103</span><span id="line-103">            log.warn(PROPERTY_MAPPING_INCOMPLETE, "source", sourceTypeProperties);</span>
+<span class="source-line-no">104</span><span id="line-104">        }</span>
+<span class="source-line-no">105</span><span id="line-105">        if (targetTypeProperties.isEmpty()) {</span>
+<span class="source-line-no">106</span><span id="line-106">            log.info("All target-properties are covered.");</span>
+<span class="source-line-no">107</span><span id="line-107">        } else {</span>
+<span class="source-line-no">108</span><span id="line-108">            log.warn(PROPERTY_MAPPING_INCOMPLETE, "target", targetTypeProperties);</span>
+<span class="source-line-no">109</span><span id="line-109">        }</span>
+<span class="source-line-no">110</span><span id="line-110">    }</span>
+<span class="source-line-no">111</span><span id="line-111"></span>
+<span class="source-line-no">112</span><span id="line-112">    /**</span>
+<span class="source-line-no">113</span><span id="line-113">     * @param sourceAttributes to be tested</span>
+<span class="source-line-no">114</span><span id="line-114">     * @param source</span>
+<span class="source-line-no">115</span><span id="line-115">     * @param target</span>
+<span class="source-line-no">116</span><span id="line-116">     */</span>
+<span class="source-line-no">117</span><span id="line-117">    public void assertMappingForSourceAttributes(Collection&lt;String&gt; sourceAttributes, Object source, Object target) {</span>
+<span class="source-line-no">118</span><span id="line-118">        if (sourceAsserts.isEmpty()) {</span>
+<span class="source-line-no">119</span><span id="line-119">            return;</span>
+<span class="source-line-no">120</span><span id="line-120">        }</span>
+<span class="source-line-no">121</span><span id="line-121">        Map&lt;String, List&lt;AssertTuple&gt;&gt; asserts = new HashMap&lt;&gt;();</span>
+<span class="source-line-no">122</span><span id="line-122">        for (String name : sourceAttributes) {</span>
+<span class="source-line-no">123</span><span id="line-123">            var concreteAsserts = sourceAsserts.stream().filter(a -&gt; a.isResponsibleForSource(name)).toList();</span>
+<span class="source-line-no">124</span><span id="line-124">            if (concreteAsserts.isEmpty()) {</span>
+<span class="source-line-no">125</span><span id="line-125">                log.info("Checked property '{}' is not configured to be asserted, ist this intentional?", name);</span>
+<span class="source-line-no">126</span><span id="line-126">            } else {</span>
+<span class="source-line-no">127</span><span id="line-127">                asserts.put(name, concreteAsserts);</span>
+<span class="source-line-no">128</span><span id="line-128">            }</span>
+<span class="source-line-no">129</span><span id="line-129">        }</span>
+<span class="source-line-no">130</span><span id="line-130">        if (asserts.isEmpty()) {</span>
+<span class="source-line-no">131</span><span id="line-131">            return;</span>
+<span class="source-line-no">132</span><span id="line-132">        }</span>
+<span class="source-line-no">133</span><span id="line-133">        // Defines the elements that should not be affected in the correct instance and</span>
+<span class="source-line-no">134</span><span id="line-134">        // should</span>
+<span class="source-line-no">135</span><span id="line-135">        // therefore not be changed</span>
+<span class="source-line-no">136</span><span id="line-136">        Set&lt;AssertTuple&gt; activeAsserts = new HashSet&lt;&gt;();</span>
+<span class="source-line-no">137</span><span id="line-137">        asserts.values().forEach(activeAsserts::addAll);</span>
+<span class="source-line-no">138</span><span id="line-138">        List&lt;AssertTuple&gt; nullAsserts = new ArrayList&lt;&gt;(sourceAsserts);</span>
+<span class="source-line-no">139</span><span id="line-139">        nullAsserts.removeAll(activeAsserts);</span>
+<span class="source-line-no">140</span><span id="line-140"></span>
+<span class="source-line-no">141</span><span id="line-141">        // Now do the actual checks</span>
+<span class="source-line-no">142</span><span id="line-142">        for (Entry&lt;String, List&lt;AssertTuple&gt;&gt; entry : asserts.entrySet()) {</span>
+<span class="source-line-no">143</span><span id="line-143">            log.debug("Asserting attribute {}", entry.getKey());</span>
+<span class="source-line-no">144</span><span id="line-144">            entry.getValue().forEach(a -&gt; a.assertContract(source, target));</span>
+<span class="source-line-no">145</span><span id="line-145">        }</span>
+<span class="source-line-no">146</span><span id="line-146">        // All not affected elements that provide no default should be null / empty</span>
+<span class="source-line-no">147</span><span id="line-147">        for (AssertTuple nullAssert : nullAsserts) {</span>
+<span class="source-line-no">148</span><span id="line-148">            log.debug("Asserting attribute to be null / not set {}", nullAssert.getTargetSupport().getName());</span>
+<span class="source-line-no">149</span><span id="line-149">            MappingAssertStrategy.NULL_OR_DEFAULT.assertMapping(nullAssert.getSourceSupport(), source,</span>
+<span class="source-line-no">150</span><span id="line-150">                    nullAssert.getTargetSupport(), target);</span>
+<span class="source-line-no">151</span><span id="line-151">        }</span>
+<span class="source-line-no">152</span><span id="line-152"></span>
+<span class="source-line-no">153</span><span id="line-153">    }</span>
+<span class="source-line-no">154</span><span id="line-154"></span>
+<span class="source-line-no">155</span><span id="line-155">}</span>
 
 
 
