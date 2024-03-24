@@ -122,10 +122,10 @@
 <span class="source-line-no">109</span><span id="line-109">                .getType();</span>
 <span class="source-line-no">110</span><span id="line-110">        final var collectionTypeOption = CollectionType.findResponsibleCollectionType(propertyType);</span>
 <span class="source-line-no">111</span><span id="line-111">        if (collectionTypeOption.isPresent()) {</span>
-<span class="source-line-no">112</span><span id="line-112">            throw new IllegalStateException(("""</span>
+<span class="source-line-no">112</span><span id="line-112">            throw new IllegalStateException("""</span>
 <span class="source-line-no">113</span><span id="line-113">                    Unable to determine generic-type for %s, you need to \</span>
 <span class="source-line-no">114</span><span id="line-114">                    provide a custom @PropertyConfig for this field\</span>
-<span class="source-line-no">115</span><span id="line-115">                    """).formatted(configuredName));</span>
+<span class="source-line-no">115</span><span id="line-115">                    """.formatted(configuredName));</span>
 <span class="source-line-no">116</span><span id="line-116"></span>
 <span class="source-line-no">117</span><span id="line-117">        }</span>
 <span class="source-line-no">118</span><span id="line-118">        return PropertyMetadataImpl.builder().propertyClass(propertyType).name(configuredName)</span>
