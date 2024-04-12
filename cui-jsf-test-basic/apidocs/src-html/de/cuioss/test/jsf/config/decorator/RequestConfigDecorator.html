@@ -28,158 +28,156 @@
 <span class="source-line-no">015</span><span id="line-15"> */</span>
 <span class="source-line-no">016</span><span id="line-16">package de.cuioss.test.jsf.config.decorator;</span>
 <span class="source-line-no">017</span><span id="line-17"></span>
-<span class="source-line-no">018</span><span id="line-18">import java.io.Serializable;</span>
-<span class="source-line-no">019</span><span id="line-19">import java.util.Arrays;</span>
-<span class="source-line-no">020</span><span id="line-20">import java.util.List;</span>
-<span class="source-line-no">021</span><span id="line-21">import java.util.Locale;</span>
-<span class="source-line-no">022</span><span id="line-22"></span>
-<span class="source-line-no">023</span><span id="line-23">import javax.faces.component.UIViewRoot;</span>
-<span class="source-line-no">024</span><span id="line-24">import javax.faces.context.ExternalContext;</span>
-<span class="source-line-no">025</span><span id="line-25">import javax.faces.context.FacesContext;</span>
-<span class="source-line-no">026</span><span id="line-26">import javax.servlet.http.Cookie;</span>
-<span class="source-line-no">027</span><span id="line-27">import javax.servlet.http.HttpServletRequest;</span>
+<span class="source-line-no">018</span><span id="line-18">import de.cuioss.test.jsf.mocks.CuiMockHttpServletRequest;</span>
+<span class="source-line-no">019</span><span id="line-19">import jakarta.faces.component.UIViewRoot;</span>
+<span class="source-line-no">020</span><span id="line-20">import jakarta.faces.context.ExternalContext;</span>
+<span class="source-line-no">021</span><span id="line-21">import jakarta.faces.context.FacesContext;</span>
+<span class="source-line-no">022</span><span id="line-22">import jakarta.servlet.http.Cookie;</span>
+<span class="source-line-no">023</span><span id="line-23">import jakarta.servlet.http.HttpServletRequest;</span>
+<span class="source-line-no">024</span><span id="line-24">import lombok.RequiredArgsConstructor;</span>
+<span class="source-line-no">025</span><span id="line-25">import org.apache.myfaces.test.mock.MockExternalContext;</span>
+<span class="source-line-no">026</span><span id="line-26">import org.apache.myfaces.test.mock.MockFacesContext;</span>
+<span class="source-line-no">027</span><span id="line-27">import org.apache.myfaces.test.mock.MockHttpServletRequest;</span>
 <span class="source-line-no">028</span><span id="line-28"></span>
-<span class="source-line-no">029</span><span id="line-29">import org.apache.myfaces.test.mock.MockExternalContext22;</span>
-<span class="source-line-no">030</span><span id="line-30">import org.apache.myfaces.test.mock.MockFacesContext22;</span>
-<span class="source-line-no">031</span><span id="line-31">import org.apache.myfaces.test.mock.MockHttpServletRequest;</span>
-<span class="source-line-no">032</span><span id="line-32"></span>
-<span class="source-line-no">033</span><span id="line-33">import de.cuioss.test.jsf.mocks.CuiMockHttpServletRequest;</span>
-<span class="source-line-no">034</span><span id="line-34">import lombok.RequiredArgsConstructor;</span>
-<span class="source-line-no">035</span><span id="line-35"></span>
-<span class="source-line-no">036</span><span id="line-36">/**</span>
-<span class="source-line-no">037</span><span id="line-37"> * Helper class for configuring the request</span>
-<span class="source-line-no">038</span><span id="line-38"> *</span>
-<span class="source-line-no">039</span><span id="line-39"> * @author Oliver Wolff</span>
-<span class="source-line-no">040</span><span id="line-40"> */</span>
-<span class="source-line-no">041</span><span id="line-41">@RequiredArgsConstructor</span>
-<span class="source-line-no">042</span><span id="line-42">public class RequestConfigDecorator {</span>
-<span class="source-line-no">043</span><span id="line-43"></span>
-<span class="source-line-no">044</span><span id="line-44">    private final MockFacesContext22 facesContext;</span>
-<span class="source-line-no">045</span><span id="line-45">    private final MockExternalContext22 externalContext;</span>
-<span class="source-line-no">046</span><span id="line-46"></span>
-<span class="source-line-no">047</span><span id="line-47">    /**</span>
-<span class="source-line-no">048</span><span id="line-48">     * Sets the postback attribute to {@link FacesContext#isPostback()}</span>
-<span class="source-line-no">049</span><span id="line-49">     *</span>
-<span class="source-line-no">050</span><span id="line-50">     * @param postback to be set</span>
-<span class="source-line-no">051</span><span id="line-51">     * @return the {@link RequestConfigDecorator} itself in order to enable a</span>
-<span class="source-line-no">052</span><span id="line-52">     *         fluent-api style usage</span>
-<span class="source-line-no">053</span><span id="line-53">     */</span>
-<span class="source-line-no">054</span><span id="line-54">    public RequestConfigDecorator setPostback(final boolean postback) {</span>
-<span class="source-line-no">055</span><span id="line-55">        facesContext.setPostback(postback);</span>
-<span class="source-line-no">056</span><span id="line-56">        return this;</span>
-<span class="source-line-no">057</span><span id="line-57">    }</span>
-<span class="source-line-no">058</span><span id="line-58"></span>
-<span class="source-line-no">059</span><span id="line-59">    /**</span>
-<span class="source-line-no">060</span><span id="line-60">     * Sets the viewId in {@link UIViewRoot}</span>
-<span class="source-line-no">061</span><span id="line-61">     *</span>
-<span class="source-line-no">062</span><span id="line-62">     * @param viewId to be set</span>
-<span class="source-line-no">063</span><span id="line-63">     * @return the {@link RequestConfigDecorator} itself in order to enable a</span>
-<span class="source-line-no">064</span><span id="line-64">     *         fluent-api style usage</span>
-<span class="source-line-no">065</span><span id="line-65">     */</span>
-<span class="source-line-no">066</span><span id="line-66">    public RequestConfigDecorator setViewId(final String viewId) {</span>
-<span class="source-line-no">067</span><span id="line-67">        facesContext.getViewRoot().setViewId(viewId);</span>
-<span class="source-line-no">068</span><span id="line-68">        return this;</span>
-<span class="source-line-no">069</span><span id="line-69">    }</span>
-<span class="source-line-no">070</span><span id="line-70"></span>
-<span class="source-line-no">071</span><span id="line-71">    /**</span>
-<span class="source-line-no">072</span><span id="line-72">     * Registers a concrete RequestHeader to</span>
-<span class="source-line-no">073</span><span id="line-73">     * {@link ExternalContext#getRequestHeaderMap()}</span>
-<span class="source-line-no">074</span><span id="line-74">     *</span>
-<span class="source-line-no">075</span><span id="line-75">     * @param key   used as the key for the</span>
+<span class="source-line-no">029</span><span id="line-29">import java.io.Serializable;</span>
+<span class="source-line-no">030</span><span id="line-30">import java.util.Arrays;</span>
+<span class="source-line-no">031</span><span id="line-31">import java.util.List;</span>
+<span class="source-line-no">032</span><span id="line-32">import java.util.Locale;</span>
+<span class="source-line-no">033</span><span id="line-33"></span>
+<span class="source-line-no">034</span><span id="line-34">/**</span>
+<span class="source-line-no">035</span><span id="line-35"> * Helper class for configuring the request</span>
+<span class="source-line-no">036</span><span id="line-36"> *</span>
+<span class="source-line-no">037</span><span id="line-37"> * @author Oliver Wolff</span>
+<span class="source-line-no">038</span><span id="line-38"> */</span>
+<span class="source-line-no">039</span><span id="line-39">@RequiredArgsConstructor</span>
+<span class="source-line-no">040</span><span id="line-40">public class RequestConfigDecorator {</span>
+<span class="source-line-no">041</span><span id="line-41"></span>
+<span class="source-line-no">042</span><span id="line-42">    private final MockFacesContext facesContext;</span>
+<span class="source-line-no">043</span><span id="line-43">    private final MockExternalContext externalContext;</span>
+<span class="source-line-no">044</span><span id="line-44"></span>
+<span class="source-line-no">045</span><span id="line-45">    /**</span>
+<span class="source-line-no">046</span><span id="line-46">     * Sets the postback attribute to {@link FacesContext#isPostback()}</span>
+<span class="source-line-no">047</span><span id="line-47">     *</span>
+<span class="source-line-no">048</span><span id="line-48">     * @param postback to be set</span>
+<span class="source-line-no">049</span><span id="line-49">     * @return the {@link RequestConfigDecorator} itself in order to enable a</span>
+<span class="source-line-no">050</span><span id="line-50">     * fluent-api style usage</span>
+<span class="source-line-no">051</span><span id="line-51">     */</span>
+<span class="source-line-no">052</span><span id="line-52">    public RequestConfigDecorator setPostback(final boolean postback) {</span>
+<span class="source-line-no">053</span><span id="line-53">        facesContext.setPostback(postback);</span>
+<span class="source-line-no">054</span><span id="line-54">        return this;</span>
+<span class="source-line-no">055</span><span id="line-55">    }</span>
+<span class="source-line-no">056</span><span id="line-56"></span>
+<span class="source-line-no">057</span><span id="line-57">    /**</span>
+<span class="source-line-no">058</span><span id="line-58">     * Sets the viewId in {@link UIViewRoot}</span>
+<span class="source-line-no">059</span><span id="line-59">     *</span>
+<span class="source-line-no">060</span><span id="line-60">     * @param viewId to be set</span>
+<span class="source-line-no">061</span><span id="line-61">     * @return the {@link RequestConfigDecorator} itself to enable a</span>
+<span class="source-line-no">062</span><span id="line-62">     * fluent-api style usage</span>
+<span class="source-line-no">063</span><span id="line-63">     */</span>
+<span class="source-line-no">064</span><span id="line-64">    public RequestConfigDecorator setViewId(final String viewId) {</span>
+<span class="source-line-no">065</span><span id="line-65">        facesContext.getViewRoot().setViewId(viewId);</span>
+<span class="source-line-no">066</span><span id="line-66">        return this;</span>
+<span class="source-line-no">067</span><span id="line-67">    }</span>
+<span class="source-line-no">068</span><span id="line-68"></span>
+<span class="source-line-no">069</span><span id="line-69">    /**</span>
+<span class="source-line-no">070</span><span id="line-70">     * Registers a concrete RequestHeader to</span>
+<span class="source-line-no">071</span><span id="line-71">     * {@link ExternalContext#getRequestHeaderMap()}</span>
+<span class="source-line-no">072</span><span id="line-72">     *</span>
+<span class="source-line-no">073</span><span id="line-73">     * @param key   used as the key for the</span>
+<span class="source-line-no">074</span><span id="line-74">     *              {@link ExternalContext#getRequestHeaderMap()}</span>
+<span class="source-line-no">075</span><span id="line-75">     * @param value used as the value for the</span>
 <span class="source-line-no">076</span><span id="line-76">     *              {@link ExternalContext#getRequestHeaderMap()}</span>
-<span class="source-line-no">077</span><span id="line-77">     * @param value used as the value for the</span>
-<span class="source-line-no">078</span><span id="line-78">     *              {@link ExternalContext#getRequestHeaderMap()}</span>
-<span class="source-line-no">079</span><span id="line-79">     * @return the {@link RequestConfigDecorator} itself in order to enable a</span>
-<span class="source-line-no">080</span><span id="line-80">     *         fluent-api style usage</span>
-<span class="source-line-no">081</span><span id="line-81">     */</span>
-<span class="source-line-no">082</span><span id="line-82">    public RequestConfigDecorator setRequestHeader(final String key, final String value) {</span>
-<span class="source-line-no">083</span><span id="line-83">        externalContext.addRequestHeader(key, value);</span>
-<span class="source-line-no">084</span><span id="line-84">        return this;</span>
-<span class="source-line-no">085</span><span id="line-85">    }</span>
-<span class="source-line-no">086</span><span id="line-86"></span>
-<span class="source-line-no">087</span><span id="line-87">    /**</span>
-<span class="source-line-no">088</span><span id="line-88">     * Registers a concrete Request-parameter to</span>
-<span class="source-line-no">089</span><span id="line-89">     * {@link ExternalContext#getRequestParameterMap()}</span>
-<span class="source-line-no">090</span><span id="line-90">     *</span>
-<span class="source-line-no">091</span><span id="line-91">     * @param key   used as the key for the</span>
+<span class="source-line-no">077</span><span id="line-77">     * @return the {@link RequestConfigDecorator} itself in order to enable a</span>
+<span class="source-line-no">078</span><span id="line-78">     * fluent-api style usage</span>
+<span class="source-line-no">079</span><span id="line-79">     */</span>
+<span class="source-line-no">080</span><span id="line-80">    public RequestConfigDecorator setRequestHeader(final String key, final String value) {</span>
+<span class="source-line-no">081</span><span id="line-81">        externalContext.addRequestHeader(key, value);</span>
+<span class="source-line-no">082</span><span id="line-82">        return this;</span>
+<span class="source-line-no">083</span><span id="line-83">    }</span>
+<span class="source-line-no">084</span><span id="line-84"></span>
+<span class="source-line-no">085</span><span id="line-85">    /**</span>
+<span class="source-line-no">086</span><span id="line-86">     * Registers a concrete Request-parameter to</span>
+<span class="source-line-no">087</span><span id="line-87">     * {@link ExternalContext#getRequestParameterMap()}</span>
+<span class="source-line-no">088</span><span id="line-88">     *</span>
+<span class="source-line-no">089</span><span id="line-89">     * @param key   used as the key for the</span>
+<span class="source-line-no">090</span><span id="line-90">     *              {@link ExternalContext#getRequestHeaderMap()}</span>
+<span class="source-line-no">091</span><span id="line-91">     * @param value used as the value for the</span>
 <span class="source-line-no">092</span><span id="line-92">     *              {@link ExternalContext#getRequestHeaderMap()}</span>
-<span class="source-line-no">093</span><span id="line-93">     * @param value used as the value for the</span>
-<span class="source-line-no">094</span><span id="line-94">     *              {@link ExternalContext#getRequestHeaderMap()}</span>
-<span class="source-line-no">095</span><span id="line-95">     * @return the {@link RequestConfigDecorator} itself in order to enable a</span>
-<span class="source-line-no">096</span><span id="line-96">     *         fluent-api style usage</span>
-<span class="source-line-no">097</span><span id="line-97">     */</span>
-<span class="source-line-no">098</span><span id="line-98">    public RequestConfigDecorator setRequestParameter(final String key, final String value) {</span>
-<span class="source-line-no">099</span><span id="line-99">        externalContext.addRequestParameterMap(key, value);</span>
-<span class="source-line-no">100</span><span id="line-100">        return this;</span>
-<span class="source-line-no">101</span><span id="line-101">    }</span>
-<span class="source-line-no">102</span><span id="line-102"></span>
-<span class="source-line-no">103</span><span id="line-103">    /**</span>
-<span class="source-line-no">104</span><span id="line-104">     * Registers a concrete Request-attribute to</span>
-<span class="source-line-no">105</span><span id="line-105">     * {@link HttpServletRequest#setAttribute(String, Object)}</span>
-<span class="source-line-no">106</span><span id="line-106">     *</span>
-<span class="source-line-no">107</span><span id="line-107">     * @param key   used as the key for the</span>
+<span class="source-line-no">093</span><span id="line-93">     * @return the {@link RequestConfigDecorator} itself in order to enable a</span>
+<span class="source-line-no">094</span><span id="line-94">     * fluent-api style usage</span>
+<span class="source-line-no">095</span><span id="line-95">     */</span>
+<span class="source-line-no">096</span><span id="line-96">    public RequestConfigDecorator setRequestParameter(final String key, final String value) {</span>
+<span class="source-line-no">097</span><span id="line-97">        externalContext.addRequestParameterMap(key, value);</span>
+<span class="source-line-no">098</span><span id="line-98">        return this;</span>
+<span class="source-line-no">099</span><span id="line-99">    }</span>
+<span class="source-line-no">100</span><span id="line-100"></span>
+<span class="source-line-no">101</span><span id="line-101">    /**</span>
+<span class="source-line-no">102</span><span id="line-102">     * Registers a concrete Request-attribute to</span>
+<span class="source-line-no">103</span><span id="line-103">     * {@link HttpServletRequest#setAttribute(String, Object)}</span>
+<span class="source-line-no">104</span><span id="line-104">     *</span>
+<span class="source-line-no">105</span><span id="line-105">     * @param key   used as the key for the</span>
+<span class="source-line-no">106</span><span id="line-106">     *              {@link HttpServletRequest#setAttribute(String, Object)}</span>
+<span class="source-line-no">107</span><span id="line-107">     * @param value used as the value for the</span>
 <span class="source-line-no">108</span><span id="line-108">     *              {@link HttpServletRequest#setAttribute(String, Object)}</span>
-<span class="source-line-no">109</span><span id="line-109">     * @param value used as the value for the</span>
-<span class="source-line-no">110</span><span id="line-110">     *              {@link HttpServletRequest#setAttribute(String, Object)}</span>
-<span class="source-line-no">111</span><span id="line-111">     * @return the {@link RequestConfigDecorator} itself in order to enable a</span>
-<span class="source-line-no">112</span><span id="line-112">     *         fluent-api style usage</span>
-<span class="source-line-no">113</span><span id="line-113">     */</span>
-<span class="source-line-no">114</span><span id="line-114">    public RequestConfigDecorator setRequestAttribute(final String key, final Serializable value) {</span>
-<span class="source-line-no">115</span><span id="line-115">        ((HttpServletRequest) externalContext.getRequest()).setAttribute(key, value);</span>
-<span class="source-line-no">116</span><span id="line-116">        return this;</span>
-<span class="source-line-no">117</span><span id="line-117">    }</span>
-<span class="source-line-no">118</span><span id="line-118"></span>
-<span class="source-line-no">119</span><span id="line-119">    /**</span>
-<span class="source-line-no">120</span><span id="line-120">     * Registers one or more cookies the the contained request</span>
-<span class="source-line-no">121</span><span id="line-121">     *</span>
-<span class="source-line-no">122</span><span id="line-122">     * @param cookie to be added</span>
-<span class="source-line-no">123</span><span id="line-123">     * @return the {@link RequestConfigDecorator} itself in order to enable a</span>
-<span class="source-line-no">124</span><span id="line-124">     *         fluent-api style usage</span>
-<span class="source-line-no">125</span><span id="line-125">     */</span>
-<span class="source-line-no">126</span><span id="line-126">    public RequestConfigDecorator addRequestCookie(final Cookie... cookie) {</span>
-<span class="source-line-no">127</span><span id="line-127">        var request = (MockHttpServletRequest) externalContext.getRequest();</span>
-<span class="source-line-no">128</span><span id="line-128">        for (Cookie aCookie : cookie) {</span>
-<span class="source-line-no">129</span><span id="line-129">            request.addCookie(aCookie);</span>
-<span class="source-line-no">130</span><span id="line-130">        }</span>
-<span class="source-line-no">131</span><span id="line-131">        return this;</span>
-<span class="source-line-no">132</span><span id="line-132">    }</span>
-<span class="source-line-no">133</span><span id="line-133"></span>
-<span class="source-line-no">134</span><span id="line-134">    /**</span>
-<span class="source-line-no">135</span><span id="line-135">     * &lt;p&gt;</span>
-<span class="source-line-no">136</span><span id="line-136">     * Registers one or more requestLocale to</span>
-<span class="source-line-no">137</span><span id="line-137">     * {@link ExternalContext#getRequestLocales()}. It can be used for resetting the</span>
-<span class="source-line-no">138</span><span id="line-138">     * locales as well.</span>
-<span class="source-line-no">139</span><span id="line-139">     * &lt;/p&gt;</span>
-<span class="source-line-no">140</span><span id="line-140">     * &lt;em&gt;Caution: &lt;/em&gt; It expects the {@link HttpServletRequest} being an</span>
-<span class="source-line-no">141</span><span id="line-141">     * instance of {@link CuiMockHttpServletRequest}</span>
-<span class="source-line-no">142</span><span id="line-142">     *</span>
-<span class="source-line-no">143</span><span id="line-143">     * @param requestLocale one or more requestLocales to be set</span>
-<span class="source-line-no">144</span><span id="line-144">     * @return the {@link RequestConfigDecorator} itself in order to enable a</span>
-<span class="source-line-no">145</span><span id="line-145">     *         fluent-api style usage</span>
-<span class="source-line-no">146</span><span id="line-146">     */</span>
-<span class="source-line-no">147</span><span id="line-147">    public RequestConfigDecorator setRequestLocale(final Locale... requestLocale) {</span>
-<span class="source-line-no">148</span><span id="line-148">        var request = (CuiMockHttpServletRequest) externalContext.getRequest();</span>
-<span class="source-line-no">149</span><span id="line-149">        List&lt;Locale&gt; localeList = Arrays.asList(requestLocale);</span>
-<span class="source-line-no">150</span><span id="line-150">        Locale locale = null;</span>
-<span class="source-line-no">151</span><span id="line-151">        if (!localeList.isEmpty()) {</span>
-<span class="source-line-no">152</span><span id="line-152">            locale = localeList.iterator().next();</span>
-<span class="source-line-no">153</span><span id="line-153">        }</span>
-<span class="source-line-no">154</span><span id="line-154">        request.setLocale(locale);</span>
-<span class="source-line-no">155</span><span id="line-155">        request.setRequestLocales(localeList);</span>
-<span class="source-line-no">156</span><span id="line-156">        return this;</span>
-<span class="source-line-no">157</span><span id="line-157">    }</span>
-<span class="source-line-no">158</span><span id="line-158"></span>
-<span class="source-line-no">159</span><span id="line-159">    /**</span>
-<span class="source-line-no">160</span><span id="line-160">     * Explicitly sets a given queryString as path-element of the request</span>
-<span class="source-line-no">161</span><span id="line-161">     *</span>
-<span class="source-line-no">162</span><span id="line-162">     * @param parameterString</span>
-<span class="source-line-no">163</span><span id="line-163">     */</span>
-<span class="source-line-no">164</span><span id="line-164">    public void setQueryString(String parameterString) {</span>
-<span class="source-line-no">165</span><span id="line-165">        var request = (CuiMockHttpServletRequest) externalContext.getRequest();</span>
-<span class="source-line-no">166</span><span id="line-166">        request.setPathElements(request.getContextPath(), request.getServletPath(), request.getPathInfo(),</span>
-<span class="source-line-no">167</span><span id="line-167">                parameterString);</span>
-<span class="source-line-no">168</span><span id="line-168">    }</span>
-<span class="source-line-no">169</span><span id="line-169">}</span>
+<span class="source-line-no">109</span><span id="line-109">     * @return the {@link RequestConfigDecorator} itself in order to enable a</span>
+<span class="source-line-no">110</span><span id="line-110">     * fluent-api style usage</span>
+<span class="source-line-no">111</span><span id="line-111">     */</span>
+<span class="source-line-no">112</span><span id="line-112">    public RequestConfigDecorator setRequestAttribute(final String key, final Serializable value) {</span>
+<span class="source-line-no">113</span><span id="line-113">        ((HttpServletRequest) externalContext.getRequest()).setAttribute(key, value);</span>
+<span class="source-line-no">114</span><span id="line-114">        return this;</span>
+<span class="source-line-no">115</span><span id="line-115">    }</span>
+<span class="source-line-no">116</span><span id="line-116"></span>
+<span class="source-line-no">117</span><span id="line-117">    /**</span>
+<span class="source-line-no">118</span><span id="line-118">     * Registers one or more cookies the the contained request</span>
+<span class="source-line-no">119</span><span id="line-119">     *</span>
+<span class="source-line-no">120</span><span id="line-120">     * @param cookie to be added</span>
+<span class="source-line-no">121</span><span id="line-121">     * @return the {@link RequestConfigDecorator} itself in order to enable a</span>
+<span class="source-line-no">122</span><span id="line-122">     * fluent-api style usage</span>
+<span class="source-line-no">123</span><span id="line-123">     */</span>
+<span class="source-line-no">124</span><span id="line-124">    public RequestConfigDecorator addRequestCookie(final Cookie... cookie) {</span>
+<span class="source-line-no">125</span><span id="line-125">        var request = (MockHttpServletRequest) externalContext.getRequest();</span>
+<span class="source-line-no">126</span><span id="line-126">        for (Cookie aCookie : cookie) {</span>
+<span class="source-line-no">127</span><span id="line-127">            request.addCookie(aCookie);</span>
+<span class="source-line-no">128</span><span id="line-128">        }</span>
+<span class="source-line-no">129</span><span id="line-129">        return this;</span>
+<span class="source-line-no">130</span><span id="line-130">    }</span>
+<span class="source-line-no">131</span><span id="line-131"></span>
+<span class="source-line-no">132</span><span id="line-132">    /**</span>
+<span class="source-line-no">133</span><span id="line-133">     * &lt;p&gt;</span>
+<span class="source-line-no">134</span><span id="line-134">     * Registers one or more requestLocale to</span>
+<span class="source-line-no">135</span><span id="line-135">     * {@link ExternalContext#getRequestLocales()}. It can be used for resetting the</span>
+<span class="source-line-no">136</span><span id="line-136">     * locales as well.</span>
+<span class="source-line-no">137</span><span id="line-137">     * &lt;/p&gt;</span>
+<span class="source-line-no">138</span><span id="line-138">     * &lt;em&gt;Caution: &lt;/em&gt; It expects the {@link HttpServletRequest} being an</span>
+<span class="source-line-no">139</span><span id="line-139">     * instance of {@link CuiMockHttpServletRequest}</span>
+<span class="source-line-no">140</span><span id="line-140">     *</span>
+<span class="source-line-no">141</span><span id="line-141">     * @param requestLocale one or more requestLocales to be set</span>
+<span class="source-line-no">142</span><span id="line-142">     * @return the {@link RequestConfigDecorator} itself in order to enable a</span>
+<span class="source-line-no">143</span><span id="line-143">     * fluent-api style usage</span>
+<span class="source-line-no">144</span><span id="line-144">     */</span>
+<span class="source-line-no">145</span><span id="line-145">    public RequestConfigDecorator setRequestLocale(final Locale... requestLocale) {</span>
+<span class="source-line-no">146</span><span id="line-146">        var request = (CuiMockHttpServletRequest) externalContext.getRequest();</span>
+<span class="source-line-no">147</span><span id="line-147">        List&lt;Locale&gt; localeList = Arrays.asList(requestLocale);</span>
+<span class="source-line-no">148</span><span id="line-148">        Locale locale = null;</span>
+<span class="source-line-no">149</span><span id="line-149">        if (!localeList.isEmpty()) {</span>
+<span class="source-line-no">150</span><span id="line-150">            locale = localeList.iterator().next();</span>
+<span class="source-line-no">151</span><span id="line-151">        }</span>
+<span class="source-line-no">152</span><span id="line-152">        request.setLocale(locale);</span>
+<span class="source-line-no">153</span><span id="line-153">        request.setRequestLocales(localeList);</span>
+<span class="source-line-no">154</span><span id="line-154">        return this;</span>
+<span class="source-line-no">155</span><span id="line-155">    }</span>
+<span class="source-line-no">156</span><span id="line-156"></span>
+<span class="source-line-no">157</span><span id="line-157">    /**</span>
+<span class="source-line-no">158</span><span id="line-158">     * Explicitly sets a given queryString as path-element of the request</span>
+<span class="source-line-no">159</span><span id="line-159">     *</span>
+<span class="source-line-no">160</span><span id="line-160">     * @param parameterString</span>
+<span class="source-line-no">161</span><span id="line-161">     */</span>
+<span class="source-line-no">162</span><span id="line-162">    public void setQueryString(String parameterString) {</span>
+<span class="source-line-no">163</span><span id="line-163">        var request = (CuiMockHttpServletRequest) externalContext.getRequest();</span>
+<span class="source-line-no">164</span><span id="line-164">        request.setPathElements(request.getContextPath(), request.getServletPath(), request.getPathInfo(),</span>
+<span class="source-line-no">165</span><span id="line-165">            parameterString);</span>
+<span class="source-line-no">166</span><span id="line-166">    }</span>
+<span class="source-line-no">167</span><span id="line-167">}</span>
 
 
 

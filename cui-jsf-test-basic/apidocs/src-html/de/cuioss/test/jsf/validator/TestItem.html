@@ -28,27 +28,26 @@
 <span class="source-line-no">015</span><span id="line-15"> */</span>
 <span class="source-line-no">016</span><span id="line-16">package de.cuioss.test.jsf.validator;</span>
 <span class="source-line-no">017</span><span id="line-17"></span>
-<span class="source-line-no">018</span><span id="line-18">import javax.faces.application.FacesMessage.Severity;</span>
-<span class="source-line-no">019</span><span id="line-19"></span>
-<span class="source-line-no">020</span><span id="line-20">import lombok.Data;</span>
-<span class="source-line-no">021</span><span id="line-21"></span>
-<span class="source-line-no">022</span><span id="line-22">/**</span>
-<span class="source-line-no">023</span><span id="line-23"> * Object which represents one Test Item which will be checked by</span>
-<span class="source-line-no">024</span><span id="line-24"> *</span>
-<span class="source-line-no">025</span><span id="line-25"> * @param &lt;T&gt; is the Type of value which will be checked</span>
-<span class="source-line-no">026</span><span id="line-26"> */</span>
-<span class="source-line-no">027</span><span id="line-27">@Data</span>
-<span class="source-line-no">028</span><span id="line-28">public class TestItem&lt;T&gt; {</span>
-<span class="source-line-no">029</span><span id="line-29"></span>
-<span class="source-line-no">030</span><span id="line-30">    private boolean valid;</span>
-<span class="source-line-no">031</span><span id="line-31"></span>
-<span class="source-line-no">032</span><span id="line-32">    private T testValue;</span>
-<span class="source-line-no">033</span><span id="line-33"></span>
-<span class="source-line-no">034</span><span id="line-34">    private String errorMessage;</span>
-<span class="source-line-no">035</span><span id="line-35"></span>
-<span class="source-line-no">036</span><span id="line-36">    private Severity severity;</span>
-<span class="source-line-no">037</span><span id="line-37"></span>
-<span class="source-line-no">038</span><span id="line-38">}</span>
+<span class="source-line-no">018</span><span id="line-18">import jakarta.faces.application.FacesMessage.Severity;</span>
+<span class="source-line-no">019</span><span id="line-19">import lombok.Data;</span>
+<span class="source-line-no">020</span><span id="line-20"></span>
+<span class="source-line-no">021</span><span id="line-21">/**</span>
+<span class="source-line-no">022</span><span id="line-22"> * Object which represents one Test Item which will be checked by</span>
+<span class="source-line-no">023</span><span id="line-23"> *</span>
+<span class="source-line-no">024</span><span id="line-24"> * @param &lt;T&gt; is the Type of value which will be checked</span>
+<span class="source-line-no">025</span><span id="line-25"> */</span>
+<span class="source-line-no">026</span><span id="line-26">@Data</span>
+<span class="source-line-no">027</span><span id="line-27">public class TestItem&lt;T&gt; {</span>
+<span class="source-line-no">028</span><span id="line-28"></span>
+<span class="source-line-no">029</span><span id="line-29">    private boolean valid;</span>
+<span class="source-line-no">030</span><span id="line-30"></span>
+<span class="source-line-no">031</span><span id="line-31">    private T testValue;</span>
+<span class="source-line-no">032</span><span id="line-32"></span>
+<span class="source-line-no">033</span><span id="line-33">    private String errorMessage;</span>
+<span class="source-line-no">034</span><span id="line-34"></span>
+<span class="source-line-no">035</span><span id="line-35">    private Severity severity;</span>
+<span class="source-line-no">036</span><span id="line-36"></span>
+<span class="source-line-no">037</span><span id="line-37">}</span>
 
 
 

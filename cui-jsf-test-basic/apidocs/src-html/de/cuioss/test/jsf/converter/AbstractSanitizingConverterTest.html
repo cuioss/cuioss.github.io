@@ -28,39 +28,38 @@
 <span class="source-line-no">015</span><span id="line-15"> */</span>
 <span class="source-line-no">016</span><span id="line-16">package de.cuioss.test.jsf.converter;</span>
 <span class="source-line-no">017</span><span id="line-17"></span>
-<span class="source-line-no">018</span><span id="line-18">import static org.junit.jupiter.api.Assertions.assertFalse;</span>
-<span class="source-line-no">019</span><span id="line-19"></span>
-<span class="source-line-no">020</span><span id="line-20">import javax.faces.convert.Converter;</span>
-<span class="source-line-no">021</span><span id="line-21"></span>
-<span class="source-line-no">022</span><span id="line-22">import org.junit.jupiter.api.Test;</span>
-<span class="source-line-no">023</span><span id="line-23"></span>
-<span class="source-line-no">024</span><span id="line-24">/**</span>
-<span class="source-line-no">025</span><span id="line-25"> * Extension of {@linkplain AbstractConverterTest} to also test the sanitizing</span>
-<span class="source-line-no">026</span><span id="line-26"> * inside the getAsString function.</span>
-<span class="source-line-no">027</span><span id="line-27"> *</span>
-<span class="source-line-no">028</span><span id="line-28"> * @param &lt;C&gt; identifying the concrete {@link Converter} to be tested.</span>
-<span class="source-line-no">029</span><span id="line-29"> * @param &lt;T&gt; identifying the type of elements to be used for values to be given</span>
-<span class="source-line-no">030</span><span id="line-30"> *            to the {@link Converter}</span>
-<span class="source-line-no">031</span><span id="line-31"> */</span>
-<span class="source-line-no">032</span><span id="line-32">public abstract class AbstractSanitizingConverterTest&lt;C extends Converter&lt;T&gt;, T&gt; extends AbstractConverterTest&lt;C, T&gt; {</span>
-<span class="source-line-no">033</span><span id="line-33"></span>
-<span class="source-line-no">034</span><span id="line-34">    /**</span>
-<span class="source-line-no">035</span><span id="line-35">     * Create an instance of the object containing a given malicious content that is</span>
-<span class="source-line-no">036</span><span id="line-36">     * to be converted into a string by this converter.</span>
-<span class="source-line-no">037</span><span id="line-37">     *</span>
-<span class="source-line-no">038</span><span id="line-38">     * @param content</span>
-<span class="source-line-no">039</span><span id="line-39">     * @return</span>
-<span class="source-line-no">040</span><span id="line-40">     */</span>
-<span class="source-line-no">041</span><span id="line-41">    protected abstract T createTestObjectWithMaliciousContent(String content);</span>
-<span class="source-line-no">042</span><span id="line-42"></span>
-<span class="source-line-no">043</span><span id="line-43">    @Test</span>
-<span class="source-line-no">044</span><span id="line-44">    protected void shouldSanitizeJavaScript() {</span>
-<span class="source-line-no">045</span><span id="line-45">        var toConvert = createTestObjectWithMaliciousContent("&lt;script&gt;");</span>
-<span class="source-line-no">046</span><span id="line-46">        var result = getConverter().getAsString(getFacesContext(), getComponent(), toConvert);</span>
-<span class="source-line-no">047</span><span id="line-47">        assertFalse(result.contains("&lt;script"));</span>
-<span class="source-line-no">048</span><span id="line-48">    }</span>
-<span class="source-line-no">049</span><span id="line-49"></span>
-<span class="source-line-no">050</span><span id="line-50">}</span>
+<span class="source-line-no">018</span><span id="line-18">import jakarta.faces.convert.Converter;</span>
+<span class="source-line-no">019</span><span id="line-19">import org.junit.jupiter.api.Test;</span>
+<span class="source-line-no">020</span><span id="line-20"></span>
+<span class="source-line-no">021</span><span id="line-21">import static org.junit.jupiter.api.Assertions.assertFalse;</span>
+<span class="source-line-no">022</span><span id="line-22"></span>
+<span class="source-line-no">023</span><span id="line-23">/**</span>
+<span class="source-line-no">024</span><span id="line-24"> * Extension of {@linkplain AbstractConverterTest} to also test the sanitizing</span>
+<span class="source-line-no">025</span><span id="line-25"> * inside the getAsString function.</span>
+<span class="source-line-no">026</span><span id="line-26"> *</span>
+<span class="source-line-no">027</span><span id="line-27"> * @param &lt;C&gt; identifying the concrete {@link Converter} to be tested.</span>
+<span class="source-line-no">028</span><span id="line-28"> * @param &lt;T&gt; identifying the type of elements to be used for values to be given</span>
+<span class="source-line-no">029</span><span id="line-29"> *            to the {@link Converter}</span>
+<span class="source-line-no">030</span><span id="line-30"> */</span>
+<span class="source-line-no">031</span><span id="line-31">public abstract class AbstractSanitizingConverterTest&lt;C extends Converter&lt;T&gt;, T&gt; extends AbstractConverterTest&lt;C, T&gt; {</span>
+<span class="source-line-no">032</span><span id="line-32"></span>
+<span class="source-line-no">033</span><span id="line-33">    /**</span>
+<span class="source-line-no">034</span><span id="line-34">     * Create an instance of the object containing a given malicious content that is</span>
+<span class="source-line-no">035</span><span id="line-35">     * to be converted into a string by this converter.</span>
+<span class="source-line-no">036</span><span id="line-36">     *</span>
+<span class="source-line-no">037</span><span id="line-37">     * @param content</span>
+<span class="source-line-no">038</span><span id="line-38">     * @return</span>
+<span class="source-line-no">039</span><span id="line-39">     */</span>
+<span class="source-line-no">040</span><span id="line-40">    protected abstract T createTestObjectWithMaliciousContent(String content);</span>
+<span class="source-line-no">041</span><span id="line-41"></span>
+<span class="source-line-no">042</span><span id="line-42">    @Test</span>
+<span class="source-line-no">043</span><span id="line-43">    protected void shouldSanitizeJavaScript() {</span>
+<span class="source-line-no">044</span><span id="line-44">        var toConvert = createTestObjectWithMaliciousContent("&lt;script&gt;");</span>
+<span class="source-line-no">045</span><span id="line-45">        var result = getConverter().getAsString(getFacesContext(), getComponent(), toConvert);</span>
+<span class="source-line-no">046</span><span id="line-46">        assertFalse(result.contains("&lt;script"));</span>
+<span class="source-line-no">047</span><span id="line-47">    }</span>
+<span class="source-line-no">048</span><span id="line-48"></span>
+<span class="source-line-no">049</span><span id="line-49">}</span>
 
 
 

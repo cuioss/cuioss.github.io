@@ -28,146 +28,138 @@
 <span class="source-line-no">015</span><span id="line-15"> */</span>
 <span class="source-line-no">016</span><span id="line-16">package de.cuioss.test.jsf.renderer;</span>
 <span class="source-line-no">017</span><span id="line-17"></span>
-<span class="source-line-no">018</span><span id="line-18">import static de.cuioss.tools.collect.CollectionLiterals.mutableList;</span>
-<span class="source-line-no">019</span><span id="line-19">import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;</span>
-<span class="source-line-no">020</span><span id="line-20"></span>
-<span class="source-line-no">021</span><span id="line-21">import java.util.ArrayList;</span>
-<span class="source-line-no">022</span><span id="line-22">import java.util.Arrays;</span>
-<span class="source-line-no">023</span><span id="line-23">import java.util.Collection;</span>
-<span class="source-line-no">024</span><span id="line-24">import java.util.HashSet;</span>
-<span class="source-line-no">025</span><span id="line-25">import java.util.List;</span>
-<span class="source-line-no">026</span><span id="line-26">import java.util.Optional;</span>
-<span class="source-line-no">027</span><span id="line-27">import java.util.Set;</span>
-<span class="source-line-no">028</span><span id="line-28"></span>
-<span class="source-line-no">029</span><span id="line-29">import javax.faces.component.UIComponent;</span>
-<span class="source-line-no">030</span><span id="line-30">import javax.faces.component.UIViewRoot;</span>
-<span class="source-line-no">031</span><span id="line-31">import javax.faces.component.html.HtmlForm;</span>
-<span class="source-line-no">032</span><span id="line-32">import javax.faces.event.FacesEvent;</span>
-<span class="source-line-no">033</span><span id="line-33">import javax.faces.event.PostAddToViewEvent;</span>
-<span class="source-line-no">034</span><span id="line-34">import javax.faces.render.Renderer;</span>
-<span class="source-line-no">035</span><span id="line-35"></span>
-<span class="source-line-no">036</span><span id="line-36">import org.junit.jupiter.api.BeforeEach;</span>
-<span class="source-line-no">037</span><span id="line-37">import org.junit.jupiter.api.Test;</span>
-<span class="source-line-no">038</span><span id="line-38"></span>
-<span class="source-line-no">039</span><span id="line-39">import de.cuioss.test.jsf.config.renderer.VerifyComponentRendererConfig;</span>
-<span class="source-line-no">040</span><span id="line-40">import de.cuioss.test.jsf.config.renderer.VetoRenderAttributeAssert;</span>
-<span class="source-line-no">041</span><span id="line-41">import de.cuioss.test.jsf.renderer.util.DomUtils;</span>
-<span class="source-line-no">042</span><span id="line-42">import de.cuioss.tools.reflect.FieldWrapper;</span>
-<span class="source-line-no">043</span><span id="line-43">import de.cuioss.tools.reflect.MoreReflection;</span>
-<span class="source-line-no">044</span><span id="line-44">import lombok.Getter;</span>
-<span class="source-line-no">045</span><span id="line-45"></span>
-<span class="source-line-no">046</span><span id="line-46">/**</span>
-<span class="source-line-no">047</span><span id="line-47"> * While {@link AbstractRendererTestBase} focuses on API-Contract utility</span>
-<span class="source-line-no">048</span><span id="line-48"> * methods, this class provides a number of implicit tests. Simplifying the</span>
-<span class="source-line-no">049</span><span id="line-49"> * testing of concrete renderer behavior.</span>
-<span class="source-line-no">050</span><span id="line-50"> * &lt;h3&gt;Configuration&lt;/h3&gt; You can configure this test by</span>
-<span class="source-line-no">051</span><span id="line-51"> * &lt;ul&gt;</span>
-<span class="source-line-no">052</span><span id="line-52"> * &lt;li&gt;{@link VerifyComponentRendererConfig}&lt;/li&gt;</span>
-<span class="source-line-no">053</span><span id="line-53"> * &lt;li&gt;{@link VetoRenderAttributeAssert}&lt;/li&gt;</span>
-<span class="source-line-no">054</span><span id="line-54"> * &lt;/ul&gt;</span>
-<span class="source-line-no">055</span><span id="line-55"> *</span>
-<span class="source-line-no">056</span><span id="line-56"> * @author Oliver Wolff</span>
-<span class="source-line-no">057</span><span id="line-57"> * @param &lt;R&gt; The renderer being tested</span>
-<span class="source-line-no">058</span><span id="line-58"> */</span>
-<span class="source-line-no">059</span><span id="line-59">public abstract class AbstractComponentRendererTest&lt;R extends Renderer&gt; extends AbstractRendererTestBase&lt;R&gt; {</span>
-<span class="source-line-no">060</span><span id="line-60"></span>
-<span class="source-line-no">061</span><span id="line-61">    @Getter</span>
-<span class="source-line-no">062</span><span id="line-62">    private Set&lt;RendererAttributeAssert&gt; activeAsserts;</span>
-<span class="source-line-no">063</span><span id="line-63"></span>
-<span class="source-line-no">064</span><span id="line-64">    @Getter</span>
-<span class="source-line-no">065</span><span id="line-65">    private boolean wrapComponentInForm = false;</span>
-<span class="source-line-no">066</span><span id="line-66"></span>
-<span class="source-line-no">067</span><span id="line-67">    /**</span>
-<span class="source-line-no">068</span><span id="line-68">     * Initializes the active {@link RendererAttributeAssert} and checks for the</span>
-<span class="source-line-no">069</span><span id="line-69">     * {@link VerifyComponentRendererConfig} annotation</span>
-<span class="source-line-no">070</span><span id="line-70">     */</span>
-<span class="source-line-no">071</span><span id="line-71">    @BeforeEach</span>
-<span class="source-line-no">072</span><span id="line-72">    public void initAbstractComponentRendererTest() {</span>
-<span class="source-line-no">073</span><span id="line-73">        handleRenderAttributeAsserts();</span>
-<span class="source-line-no">074</span><span id="line-74">        handleConfigAnnotation();</span>
-<span class="source-line-no">075</span><span id="line-75">    }</span>
-<span class="source-line-no">076</span><span id="line-76"></span>
-<span class="source-line-no">077</span><span id="line-77">    private void handleConfigAnnotation() {</span>
-<span class="source-line-no">078</span><span id="line-78">        Optional&lt;VerifyComponentRendererConfig&gt; configOption = MoreReflection.extractAnnotation(getClass(),</span>
-<span class="source-line-no">079</span><span id="line-79">                VerifyComponentRendererConfig.class);</span>
-<span class="source-line-no">080</span><span id="line-80">        configOption.ifPresent(verifyComponentRendererConfig -&gt; wrapComponentInForm = verifyComponentRendererConfig</span>
-<span class="source-line-no">081</span><span id="line-81">                .wrapComponentInForm());</span>
+<span class="source-line-no">018</span><span id="line-18">import de.cuioss.test.jsf.config.renderer.VerifyComponentRendererConfig;</span>
+<span class="source-line-no">019</span><span id="line-19">import de.cuioss.test.jsf.config.renderer.VetoRenderAttributeAssert;</span>
+<span class="source-line-no">020</span><span id="line-20">import de.cuioss.test.jsf.renderer.util.DomUtils;</span>
+<span class="source-line-no">021</span><span id="line-21">import de.cuioss.tools.reflect.FieldWrapper;</span>
+<span class="source-line-no">022</span><span id="line-22">import de.cuioss.tools.reflect.MoreReflection;</span>
+<span class="source-line-no">023</span><span id="line-23">import jakarta.faces.component.UIComponent;</span>
+<span class="source-line-no">024</span><span id="line-24">import jakarta.faces.component.UIViewRoot;</span>
+<span class="source-line-no">025</span><span id="line-25">import jakarta.faces.component.html.HtmlForm;</span>
+<span class="source-line-no">026</span><span id="line-26">import jakarta.faces.event.FacesEvent;</span>
+<span class="source-line-no">027</span><span id="line-27">import jakarta.faces.event.PostAddToViewEvent;</span>
+<span class="source-line-no">028</span><span id="line-28">import jakarta.faces.render.Renderer;</span>
+<span class="source-line-no">029</span><span id="line-29">import lombok.Getter;</span>
+<span class="source-line-no">030</span><span id="line-30">import org.junit.jupiter.api.BeforeEach;</span>
+<span class="source-line-no">031</span><span id="line-31">import org.junit.jupiter.api.Test;</span>
+<span class="source-line-no">032</span><span id="line-32"></span>
+<span class="source-line-no">033</span><span id="line-33">import java.util.*;</span>
+<span class="source-line-no">034</span><span id="line-34"></span>
+<span class="source-line-no">035</span><span id="line-35">import static de.cuioss.tools.collect.CollectionLiterals.mutableList;</span>
+<span class="source-line-no">036</span><span id="line-36">import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;</span>
+<span class="source-line-no">037</span><span id="line-37"></span>
+<span class="source-line-no">038</span><span id="line-38">/**</span>
+<span class="source-line-no">039</span><span id="line-39"> * While {@link AbstractRendererTestBase} focuses on API-Contract utility</span>
+<span class="source-line-no">040</span><span id="line-40"> * methods, this class provides a number of implicit tests. Simplifying the</span>
+<span class="source-line-no">041</span><span id="line-41"> * testing of concrete renderer behavior.</span>
+<span class="source-line-no">042</span><span id="line-42"> * &lt;h3&gt;Configuration&lt;/h3&gt; You can configure this test by</span>
+<span class="source-line-no">043</span><span id="line-43"> * &lt;ul&gt;</span>
+<span class="source-line-no">044</span><span id="line-44"> * &lt;li&gt;{@link VerifyComponentRendererConfig}&lt;/li&gt;</span>
+<span class="source-line-no">045</span><span id="line-45"> * &lt;li&gt;{@link VetoRenderAttributeAssert}&lt;/li&gt;</span>
+<span class="source-line-no">046</span><span id="line-46"> * &lt;/ul&gt;</span>
+<span class="source-line-no">047</span><span id="line-47"> *</span>
+<span class="source-line-no">048</span><span id="line-48"> * @param &lt;R&gt; The renderer being tested</span>
+<span class="source-line-no">049</span><span id="line-49"> * @author Oliver Wolff</span>
+<span class="source-line-no">050</span><span id="line-50"> */</span>
+<span class="source-line-no">051</span><span id="line-51">public abstract class AbstractComponentRendererTest&lt;R extends Renderer&gt; extends AbstractRendererTestBase&lt;R&gt; {</span>
+<span class="source-line-no">052</span><span id="line-52"></span>
+<span class="source-line-no">053</span><span id="line-53">    @Getter</span>
+<span class="source-line-no">054</span><span id="line-54">    private Set&lt;RendererAttributeAssert&gt; activeAsserts;</span>
+<span class="source-line-no">055</span><span id="line-55"></span>
+<span class="source-line-no">056</span><span id="line-56">    @Getter</span>
+<span class="source-line-no">057</span><span id="line-57">    private boolean wrapComponentInForm = false;</span>
+<span class="source-line-no">058</span><span id="line-58"></span>
+<span class="source-line-no">059</span><span id="line-59">    /**</span>
+<span class="source-line-no">060</span><span id="line-60">     * Initializes the active {@link RendererAttributeAssert} and checks for the</span>
+<span class="source-line-no">061</span><span id="line-61">     * {@link VerifyComponentRendererConfig} annotation</span>
+<span class="source-line-no">062</span><span id="line-62">     */</span>
+<span class="source-line-no">063</span><span id="line-63">    @BeforeEach</span>
+<span class="source-line-no">064</span><span id="line-64">    public void initAbstractComponentRendererTest() {</span>
+<span class="source-line-no">065</span><span id="line-65">        handleRenderAttributeAsserts();</span>
+<span class="source-line-no">066</span><span id="line-66">        handleConfigAnnotation();</span>
+<span class="source-line-no">067</span><span id="line-67">    }</span>
+<span class="source-line-no">068</span><span id="line-68"></span>
+<span class="source-line-no">069</span><span id="line-69">    private void handleConfigAnnotation() {</span>
+<span class="source-line-no">070</span><span id="line-70">        Optional&lt;VerifyComponentRendererConfig&gt; configOption = MoreReflection.extractAnnotation(getClass(),</span>
+<span class="source-line-no">071</span><span id="line-71">            VerifyComponentRendererConfig.class);</span>
+<span class="source-line-no">072</span><span id="line-72">        configOption.ifPresent(verifyComponentRendererConfig -&gt; wrapComponentInForm = verifyComponentRendererConfig</span>
+<span class="source-line-no">073</span><span id="line-73">            .wrapComponentInForm());</span>
+<span class="source-line-no">074</span><span id="line-74">    }</span>
+<span class="source-line-no">075</span><span id="line-75"></span>
+<span class="source-line-no">076</span><span id="line-76">    private void handleRenderAttributeAsserts() {</span>
+<span class="source-line-no">077</span><span id="line-77">        activeAsserts = new HashSet&lt;&gt;(Arrays.asList(CommonRendererAsserts.values()));</span>
+<span class="source-line-no">078</span><span id="line-78">        final Set&lt;CommonRendererAsserts&gt; vetoes = new HashSet&lt;&gt;();</span>
+<span class="source-line-no">079</span><span id="line-79">        MoreReflection.extractAllAnnotations(this.getClass(), VetoRenderAttributeAssert.class)</span>
+<span class="source-line-no">080</span><span id="line-80">            .forEach(veto -&gt; vetoes.addAll(mutableList(veto.value())));</span>
+<span class="source-line-no">081</span><span id="line-81">        activeAsserts.removeAll(vetoes);</span>
 <span class="source-line-no">082</span><span id="line-82">    }</span>
 <span class="source-line-no">083</span><span id="line-83"></span>
-<span class="source-line-no">084</span><span id="line-84">    private void handleRenderAttributeAsserts() {</span>
-<span class="source-line-no">085</span><span id="line-85">        activeAsserts = new HashSet&lt;&gt;(Arrays.asList(CommonRendererAsserts.values()));</span>
-<span class="source-line-no">086</span><span id="line-86">        final Set&lt;CommonRendererAsserts&gt; vetoes = new HashSet&lt;&gt;();</span>
-<span class="source-line-no">087</span><span id="line-87">        MoreReflection.extractAllAnnotations(this.getClass(), VetoRenderAttributeAssert.class)</span>
-<span class="source-line-no">088</span><span id="line-88">                .forEach(veto -&gt; vetoes.addAll(mutableList(veto.value())));</span>
-<span class="source-line-no">089</span><span id="line-89">        activeAsserts.removeAll(vetoes);</span>
-<span class="source-line-no">090</span><span id="line-90">    }</span>
-<span class="source-line-no">091</span><span id="line-91"></span>
-<span class="source-line-no">092</span><span id="line-92">    /**</span>
-<span class="source-line-no">093</span><span id="line-93">     * Iterates through all active RendererAttributeAssert and tests them</span>
-<span class="source-line-no">094</span><span id="line-94">     * accordingly</span>
-<span class="source-line-no">095</span><span id="line-95">     */</span>
-<span class="source-line-no">096</span><span id="line-96">    @Test</span>
-<span class="source-line-no">097</span><span id="line-97">    public void shouldHandleRendererAttributeAsserts() {</span>
-<span class="source-line-no">098</span><span id="line-98">        for (RendererAttributeAssert attributeAssert : activeAsserts) {</span>
-<span class="source-line-no">099</span><span id="line-99">            var component = getWrappedComponent();</span>
-<span class="source-line-no">100</span><span id="line-100">            attributeAssert.applyAttribute(component);</span>
-<span class="source-line-no">101</span><span id="line-101">            component.processEvent(new PostAddToViewEvent(component));</span>
-<span class="source-line-no">102</span><span id="line-102">            var document = DomUtils.htmlStringToDocument(assertDoesNotThrow(() -&gt; super.renderToString(component)));</span>
-<span class="source-line-no">103</span><span id="line-103">            attributeAssert.assertAttributeSet(document.getRootElement());</span>
-<span class="source-line-no">104</span><span id="line-104">        }</span>
-<span class="source-line-no">105</span><span id="line-105">    }</span>
-<span class="source-line-no">106</span><span id="line-106"></span>
-<span class="source-line-no">107</span><span id="line-107">    /**</span>
-<span class="source-line-no">108</span><span id="line-108">     * @return the {@link UIComponent} derived by {@link #getComponent()} or the</span>
-<span class="source-line-no">109</span><span id="line-109">     *         same wrapped in an {@link HtmlForm} in case</span>
-<span class="source-line-no">110</span><span id="line-110">     *         {@link #isWrapComponentInForm()} is {@code true}</span>
-<span class="source-line-no">111</span><span id="line-111">     */</span>
-<span class="source-line-no">112</span><span id="line-112">    protected UIComponent getWrappedComponent() {</span>
-<span class="source-line-no">113</span><span id="line-113">        var component = getComponent();</span>
-<span class="source-line-no">114</span><span id="line-114">        if (wrapComponentInForm) {</span>
-<span class="source-line-no">115</span><span id="line-115">            var form = new HtmlForm();</span>
-<span class="source-line-no">116</span><span id="line-116">            form.getChildren().add(component);</span>
-<span class="source-line-no">117</span><span id="line-117">        }</span>
-<span class="source-line-no">118</span><span id="line-118">        return component;</span>
-<span class="source-line-no">119</span><span id="line-119">    }</span>
-<span class="source-line-no">120</span><span id="line-120"></span>
-<span class="source-line-no">121</span><span id="line-121">    /**</span>
-<span class="source-line-no">122</span><span id="line-122">     * Helper method that extracts all queued events from {@link UIViewRoot}. In</span>
-<span class="source-line-no">123</span><span id="line-123">     * order to use this method the corresponding test must ensure, that the</span>
-<span class="source-line-no">124</span><span id="line-124">     * component under test is child of {@link UIViewRoot}. Otherwise the events can</span>
-<span class="source-line-no">125</span><span id="line-125">     * not be extracted</span>
-<span class="source-line-no">126</span><span id="line-126">     *</span>
-<span class="source-line-no">127</span><span id="line-127">     * @return the plain list of events available at {@link UIViewRoot} at this</span>
-<span class="source-line-no">128</span><span id="line-128">     *         time.</span>
-<span class="source-line-no">129</span><span id="line-129">     */</span>
-<span class="source-line-no">130</span><span id="line-130">    // owolff: Sonar false-positive</span>
-<span class="source-line-no">131</span><span id="line-131">    @SuppressWarnings({ "unchecked" })</span>
-<span class="source-line-no">132</span><span id="line-132">    public List&lt;FacesEvent&gt; extractEventsFromViewRoot() {</span>
-<span class="source-line-no">133</span><span id="line-133">        final List&lt;FacesEvent&gt; found = new ArrayList&lt;&gt;();</span>
-<span class="source-line-no">134</span><span id="line-134">        final var uiViewRoot = getFacesContext().getViewRoot();</span>
-<span class="source-line-no">135</span><span id="line-135">        // Hacky: Private field of myfaces</span>
-<span class="source-line-no">136</span><span id="line-136">        var eventField = FieldWrapper.from(UIViewRoot.class, "_events");</span>
-<span class="source-line-no">137</span><span id="line-137">        if (eventField.isPresent()) {</span>
-<span class="source-line-no">138</span><span id="line-138">            var events = eventField.get().readValue(uiViewRoot);</span>
-<span class="source-line-no">139</span><span id="line-139">            events.ifPresent(o -&gt; found.addAll((Collection&lt;? extends FacesEvent&gt;) o));</span>
-<span class="source-line-no">140</span><span id="line-140">            return found;</span>
-<span class="source-line-no">141</span><span id="line-141">        }</span>
-<span class="source-line-no">142</span><span id="line-142">        // Hacky: Private field of mojarra</span>
-<span class="source-line-no">143</span><span id="line-143">        eventField = FieldWrapper.from(UIViewRoot.class, "events");</span>
-<span class="source-line-no">144</span><span id="line-144">        if (eventField.isEmpty()) {</span>
-<span class="source-line-no">145</span><span id="line-145">            throw new AssertionError(</span>
-<span class="source-line-no">146</span><span id="line-146">                    "javax.faces.component.UIViewRoot provides neither the field 'events' nor '_events'");</span>
-<span class="source-line-no">147</span><span id="line-147">        }</span>
-<span class="source-line-no">148</span><span id="line-148">        var events = eventField.get().readValue(uiViewRoot);</span>
-<span class="source-line-no">149</span><span id="line-149">        if (events.isPresent()) {</span>
-<span class="source-line-no">150</span><span id="line-150">            var eventLists = (List&lt;List&lt;FacesEvent&gt;&gt;) events.get();</span>
-<span class="source-line-no">151</span><span id="line-151">            eventLists.forEach(found::addAll);</span>
-<span class="source-line-no">152</span><span id="line-152">        }</span>
-<span class="source-line-no">153</span><span id="line-153">        return found;</span>
-<span class="source-line-no">154</span><span id="line-154"></span>
-<span class="source-line-no">155</span><span id="line-155">    }</span>
-<span class="source-line-no">156</span><span id="line-156"></span>
-<span class="source-line-no">157</span><span id="line-157">}</span>
+<span class="source-line-no">084</span><span id="line-84">    /**</span>
+<span class="source-line-no">085</span><span id="line-85">     * Iterates through all active RendererAttributeAssert and tests them</span>
+<span class="source-line-no">086</span><span id="line-86">     * accordingly</span>
+<span class="source-line-no">087</span><span id="line-87">     */</span>
+<span class="source-line-no">088</span><span id="line-88">    @Test</span>
+<span class="source-line-no">089</span><span id="line-89">    public void shouldHandleRendererAttributeAsserts() {</span>
+<span class="source-line-no">090</span><span id="line-90">        for (RendererAttributeAssert attributeAssert : activeAsserts) {</span>
+<span class="source-line-no">091</span><span id="line-91">            var component = getWrappedComponent();</span>
+<span class="source-line-no">092</span><span id="line-92">            attributeAssert.applyAttribute(component);</span>
+<span class="source-line-no">093</span><span id="line-93">            component.processEvent(new PostAddToViewEvent(component));</span>
+<span class="source-line-no">094</span><span id="line-94">            var document = DomUtils.htmlStringToDocument(assertDoesNotThrow(() -&gt; super.renderToString(component)));</span>
+<span class="source-line-no">095</span><span id="line-95">            attributeAssert.assertAttributeSet(document.getRootElement());</span>
+<span class="source-line-no">096</span><span id="line-96">        }</span>
+<span class="source-line-no">097</span><span id="line-97">    }</span>
+<span class="source-line-no">098</span><span id="line-98"></span>
+<span class="source-line-no">099</span><span id="line-99">    /**</span>
+<span class="source-line-no">100</span><span id="line-100">     * @return the {@link UIComponent} derived by {@link #getComponent()} or the</span>
+<span class="source-line-no">101</span><span id="line-101">     * same wrapped in an {@link HtmlForm} in case</span>
+<span class="source-line-no">102</span><span id="line-102">     * {@link #isWrapComponentInForm()} is {@code true}</span>
+<span class="source-line-no">103</span><span id="line-103">     */</span>
+<span class="source-line-no">104</span><span id="line-104">    protected UIComponent getWrappedComponent() {</span>
+<span class="source-line-no">105</span><span id="line-105">        var component = getComponent();</span>
+<span class="source-line-no">106</span><span id="line-106">        if (wrapComponentInForm) {</span>
+<span class="source-line-no">107</span><span id="line-107">            var form = new HtmlForm();</span>
+<span class="source-line-no">108</span><span id="line-108">            form.getChildren().add(component);</span>
+<span class="source-line-no">109</span><span id="line-109">        }</span>
+<span class="source-line-no">110</span><span id="line-110">        return component;</span>
+<span class="source-line-no">111</span><span id="line-111">    }</span>
+<span class="source-line-no">112</span><span id="line-112"></span>
+<span class="source-line-no">113</span><span id="line-113">    /**</span>
+<span class="source-line-no">114</span><span id="line-114">     * Helper method that extracts all queued events from {@link UIViewRoot}. In</span>
+<span class="source-line-no">115</span><span id="line-115">     * order to use this method the corresponding test must ensure, that the</span>
+<span class="source-line-no">116</span><span id="line-116">     * component under test is child of {@link UIViewRoot}. Otherwise the events can</span>
+<span class="source-line-no">117</span><span id="line-117">     * not be extracted</span>
+<span class="source-line-no">118</span><span id="line-118">     *</span>
+<span class="source-line-no">119</span><span id="line-119">     * @return the plain list of events available at {@link UIViewRoot} at this</span>
+<span class="source-line-no">120</span><span id="line-120">     * time.</span>
+<span class="source-line-no">121</span><span id="line-121">     */</span>
+<span class="source-line-no">122</span><span id="line-122">    // owolff: Sonar false-positive</span>
+<span class="source-line-no">123</span><span id="line-123">    @SuppressWarnings({"unchecked"})</span>
+<span class="source-line-no">124</span><span id="line-124">    public List&lt;FacesEvent&gt; extractEventsFromViewRoot() {</span>
+<span class="source-line-no">125</span><span id="line-125">        final List&lt;FacesEvent&gt; found = new ArrayList&lt;&gt;();</span>
+<span class="source-line-no">126</span><span id="line-126">        final var uiViewRoot = getFacesContext().getViewRoot();</span>
+<span class="source-line-no">127</span><span id="line-127">        // Hacky: Private field of myfaces</span>
+<span class="source-line-no">128</span><span id="line-128">        var eventField = FieldWrapper.from(UIViewRoot.class, "_events");</span>
+<span class="source-line-no">129</span><span id="line-129">        if (eventField.isPresent()) {</span>
+<span class="source-line-no">130</span><span id="line-130">            var events = eventField.get().readValue(uiViewRoot);</span>
+<span class="source-line-no">131</span><span id="line-131">            events.ifPresent(o -&gt; found.addAll((Collection&lt;? extends FacesEvent&gt;) o));</span>
+<span class="source-line-no">132</span><span id="line-132">            return found;</span>
+<span class="source-line-no">133</span><span id="line-133">        }</span>
+<span class="source-line-no">134</span><span id="line-134">        // Hacky: Private field of mojarra</span>
+<span class="source-line-no">135</span><span id="line-135">        eventField = FieldWrapper.from(UIViewRoot.class, "events");</span>
+<span class="source-line-no">136</span><span id="line-136">        if (eventField.isEmpty()) {</span>
+<span class="source-line-no">137</span><span id="line-137">            throw new AssertionError(</span>
+<span class="source-line-no">138</span><span id="line-138">                "javax.faces.component.UIViewRoot provides neither the field 'events' nor '_events'");</span>
+<span class="source-line-no">139</span><span id="line-139">        }</span>
+<span class="source-line-no">140</span><span id="line-140">        var events = eventField.get().readValue(uiViewRoot);</span>
+<span class="source-line-no">141</span><span id="line-141">        if (events.isPresent()) {</span>
+<span class="source-line-no">142</span><span id="line-142">            var eventLists = (List&lt;List&lt;FacesEvent&gt;&gt;) events.get();</span>
+<span class="source-line-no">143</span><span id="line-143">            eventLists.forEach(found::addAll);</span>
+<span class="source-line-no">144</span><span id="line-144">        }</span>
+<span class="source-line-no">145</span><span id="line-145">        return found;</span>
+<span class="source-line-no">146</span><span id="line-146"></span>
+<span class="source-line-no">147</span><span id="line-147">    }</span>
+<span class="source-line-no">148</span><span id="line-148"></span>
+<span class="source-line-no">149</span><span id="line-149">}</span>
 
 
 

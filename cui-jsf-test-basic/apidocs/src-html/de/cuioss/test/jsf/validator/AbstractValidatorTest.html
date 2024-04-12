@@ -28,180 +28,176 @@
 <span class="source-line-no">015</span><span id="line-15"> */</span>
 <span class="source-line-no">016</span><span id="line-16">package de.cuioss.test.jsf.validator;</span>
 <span class="source-line-no">017</span><span id="line-17"></span>
-<span class="source-line-no">018</span><span id="line-18">import static org.junit.jupiter.api.Assertions.assertEquals;</span>
-<span class="source-line-no">019</span><span id="line-19">import static org.junit.jupiter.api.Assertions.assertThrows;</span>
-<span class="source-line-no">020</span><span id="line-20">import static org.junit.jupiter.api.Assertions.fail;</span>
-<span class="source-line-no">021</span><span id="line-21"></span>
-<span class="source-line-no">022</span><span id="line-22">import javax.faces.application.FacesMessage;</span>
-<span class="source-line-no">023</span><span id="line-23">import javax.faces.component.UIComponent;</span>
-<span class="source-line-no">024</span><span id="line-24">import javax.faces.component.html.HtmlInputText;</span>
-<span class="source-line-no">025</span><span id="line-25">import javax.faces.context.FacesContext;</span>
-<span class="source-line-no">026</span><span id="line-26">import javax.faces.validator.Validator;</span>
-<span class="source-line-no">027</span><span id="line-27">import javax.faces.validator.ValidatorException;</span>
-<span class="source-line-no">028</span><span id="line-28"></span>
-<span class="source-line-no">029</span><span id="line-29">import org.junit.jupiter.api.BeforeEach;</span>
-<span class="source-line-no">030</span><span id="line-30">import org.junit.jupiter.api.Test;</span>
-<span class="source-line-no">031</span><span id="line-31"></span>
-<span class="source-line-no">032</span><span id="line-32">import de.cuioss.test.generator.junit.EnableGeneratorController;</span>
-<span class="source-line-no">033</span><span id="line-33">import de.cuioss.test.jsf.junit5.EnableJsfEnvironment;</span>
-<span class="source-line-no">034</span><span id="line-34">import de.cuioss.test.jsf.junit5.JsfEnabledTestEnvironment;</span>
-<span class="source-line-no">035</span><span id="line-35">import de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler;</span>
-<span class="source-line-no">036</span><span id="line-36">import de.cuioss.test.valueobjects.objects.impl.DefaultInstantiator;</span>
-<span class="source-line-no">037</span><span id="line-37">import de.cuioss.tools.reflect.MoreReflection;</span>
-<span class="source-line-no">038</span><span id="line-38">import lombok.Getter;</span>
-<span class="source-line-no">039</span><span id="line-39"></span>
-<span class="source-line-no">040</span><span id="line-40">/**</span>
-<span class="source-line-no">041</span><span id="line-41"> * Base Class for testing implementations of {@link Validator} within a Junit 5</span>
-<span class="source-line-no">042</span><span id="line-42"> * context</span>
-<span class="source-line-no">043</span><span id="line-43"> * &lt;h3&gt;Setup&lt;/h3&gt;</span>
+<span class="source-line-no">018</span><span id="line-18">import de.cuioss.test.generator.junit.EnableGeneratorController;</span>
+<span class="source-line-no">019</span><span id="line-19">import de.cuioss.test.jsf.junit5.EnableJsfEnvironment;</span>
+<span class="source-line-no">020</span><span id="line-20">import de.cuioss.test.jsf.junit5.JsfEnabledTestEnvironment;</span>
+<span class="source-line-no">021</span><span id="line-21">import de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler;</span>
+<span class="source-line-no">022</span><span id="line-22">import de.cuioss.test.valueobjects.objects.impl.DefaultInstantiator;</span>
+<span class="source-line-no">023</span><span id="line-23">import de.cuioss.tools.reflect.MoreReflection;</span>
+<span class="source-line-no">024</span><span id="line-24">import jakarta.faces.application.FacesMessage;</span>
+<span class="source-line-no">025</span><span id="line-25">import jakarta.faces.component.UIComponent;</span>
+<span class="source-line-no">026</span><span id="line-26">import jakarta.faces.component.html.HtmlInputText;</span>
+<span class="source-line-no">027</span><span id="line-27">import jakarta.faces.context.FacesContext;</span>
+<span class="source-line-no">028</span><span id="line-28">import jakarta.faces.validator.Validator;</span>
+<span class="source-line-no">029</span><span id="line-29">import jakarta.faces.validator.ValidatorException;</span>
+<span class="source-line-no">030</span><span id="line-30">import lombok.Getter;</span>
+<span class="source-line-no">031</span><span id="line-31">import org.junit.jupiter.api.BeforeEach;</span>
+<span class="source-line-no">032</span><span id="line-32">import org.junit.jupiter.api.Test;</span>
+<span class="source-line-no">033</span><span id="line-33"></span>
+<span class="source-line-no">034</span><span id="line-34">import static org.junit.jupiter.api.Assertions.*;</span>
+<span class="source-line-no">035</span><span id="line-35"></span>
+<span class="source-line-no">036</span><span id="line-36">/**</span>
+<span class="source-line-no">037</span><span id="line-37"> * Base Class for testing implementations of {@link Validator} within a Junit 5</span>
+<span class="source-line-no">038</span><span id="line-38"> * context</span>
+<span class="source-line-no">039</span><span id="line-39"> * &lt;h3&gt;Setup&lt;/h3&gt;</span>
+<span class="source-line-no">040</span><span id="line-40"> * &lt;p&gt;</span>
+<span class="source-line-no">041</span><span id="line-41"> * It uses {@link EnableJsfEnvironment}, for the basic test-infrastructure.See</span>
+<span class="source-line-no">042</span><span id="line-42"> * the class-documentation for details.</span>
+<span class="source-line-no">043</span><span id="line-43"> * &lt;/p&gt;</span>
 <span class="source-line-no">044</span><span id="line-44"> * &lt;p&gt;</span>
-<span class="source-line-no">045</span><span id="line-45"> * It uses {@link EnableJsfEnvironment}, for the basic test-infrastructure.See</span>
-<span class="source-line-no">046</span><span id="line-46"> * the class-documentation for details.</span>
-<span class="source-line-no">047</span><span id="line-47"> * &lt;/p&gt;</span>
-<span class="source-line-no">048</span><span id="line-48"> * &lt;p&gt;</span>
-<span class="source-line-no">049</span><span id="line-49"> * {@link #initValidator()}: Instantiates the concrete {@link Validator} using</span>
-<span class="source-line-no">050</span><span id="line-50"> * reflection. After this the method calls {@link #configure(Object)} that can</span>
-<span class="source-line-no">051</span><span id="line-51"> * be used for further configuration of the {@link Validator}</span>
+<span class="source-line-no">045</span><span id="line-45"> * {@link #initValidator()}: Instantiates the concrete {@link Validator} using</span>
+<span class="source-line-no">046</span><span id="line-46"> * reflection. After this the method calls {@link #configure(Object)} that can</span>
+<span class="source-line-no">047</span><span id="line-47"> * be used for further configuration of the {@link Validator}</span>
+<span class="source-line-no">048</span><span id="line-48"> * &lt;/p&gt;</span>
+<span class="source-line-no">049</span><span id="line-49"> * &lt;p&gt;</span>
+<span class="source-line-no">050</span><span id="line-50"> * In case you want you want to create the {@link Validator} yourself you can</span>
+<span class="source-line-no">051</span><span id="line-51"> * overwrite {@link #getValidator()}</span>
 <span class="source-line-no">052</span><span id="line-52"> * &lt;/p&gt;</span>
 <span class="source-line-no">053</span><span id="line-53"> * &lt;p&gt;</span>
-<span class="source-line-no">054</span><span id="line-54"> * In case you want you want to create the {@link Validator} yourself you can</span>
-<span class="source-line-no">055</span><span id="line-55"> * overwrite {@link #getValidator()}</span>
+<span class="source-line-no">054</span><span id="line-54"> * In case you want a pass another {@link UIComponent} as parameter to the</span>
+<span class="source-line-no">055</span><span id="line-55"> * {@link Validator} you can overwrite {@link #getComponent()}</span>
 <span class="source-line-no">056</span><span id="line-56"> * &lt;/p&gt;</span>
-<span class="source-line-no">057</span><span id="line-57"> * &lt;p&gt;</span>
-<span class="source-line-no">058</span><span id="line-58"> * In case you want a pass another {@link UIComponent} as parameter to the</span>
-<span class="source-line-no">059</span><span id="line-59"> * {@link Validator} you can overwrite {@link #getComponent()}</span>
-<span class="source-line-no">060</span><span id="line-60"> * &lt;/p&gt;</span>
-<span class="source-line-no">061</span><span id="line-61"> * &lt;h3&gt;Test-Methods&lt;/h3&gt;</span>
-<span class="source-line-no">062</span><span id="line-62"> * &lt;p&gt;</span>
-<span class="source-line-no">063</span><span id="line-63"> * The core test-methods are {@link #shouldFailOnInvalidTestdata()} and</span>
-<span class="source-line-no">064</span><span id="line-64"> * {@link #shouldHandleValidTestdata()}. They call {@link #populate(TestItems)}</span>
-<span class="source-line-no">065</span><span id="line-65"> * in oder to create corresponding test-data. The implementation is in the</span>
-<span class="source-line-no">066</span><span id="line-66"> * actual test-class.</span>
-<span class="source-line-no">067</span><span id="line-67"> * &lt;/p&gt;</span>
-<span class="source-line-no">068</span><span id="line-68"> * &lt;h3&gt;API-Test&lt;/h3&gt;</span>
-<span class="source-line-no">069</span><span id="line-69"> * &lt;p&gt;</span>
-<span class="source-line-no">070</span><span id="line-70"> * The api as defined within {@link Validator} is tested with the methods</span>
-<span class="source-line-no">071</span><span id="line-71"> * {@link #shouldFailOnNullComponent()}, {@link #shouldFailOnNullFacesContext()}</span>
-<span class="source-line-no">072</span><span id="line-72"> * and {@link #shouldHandleNullValue()}</span>
-<span class="source-line-no">073</span><span id="line-73"> * &lt;/p&gt;</span>
-<span class="source-line-no">074</span><span id="line-74"> * &lt;h3&gt;Example&lt;/h3&gt;</span>
-<span class="source-line-no">075</span><span id="line-75"> *</span>
-<span class="source-line-no">076</span><span id="line-76"> * &lt;pre&gt;</span>
-<span class="source-line-no">077</span><span id="line-77"> * &lt;code&gt;</span>
-<span class="source-line-no">078</span><span id="line-78"> * &amp;#64;EnableJsfEnvironment</span>
-<span class="source-line-no">079</span><span id="line-79"> * class LengthValidatorTest extends AbstractValidatorTest&amp;lt;LengthValidator, String&amp;gt; {</span>
-<span class="source-line-no">080</span><span id="line-80"></span>
-<span class="source-line-no">081</span><span id="line-81">    &amp;#64;Override</span>
-<span class="source-line-no">082</span><span id="line-82">    public void populate(final TestItems&amp;lt;String&amp;gt; testItems) {</span>
-<span class="source-line-no">083</span><span id="line-83">        testItems.addValid("1").addValid("abc").addInvalidWithMessage("123456",</span>
-<span class="source-line-no">084</span><span id="line-84">                LengthValidator.MAXIMUM_MESSAGE_ID);</span>
-<span class="source-line-no">085</span><span id="line-85">    }</span>
-<span class="source-line-no">086</span><span id="line-86"></span>
-<span class="source-line-no">087</span><span id="line-87">    &amp;#64;Override</span>
-<span class="source-line-no">088</span><span id="line-88">    public void configure(final LengthValidator validator) {</span>
-<span class="source-line-no">089</span><span id="line-89">        validator.setMaximum(5);</span>
-<span class="source-line-no">090</span><span id="line-90">    }</span>
-<span class="source-line-no">091</span><span id="line-91">   }</span>
-<span class="source-line-no">092</span><span id="line-92"> * &lt;/code&gt;</span>
-<span class="source-line-no">093</span><span id="line-93"> * &lt;/pre&gt;</span>
-<span class="source-line-no">094</span><span id="line-94"> *</span>
-<span class="source-line-no">095</span><span id="line-95"> * @author Oliver Wolff</span>
-<span class="source-line-no">096</span><span id="line-96"> * @param &lt;V&gt; identifying the concrete {@link Validator} to be tested.</span>
-<span class="source-line-no">097</span><span id="line-97"> * @param &lt;T&gt; identifying the type of elements to be passed into the validator</span>
-<span class="source-line-no">098</span><span id="line-98"> */</span>
-<span class="source-line-no">099</span><span id="line-99">@SuppressWarnings({ "rawtypes", "unchecked" }) // owolff we need to migrate this aspect later</span>
-<span class="source-line-no">100</span><span id="line-100">@EnableGeneratorController</span>
-<span class="source-line-no">101</span><span id="line-101">public abstract class AbstractValidatorTest&lt;V extends Validator, T&gt; extends JsfEnabledTestEnvironment</span>
-<span class="source-line-no">102</span><span id="line-102">        implements ConfigurationCallBackHandler&lt;V&gt; {</span>
-<span class="source-line-no">103</span><span id="line-103"></span>
-<span class="source-line-no">104</span><span id="line-104">    @Getter</span>
-<span class="source-line-no">105</span><span id="line-105">    private final UIComponent component = new HtmlInputText();</span>
-<span class="source-line-no">106</span><span id="line-106"></span>
-<span class="source-line-no">107</span><span id="line-107">    @Getter</span>
-<span class="source-line-no">108</span><span id="line-108">    private V validator;</span>
-<span class="source-line-no">109</span><span id="line-109"></span>
-<span class="source-line-no">110</span><span id="line-110">    /**</span>
-<span class="source-line-no">111</span><span id="line-111">     * Instantiates and initially configures a concrete {@link Validator}</span>
-<span class="source-line-no">112</span><span id="line-112">     */</span>
-<span class="source-line-no">113</span><span id="line-113">    @BeforeEach</span>
-<span class="source-line-no">114</span><span id="line-114">    void initValidator() {</span>
-<span class="source-line-no">115</span><span id="line-115">        final Class&lt;V&gt; klazz = MoreReflection.extractFirstGenericTypeArgument(getClass());</span>
-<span class="source-line-no">116</span><span id="line-116">        validator = new DefaultInstantiator&lt;&gt;(klazz).newInstance();</span>
-<span class="source-line-no">117</span><span id="line-117">        configure(validator);</span>
-<span class="source-line-no">118</span><span id="line-118">    }</span>
-<span class="source-line-no">119</span><span id="line-119"></span>
-<span class="source-line-no">120</span><span id="line-120">    /**</span>
-<span class="source-line-no">121</span><span id="line-121">     * Checks the api contract regarding {@code null} as parameter for</span>
-<span class="source-line-no">122</span><span id="line-122">     * {@link UIComponent}, see</span>
-<span class="source-line-no">123</span><span id="line-123">     * {@link Validator#validate(javax.faces.context.FacesContext, UIComponent, Object)}</span>
-<span class="source-line-no">124</span><span id="line-124">     */</span>
-<span class="source-line-no">125</span><span id="line-125">    @Test</span>
-<span class="source-line-no">126</span><span id="line-126">    void shouldFailOnNullComponent() {</span>
-<span class="source-line-no">127</span><span id="line-127">        assertThrows(NullPointerException.class, () -&gt; getValidator().validate(getFacesContext(), null, null));</span>
-<span class="source-line-no">128</span><span id="line-128">    }</span>
-<span class="source-line-no">129</span><span id="line-129"></span>
-<span class="source-line-no">130</span><span id="line-130">    /**</span>
-<span class="source-line-no">131</span><span id="line-131">     * Checks the api contract regarding {@code null} as parameter for</span>
-<span class="source-line-no">132</span><span id="line-132">     * {@link FacesContext}, see</span>
-<span class="source-line-no">133</span><span id="line-133">     * {@link Validator#validate(javax.faces.context.FacesContext, UIComponent, Object)}</span>
-<span class="source-line-no">134</span><span id="line-134">     */</span>
-<span class="source-line-no">135</span><span id="line-135">    @Test</span>
-<span class="source-line-no">136</span><span id="line-136">    void shouldFailOnNullFacesContext() {</span>
-<span class="source-line-no">137</span><span id="line-137">        assertThrows(NullPointerException.class, () -&gt; getValidator().validate(null, getComponent(), null));</span>
-<span class="source-line-no">138</span><span id="line-138">    }</span>
-<span class="source-line-no">139</span><span id="line-139"></span>
-<span class="source-line-no">140</span><span id="line-140">    /**</span>
-<span class="source-line-no">141</span><span id="line-141">     * Checks the api contract regarding {@code null} as parameter for the actual</span>
-<span class="source-line-no">142</span><span id="line-142">     * value, see</span>
-<span class="source-line-no">143</span><span id="line-143">     * {@link Validator#validate(javax.faces.context.FacesContext, UIComponent, Object)}</span>
-<span class="source-line-no">144</span><span id="line-144">     */</span>
-<span class="source-line-no">145</span><span id="line-145">    @Test</span>
-<span class="source-line-no">146</span><span id="line-146">    void shouldHandleNullValue() {</span>
-<span class="source-line-no">147</span><span id="line-147">        getValidator().validate(getFacesContext(), getComponent(), null);</span>
-<span class="source-line-no">148</span><span id="line-148">    }</span>
-<span class="source-line-no">149</span><span id="line-149"></span>
-<span class="source-line-no">150</span><span id="line-150">    /**</span>
-<span class="source-line-no">151</span><span id="line-151">     * Tests whether the valid {@link TestItems} are validated without</span>
-<span class="source-line-no">152</span><span id="line-152">     * {@link ValidatorException}</span>
-<span class="source-line-no">153</span><span id="line-153">     */</span>
-<span class="source-line-no">154</span><span id="line-154">    @Test</span>
-<span class="source-line-no">155</span><span id="line-155">    void shouldHandleValidTestdata() {</span>
-<span class="source-line-no">156</span><span id="line-156">        final var items = new TestItems&lt;T&gt;();</span>
-<span class="source-line-no">157</span><span id="line-157">        populate(items);</span>
-<span class="source-line-no">158</span><span id="line-158">        items.allValid().forEach(item -&gt; validator.validate(getFacesContext(), getComponent(), item.getTestValue()));</span>
-<span class="source-line-no">159</span><span id="line-159">    }</span>
-<span class="source-line-no">160</span><span id="line-160"></span>
-<span class="source-line-no">161</span><span id="line-161">    /**</span>
-<span class="source-line-no">162</span><span id="line-162">     * Tests whether the invalid {@link TestItems} fail to validate by throwing</span>
-<span class="source-line-no">163</span><span id="line-163">     * {@link ValidatorException}. In case the single {@link TestItems} provide a</span>
-<span class="source-line-no">164</span><span id="line-164">     * message, it will be compared as well.</span>
-<span class="source-line-no">165</span><span id="line-165">     */</span>
-<span class="source-line-no">166</span><span id="line-166">    @Test</span>
-<span class="source-line-no">167</span><span id="line-167">    void shouldFailOnInvalidTestdata() {</span>
-<span class="source-line-no">168</span><span id="line-168">        final var items = new TestItems&lt;T&gt;();</span>
-<span class="source-line-no">169</span><span id="line-169">        populate(items);</span>
-<span class="source-line-no">170</span><span id="line-170">        for (final TestItem&lt;T&gt; item : items.allInvalid()) {</span>
-<span class="source-line-no">171</span><span id="line-171">            try {</span>
-<span class="source-line-no">172</span><span id="line-172">                validator.validate(getFacesContext(), getComponent(), item.getTestValue());</span>
-<span class="source-line-no">173</span><span id="line-173">                fail("Validation should have thrown a ValidatorException for testValue" + item);</span>
-<span class="source-line-no">174</span><span id="line-174">            } catch (final ValidatorException e) {</span>
-<span class="source-line-no">175</span><span id="line-175">                assertEquals(FacesMessage.SEVERITY_ERROR, e.getFacesMessage().getSeverity());</span>
-<span class="source-line-no">176</span><span id="line-176">                if (null != item.getErrorMessage()) {</span>
-<span class="source-line-no">177</span><span id="line-177">                    assertEquals(item.getErrorMessage(), e.getFacesMessage().getSummary(),</span>
-<span class="source-line-no">178</span><span id="line-178">                            "The validation failed as expected, but the messages are not equal as expected");</span>
-<span class="source-line-no">179</span><span id="line-179">                }</span>
-<span class="source-line-no">180</span><span id="line-180">            }</span>
-<span class="source-line-no">181</span><span id="line-181">        }</span>
-<span class="source-line-no">182</span><span id="line-182">    }</span>
-<span class="source-line-no">183</span><span id="line-183"></span>
-<span class="source-line-no">184</span><span id="line-184">    /**</span>
-<span class="source-line-no">185</span><span id="line-185">     * Populates the test-items</span>
-<span class="source-line-no">186</span><span id="line-186">     *</span>
-<span class="source-line-no">187</span><span id="line-187">     * @param testItems to be populated, is never null</span>
-<span class="source-line-no">188</span><span id="line-188">     */</span>
-<span class="source-line-no">189</span><span id="line-189">    public abstract void populate(TestItems&lt;T&gt; testItems);</span>
-<span class="source-line-no">190</span><span id="line-190"></span>
-<span class="source-line-no">191</span><span id="line-191">}</span>
+<span class="source-line-no">057</span><span id="line-57"> * &lt;h3&gt;Test-Methods&lt;/h3&gt;</span>
+<span class="source-line-no">058</span><span id="line-58"> * &lt;p&gt;</span>
+<span class="source-line-no">059</span><span id="line-59"> * The core test-methods are {@link #shouldFailOnInvalidTestdata()} and</span>
+<span class="source-line-no">060</span><span id="line-60"> * {@link #shouldHandleValidTestdata()}. They call {@link #populate(TestItems)}</span>
+<span class="source-line-no">061</span><span id="line-61"> * in oder to create corresponding test-data. The implementation is in the</span>
+<span class="source-line-no">062</span><span id="line-62"> * actual test-class.</span>
+<span class="source-line-no">063</span><span id="line-63"> * &lt;/p&gt;</span>
+<span class="source-line-no">064</span><span id="line-64"> * &lt;h3&gt;API-Test&lt;/h3&gt;</span>
+<span class="source-line-no">065</span><span id="line-65"> * &lt;p&gt;</span>
+<span class="source-line-no">066</span><span id="line-66"> * The api as defined within {@link Validator} is tested with the methods</span>
+<span class="source-line-no">067</span><span id="line-67"> * {@link #shouldFailOnNullComponent()}, {@link #shouldFailOnNullFacesContext()}</span>
+<span class="source-line-no">068</span><span id="line-68"> * and {@link #shouldHandleNullValue()}</span>
+<span class="source-line-no">069</span><span id="line-69"> * &lt;/p&gt;</span>
+<span class="source-line-no">070</span><span id="line-70"> * &lt;h3&gt;Example&lt;/h3&gt;</span>
+<span class="source-line-no">071</span><span id="line-71"> *</span>
+<span class="source-line-no">072</span><span id="line-72"> * &lt;pre&gt;</span>
+<span class="source-line-no">073</span><span id="line-73"> * &lt;code&gt;</span>
+<span class="source-line-no">074</span><span id="line-74"> * &amp;#64;EnableJsfEnvironment</span>
+<span class="source-line-no">075</span><span id="line-75"> * class LengthValidatorTest extends AbstractValidatorTest&amp;lt;LengthValidator, String&amp;gt; {</span>
+<span class="source-line-no">076</span><span id="line-76"> *</span>
+<span class="source-line-no">077</span><span id="line-77"> * &amp;#64;Override</span>
+<span class="source-line-no">078</span><span id="line-78"> * public void populate(final TestItems&amp;lt;String&amp;gt; testItems) {</span>
+<span class="source-line-no">079</span><span id="line-79"> * testItems.addValid("1").addValid("abc").addInvalidWithMessage("123456",</span>
+<span class="source-line-no">080</span><span id="line-80"> * LengthValidator.MAXIMUM_MESSAGE_ID);</span>
+<span class="source-line-no">081</span><span id="line-81"> * }</span>
+<span class="source-line-no">082</span><span id="line-82"> *</span>
+<span class="source-line-no">083</span><span id="line-83"> * &amp;#64;Override</span>
+<span class="source-line-no">084</span><span id="line-84"> * public void configure(final LengthValidator validator) {</span>
+<span class="source-line-no">085</span><span id="line-85"> * validator.setMaximum(5);</span>
+<span class="source-line-no">086</span><span id="line-86"> * }</span>
+<span class="source-line-no">087</span><span id="line-87"> * }</span>
+<span class="source-line-no">088</span><span id="line-88"> * &lt;/code&gt;</span>
+<span class="source-line-no">089</span><span id="line-89"> * &lt;/pre&gt;</span>
+<span class="source-line-no">090</span><span id="line-90"> *</span>
+<span class="source-line-no">091</span><span id="line-91"> * @param &lt;V&gt; identifying the concrete {@link Validator} to be tested.</span>
+<span class="source-line-no">092</span><span id="line-92"> * @param &lt;T&gt; identifying the type of elements to be passed into the validator</span>
+<span class="source-line-no">093</span><span id="line-93"> * @author Oliver Wolff</span>
+<span class="source-line-no">094</span><span id="line-94"> */</span>
+<span class="source-line-no">095</span><span id="line-95">@SuppressWarnings({"rawtypes", "unchecked"}) // owolff we need to migrate this aspect later</span>
+<span class="source-line-no">096</span><span id="line-96">@EnableGeneratorController</span>
+<span class="source-line-no">097</span><span id="line-97">public abstract class AbstractValidatorTest&lt;V extends Validator, T&gt; extends JsfEnabledTestEnvironment</span>
+<span class="source-line-no">098</span><span id="line-98">    implements ConfigurationCallBackHandler&lt;V&gt; {</span>
+<span class="source-line-no">099</span><span id="line-99"></span>
+<span class="source-line-no">100</span><span id="line-100">    @Getter</span>
+<span class="source-line-no">101</span><span id="line-101">    private final UIComponent component = new HtmlInputText();</span>
+<span class="source-line-no">102</span><span id="line-102"></span>
+<span class="source-line-no">103</span><span id="line-103">    @Getter</span>
+<span class="source-line-no">104</span><span id="line-104">    private V validator;</span>
+<span class="source-line-no">105</span><span id="line-105"></span>
+<span class="source-line-no">106</span><span id="line-106">    /**</span>
+<span class="source-line-no">107</span><span id="line-107">     * Instantiates and initially configures a concrete {@link Validator}</span>
+<span class="source-line-no">108</span><span id="line-108">     */</span>
+<span class="source-line-no">109</span><span id="line-109">    @BeforeEach</span>
+<span class="source-line-no">110</span><span id="line-110">    void initValidator() {</span>
+<span class="source-line-no">111</span><span id="line-111">        final Class&lt;V&gt; klazz = MoreReflection.extractFirstGenericTypeArgument(getClass());</span>
+<span class="source-line-no">112</span><span id="line-112">        validator = new DefaultInstantiator&lt;&gt;(klazz).newInstance();</span>
+<span class="source-line-no">113</span><span id="line-113">        configure(validator);</span>
+<span class="source-line-no">114</span><span id="line-114">    }</span>
+<span class="source-line-no">115</span><span id="line-115"></span>
+<span class="source-line-no">116</span><span id="line-116">    /**</span>
+<span class="source-line-no">117</span><span id="line-117">     * Checks the api contract regarding {@code null} as parameter for</span>
+<span class="source-line-no">118</span><span id="line-118">     * {@link UIComponent}, see</span>
+<span class="source-line-no">119</span><span id="line-119">     * {@link Validator#validate(jakarta.faces.context.FacesContext, UIComponent, Object)}</span>
+<span class="source-line-no">120</span><span id="line-120">     */</span>
+<span class="source-line-no">121</span><span id="line-121">    @Test</span>
+<span class="source-line-no">122</span><span id="line-122">    void shouldFailOnNullComponent() {</span>
+<span class="source-line-no">123</span><span id="line-123">        assertThrows(NullPointerException.class, () -&gt; getValidator().validate(getFacesContext(), null, null));</span>
+<span class="source-line-no">124</span><span id="line-124">    }</span>
+<span class="source-line-no">125</span><span id="line-125"></span>
+<span class="source-line-no">126</span><span id="line-126">    /**</span>
+<span class="source-line-no">127</span><span id="line-127">     * Checks the api contract regarding {@code null} as parameter for</span>
+<span class="source-line-no">128</span><span id="line-128">     * {@link FacesContext}, see</span>
+<span class="source-line-no">129</span><span id="line-129">     * {@link Validator#validate(jakarta.faces.context.FacesContext, UIComponent, Object)}</span>
+<span class="source-line-no">130</span><span id="line-130">     */</span>
+<span class="source-line-no">131</span><span id="line-131">    @Test</span>
+<span class="source-line-no">132</span><span id="line-132">    void shouldFailOnNullFacesContext() {</span>
+<span class="source-line-no">133</span><span id="line-133">        assertThrows(NullPointerException.class, () -&gt; getValidator().validate(null, getComponent(), null));</span>
+<span class="source-line-no">134</span><span id="line-134">    }</span>
+<span class="source-line-no">135</span><span id="line-135"></span>
+<span class="source-line-no">136</span><span id="line-136">    /**</span>
+<span class="source-line-no">137</span><span id="line-137">     * Checks the api contract regarding {@code null} as parameter for the actual</span>
+<span class="source-line-no">138</span><span id="line-138">     * value, see</span>
+<span class="source-line-no">139</span><span id="line-139">     * {@link Validator#validate(jakarta.faces.context.FacesContext, UIComponent, Object)}</span>
+<span class="source-line-no">140</span><span id="line-140">     */</span>
+<span class="source-line-no">141</span><span id="line-141">    @Test</span>
+<span class="source-line-no">142</span><span id="line-142">    void shouldHandleNullValue() {</span>
+<span class="source-line-no">143</span><span id="line-143">        getValidator().validate(getFacesContext(), getComponent(), null);</span>
+<span class="source-line-no">144</span><span id="line-144">    }</span>
+<span class="source-line-no">145</span><span id="line-145"></span>
+<span class="source-line-no">146</span><span id="line-146">    /**</span>
+<span class="source-line-no">147</span><span id="line-147">     * Tests whether the valid {@link TestItems} are validated without</span>
+<span class="source-line-no">148</span><span id="line-148">     * {@link ValidatorException}</span>
+<span class="source-line-no">149</span><span id="line-149">     */</span>
+<span class="source-line-no">150</span><span id="line-150">    @Test</span>
+<span class="source-line-no">151</span><span id="line-151">    void shouldHandleValidTestdata() {</span>
+<span class="source-line-no">152</span><span id="line-152">        final var items = new TestItems&lt;T&gt;();</span>
+<span class="source-line-no">153</span><span id="line-153">        populate(items);</span>
+<span class="source-line-no">154</span><span id="line-154">        items.allValid().forEach(item -&gt; validator.validate(getFacesContext(), getComponent(), item.getTestValue()));</span>
+<span class="source-line-no">155</span><span id="line-155">    }</span>
+<span class="source-line-no">156</span><span id="line-156"></span>
+<span class="source-line-no">157</span><span id="line-157">    /**</span>
+<span class="source-line-no">158</span><span id="line-158">     * Tests whether the invalid {@link TestItems} fail to validate by throwing</span>
+<span class="source-line-no">159</span><span id="line-159">     * {@link ValidatorException}. In case the single {@link TestItems} provide a</span>
+<span class="source-line-no">160</span><span id="line-160">     * message, it will be compared as well.</span>
+<span class="source-line-no">161</span><span id="line-161">     */</span>
+<span class="source-line-no">162</span><span id="line-162">    @Test</span>
+<span class="source-line-no">163</span><span id="line-163">    void shouldFailOnInvalidTestdata() {</span>
+<span class="source-line-no">164</span><span id="line-164">        final var items = new TestItems&lt;T&gt;();</span>
+<span class="source-line-no">165</span><span id="line-165">        populate(items);</span>
+<span class="source-line-no">166</span><span id="line-166">        for (final TestItem&lt;T&gt; item : items.allInvalid()) {</span>
+<span class="source-line-no">167</span><span id="line-167">            try {</span>
+<span class="source-line-no">168</span><span id="line-168">                validator.validate(getFacesContext(), getComponent(), item.getTestValue());</span>
+<span class="source-line-no">169</span><span id="line-169">                fail("Validation should have thrown a ValidatorException for testValue" + item);</span>
+<span class="source-line-no">170</span><span id="line-170">            } catch (final ValidatorException e) {</span>
+<span class="source-line-no">171</span><span id="line-171">                assertEquals(FacesMessage.SEVERITY_ERROR, e.getFacesMessage().getSeverity());</span>
+<span class="source-line-no">172</span><span id="line-172">                if (null != item.getErrorMessage()) {</span>
+<span class="source-line-no">173</span><span id="line-173">                    assertEquals(item.getErrorMessage(), e.getFacesMessage().getSummary(),</span>
+<span class="source-line-no">174</span><span id="line-174">                        "The validation failed as expected, but the messages are not equal as expected");</span>
+<span class="source-line-no">175</span><span id="line-175">                }</span>
+<span class="source-line-no">176</span><span id="line-176">            }</span>
+<span class="source-line-no">177</span><span id="line-177">        }</span>
+<span class="source-line-no">178</span><span id="line-178">    }</span>
+<span class="source-line-no">179</span><span id="line-179"></span>
+<span class="source-line-no">180</span><span id="line-180">    /**</span>
+<span class="source-line-no">181</span><span id="line-181">     * Populates the test-items</span>
+<span class="source-line-no">182</span><span id="line-182">     *</span>
+<span class="source-line-no">183</span><span id="line-183">     * @param testItems to be populated, is never null</span>
+<span class="source-line-no">184</span><span id="line-184">     */</span>
+<span class="source-line-no">185</span><span id="line-185">    public abstract void populate(TestItems&lt;T&gt; testItems);</span>
+<span class="source-line-no">186</span><span id="line-186"></span>
+<span class="source-line-no">187</span><span id="line-187">}</span>
 
 
 

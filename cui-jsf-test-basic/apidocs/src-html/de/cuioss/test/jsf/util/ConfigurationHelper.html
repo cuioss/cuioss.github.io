@@ -28,176 +28,145 @@
 <span class="source-line-no">015</span><span id="line-15"> */</span>
 <span class="source-line-no">016</span><span id="line-16">package de.cuioss.test.jsf.util;</span>
 <span class="source-line-no">017</span><span id="line-17"></span>
-<span class="source-line-no">018</span><span id="line-18">import static java.util.Objects.requireNonNull;</span>
-<span class="source-line-no">019</span><span id="line-19"></span>
-<span class="source-line-no">020</span><span id="line-20">import java.util.ArrayList;</span>
-<span class="source-line-no">021</span><span id="line-21">import java.util.Collection;</span>
-<span class="source-line-no">022</span><span id="line-22">import java.util.List;</span>
-<span class="source-line-no">023</span><span id="line-23">import java.util.Set;</span>
-<span class="source-line-no">024</span><span id="line-24"></span>
-<span class="source-line-no">025</span><span id="line-25">import de.cuioss.test.jsf.config.ApplicationConfigurator;</span>
-<span class="source-line-no">026</span><span id="line-26">import de.cuioss.test.jsf.config.BeanConfigurator;</span>
-<span class="source-line-no">027</span><span id="line-27">import de.cuioss.test.jsf.config.ComponentConfigurator;</span>
-<span class="source-line-no">028</span><span id="line-28">import de.cuioss.test.jsf.config.JsfTestConfiguration;</span>
-<span class="source-line-no">029</span><span id="line-29">import de.cuioss.test.jsf.config.JsfTestContextConfigurator;</span>
-<span class="source-line-no">030</span><span id="line-30">import de.cuioss.test.jsf.config.RequestConfigurator;</span>
-<span class="source-line-no">031</span><span id="line-31">import de.cuioss.test.jsf.config.decorator.ApplicationConfigDecorator;</span>
-<span class="source-line-no">032</span><span id="line-32">import de.cuioss.test.jsf.config.decorator.BeanConfigDecorator;</span>
-<span class="source-line-no">033</span><span id="line-33">import de.cuioss.test.jsf.config.decorator.ComponentConfigDecorator;</span>
-<span class="source-line-no">034</span><span id="line-34">import de.cuioss.test.jsf.config.decorator.RequestConfigDecorator;</span>
-<span class="source-line-no">035</span><span id="line-35">import de.cuioss.test.valueobjects.objects.impl.DefaultInstantiator;</span>
-<span class="source-line-no">036</span><span id="line-36">import de.cuioss.tools.collect.CollectionBuilder;</span>
-<span class="source-line-no">037</span><span id="line-37">import de.cuioss.tools.reflect.MoreReflection;</span>
-<span class="source-line-no">038</span><span id="line-38">import lombok.AccessLevel;</span>
-<span class="source-line-no">039</span><span id="line-39">import lombok.NoArgsConstructor;</span>
-<span class="source-line-no">040</span><span id="line-40"></span>
-<span class="source-line-no">041</span><span id="line-41">/**</span>
-<span class="source-line-no">042</span><span id="line-42"> * Helper class providing some utility methods for handling configuration.</span>
-<span class="source-line-no">043</span><span id="line-43"> *</span>
-<span class="source-line-no">044</span><span id="line-44"> * @author Oliver Wolff</span>
-<span class="source-line-no">045</span><span id="line-45"> */</span>
-<span class="source-line-no">046</span><span id="line-46">@SuppressWarnings("squid:S1118") // owolff: lombok generated</span>
-<span class="source-line-no">047</span><span id="line-47">@NoArgsConstructor(access = AccessLevel.PRIVATE)</span>
-<span class="source-line-no">048</span><span id="line-48">public final class ConfigurationHelper {</span>
-<span class="source-line-no">049</span><span id="line-49"></span>
-<span class="source-line-no">050</span><span id="line-50">    /**</span>
-<span class="source-line-no">051</span><span id="line-51">     * Checks the given type for the annotation {@link JsfTestConfiguration} and and</span>
-<span class="source-line-no">052</span><span id="line-52">     * puts all found in the immutable {@link Set} to be returned</span>
-<span class="source-line-no">053</span><span id="line-53">     *</span>
-<span class="source-line-no">054</span><span id="line-54">     * @param annotated the class that may or may not provide the annotations, must</span>
-<span class="source-line-no">055</span><span id="line-55">     *                  not be null</span>
-<span class="source-line-no">056</span><span id="line-56">     * @return immutable {@link Set} of found {@link JsfTestConfiguration} elements.</span>
-<span class="source-line-no">057</span><span id="line-57">     */</span>
-<span class="source-line-no">058</span><span id="line-58">    public static Set&lt;JsfTestConfiguration&gt; extractJsfTestConfiguration(final Class&lt;?&gt; annotated) {</span>
-<span class="source-line-no">059</span><span id="line-59">        requireNonNull(annotated);</span>
-<span class="source-line-no">060</span><span id="line-60"></span>
-<span class="source-line-no">061</span><span id="line-61">        final var builder = new CollectionBuilder&lt;JsfTestConfiguration&gt;();</span>
-<span class="source-line-no">062</span><span id="line-62"></span>
-<span class="source-line-no">063</span><span id="line-63">        MoreReflection.extractAllAnnotations(annotated, JsfTestConfiguration.class).forEach(builder::add);</span>
-<span class="source-line-no">064</span><span id="line-64"></span>
-<span class="source-line-no">065</span><span id="line-65">        return builder.toImmutableSet();</span>
-<span class="source-line-no">066</span><span id="line-66">    }</span>
-<span class="source-line-no">067</span><span id="line-67"></span>
-<span class="source-line-no">068</span><span id="line-68">    /**</span>
-<span class="source-line-no">069</span><span id="line-69">     * Instantiates the given {@link ComponentConfigurator} and calls them with the</span>
-<span class="source-line-no">070</span><span id="line-70">     * given {@link ComponentConfigDecorator}. In case the given testClass instance</span>
-<span class="source-line-no">071</span><span id="line-71">     * also implements {@link ComponentConfigurator} the corresponding method will</span>
-<span class="source-line-no">072</span><span id="line-72">     * be called &lt;em&gt;after&lt;/em&gt; the others</span>
-<span class="source-line-no">073</span><span id="line-73">     *</span>
-<span class="source-line-no">074</span><span id="line-74">     * @param testClass      the actual instance of test, must not be null</span>
-<span class="source-line-no">075</span><span id="line-75">     * @param registry       to be passed the the individual instances of</span>
-<span class="source-line-no">076</span><span id="line-76">     *                       {@link ComponentConfigurator}, must not be null</span>
-<span class="source-line-no">077</span><span id="line-77">     * @param configurations the previously extracted annotations, must not be null</span>
-<span class="source-line-no">078</span><span id="line-78">     *                       but may be empty.</span>
-<span class="source-line-no">079</span><span id="line-79">     */</span>
-<span class="source-line-no">080</span><span id="line-80">    public static void configureComponents(final Object testClass, final ComponentConfigDecorator registry,</span>
-<span class="source-line-no">081</span><span id="line-81">            final Collection&lt;JsfTestConfiguration&gt; configurations) {</span>
-<span class="source-line-no">082</span><span id="line-82">        requireNonNull(testClass);</span>
-<span class="source-line-no">083</span><span id="line-83">        requireNonNull(registry);</span>
-<span class="source-line-no">084</span><span id="line-84">        requireNonNull(configurations);</span>
-<span class="source-line-no">085</span><span id="line-85">        final List&lt;ComponentConfigurator&gt; instances = getAssignableContextConfigurators(configurations,</span>
-<span class="source-line-no">086</span><span id="line-86">                ComponentConfigurator.class);</span>
-<span class="source-line-no">087</span><span id="line-87">        if (testClass instanceof ComponentConfigurator configurator) {</span>
-<span class="source-line-no">088</span><span id="line-88">            instances.add(configurator);</span>
-<span class="source-line-no">089</span><span id="line-89">        }</span>
-<span class="source-line-no">090</span><span id="line-90">        instances.forEach(instance -&gt; instance.configureComponents(registry));</span>
-<span class="source-line-no">091</span><span id="line-91">    }</span>
-<span class="source-line-no">092</span><span id="line-92"></span>
-<span class="source-line-no">093</span><span id="line-93">    /**</span>
-<span class="source-line-no">094</span><span id="line-94">     * Instantiates the given {@link BeanConfigurator} and calls them with the given</span>
-<span class="source-line-no">095</span><span id="line-95">     * {@link BeanConfigDecorator}. In case the given testClass instance also</span>
-<span class="source-line-no">096</span><span id="line-96">     * implements {@link BeanConfigurator} the corresponding method will be called</span>
-<span class="source-line-no">097</span><span id="line-97">     * &lt;em&gt;after&lt;/em&gt; the others</span>
-<span class="source-line-no">098</span><span id="line-98">     *</span>
-<span class="source-line-no">099</span><span id="line-99">     * @param testClass      the actual instance of test, must not be null</span>
-<span class="source-line-no">100</span><span id="line-100">     * @param registry       to be passed the the individual instances of</span>
-<span class="source-line-no">101</span><span id="line-101">     *                       {@link BeanConfigurator}, must not be null</span>
-<span class="source-line-no">102</span><span id="line-102">     * @param configurations the previously extracted annotations, must not be null</span>
-<span class="source-line-no">103</span><span id="line-103">     *                       but may be empty.</span>
-<span class="source-line-no">104</span><span id="line-104">     */</span>
-<span class="source-line-no">105</span><span id="line-105">    public static void configureManagedBeans(final Object testClass, final BeanConfigDecorator registry,</span>
-<span class="source-line-no">106</span><span id="line-106">            final Collection&lt;JsfTestConfiguration&gt; configurations) {</span>
-<span class="source-line-no">107</span><span id="line-107">        requireNonNull(testClass);</span>
-<span class="source-line-no">108</span><span id="line-108">        requireNonNull(registry);</span>
-<span class="source-line-no">109</span><span id="line-109">        requireNonNull(configurations);</span>
-<span class="source-line-no">110</span><span id="line-110">        final List&lt;BeanConfigurator&gt; instances = getAssignableContextConfigurators(configurations,</span>
-<span class="source-line-no">111</span><span id="line-111">                BeanConfigurator.class);</span>
-<span class="source-line-no">112</span><span id="line-112">        if (testClass instanceof BeanConfigurator configurator) {</span>
-<span class="source-line-no">113</span><span id="line-113">            instances.add(configurator);</span>
-<span class="source-line-no">114</span><span id="line-114">        }</span>
-<span class="source-line-no">115</span><span id="line-115">        instances.forEach(instance -&gt; instance.configureBeans(registry));</span>
-<span class="source-line-no">116</span><span id="line-116">    }</span>
-<span class="source-line-no">117</span><span id="line-117"></span>
-<span class="source-line-no">118</span><span id="line-118">    /**</span>
-<span class="source-line-no">119</span><span id="line-119">     * Instantiates the given {@link ApplicationConfigurator} and calls them with</span>
-<span class="source-line-no">120</span><span id="line-120">     * the given {@link ApplicationConfigDecorator}. In case the given testClass</span>
-<span class="source-line-no">121</span><span id="line-121">     * instance also implements {@link ApplicationConfigurator} the corresponding</span>
-<span class="source-line-no">122</span><span id="line-122">     * method will be called &lt;em&gt;after&lt;/em&gt; the others</span>
-<span class="source-line-no">123</span><span id="line-123">     *</span>
-<span class="source-line-no">124</span><span id="line-124">     * @param testClass      the actual instance of test, must not be null</span>
-<span class="source-line-no">125</span><span id="line-125">     * @param registry       to be passed the the individual instances of</span>
-<span class="source-line-no">126</span><span id="line-126">     *                       {@link ApplicationConfigurator}, must not be null</span>
-<span class="source-line-no">127</span><span id="line-127">     * @param configurations the previously extracted annotations, must not be null</span>
-<span class="source-line-no">128</span><span id="line-128">     *                       but may be empty.</span>
-<span class="source-line-no">129</span><span id="line-129">     */</span>
-<span class="source-line-no">130</span><span id="line-130">    public static void configureApplication(final Object testClass, final ApplicationConfigDecorator registry,</span>
-<span class="source-line-no">131</span><span id="line-131">            final Collection&lt;JsfTestConfiguration&gt; configurations) {</span>
-<span class="source-line-no">132</span><span id="line-132">        requireNonNull(testClass);</span>
-<span class="source-line-no">133</span><span id="line-133">        requireNonNull(registry);</span>
-<span class="source-line-no">134</span><span id="line-134">        requireNonNull(configurations);</span>
-<span class="source-line-no">135</span><span id="line-135">        final List&lt;ApplicationConfigurator&gt; instances = getAssignableContextConfigurators(configurations,</span>
-<span class="source-line-no">136</span><span id="line-136">                ApplicationConfigurator.class);</span>
-<span class="source-line-no">137</span><span id="line-137">        if (testClass instanceof ApplicationConfigurator configurator) {</span>
-<span class="source-line-no">138</span><span id="line-138">            instances.add(configurator);</span>
-<span class="source-line-no">139</span><span id="line-139">        }</span>
-<span class="source-line-no">140</span><span id="line-140">        instances.forEach(instance -&gt; instance.configureApplication(registry));</span>
-<span class="source-line-no">141</span><span id="line-141">    }</span>
-<span class="source-line-no">142</span><span id="line-142"></span>
-<span class="source-line-no">143</span><span id="line-143">    /**</span>
-<span class="source-line-no">144</span><span id="line-144">     * Instantiates the given {@link RequestConfigurator} and calls them with the</span>
-<span class="source-line-no">145</span><span id="line-145">     * given {@link RequestConfigDecorator}. In case the given testClass instance</span>
-<span class="source-line-no">146</span><span id="line-146">     * also implements {@link RequestConfigurator} the corresponding method will be</span>
-<span class="source-line-no">147</span><span id="line-147">     * called &lt;em&gt;after&lt;/em&gt; the others</span>
-<span class="source-line-no">148</span><span id="line-148">     *</span>
-<span class="source-line-no">149</span><span id="line-149">     * @param testClass      the actual instance of test, must not be null</span>
-<span class="source-line-no">150</span><span id="line-150">     * @param registry       to be passed the the individual instances of</span>
-<span class="source-line-no">151</span><span id="line-151">     *                       {@link RequestConfigurator}, must not be null</span>
-<span class="source-line-no">152</span><span id="line-152">     * @param configurations the previously extracted annotations, must not be null</span>
-<span class="source-line-no">153</span><span id="line-153">     *                       but may be empty.</span>
-<span class="source-line-no">154</span><span id="line-154">     */</span>
-<span class="source-line-no">155</span><span id="line-155">    public static void configureRequestConfig(final Object testClass, final RequestConfigDecorator registry,</span>
-<span class="source-line-no">156</span><span id="line-156">            final Collection&lt;JsfTestConfiguration&gt; configurations) {</span>
-<span class="source-line-no">157</span><span id="line-157">        requireNonNull(testClass);</span>
-<span class="source-line-no">158</span><span id="line-158">        requireNonNull(registry);</span>
-<span class="source-line-no">159</span><span id="line-159">        requireNonNull(configurations);</span>
-<span class="source-line-no">160</span><span id="line-160">        final List&lt;RequestConfigurator&gt; instances = getAssignableContextConfigurators(configurations,</span>
-<span class="source-line-no">161</span><span id="line-161">                RequestConfigurator.class);</span>
-<span class="source-line-no">162</span><span id="line-162">        if (testClass instanceof RequestConfigurator configurator) {</span>
-<span class="source-line-no">163</span><span id="line-163">            instances.add(configurator);</span>
-<span class="source-line-no">164</span><span id="line-164">        }</span>
-<span class="source-line-no">165</span><span id="line-165">        instances.forEach(instance -&gt; instance.configureRequest(registry));</span>
-<span class="source-line-no">166</span><span id="line-166">    }</span>
-<span class="source-line-no">167</span><span id="line-167"></span>
-<span class="source-line-no">168</span><span id="line-168">    /**</span>
-<span class="source-line-no">169</span><span id="line-169">     * @param configurations all configurators</span>
-<span class="source-line-no">170</span><span id="line-170">     * @param configurator   class to check if assignable</span>
-<span class="source-line-no">171</span><span id="line-171">     * @param &lt;T&gt;            target type</span>
-<span class="source-line-no">172</span><span id="line-172">     * @return list of {@link JsfTestContextConfigurator} with target type</span>
-<span class="source-line-no">173</span><span id="line-173">     */</span>
-<span class="source-line-no">174</span><span id="line-174">    @SuppressWarnings("unchecked")</span>
-<span class="source-line-no">175</span><span id="line-175">    private static &lt;T extends JsfTestContextConfigurator&gt; List&lt;T&gt; getAssignableContextConfigurators(</span>
-<span class="source-line-no">176</span><span id="line-176">            final Collection&lt;JsfTestConfiguration&gt; configurations, final Class&lt;T&gt; configurator) {</span>
-<span class="source-line-no">177</span><span id="line-177">        final List&lt;T&gt; instances = new ArrayList&lt;&gt;();</span>
-<span class="source-line-no">178</span><span id="line-178">        for (final JsfTestConfiguration config : configurations) {</span>
-<span class="source-line-no">179</span><span id="line-179">            for (final Class&lt;? extends JsfTestContextConfigurator&gt; type : config.value()) {</span>
-<span class="source-line-no">180</span><span id="line-180">                if (configurator.isAssignableFrom(type)) {</span>
-<span class="source-line-no">181</span><span id="line-181">                    instances.add((T) new DefaultInstantiator&lt;&gt;(type).newInstance());</span>
-<span class="source-line-no">182</span><span id="line-182">                }</span>
-<span class="source-line-no">183</span><span id="line-183">            }</span>
-<span class="source-line-no">184</span><span id="line-184">        }</span>
-<span class="source-line-no">185</span><span id="line-185">        return instances;</span>
-<span class="source-line-no">186</span><span id="line-186">    }</span>
-<span class="source-line-no">187</span><span id="line-187">}</span>
+<span class="source-line-no">018</span><span id="line-18">import de.cuioss.test.jsf.config.*;</span>
+<span class="source-line-no">019</span><span id="line-19">import de.cuioss.test.jsf.config.decorator.ApplicationConfigDecorator;</span>
+<span class="source-line-no">020</span><span id="line-20">import de.cuioss.test.jsf.config.decorator.ComponentConfigDecorator;</span>
+<span class="source-line-no">021</span><span id="line-21">import de.cuioss.test.jsf.config.decorator.RequestConfigDecorator;</span>
+<span class="source-line-no">022</span><span id="line-22">import de.cuioss.test.valueobjects.objects.impl.DefaultInstantiator;</span>
+<span class="source-line-no">023</span><span id="line-23">import de.cuioss.tools.collect.CollectionBuilder;</span>
+<span class="source-line-no">024</span><span id="line-24">import de.cuioss.tools.reflect.MoreReflection;</span>
+<span class="source-line-no">025</span><span id="line-25">import lombok.AccessLevel;</span>
+<span class="source-line-no">026</span><span id="line-26">import lombok.NoArgsConstructor;</span>
+<span class="source-line-no">027</span><span id="line-27"></span>
+<span class="source-line-no">028</span><span id="line-28">import java.util.ArrayList;</span>
+<span class="source-line-no">029</span><span id="line-29">import java.util.Collection;</span>
+<span class="source-line-no">030</span><span id="line-30">import java.util.List;</span>
+<span class="source-line-no">031</span><span id="line-31">import java.util.Set;</span>
+<span class="source-line-no">032</span><span id="line-32"></span>
+<span class="source-line-no">033</span><span id="line-33">import static java.util.Objects.requireNonNull;</span>
+<span class="source-line-no">034</span><span id="line-34"></span>
+<span class="source-line-no">035</span><span id="line-35">/**</span>
+<span class="source-line-no">036</span><span id="line-36"> * Helper class providing some utility methods for handling configuration.</span>
+<span class="source-line-no">037</span><span id="line-37"> *</span>
+<span class="source-line-no">038</span><span id="line-38"> * @author Oliver Wolff</span>
+<span class="source-line-no">039</span><span id="line-39"> */</span>
+<span class="source-line-no">040</span><span id="line-40">@SuppressWarnings("squid:S1118") // owolff: lombok generated</span>
+<span class="source-line-no">041</span><span id="line-41">@NoArgsConstructor(access = AccessLevel.PRIVATE)</span>
+<span class="source-line-no">042</span><span id="line-42">public final class ConfigurationHelper {</span>
+<span class="source-line-no">043</span><span id="line-43"></span>
+<span class="source-line-no">044</span><span id="line-44">    /**</span>
+<span class="source-line-no">045</span><span id="line-45">     * Checks the given type for the annotation {@link JsfTestConfiguration} and and</span>
+<span class="source-line-no">046</span><span id="line-46">     * puts all found in the immutable {@link Set} to be returned</span>
+<span class="source-line-no">047</span><span id="line-47">     *</span>
+<span class="source-line-no">048</span><span id="line-48">     * @param annotated the class that may or may not provide the annotations, must</span>
+<span class="source-line-no">049</span><span id="line-49">     *                  not be null</span>
+<span class="source-line-no">050</span><span id="line-50">     * @return immutable {@link Set} of found {@link JsfTestConfiguration} elements.</span>
+<span class="source-line-no">051</span><span id="line-51">     */</span>
+<span class="source-line-no">052</span><span id="line-52">    public static Set&lt;JsfTestConfiguration&gt; extractJsfTestConfiguration(final Class&lt;?&gt; annotated) {</span>
+<span class="source-line-no">053</span><span id="line-53">        requireNonNull(annotated);</span>
+<span class="source-line-no">054</span><span id="line-54"></span>
+<span class="source-line-no">055</span><span id="line-55">        final var builder = new CollectionBuilder&lt;JsfTestConfiguration&gt;();</span>
+<span class="source-line-no">056</span><span id="line-56"></span>
+<span class="source-line-no">057</span><span id="line-57">        MoreReflection.extractAllAnnotations(annotated, JsfTestConfiguration.class).forEach(builder::add);</span>
+<span class="source-line-no">058</span><span id="line-58"></span>
+<span class="source-line-no">059</span><span id="line-59">        return builder.toImmutableSet();</span>
+<span class="source-line-no">060</span><span id="line-60">    }</span>
+<span class="source-line-no">061</span><span id="line-61"></span>
+<span class="source-line-no">062</span><span id="line-62">    /**</span>
+<span class="source-line-no">063</span><span id="line-63">     * Instantiates the given {@link ComponentConfigurator} and calls them with the</span>
+<span class="source-line-no">064</span><span id="line-64">     * given {@link ComponentConfigDecorator}. In case the given testClass instance</span>
+<span class="source-line-no">065</span><span id="line-65">     * also implements {@link ComponentConfigurator} the corresponding method will</span>
+<span class="source-line-no">066</span><span id="line-66">     * be called &lt;em&gt;after&lt;/em&gt; the others</span>
+<span class="source-line-no">067</span><span id="line-67">     *</span>
+<span class="source-line-no">068</span><span id="line-68">     * @param testClass      the actual instance of test, must not be null</span>
+<span class="source-line-no">069</span><span id="line-69">     * @param registry       to be passed the the individual instances of</span>
+<span class="source-line-no">070</span><span id="line-70">     *                       {@link ComponentConfigurator}, must not be null</span>
+<span class="source-line-no">071</span><span id="line-71">     * @param configurations the previously extracted annotations, must not be null</span>
+<span class="source-line-no">072</span><span id="line-72">     *                       but may be empty.</span>
+<span class="source-line-no">073</span><span id="line-73">     */</span>
+<span class="source-line-no">074</span><span id="line-74">    public static void configureComponents(final Object testClass, final ComponentConfigDecorator registry,</span>
+<span class="source-line-no">075</span><span id="line-75">                                           final Collection&lt;JsfTestConfiguration&gt; configurations) {</span>
+<span class="source-line-no">076</span><span id="line-76">        requireNonNull(testClass);</span>
+<span class="source-line-no">077</span><span id="line-77">        requireNonNull(registry);</span>
+<span class="source-line-no">078</span><span id="line-78">        requireNonNull(configurations);</span>
+<span class="source-line-no">079</span><span id="line-79">        final List&lt;ComponentConfigurator&gt; instances = getAssignableContextConfigurators(configurations,</span>
+<span class="source-line-no">080</span><span id="line-80">            ComponentConfigurator.class);</span>
+<span class="source-line-no">081</span><span id="line-81">        if (testClass instanceof ComponentConfigurator configurator) {</span>
+<span class="source-line-no">082</span><span id="line-82">            instances.add(configurator);</span>
+<span class="source-line-no">083</span><span id="line-83">        }</span>
+<span class="source-line-no">084</span><span id="line-84">        instances.forEach(instance -&gt; instance.configureComponents(registry));</span>
+<span class="source-line-no">085</span><span id="line-85">    }</span>
+<span class="source-line-no">086</span><span id="line-86"></span>
+<span class="source-line-no">087</span><span id="line-87">    /**</span>
+<span class="source-line-no">088</span><span id="line-88">     * Instantiates the given {@link ApplicationConfigurator} and calls them with</span>
+<span class="source-line-no">089</span><span id="line-89">     * the given {@link ApplicationConfigDecorator}. In case the given testClass</span>
+<span class="source-line-no">090</span><span id="line-90">     * instance also implements {@link ApplicationConfigurator} the corresponding</span>
+<span class="source-line-no">091</span><span id="line-91">     * method will be called &lt;em&gt;after&lt;/em&gt; the others</span>
+<span class="source-line-no">092</span><span id="line-92">     *</span>
+<span class="source-line-no">093</span><span id="line-93">     * @param testClass      the actual instance of test must not be null</span>
+<span class="source-line-no">094</span><span id="line-94">     * @param registry       to be passed the individual instances of</span>
+<span class="source-line-no">095</span><span id="line-95">     *                       {@link ApplicationConfigurator}, must not be null</span>
+<span class="source-line-no">096</span><span id="line-96">     * @param configurations the previously extracted annotations must not be null</span>
+<span class="source-line-no">097</span><span id="line-97">     *                       but may be empty.</span>
+<span class="source-line-no">098</span><span id="line-98">     */</span>
+<span class="source-line-no">099</span><span id="line-99">    public static void configureApplication(final Object testClass, final ApplicationConfigDecorator registry,</span>
+<span class="source-line-no">100</span><span id="line-100">                                            final Collection&lt;JsfTestConfiguration&gt; configurations) {</span>
+<span class="source-line-no">101</span><span id="line-101">        requireNonNull(testClass);</span>
+<span class="source-line-no">102</span><span id="line-102">        requireNonNull(registry);</span>
+<span class="source-line-no">103</span><span id="line-103">        requireNonNull(configurations);</span>
+<span class="source-line-no">104</span><span id="line-104">        final List&lt;ApplicationConfigurator&gt; instances = getAssignableContextConfigurators(configurations,</span>
+<span class="source-line-no">105</span><span id="line-105">            ApplicationConfigurator.class);</span>
+<span class="source-line-no">106</span><span id="line-106">        if (testClass instanceof ApplicationConfigurator configurator) {</span>
+<span class="source-line-no">107</span><span id="line-107">            instances.add(configurator);</span>
+<span class="source-line-no">108</span><span id="line-108">        }</span>
+<span class="source-line-no">109</span><span id="line-109">        instances.forEach(instance -&gt; instance.configureApplication(registry));</span>
+<span class="source-line-no">110</span><span id="line-110">    }</span>
+<span class="source-line-no">111</span><span id="line-111"></span>
+<span class="source-line-no">112</span><span id="line-112">    /**</span>
+<span class="source-line-no">113</span><span id="line-113">     * Instantiates the given {@link RequestConfigurator} and calls them with the</span>
+<span class="source-line-no">114</span><span id="line-114">     * given {@link RequestConfigDecorator}. In case the given testClass instance</span>
+<span class="source-line-no">115</span><span id="line-115">     * also implements {@link RequestConfigurator} the corresponding method will be</span>
+<span class="source-line-no">116</span><span id="line-116">     * called &lt;em&gt;after&lt;/em&gt; the others</span>
+<span class="source-line-no">117</span><span id="line-117">     *</span>
+<span class="source-line-no">118</span><span id="line-118">     * @param testClass      the actual instance of test must not be null</span>
+<span class="source-line-no">119</span><span id="line-119">     * @param registry       to be passed the individual instances of</span>
+<span class="source-line-no">120</span><span id="line-120">     *                       {@link RequestConfigurator}, must not be null</span>
+<span class="source-line-no">121</span><span id="line-121">     * @param configurations the previously extracted annotations must not be null</span>
+<span class="source-line-no">122</span><span id="line-122">     *                       but may be empty.</span>
+<span class="source-line-no">123</span><span id="line-123">     */</span>
+<span class="source-line-no">124</span><span id="line-124">    public static void configureRequestConfig(final Object testClass, final RequestConfigDecorator registry,</span>
+<span class="source-line-no">125</span><span id="line-125">                                              final Collection&lt;JsfTestConfiguration&gt; configurations) {</span>
+<span class="source-line-no">126</span><span id="line-126">        requireNonNull(testClass);</span>
+<span class="source-line-no">127</span><span id="line-127">        requireNonNull(registry);</span>
+<span class="source-line-no">128</span><span id="line-128">        requireNonNull(configurations);</span>
+<span class="source-line-no">129</span><span id="line-129">        final List&lt;RequestConfigurator&gt; instances = getAssignableContextConfigurators(configurations,</span>
+<span class="source-line-no">130</span><span id="line-130">            RequestConfigurator.class);</span>
+<span class="source-line-no">131</span><span id="line-131">        if (testClass instanceof RequestConfigurator configurator) {</span>
+<span class="source-line-no">132</span><span id="line-132">            instances.add(configurator);</span>
+<span class="source-line-no">133</span><span id="line-133">        }</span>
+<span class="source-line-no">134</span><span id="line-134">        instances.forEach(instance -&gt; instance.configureRequest(registry));</span>
+<span class="source-line-no">135</span><span id="line-135">    }</span>
+<span class="source-line-no">136</span><span id="line-136"></span>
+<span class="source-line-no">137</span><span id="line-137">    /**</span>
+<span class="source-line-no">138</span><span id="line-138">     * @param configurations all configurators</span>
+<span class="source-line-no">139</span><span id="line-139">     * @param configurator   class to check if assignable</span>
+<span class="source-line-no">140</span><span id="line-140">     * @param &lt;T&gt;            target type</span>
+<span class="source-line-no">141</span><span id="line-141">     * @return list of {@link JsfTestContextConfigurator} with target type</span>
+<span class="source-line-no">142</span><span id="line-142">     */</span>
+<span class="source-line-no">143</span><span id="line-143">    @SuppressWarnings("unchecked")</span>
+<span class="source-line-no">144</span><span id="line-144">    private static &lt;T extends JsfTestContextConfigurator&gt; List&lt;T&gt; getAssignableContextConfigurators(</span>
+<span class="source-line-no">145</span><span id="line-145">        final Collection&lt;JsfTestConfiguration&gt; configurations, final Class&lt;T&gt; configurator) {</span>
+<span class="source-line-no">146</span><span id="line-146">        final List&lt;T&gt; instances = new ArrayList&lt;&gt;();</span>
+<span class="source-line-no">147</span><span id="line-147">        for (final JsfTestConfiguration config : configurations) {</span>
+<span class="source-line-no">148</span><span id="line-148">            for (final Class&lt;? extends JsfTestContextConfigurator&gt; type : config.value()) {</span>
+<span class="source-line-no">149</span><span id="line-149">                if (configurator.isAssignableFrom(type)) {</span>
+<span class="source-line-no">150</span><span id="line-150">                    instances.add((T) new DefaultInstantiator&lt;&gt;(type).newInstance());</span>
+<span class="source-line-no">151</span><span id="line-151">                }</span>
+<span class="source-line-no">152</span><span id="line-152">            }</span>
+<span class="source-line-no">153</span><span id="line-153">        }</span>
+<span class="source-line-no">154</span><span id="line-154">        return instances;</span>
+<span class="source-line-no">155</span><span id="line-155">    }</span>
+<span class="source-line-no">156</span><span id="line-156">}</span>
 
 
 

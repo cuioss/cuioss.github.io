@@ -28,66 +28,66 @@
 <span class="source-line-no">015</span><span id="line-15"> */</span>
 <span class="source-line-no">016</span><span id="line-16">package de.cuioss.test.jsf.junit5;</span>
 <span class="source-line-no">017</span><span id="line-17"></span>
-<span class="source-line-no">018</span><span id="line-18">import java.io.Serializable;</span>
-<span class="source-line-no">019</span><span id="line-19">import java.util.Optional;</span>
-<span class="source-line-no">020</span><span id="line-20">import java.util.Set;</span>
-<span class="source-line-no">021</span><span id="line-21"></span>
-<span class="source-line-no">022</span><span id="line-22">import javax.inject.Named;</span>
-<span class="source-line-no">023</span><span id="line-23"></span>
-<span class="source-line-no">024</span><span id="line-24">import org.junit.jupiter.api.BeforeEach;</span>
-<span class="source-line-no">025</span><span id="line-25">import org.junit.jupiter.api.Test;</span>
-<span class="source-line-no">026</span><span id="line-26"></span>
-<span class="source-line-no">027</span><span id="line-27">import de.cuioss.test.valueobjects.api.ObjectContractTestSupport;</span>
-<span class="source-line-no">028</span><span id="line-28">import de.cuioss.test.valueobjects.api.contracts.VerifyBeanProperty;</span>
-<span class="source-line-no">029</span><span id="line-29">import de.cuioss.test.valueobjects.api.object.ObjectTestConfig;</span>
-<span class="source-line-no">030</span><span id="line-30">import de.cuioss.test.valueobjects.api.object.ObjectTestContracts;</span>
-<span class="source-line-no">031</span><span id="line-31">import de.cuioss.test.valueobjects.contract.BeanPropertyContractImpl;</span>
-<span class="source-line-no">032</span><span id="line-32">import de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler;</span>
-<span class="source-line-no">033</span><span id="line-33">import de.cuioss.test.valueobjects.objects.ParameterizedInstantiator;</span>
-<span class="source-line-no">034</span><span id="line-34">import de.cuioss.test.valueobjects.objects.RuntimeProperties;</span>
-<span class="source-line-no">035</span><span id="line-35">import de.cuioss.test.valueobjects.objects.impl.BeanInstantiator;</span>
-<span class="source-line-no">036</span><span id="line-36">import de.cuioss.test.valueobjects.objects.impl.CallbackAwareInstantiator;</span>
-<span class="source-line-no">037</span><span id="line-37">import de.cuioss.test.valueobjects.objects.impl.DefaultInstantiator;</span>
-<span class="source-line-no">038</span><span id="line-38">import de.cuioss.test.valueobjects.util.AnnotationHelper;</span>
-<span class="source-line-no">039</span><span id="line-39">import de.cuioss.test.valueobjects.util.ObjectContractHelper;</span>
-<span class="source-line-no">040</span><span id="line-40">import de.cuioss.tools.reflect.MoreReflection;</span>
-<span class="source-line-no">041</span><span id="line-41">import lombok.AccessLevel;</span>
-<span class="source-line-no">042</span><span id="line-42">import lombok.Getter;</span>
-<span class="source-line-no">043</span><span id="line-43"></span>
-<span class="source-line-no">044</span><span id="line-44">/**</span>
-<span class="source-line-no">045</span><span id="line-45"> * Base class for testing {@link Named} beans. The test runs implicitly</span>
-<span class="source-line-no">046</span><span id="line-46"> * {@link VerifyBeanProperty}, therefore the annotation is optional, but it can</span>
-<span class="source-line-no">047</span><span id="line-47"> * be used for further configuration.</span>
-<span class="source-line-no">048</span><span id="line-48"> * &lt;p&gt;</span>
-<span class="source-line-no">049</span><span id="line-49"> * As default all {@link ObjectTestContracts} a run, see</span>
-<span class="source-line-no">050</span><span id="line-50"> * {@link #shouldImplementObjectContracts()}</span>
-<span class="source-line-no">051</span><span id="line-51"> * &lt;/p&gt;</span>
-<span class="source-line-no">052</span><span id="line-52"> * &lt;p&gt;</span>
-<span class="source-line-no">053</span><span id="line-53"> * Documentation on how to setup the generator can be found at</span>
-<span class="source-line-no">054</span><span id="line-54"> * {@link AbstractPropertyAwareFacesTest}</span>
-<span class="source-line-no">055</span><span id="line-55"> * &lt;/p&gt;</span>
-<span class="source-line-no">056</span><span id="line-56"> * &lt;p&gt;</span>
-<span class="source-line-no">057</span><span id="line-57"> * Documentation on the setup of the JSF-related test-infrastructure can be</span>
-<span class="source-line-no">058</span><span id="line-58"> * found at {@link EnableJsfEnvironment}</span>
-<span class="source-line-no">059</span><span id="line-59"> * &lt;/p&gt;</span>
-<span class="source-line-no">060</span><span id="line-60"> * &lt;p&gt;</span>
-<span class="source-line-no">061</span><span id="line-61"> * It acts as an {@link ConfigurationCallBackHandler}, saying after</span>
-<span class="source-line-no">062</span><span id="line-62"> * initialization and prior to testing the method {@link #configure(Object)}</span>
-<span class="source-line-no">063</span><span id="line-63"> * will be called allowing the concrete test-class to do some specific</span>
-<span class="source-line-no">064</span><span id="line-64"> * configuration e.g. calling init-methods and such.</span>
-<span class="source-line-no">065</span><span id="line-65"> * &lt;/p&gt;</span>
-<span class="source-line-no">066</span><span id="line-66"> * &lt;p&gt;</span>
-<span class="source-line-no">067</span><span id="line-67"> * You can easily access pre-configured instance by calling {@link #anyBean()}.</span>
-<span class="source-line-no">068</span><span id="line-68"> * &lt;/p&gt;</span>
-<span class="source-line-no">069</span><span id="line-69"> *</span>
+<span class="source-line-no">018</span><span id="line-18">import de.cuioss.test.valueobjects.api.ObjectContractTestSupport;</span>
+<span class="source-line-no">019</span><span id="line-19">import de.cuioss.test.valueobjects.api.contracts.VerifyBeanProperty;</span>
+<span class="source-line-no">020</span><span id="line-20">import de.cuioss.test.valueobjects.api.object.ObjectTestConfig;</span>
+<span class="source-line-no">021</span><span id="line-21">import de.cuioss.test.valueobjects.api.object.ObjectTestContracts;</span>
+<span class="source-line-no">022</span><span id="line-22">import de.cuioss.test.valueobjects.contract.BeanPropertyContractImpl;</span>
+<span class="source-line-no">023</span><span id="line-23">import de.cuioss.test.valueobjects.objects.ConfigurationCallBackHandler;</span>
+<span class="source-line-no">024</span><span id="line-24">import de.cuioss.test.valueobjects.objects.ParameterizedInstantiator;</span>
+<span class="source-line-no">025</span><span id="line-25">import de.cuioss.test.valueobjects.objects.RuntimeProperties;</span>
+<span class="source-line-no">026</span><span id="line-26">import de.cuioss.test.valueobjects.objects.impl.BeanInstantiator;</span>
+<span class="source-line-no">027</span><span id="line-27">import de.cuioss.test.valueobjects.objects.impl.CallbackAwareInstantiator;</span>
+<span class="source-line-no">028</span><span id="line-28">import de.cuioss.test.valueobjects.objects.impl.DefaultInstantiator;</span>
+<span class="source-line-no">029</span><span id="line-29">import de.cuioss.test.valueobjects.util.AnnotationHelper;</span>
+<span class="source-line-no">030</span><span id="line-30">import de.cuioss.test.valueobjects.util.ObjectContractHelper;</span>
+<span class="source-line-no">031</span><span id="line-31">import de.cuioss.tools.reflect.MoreReflection;</span>
+<span class="source-line-no">032</span><span id="line-32">import jakarta.inject.Named;</span>
+<span class="source-line-no">033</span><span id="line-33">import lombok.AccessLevel;</span>
+<span class="source-line-no">034</span><span id="line-34">import lombok.Getter;</span>
+<span class="source-line-no">035</span><span id="line-35">import org.junit.jupiter.api.BeforeEach;</span>
+<span class="source-line-no">036</span><span id="line-36">import org.junit.jupiter.api.Test;</span>
+<span class="source-line-no">037</span><span id="line-37"></span>
+<span class="source-line-no">038</span><span id="line-38">import java.io.Serializable;</span>
+<span class="source-line-no">039</span><span id="line-39">import java.util.Optional;</span>
+<span class="source-line-no">040</span><span id="line-40">import java.util.Set;</span>
+<span class="source-line-no">041</span><span id="line-41"></span>
+<span class="source-line-no">042</span><span id="line-42">/**</span>
+<span class="source-line-no">043</span><span id="line-43"> * Base class for testing {@link Named} beans. The test runs implicitly</span>
+<span class="source-line-no">044</span><span id="line-44"> * {@link VerifyBeanProperty}, therefore the annotation is optional, but it can</span>
+<span class="source-line-no">045</span><span id="line-45"> * be used for further configuration.</span>
+<span class="source-line-no">046</span><span id="line-46"> * &lt;p&gt;</span>
+<span class="source-line-no">047</span><span id="line-47"> * As default all {@link ObjectTestContracts} a run, see</span>
+<span class="source-line-no">048</span><span id="line-48"> * {@link #shouldImplementObjectContracts()}</span>
+<span class="source-line-no">049</span><span id="line-49"> * &lt;/p&gt;</span>
+<span class="source-line-no">050</span><span id="line-50"> * &lt;p&gt;</span>
+<span class="source-line-no">051</span><span id="line-51"> * Documentation on how to setup the generator can be found at</span>
+<span class="source-line-no">052</span><span id="line-52"> * {@link AbstractPropertyAwareFacesTest}</span>
+<span class="source-line-no">053</span><span id="line-53"> * &lt;/p&gt;</span>
+<span class="source-line-no">054</span><span id="line-54"> * &lt;p&gt;</span>
+<span class="source-line-no">055</span><span id="line-55"> * Documentation on the setup of the JSF-related test-infrastructure can be</span>
+<span class="source-line-no">056</span><span id="line-56"> * found at {@link EnableJsfEnvironment}</span>
+<span class="source-line-no">057</span><span id="line-57"> * &lt;/p&gt;</span>
+<span class="source-line-no">058</span><span id="line-58"> * &lt;p&gt;</span>
+<span class="source-line-no">059</span><span id="line-59"> * It acts as an {@link ConfigurationCallBackHandler}, saying after</span>
+<span class="source-line-no">060</span><span id="line-60"> * initialization and prior to testing the method {@link #configure(Object)}</span>
+<span class="source-line-no">061</span><span id="line-61"> * will be called allowing the concrete test-class to do some specific</span>
+<span class="source-line-no">062</span><span id="line-62"> * configuration e.g. calling init-methods and such.</span>
+<span class="source-line-no">063</span><span id="line-63"> * &lt;/p&gt;</span>
+<span class="source-line-no">064</span><span id="line-64"> * &lt;p&gt;</span>
+<span class="source-line-no">065</span><span id="line-65"> * You can easily access pre-configured instance by calling {@link #anyBean()}.</span>
+<span class="source-line-no">066</span><span id="line-66"> * &lt;/p&gt;</span>
+<span class="source-line-no">067</span><span id="line-67"> *</span>
+<span class="source-line-no">068</span><span id="line-68"> * @param &lt;T&gt; identifying the type to be tested is usually but not necessarily</span>
+<span class="source-line-no">069</span><span id="line-69"> *            at least {@link Serializable}.</span>
 <span class="source-line-no">070</span><span id="line-70"> * @author Oliver Wolff</span>
-<span class="source-line-no">071</span><span id="line-71"> * @param &lt;T&gt; identifying the type to be tested is usually but not necessarily</span>
-<span class="source-line-no">072</span><span id="line-72"> *            at least {@link Serializable}.</span>
-<span class="source-line-no">073</span><span id="line-73"> */</span>
-<span class="source-line-no">074</span><span id="line-74">public abstract class AbstractBeanTest&lt;T&gt; extends AbstractPropertyAwareFacesTest&lt;T&gt;</span>
-<span class="source-line-no">075</span><span id="line-75">        implements ObjectContractTestSupport {</span>
-<span class="source-line-no">076</span><span id="line-76"></span>
-<span class="source-line-no">077</span><span id="line-77">    /** The active object-contracts to be tested */</span>
+<span class="source-line-no">071</span><span id="line-71"> */</span>
+<span class="source-line-no">072</span><span id="line-72">public abstract class AbstractBeanTest&lt;T&gt; extends AbstractPropertyAwareFacesTest&lt;T&gt;</span>
+<span class="source-line-no">073</span><span id="line-73">    implements ObjectContractTestSupport {</span>
+<span class="source-line-no">074</span><span id="line-74"></span>
+<span class="source-line-no">075</span><span id="line-75">    /**</span>
+<span class="source-line-no">076</span><span id="line-76">     * The active object-contracts to be tested</span>
+<span class="source-line-no">077</span><span id="line-77">     */</span>
 <span class="source-line-no">078</span><span id="line-78">    private Set&lt;ObjectTestContracts&gt; activeObjectContracts;</span>
 <span class="source-line-no">079</span><span id="line-79"></span>
 <span class="source-line-no">080</span><span id="line-80">    /**</span>
@@ -105,15 +105,15 @@
 <span class="source-line-no">092</span><span id="line-92">    void before() {</span>
 <span class="source-line-no">093</span><span id="line-93">        activeObjectContracts = ObjectContractHelper.handleVetoedContracts(getClass());</span>
 <span class="source-line-no">094</span><span id="line-94">        Optional&lt;VerifyBeanProperty&gt; annotation = MoreReflection.extractAnnotation(getClass(),</span>
-<span class="source-line-no">095</span><span id="line-95">                VerifyBeanProperty.class);</span>
+<span class="source-line-no">095</span><span id="line-95">            VerifyBeanProperty.class);</span>
 <span class="source-line-no">096</span><span id="line-96">        ParameterizedInstantiator&lt;T&gt; inlineInstantiator;</span>
 <span class="source-line-no">097</span><span id="line-97">        if (annotation.isPresent()) {</span>
 <span class="source-line-no">098</span><span id="line-98">            var meta = AnnotationHelper.handleMetadataForPropertyTest(getClass(), getPropertyMetadata());</span>
 <span class="source-line-no">099</span><span id="line-99">            inlineInstantiator = new BeanInstantiator&lt;&gt;(new DefaultInstantiator&lt;&gt;(getTargetBeanClass()),</span>
-<span class="source-line-no">100</span><span id="line-100">                    new RuntimeProperties(meta));</span>
+<span class="source-line-no">100</span><span id="line-100">                new RuntimeProperties(meta));</span>
 <span class="source-line-no">101</span><span id="line-101">        } else {</span>
 <span class="source-line-no">102</span><span id="line-102">            inlineInstantiator = new BeanInstantiator&lt;&gt;(new DefaultInstantiator&lt;&gt;(getTargetBeanClass()),</span>
-<span class="source-line-no">103</span><span id="line-103">                    new RuntimeProperties(getPropertyMetadata()));</span>
+<span class="source-line-no">103</span><span id="line-103">                new RuntimeProperties(getPropertyMetadata()));</span>
 <span class="source-line-no">104</span><span id="line-104">        }</span>
 <span class="source-line-no">105</span><span id="line-105">        instantiator = new CallbackAwareInstantiator&lt;&gt;(inlineInstantiator, this);</span>
 <span class="source-line-no">106</span><span id="line-106">    }</span>
@@ -137,9 +137,9 @@
 <span class="source-line-no">124</span><span id="line-124"></span>
 <span class="source-line-no">125</span><span id="line-125">    /**</span>
 <span class="source-line-no">126</span><span id="line-126">     * @return a fully configured instance of the bean with</span>
-<span class="source-line-no">127</span><span id="line-127">     *         {@link #configure(Object)} being already called. 'Fully configured'</span>
-<span class="source-line-no">128</span><span id="line-128">     *         is defined as all attributes that can be generated by corresponding</span>
-<span class="source-line-no">129</span><span id="line-129">     *         generators are set</span>
+<span class="source-line-no">127</span><span id="line-127">     * {@link #configure(Object)} being already called. 'Fully configured'</span>
+<span class="source-line-no">128</span><span id="line-128">     * is defined as all attributes that can be generated by corresponding</span>
+<span class="source-line-no">129</span><span id="line-129">     * generators are set</span>
 <span class="source-line-no">130</span><span id="line-130">     */</span>
 <span class="source-line-no">131</span><span id="line-131">    public T anyBean() {</span>
 <span class="source-line-no">132</span><span id="line-132">        return getInstantiator().newInstanceFull();</span>

@@ -28,75 +28,97 @@
 <span class="source-line-no">015</span><span id="line-15"> */</span>
 <span class="source-line-no">016</span><span id="line-16">package de.cuioss.test.jsf.component;</span>
 <span class="source-line-no">017</span><span id="line-17"></span>
-<span class="source-line-no">018</span><span id="line-18">import java.util.List;</span>
-<span class="source-line-no">019</span><span id="line-19"></span>
-<span class="source-line-no">020</span><span id="line-20">import javax.faces.component.UIComponent;</span>
-<span class="source-line-no">021</span><span id="line-21">import javax.faces.context.FacesContext;</span>
-<span class="source-line-no">022</span><span id="line-22"></span>
-<span class="source-line-no">023</span><span id="line-23">import org.apache.myfaces.test.el.MockValueExpression;</span>
-<span class="source-line-no">024</span><span id="line-24"></span>
-<span class="source-line-no">025</span><span id="line-25">import de.cuioss.test.jsf.config.decorator.BeanConfigDecorator;</span>
-<span class="source-line-no">026</span><span id="line-26">import de.cuioss.test.valueobjects.api.TestContract;</span>
-<span class="source-line-no">027</span><span id="line-27">import de.cuioss.test.valueobjects.objects.ParameterizedInstantiator;</span>
-<span class="source-line-no">028</span><span id="line-28">import de.cuioss.test.valueobjects.property.PropertySupport;</span>
-<span class="source-line-no">029</span><span id="line-29">import de.cuioss.tools.logging.CuiLogger;</span>
-<span class="source-line-no">030</span><span id="line-30">import lombok.Getter;</span>
+<span class="source-line-no">018</span><span id="line-18">import de.cuioss.test.valueobjects.api.TestContract;</span>
+<span class="source-line-no">019</span><span id="line-19">import de.cuioss.test.valueobjects.objects.ParameterizedInstantiator;</span>
+<span class="source-line-no">020</span><span id="line-20">import de.cuioss.test.valueobjects.property.PropertySupport;</span>
+<span class="source-line-no">021</span><span id="line-21">import de.cuioss.tools.logging.CuiLogger;</span>
+<span class="source-line-no">022</span><span id="line-22">import jakarta.faces.component.UIComponent;</span>
+<span class="source-line-no">023</span><span id="line-23">import jakarta.faces.context.FacesContext;</span>
+<span class="source-line-no">024</span><span id="line-24">import lombok.Getter;</span>
+<span class="source-line-no">025</span><span id="line-25">import org.apache.myfaces.test.el.MockValueExpression;</span>
+<span class="source-line-no">026</span><span id="line-26"></span>
+<span class="source-line-no">027</span><span id="line-27">import java.util.List;</span>
+<span class="source-line-no">028</span><span id="line-28"></span>
+<span class="source-line-no">029</span><span id="line-29">import static de.cuioss.tools.string.MoreStrings.emptyToNull;</span>
+<span class="source-line-no">030</span><span id="line-30">import static java.util.Objects.requireNonNull;</span>
 <span class="source-line-no">031</span><span id="line-31"></span>
 <span class="source-line-no">032</span><span id="line-32">/**</span>
 <span class="source-line-no">033</span><span id="line-33"> * Tests all given properties according to the given List of</span>
 <span class="source-line-no">034</span><span id="line-34"> * {@link ComponentPropertyMetadata}</span>
 <span class="source-line-no">035</span><span id="line-35"> *</span>
-<span class="source-line-no">036</span><span id="line-36"> * @author Oliver Wolff</span>
-<span class="source-line-no">037</span><span id="line-37"> * @param &lt;T&gt; Rule does not apply to annotations: There is no inheritance</span>
+<span class="source-line-no">036</span><span id="line-36"> * @param &lt;T&gt; The Rule does not apply to annotations: There is no inheritance</span>
+<span class="source-line-no">037</span><span id="line-37"> * @author Oliver Wolff</span>
 <span class="source-line-no">038</span><span id="line-38"> */</span>
 <span class="source-line-no">039</span><span id="line-39">public class ValueExpressionPropertyContract&lt;T extends UIComponent&gt; implements TestContract&lt;T&gt; {</span>
 <span class="source-line-no">040</span><span id="line-40"></span>
-<span class="source-line-no">041</span><span id="line-41">    private static final CuiLogger log = new CuiLogger(ValueExpressionPropertyContract.class);</span>
-<span class="source-line-no">042</span><span id="line-42"></span>
-<span class="source-line-no">043</span><span id="line-43">    @Getter</span>
-<span class="source-line-no">044</span><span id="line-44">    private final ParameterizedInstantiator&lt;T&gt; instantiator;</span>
-<span class="source-line-no">045</span><span id="line-45"></span>
-<span class="source-line-no">046</span><span id="line-46">    private final List&lt;ComponentPropertyMetadata&gt; filteredMetadata;</span>
-<span class="source-line-no">047</span><span id="line-47"></span>
-<span class="source-line-no">048</span><span id="line-48">    private final FacesContext facesContext;</span>
-<span class="source-line-no">049</span><span id="line-49"></span>
-<span class="source-line-no">050</span><span id="line-50">    /**</span>
-<span class="source-line-no">051</span><span id="line-51">     * @param instantiator</span>
-<span class="source-line-no">052</span><span id="line-52">     * @param metadatas</span>
-<span class="source-line-no">053</span><span id="line-53">     * @param facesContext</span>
-<span class="source-line-no">054</span><span id="line-54">     */</span>
-<span class="source-line-no">055</span><span id="line-55">    public ValueExpressionPropertyContract(final ParameterizedInstantiator&lt;T&gt; instantiator,</span>
-<span class="source-line-no">056</span><span id="line-56">            final List&lt;ComponentPropertyMetadata&gt; metadatas, final FacesContext facesContext) {</span>
-<span class="source-line-no">057</span><span id="line-57">        this.instantiator = instantiator;</span>
-<span class="source-line-no">058</span><span id="line-58">        filteredMetadata = metadatas.stream().filter(m -&gt; !m.isIgnoreOnValueExpresssion()).toList();</span>
-<span class="source-line-no">059</span><span id="line-59">        this.facesContext = facesContext;</span>
-<span class="source-line-no">060</span><span id="line-60">    }</span>
-<span class="source-line-no">061</span><span id="line-61"></span>
-<span class="source-line-no">062</span><span id="line-62">    @Override</span>
-<span class="source-line-no">063</span><span id="line-63">    public void assertContract() {</span>
-<span class="source-line-no">064</span><span id="line-64">        var names = filteredMetadata.stream().map(ComponentPropertyMetadata::getName).toList();</span>
-<span class="source-line-no">065</span><span id="line-65">        final var builder = new StringBuilder("Verifying ");</span>
-<span class="source-line-no">066</span><span id="line-66">        builder.append(getClass().getName()).append("\nWith properties: ").append(String.join(" ", names));</span>
-<span class="source-line-no">067</span><span id="line-67">        log.info(builder.toString());</span>
-<span class="source-line-no">068</span><span id="line-68"></span>
-<span class="source-line-no">069</span><span id="line-69">        checkGetterAndSetterContract();</span>
-<span class="source-line-no">070</span><span id="line-70">    }</span>
-<span class="source-line-no">071</span><span id="line-71"></span>
-<span class="source-line-no">072</span><span id="line-72">    private void checkGetterAndSetterContract() {</span>
-<span class="source-line-no">073</span><span id="line-73">        final var supportList = filteredMetadata.stream().map(PropertySupport::new).toList();</span>
-<span class="source-line-no">074</span><span id="line-74">        final UIComponent target = getInstantiator().newInstanceMinimal();</span>
-<span class="source-line-no">075</span><span id="line-75"></span>
-<span class="source-line-no">076</span><span id="line-76">        for (final PropertySupport support : supportList) {</span>
-<span class="source-line-no">077</span><span id="line-77">            var expression = new MockValueExpression(BeanConfigDecorator.checkManagedBeanKey(support.getName()),</span>
-<span class="source-line-no">078</span><span id="line-78">                    support.getPropertyMetadata().resolveActualClass());</span>
-<span class="source-line-no">079</span><span id="line-79">            target.setValueExpression(support.getName(), expression);</span>
-<span class="source-line-no">080</span><span id="line-80">            expression.setValue(facesContext.getELContext(), support.generateTestValue());</span>
-<span class="source-line-no">081</span><span id="line-81"></span>
-<span class="source-line-no">082</span><span id="line-82">            support.assertValueSet(target);</span>
+<span class="source-line-no">041</span><span id="line-41">    /**</span>
+<span class="source-line-no">042</span><span id="line-42">     * Wraps textual names to EL-expressions.</span>
+<span class="source-line-no">043</span><span id="line-43">     */</span>
+<span class="source-line-no">044</span><span id="line-44">    @SuppressWarnings("el-syntax")</span>
+<span class="source-line-no">045</span><span id="line-45">    public static final String EL_WRAPPER = "#{%s}";</span>
+<span class="source-line-no">046</span><span id="line-46">    /**</span>
+<span class="source-line-no">047</span><span id="line-47">     * String constant used for checking if a given String is EL-Expression.</span>
+<span class="source-line-no">048</span><span id="line-48">     */</span>
+<span class="source-line-no">049</span><span id="line-49">    @SuppressWarnings("el-syntax")</span>
+<span class="source-line-no">050</span><span id="line-50">    public static final String EL_START = "#{";</span>
+<span class="source-line-no">051</span><span id="line-51">    private static final CuiLogger log = new CuiLogger(ValueExpressionPropertyContract.class);</span>
+<span class="source-line-no">052</span><span id="line-52">    private static final String NAME_MUST_NOT_BE_NULL = "Name must not be null";</span>
+<span class="source-line-no">053</span><span id="line-53">    @Getter</span>
+<span class="source-line-no">054</span><span id="line-54">    private final ParameterizedInstantiator&lt;T&gt; instantiator;</span>
+<span class="source-line-no">055</span><span id="line-55">    private final List&lt;ComponentPropertyMetadata&gt; filteredMetadata;</span>
+<span class="source-line-no">056</span><span id="line-56">    private final FacesContext facesContext;</span>
+<span class="source-line-no">057</span><span id="line-57"></span>
+<span class="source-line-no">058</span><span id="line-58">    /**</span>
+<span class="source-line-no">059</span><span id="line-59">     * @param instantiator</span>
+<span class="source-line-no">060</span><span id="line-60">     * @param metadatas</span>
+<span class="source-line-no">061</span><span id="line-61">     * @param facesContext</span>
+<span class="source-line-no">062</span><span id="line-62">     */</span>
+<span class="source-line-no">063</span><span id="line-63">    public ValueExpressionPropertyContract(final ParameterizedInstantiator&lt;T&gt; instantiator,</span>
+<span class="source-line-no">064</span><span id="line-64">                                           final List&lt;ComponentPropertyMetadata&gt; metadatas, final FacesContext facesContext) {</span>
+<span class="source-line-no">065</span><span id="line-65">        this.instantiator = instantiator;</span>
+<span class="source-line-no">066</span><span id="line-66">        filteredMetadata = metadatas.stream().filter(m -&gt; !m.isIgnoreOnValueExpresssion()).toList();</span>
+<span class="source-line-no">067</span><span id="line-67">        this.facesContext = facesContext;</span>
+<span class="source-line-no">068</span><span id="line-68">    }</span>
+<span class="source-line-no">069</span><span id="line-69"></span>
+<span class="source-line-no">070</span><span id="line-70">    /**</span>
+<span class="source-line-no">071</span><span id="line-71">     * In case the beanKey is not an el expression (starting not with '#{') this</span>
+<span class="source-line-no">072</span><span id="line-72">     * method wraps the expression accordingly.</span>
+<span class="source-line-no">073</span><span id="line-73">     *</span>
+<span class="source-line-no">074</span><span id="line-74">     * @param managedBeanKey must not be null or empty</span>
+<span class="source-line-no">075</span><span id="line-75">     * @return the key wrapped as an EL-Expression if needed, otherwise the given</span>
+<span class="source-line-no">076</span><span id="line-76">     * key.</span>
+<span class="source-line-no">077</span><span id="line-77">     */</span>
+<span class="source-line-no">078</span><span id="line-78">    private static String checkManagedBeanKey(final String managedBeanKey) {</span>
+<span class="source-line-no">079</span><span id="line-79">        requireNonNull(emptyToNull(managedBeanKey), NAME_MUST_NOT_BE_NULL);</span>
+<span class="source-line-no">080</span><span id="line-80">        var elKey = managedBeanKey;</span>
+<span class="source-line-no">081</span><span id="line-81">        if (!elKey.startsWith(EL_START)) {</span>
+<span class="source-line-no">082</span><span id="line-82">            elKey = EL_WRAPPER.formatted(elKey);</span>
 <span class="source-line-no">083</span><span id="line-83">        }</span>
-<span class="source-line-no">084</span><span id="line-84">    }</span>
-<span class="source-line-no">085</span><span id="line-85"></span>
-<span class="source-line-no">086</span><span id="line-86">}</span>
+<span class="source-line-no">084</span><span id="line-84">        return elKey;</span>
+<span class="source-line-no">085</span><span id="line-85">    }</span>
+<span class="source-line-no">086</span><span id="line-86"></span>
+<span class="source-line-no">087</span><span id="line-87">    @Override</span>
+<span class="source-line-no">088</span><span id="line-88">    public void assertContract() {</span>
+<span class="source-line-no">089</span><span id="line-89">        var names = filteredMetadata.stream().map(ComponentPropertyMetadata::getName).toList();</span>
+<span class="source-line-no">090</span><span id="line-90">        log.info("Verifying " + getClass().getName() + "\nWith properties: " + String.join(" ", names));</span>
+<span class="source-line-no">091</span><span id="line-91"></span>
+<span class="source-line-no">092</span><span id="line-92">        checkGetterAndSetterContract();</span>
+<span class="source-line-no">093</span><span id="line-93">    }</span>
+<span class="source-line-no">094</span><span id="line-94"></span>
+<span class="source-line-no">095</span><span id="line-95">    private void checkGetterAndSetterContract() {</span>
+<span class="source-line-no">096</span><span id="line-96">        final var supportList = filteredMetadata.stream().map(PropertySupport::new).toList();</span>
+<span class="source-line-no">097</span><span id="line-97">        final UIComponent target = getInstantiator().newInstanceMinimal();</span>
+<span class="source-line-no">098</span><span id="line-98"></span>
+<span class="source-line-no">099</span><span id="line-99">        for (final PropertySupport support : supportList) {</span>
+<span class="source-line-no">100</span><span id="line-100">            var expression = new MockValueExpression(checkManagedBeanKey(support.getName()),</span>
+<span class="source-line-no">101</span><span id="line-101">                support.getPropertyMetadata().resolveActualClass());</span>
+<span class="source-line-no">102</span><span id="line-102">            target.setValueExpression(support.getName(), expression);</span>
+<span class="source-line-no">103</span><span id="line-103">            expression.setValue(facesContext.getELContext(), support.generateTestValue());</span>
+<span class="source-line-no">104</span><span id="line-104"></span>
+<span class="source-line-no">105</span><span id="line-105">            support.assertValueSet(target);</span>
+<span class="source-line-no">106</span><span id="line-106">        }</span>
+<span class="source-line-no">107</span><span id="line-107">    }</span>
+<span class="source-line-no">108</span><span id="line-108">}</span>
 
 
 

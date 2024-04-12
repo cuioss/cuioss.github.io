@@ -28,133 +28,132 @@
 <span class="source-line-no">015</span><span id="line-15"> */</span>
 <span class="source-line-no">016</span><span id="line-16">package de.cuioss.test.jsf.mocks;</span>
 <span class="source-line-no">017</span><span id="line-17"></span>
-<span class="source-line-no">018</span><span id="line-18">import static java.util.Objects.requireNonNull;</span>
-<span class="source-line-no">019</span><span id="line-19"></span>
-<span class="source-line-no">020</span><span id="line-20">import java.util.ArrayList;</span>
-<span class="source-line-no">021</span><span id="line-21">import java.util.List;</span>
-<span class="source-line-no">022</span><span id="line-22"></span>
-<span class="source-line-no">023</span><span id="line-23">import javax.faces.component.ContextCallback;</span>
-<span class="source-line-no">024</span><span id="line-24">import javax.faces.component.UIComponent;</span>
-<span class="source-line-no">025</span><span id="line-25">import javax.faces.component.search.ComponentNotFoundException;</span>
-<span class="source-line-no">026</span><span id="line-26">import javax.faces.component.search.SearchExpressionContext;</span>
-<span class="source-line-no">027</span><span id="line-27">import javax.faces.component.search.SearchExpressionHandler;</span>
-<span class="source-line-no">028</span><span id="line-28">import javax.faces.component.search.SearchExpressionHint;</span>
-<span class="source-line-no">029</span><span id="line-29">import javax.faces.context.FacesContext;</span>
-<span class="source-line-no">030</span><span id="line-30"></span>
-<span class="source-line-no">031</span><span id="line-31">import de.cuioss.tools.string.MoreStrings;</span>
-<span class="source-line-no">032</span><span id="line-32">import lombok.Getter;</span>
-<span class="source-line-no">033</span><span id="line-33">import lombok.Setter;</span>
-<span class="source-line-no">034</span><span id="line-34"></span>
-<span class="source-line-no">035</span><span id="line-35">/**</span>
-<span class="source-line-no">036</span><span id="line-36"> * Mock variant of {@link SearchExpressionHandler} to be used for unit-tests.</span>
-<span class="source-line-no">037</span><span id="line-37"> * The concrete instance can be derived via {@link #retrieve(FacesContext)}</span>
-<span class="source-line-no">038</span><span id="line-38"> *</span>
-<span class="source-line-no">039</span><span id="line-39"> * @author Oliver Wolff</span>
-<span class="source-line-no">040</span><span id="line-40"> */</span>
-<span class="source-line-no">041</span><span id="line-41">public class CuiMockSearchExpressionHandler extends SearchExpressionHandler {</span>
-<span class="source-line-no">042</span><span id="line-42"></span>
-<span class="source-line-no">043</span><span id="line-43">    private static final String UNABLE_TO_FIND_COMPONENT_WITH_EXPRESSION = "Unable to find component with expression = ";</span>
-<span class="source-line-no">044</span><span id="line-44"></span>
-<span class="source-line-no">045</span><span id="line-45">    private static final String NOT_IMPLEMENTED = "Not implemented";</span>
-<span class="source-line-no">046</span><span id="line-46"></span>
-<span class="source-line-no">047</span><span id="line-47">    @Getter</span>
-<span class="source-line-no">048</span><span id="line-48">    @Setter</span>
-<span class="source-line-no">049</span><span id="line-49">    private UIComponent resolvedComponent;</span>
-<span class="source-line-no">050</span><span id="line-50"></span>
-<span class="source-line-no">051</span><span id="line-51">    @Getter</span>
-<span class="source-line-no">052</span><span id="line-52">    @Setter</span>
-<span class="source-line-no">053</span><span id="line-53">    private List&lt;UIComponent&gt; resolvedComponents = new ArrayList&lt;&gt;();</span>
-<span class="source-line-no">054</span><span id="line-54"></span>
-<span class="source-line-no">055</span><span id="line-55">    @Getter</span>
-<span class="source-line-no">056</span><span id="line-56">    @Setter</span>
-<span class="source-line-no">057</span><span id="line-57">    private String resolvedClientId;</span>
-<span class="source-line-no">058</span><span id="line-58"></span>
-<span class="source-line-no">059</span><span id="line-59">    @Getter</span>
-<span class="source-line-no">060</span><span id="line-60">    @Setter</span>
-<span class="source-line-no">061</span><span id="line-61">    private List&lt;String&gt; resolvedClientIds = new ArrayList&lt;&gt;();</span>
-<span class="source-line-no">062</span><span id="line-62"></span>
-<span class="source-line-no">063</span><span id="line-63">    @Override</span>
-<span class="source-line-no">064</span><span id="line-64">    public String resolveClientId(SearchExpressionContext searchExpressionContext, String expression) {</span>
-<span class="source-line-no">065</span><span id="line-65">        if (MoreStrings.isEmpty(expression)) {</span>
-<span class="source-line-no">066</span><span id="line-66">            throw new ComponentNotFoundException(UNABLE_TO_FIND_COMPONENT_WITH_EXPRESSION + expression);</span>
-<span class="source-line-no">067</span><span id="line-67">        }</span>
-<span class="source-line-no">068</span><span id="line-68">        return resolvedClientId;</span>
-<span class="source-line-no">069</span><span id="line-69">    }</span>
+<span class="source-line-no">018</span><span id="line-18">import de.cuioss.tools.string.MoreStrings;</span>
+<span class="source-line-no">019</span><span id="line-19">import jakarta.faces.component.ContextCallback;</span>
+<span class="source-line-no">020</span><span id="line-20">import jakarta.faces.component.UIComponent;</span>
+<span class="source-line-no">021</span><span id="line-21">import jakarta.faces.component.search.ComponentNotFoundException;</span>
+<span class="source-line-no">022</span><span id="line-22">import jakarta.faces.component.search.SearchExpressionContext;</span>
+<span class="source-line-no">023</span><span id="line-23">import jakarta.faces.component.search.SearchExpressionHandler;</span>
+<span class="source-line-no">024</span><span id="line-24">import jakarta.faces.component.search.SearchExpressionHint;</span>
+<span class="source-line-no">025</span><span id="line-25">import jakarta.faces.context.FacesContext;</span>
+<span class="source-line-no">026</span><span id="line-26">import lombok.Getter;</span>
+<span class="source-line-no">027</span><span id="line-27">import lombok.Setter;</span>
+<span class="source-line-no">028</span><span id="line-28"></span>
+<span class="source-line-no">029</span><span id="line-29">import java.util.ArrayList;</span>
+<span class="source-line-no">030</span><span id="line-30">import java.util.List;</span>
+<span class="source-line-no">031</span><span id="line-31"></span>
+<span class="source-line-no">032</span><span id="line-32">import static java.util.Objects.requireNonNull;</span>
+<span class="source-line-no">033</span><span id="line-33"></span>
+<span class="source-line-no">034</span><span id="line-34">/**</span>
+<span class="source-line-no">035</span><span id="line-35"> * Mock variant of {@link SearchExpressionHandler} to be used for unit-tests.</span>
+<span class="source-line-no">036</span><span id="line-36"> * The concrete instance can be derived via {@link #retrieve(FacesContext)}</span>
+<span class="source-line-no">037</span><span id="line-37"> *</span>
+<span class="source-line-no">038</span><span id="line-38"> * @author Oliver Wolff</span>
+<span class="source-line-no">039</span><span id="line-39"> */</span>
+<span class="source-line-no">040</span><span id="line-40">public class CuiMockSearchExpressionHandler extends SearchExpressionHandler {</span>
+<span class="source-line-no">041</span><span id="line-41"></span>
+<span class="source-line-no">042</span><span id="line-42">    private static final String UNABLE_TO_FIND_COMPONENT_WITH_EXPRESSION = "Unable to find component with expression = ";</span>
+<span class="source-line-no">043</span><span id="line-43"></span>
+<span class="source-line-no">044</span><span id="line-44">    private static final String NOT_IMPLEMENTED = "Not implemented";</span>
+<span class="source-line-no">045</span><span id="line-45"></span>
+<span class="source-line-no">046</span><span id="line-46">    @Getter</span>
+<span class="source-line-no">047</span><span id="line-47">    @Setter</span>
+<span class="source-line-no">048</span><span id="line-48">    private UIComponent resolvedComponent;</span>
+<span class="source-line-no">049</span><span id="line-49"></span>
+<span class="source-line-no">050</span><span id="line-50">    @Getter</span>
+<span class="source-line-no">051</span><span id="line-51">    @Setter</span>
+<span class="source-line-no">052</span><span id="line-52">    private List&lt;UIComponent&gt; resolvedComponents = new ArrayList&lt;&gt;();</span>
+<span class="source-line-no">053</span><span id="line-53"></span>
+<span class="source-line-no">054</span><span id="line-54">    @Getter</span>
+<span class="source-line-no">055</span><span id="line-55">    @Setter</span>
+<span class="source-line-no">056</span><span id="line-56">    private String resolvedClientId;</span>
+<span class="source-line-no">057</span><span id="line-57"></span>
+<span class="source-line-no">058</span><span id="line-58">    @Getter</span>
+<span class="source-line-no">059</span><span id="line-59">    @Setter</span>
+<span class="source-line-no">060</span><span id="line-60">    private List&lt;String&gt; resolvedClientIds = new ArrayList&lt;&gt;();</span>
+<span class="source-line-no">061</span><span id="line-61"></span>
+<span class="source-line-no">062</span><span id="line-62">    /**</span>
+<span class="source-line-no">063</span><span id="line-63">     * Shorthand for accessing an instance of {@link CuiMockSearchExpressionHandler}</span>
+<span class="source-line-no">064</span><span id="line-64">     *</span>
+<span class="source-line-no">065</span><span id="line-65">     * @param context to be used</span>
+<span class="source-line-no">066</span><span id="line-66">     * @return the previously configured {@link CuiMockSearchExpressionHandler}</span>
+<span class="source-line-no">067</span><span id="line-67">     */</span>
+<span class="source-line-no">068</span><span id="line-68">    public static final CuiMockSearchExpressionHandler retrieve(FacesContext context) {</span>
+<span class="source-line-no">069</span><span id="line-69">        return (CuiMockSearchExpressionHandler) context.getApplication().getSearchExpressionHandler();</span>
 <span class="source-line-no">070</span><span id="line-70"></span>
-<span class="source-line-no">071</span><span id="line-71">    @Override</span>
-<span class="source-line-no">072</span><span id="line-72">    public List&lt;String&gt; resolveClientIds(SearchExpressionContext searchExpressionContext, String expressions) {</span>
-<span class="source-line-no">073</span><span id="line-73">        if (MoreStrings.isEmpty(expressions)) {</span>
-<span class="source-line-no">074</span><span id="line-74">            throw new ComponentNotFoundException(UNABLE_TO_FIND_COMPONENT_WITH_EXPRESSION + expressions);</span>
-<span class="source-line-no">075</span><span id="line-75">        }</span>
-<span class="source-line-no">076</span><span id="line-76">        return resolvedClientIds;</span>
-<span class="source-line-no">077</span><span id="line-77">    }</span>
-<span class="source-line-no">078</span><span id="line-78"></span>
-<span class="source-line-no">079</span><span id="line-79">    @Override</span>
-<span class="source-line-no">080</span><span id="line-80">    public void resolveComponent(SearchExpressionContext searchExpressionContext, String expression,</span>
-<span class="source-line-no">081</span><span id="line-81">            ContextCallback callback) {</span>
-<span class="source-line-no">082</span><span id="line-82">        if (MoreStrings.isEmpty(expression)) {</span>
-<span class="source-line-no">083</span><span id="line-83">            throw new ComponentNotFoundException(UNABLE_TO_FIND_COMPONENT_WITH_EXPRESSION + expression);</span>
-<span class="source-line-no">084</span><span id="line-84">        }</span>
-<span class="source-line-no">085</span><span id="line-85">        if (null != resolvedComponent) {</span>
-<span class="source-line-no">086</span><span id="line-86">            callback.invokeContextCallback(searchExpressionContext.getFacesContext(), resolvedComponent);</span>
-<span class="source-line-no">087</span><span id="line-87">        } else if (shouldIgnoreNoResult(searchExpressionContext)) {</span>
-<span class="source-line-no">088</span><span id="line-88">            throw new ComponentNotFoundException(UNABLE_TO_FIND_COMPONENT_WITH_EXPRESSION + expression);</span>
-<span class="source-line-no">089</span><span id="line-89">        }</span>
-<span class="source-line-no">090</span><span id="line-90"></span>
-<span class="source-line-no">091</span><span id="line-91">    }</span>
-<span class="source-line-no">092</span><span id="line-92"></span>
-<span class="source-line-no">093</span><span id="line-93">    @Override</span>
-<span class="source-line-no">094</span><span id="line-94">    public void resolveComponents(SearchExpressionContext searchExpressionContext, String expressions,</span>
-<span class="source-line-no">095</span><span id="line-95">            ContextCallback callback) {</span>
-<span class="source-line-no">096</span><span id="line-96">        requireNonNull(resolvedComponents);</span>
-<span class="source-line-no">097</span><span id="line-97">        if (MoreStrings.isEmpty(expressions)) {</span>
-<span class="source-line-no">098</span><span id="line-98">            throw new ComponentNotFoundException(UNABLE_TO_FIND_COMPONENT_WITH_EXPRESSION + expressions);</span>
+<span class="source-line-no">071</span><span id="line-71">    }</span>
+<span class="source-line-no">072</span><span id="line-72"></span>
+<span class="source-line-no">073</span><span id="line-73">    @Override</span>
+<span class="source-line-no">074</span><span id="line-74">    public String resolveClientId(SearchExpressionContext searchExpressionContext, String expression) {</span>
+<span class="source-line-no">075</span><span id="line-75">        if (MoreStrings.isEmpty(expression)) {</span>
+<span class="source-line-no">076</span><span id="line-76">            throw new ComponentNotFoundException(UNABLE_TO_FIND_COMPONENT_WITH_EXPRESSION + expression);</span>
+<span class="source-line-no">077</span><span id="line-77">        }</span>
+<span class="source-line-no">078</span><span id="line-78">        return resolvedClientId;</span>
+<span class="source-line-no">079</span><span id="line-79">    }</span>
+<span class="source-line-no">080</span><span id="line-80"></span>
+<span class="source-line-no">081</span><span id="line-81">    @Override</span>
+<span class="source-line-no">082</span><span id="line-82">    public List&lt;String&gt; resolveClientIds(SearchExpressionContext searchExpressionContext, String expressions) {</span>
+<span class="source-line-no">083</span><span id="line-83">        if (MoreStrings.isEmpty(expressions)) {</span>
+<span class="source-line-no">084</span><span id="line-84">            throw new ComponentNotFoundException(UNABLE_TO_FIND_COMPONENT_WITH_EXPRESSION + expressions);</span>
+<span class="source-line-no">085</span><span id="line-85">        }</span>
+<span class="source-line-no">086</span><span id="line-86">        return resolvedClientIds;</span>
+<span class="source-line-no">087</span><span id="line-87">    }</span>
+<span class="source-line-no">088</span><span id="line-88"></span>
+<span class="source-line-no">089</span><span id="line-89">    @Override</span>
+<span class="source-line-no">090</span><span id="line-90">    public void resolveComponent(SearchExpressionContext searchExpressionContext, String expression,</span>
+<span class="source-line-no">091</span><span id="line-91">                                 ContextCallback callback) {</span>
+<span class="source-line-no">092</span><span id="line-92">        if (MoreStrings.isEmpty(expression)) {</span>
+<span class="source-line-no">093</span><span id="line-93">            throw new ComponentNotFoundException(UNABLE_TO_FIND_COMPONENT_WITH_EXPRESSION + expression);</span>
+<span class="source-line-no">094</span><span id="line-94">        }</span>
+<span class="source-line-no">095</span><span id="line-95">        if (null != resolvedComponent) {</span>
+<span class="source-line-no">096</span><span id="line-96">            callback.invokeContextCallback(searchExpressionContext.getFacesContext(), resolvedComponent);</span>
+<span class="source-line-no">097</span><span id="line-97">        } else if (shouldIgnoreNoResult(searchExpressionContext)) {</span>
+<span class="source-line-no">098</span><span id="line-98">            throw new ComponentNotFoundException(UNABLE_TO_FIND_COMPONENT_WITH_EXPRESSION + expression);</span>
 <span class="source-line-no">099</span><span id="line-99">        }</span>
-<span class="source-line-no">100</span><span id="line-100">        if (resolvedComponents.isEmpty() &amp;&amp; shouldIgnoreNoResult(searchExpressionContext)) {</span>
-<span class="source-line-no">101</span><span id="line-101">            throw new ComponentNotFoundException("Unable to find components with expression = " + expressions);</span>
-<span class="source-line-no">102</span><span id="line-102">        }</span>
-<span class="source-line-no">103</span><span id="line-103"></span>
-<span class="source-line-no">104</span><span id="line-104">        resolvedComponents.forEach(</span>
-<span class="source-line-no">105</span><span id="line-105">                component -&gt; callback.invokeContextCallback(searchExpressionContext.getFacesContext(), component));</span>
-<span class="source-line-no">106</span><span id="line-106">    }</span>
-<span class="source-line-no">107</span><span id="line-107"></span>
-<span class="source-line-no">108</span><span id="line-108">    private boolean shouldIgnoreNoResult(SearchExpressionContext searchExpressionContext) {</span>
-<span class="source-line-no">109</span><span id="line-109">        var expressionHints = searchExpressionContext.getExpressionHints();</span>
-<span class="source-line-no">110</span><span id="line-110">        return null == expressionHints || !expressionHints.contains(SearchExpressionHint.IGNORE_NO_RESULT);</span>
-<span class="source-line-no">111</span><span id="line-111">    }</span>
-<span class="source-line-no">112</span><span id="line-112"></span>
-<span class="source-line-no">113</span><span id="line-113">    @Override</span>
-<span class="source-line-no">114</span><span id="line-114">    public void invokeOnComponent(SearchExpressionContext searchExpressionContext, UIComponent previous,</span>
-<span class="source-line-no">115</span><span id="line-115">            String expression, ContextCallback topCallback) {</span>
-<span class="source-line-no">116</span><span id="line-116">        throw new UnsupportedOperationException(NOT_IMPLEMENTED);</span>
-<span class="source-line-no">117</span><span id="line-117">    }</span>
-<span class="source-line-no">118</span><span id="line-118"></span>
-<span class="source-line-no">119</span><span id="line-119">    @Override</span>
-<span class="source-line-no">120</span><span id="line-120">    public String[] splitExpressions(FacesContext context, String expressions) {</span>
-<span class="source-line-no">121</span><span id="line-121">        throw new UnsupportedOperationException(NOT_IMPLEMENTED);</span>
-<span class="source-line-no">122</span><span id="line-122">    }</span>
-<span class="source-line-no">123</span><span id="line-123"></span>
-<span class="source-line-no">124</span><span id="line-124">    @Override</span>
-<span class="source-line-no">125</span><span id="line-125">    public boolean isPassthroughExpression(SearchExpressionContext searchExpressionContext, String expression) {</span>
+<span class="source-line-no">100</span><span id="line-100"></span>
+<span class="source-line-no">101</span><span id="line-101">    }</span>
+<span class="source-line-no">102</span><span id="line-102"></span>
+<span class="source-line-no">103</span><span id="line-103">    @Override</span>
+<span class="source-line-no">104</span><span id="line-104">    public void resolveComponents(SearchExpressionContext searchExpressionContext, String expressions,</span>
+<span class="source-line-no">105</span><span id="line-105">                                  ContextCallback callback) {</span>
+<span class="source-line-no">106</span><span id="line-106">        requireNonNull(resolvedComponents);</span>
+<span class="source-line-no">107</span><span id="line-107">        if (MoreStrings.isEmpty(expressions)) {</span>
+<span class="source-line-no">108</span><span id="line-108">            throw new ComponentNotFoundException(UNABLE_TO_FIND_COMPONENT_WITH_EXPRESSION + expressions);</span>
+<span class="source-line-no">109</span><span id="line-109">        }</span>
+<span class="source-line-no">110</span><span id="line-110">        if (resolvedComponents.isEmpty() &amp;&amp; shouldIgnoreNoResult(searchExpressionContext)) {</span>
+<span class="source-line-no">111</span><span id="line-111">            throw new ComponentNotFoundException("Unable to find components with expression = " + expressions);</span>
+<span class="source-line-no">112</span><span id="line-112">        }</span>
+<span class="source-line-no">113</span><span id="line-113"></span>
+<span class="source-line-no">114</span><span id="line-114">        resolvedComponents.forEach(</span>
+<span class="source-line-no">115</span><span id="line-115">            component -&gt; callback.invokeContextCallback(searchExpressionContext.getFacesContext(), component));</span>
+<span class="source-line-no">116</span><span id="line-116">    }</span>
+<span class="source-line-no">117</span><span id="line-117"></span>
+<span class="source-line-no">118</span><span id="line-118">    private boolean shouldIgnoreNoResult(SearchExpressionContext searchExpressionContext) {</span>
+<span class="source-line-no">119</span><span id="line-119">        var expressionHints = searchExpressionContext.getExpressionHints();</span>
+<span class="source-line-no">120</span><span id="line-120">        return null == expressionHints || !expressionHints.contains(SearchExpressionHint.IGNORE_NO_RESULT);</span>
+<span class="source-line-no">121</span><span id="line-121">    }</span>
+<span class="source-line-no">122</span><span id="line-122"></span>
+<span class="source-line-no">123</span><span id="line-123">    @Override</span>
+<span class="source-line-no">124</span><span id="line-124">    public void invokeOnComponent(SearchExpressionContext searchExpressionContext, UIComponent previous,</span>
+<span class="source-line-no">125</span><span id="line-125">                                  String expression, ContextCallback topCallback) {</span>
 <span class="source-line-no">126</span><span id="line-126">        throw new UnsupportedOperationException(NOT_IMPLEMENTED);</span>
 <span class="source-line-no">127</span><span id="line-127">    }</span>
 <span class="source-line-no">128</span><span id="line-128"></span>
 <span class="source-line-no">129</span><span id="line-129">    @Override</span>
-<span class="source-line-no">130</span><span id="line-130">    public boolean isValidExpression(SearchExpressionContext searchExpressionContext, String expression) {</span>
+<span class="source-line-no">130</span><span id="line-130">    public String[] splitExpressions(FacesContext context, String expressions) {</span>
 <span class="source-line-no">131</span><span id="line-131">        throw new UnsupportedOperationException(NOT_IMPLEMENTED);</span>
 <span class="source-line-no">132</span><span id="line-132">    }</span>
 <span class="source-line-no">133</span><span id="line-133"></span>
-<span class="source-line-no">134</span><span id="line-134">    /**</span>
-<span class="source-line-no">135</span><span id="line-135">     * Shorthand for accessing an instance of {@link CuiMockSearchExpressionHandler}</span>
-<span class="source-line-no">136</span><span id="line-136">     *</span>
-<span class="source-line-no">137</span><span id="line-137">     * @param context to be used</span>
-<span class="source-line-no">138</span><span id="line-138">     * @return the previously configured {@link CuiMockSearchExpressionHandler}</span>
-<span class="source-line-no">139</span><span id="line-139">     */</span>
-<span class="source-line-no">140</span><span id="line-140">    public static final CuiMockSearchExpressionHandler retrieve(FacesContext context) {</span>
-<span class="source-line-no">141</span><span id="line-141">        return (CuiMockSearchExpressionHandler) context.getApplication().getSearchExpressionHandler();</span>
-<span class="source-line-no">142</span><span id="line-142"></span>
-<span class="source-line-no">143</span><span id="line-143">    }</span>
-<span class="source-line-no">144</span><span id="line-144">}</span>
+<span class="source-line-no">134</span><span id="line-134">    @Override</span>
+<span class="source-line-no">135</span><span id="line-135">    public boolean isPassthroughExpression(SearchExpressionContext searchExpressionContext, String expression) {</span>
+<span class="source-line-no">136</span><span id="line-136">        throw new UnsupportedOperationException(NOT_IMPLEMENTED);</span>
+<span class="source-line-no">137</span><span id="line-137">    }</span>
+<span class="source-line-no">138</span><span id="line-138"></span>
+<span class="source-line-no">139</span><span id="line-139">    @Override</span>
+<span class="source-line-no">140</span><span id="line-140">    public boolean isValidExpression(SearchExpressionContext searchExpressionContext, String expression) {</span>
+<span class="source-line-no">141</span><span id="line-141">        throw new UnsupportedOperationException(NOT_IMPLEMENTED);</span>
+<span class="source-line-no">142</span><span id="line-142">    }</span>
+<span class="source-line-no">143</span><span id="line-143">}</span>
 
 
 

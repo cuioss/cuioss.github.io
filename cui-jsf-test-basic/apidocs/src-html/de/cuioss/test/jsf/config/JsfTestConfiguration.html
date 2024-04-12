@@ -28,19 +28,19 @@
 <span class="source-line-no">015</span><span id="line-15"> */</span>
 <span class="source-line-no">016</span><span id="line-16">package de.cuioss.test.jsf.config;</span>
 <span class="source-line-no">017</span><span id="line-17"></span>
-<span class="source-line-no">018</span><span id="line-18">import static java.lang.annotation.ElementType.TYPE;</span>
-<span class="source-line-no">019</span><span id="line-19">import static java.lang.annotation.RetentionPolicy.RUNTIME;</span>
-<span class="source-line-no">020</span><span id="line-20"></span>
-<span class="source-line-no">021</span><span id="line-21">import java.lang.annotation.Repeatable;</span>
-<span class="source-line-no">022</span><span id="line-22">import java.lang.annotation.Retention;</span>
-<span class="source-line-no">023</span><span id="line-23">import java.lang.annotation.Target;</span>
+<span class="source-line-no">018</span><span id="line-18">import java.lang.annotation.Repeatable;</span>
+<span class="source-line-no">019</span><span id="line-19">import java.lang.annotation.Retention;</span>
+<span class="source-line-no">020</span><span id="line-20">import java.lang.annotation.Target;</span>
+<span class="source-line-no">021</span><span id="line-21"></span>
+<span class="source-line-no">022</span><span id="line-22">import static java.lang.annotation.ElementType.TYPE;</span>
+<span class="source-line-no">023</span><span id="line-23">import static java.lang.annotation.RetentionPolicy.RUNTIME;</span>
 <span class="source-line-no">024</span><span id="line-24"></span>
 <span class="source-line-no">025</span><span id="line-25">/**</span>
-<span class="source-line-no">026</span><span id="line-26"> * This annotations can be used to configure certain aspects of the</span>
+<span class="source-line-no">026</span><span id="line-26"> * This annotation can be used to configure certain aspects of the</span>
 <span class="source-line-no">027</span><span id="line-27"> * configuration of the jsf-runtime for unit-testing. For simple cases the</span>
 <span class="source-line-no">028</span><span id="line-28"> * test-class can implement the corresponding interfaces itself:</span>
 <span class="source-line-no">029</span><span id="line-29"> * {@link ApplicationConfigurator}, {@link ComponentConfigurator},</span>
-<span class="source-line-no">030</span><span id="line-30"> * {@link RequestConfigurator} or {@link BeanConfigurator}. The base-class will</span>
+<span class="source-line-no">030</span><span id="line-30"> * {@link RequestConfigurator}. The base-class will</span>
 <span class="source-line-no">031</span><span id="line-31"> * ensure that the corresponding methods will be called at setup-time. This is</span>
 <span class="source-line-no">032</span><span id="line-32"> * useful for cases, where there is no need to reuse a certain configuration.</span>
 <span class="source-line-no">033</span><span id="line-33"> *</span>

@@ -28,310 +28,287 @@
 <span class="source-line-no">015</span><span id="line-15"> */</span>
 <span class="source-line-no">016</span><span id="line-16">package de.cuioss.test.jsf.util;</span>
 <span class="source-line-no">017</span><span id="line-17"></span>
-<span class="source-line-no">018</span><span id="line-18">import java.net.URL;</span>
-<span class="source-line-no">019</span><span id="line-19">import java.net.URLClassLoader;</span>
-<span class="source-line-no">020</span><span id="line-20"></span>
-<span class="source-line-no">021</span><span id="line-21">import javax.faces.FactoryFinder;</span>
-<span class="source-line-no">022</span><span id="line-22">import javax.faces.application.Application;</span>
-<span class="source-line-no">023</span><span id="line-23">import javax.faces.application.ApplicationFactory;</span>
-<span class="source-line-no">024</span><span id="line-24">import javax.faces.component.UIViewRoot;</span>
-<span class="source-line-no">025</span><span id="line-25">import javax.faces.lifecycle.LifecycleFactory;</span>
-<span class="source-line-no">026</span><span id="line-26">import javax.faces.render.RenderKitFactory;</span>
-<span class="source-line-no">027</span><span id="line-27"></span>
-<span class="source-line-no">028</span><span id="line-28">import org.apache.myfaces.test.config.ResourceBundleVarNames;</span>
-<span class="source-line-no">029</span><span id="line-29">import org.apache.myfaces.test.mock.MockExternalContext;</span>
-<span class="source-line-no">030</span><span id="line-30">import org.apache.myfaces.test.mock.MockFacesContext;</span>
-<span class="source-line-no">031</span><span id="line-31">import org.apache.myfaces.test.mock.MockFacesContextFactory;</span>
-<span class="source-line-no">032</span><span id="line-32">import org.apache.myfaces.test.mock.MockHttpServletRequest;</span>
-<span class="source-line-no">033</span><span id="line-33">import org.apache.myfaces.test.mock.MockHttpServletResponse;</span>
-<span class="source-line-no">034</span><span id="line-34">import org.apache.myfaces.test.mock.MockHttpSession;</span>
-<span class="source-line-no">035</span><span id="line-35">import org.apache.myfaces.test.mock.MockRenderKit;</span>
-<span class="source-line-no">036</span><span id="line-36">import org.apache.myfaces.test.mock.MockServletConfig;</span>
-<span class="source-line-no">037</span><span id="line-37">import org.apache.myfaces.test.mock.lifecycle.MockLifecycle;</span>
-<span class="source-line-no">038</span><span id="line-38">import org.apache.myfaces.test.mock.lifecycle.MockLifecycleFactory;</span>
-<span class="source-line-no">039</span><span id="line-39"></span>
-<span class="source-line-no">040</span><span id="line-40">import de.cuioss.test.jsf.mocks.CuiMockHttpServletRequest;</span>
-<span class="source-line-no">041</span><span id="line-41">import de.cuioss.test.jsf.mocks.CuiMockHttpSession;</span>
-<span class="source-line-no">042</span><span id="line-42">import de.cuioss.test.jsf.mocks.CuiMockSearchExpressionContextFactory;</span>
-<span class="source-line-no">043</span><span id="line-43">import de.cuioss.test.jsf.mocks.CuiMockServletContext;</span>
-<span class="source-line-no">044</span><span id="line-44">import de.cuioss.test.jsf.mocks.CuiMockUIViewRoot;</span>
-<span class="source-line-no">045</span><span id="line-45">import lombok.Getter;</span>
-<span class="source-line-no">046</span><span id="line-46">import lombok.Setter;</span>
+<span class="source-line-no">018</span><span id="line-18">import de.cuioss.test.jsf.mocks.*;</span>
+<span class="source-line-no">019</span><span id="line-19">import jakarta.faces.FactoryFinder;</span>
+<span class="source-line-no">020</span><span id="line-20">import jakarta.faces.application.Application;</span>
+<span class="source-line-no">021</span><span id="line-21">import jakarta.faces.application.ApplicationFactory;</span>
+<span class="source-line-no">022</span><span id="line-22">import jakarta.faces.component.UIViewRoot;</span>
+<span class="source-line-no">023</span><span id="line-23">import jakarta.faces.lifecycle.LifecycleFactory;</span>
+<span class="source-line-no">024</span><span id="line-24">import jakarta.faces.render.RenderKitFactory;</span>
+<span class="source-line-no">025</span><span id="line-25">import lombok.Getter;</span>
+<span class="source-line-no">026</span><span id="line-26">import lombok.Setter;</span>
+<span class="source-line-no">027</span><span id="line-27">import org.apache.myfaces.test.config.ResourceBundleVarNames;</span>
+<span class="source-line-no">028</span><span id="line-28">import org.apache.myfaces.test.mock.*;</span>
+<span class="source-line-no">029</span><span id="line-29">import org.apache.myfaces.test.mock.lifecycle.MockLifecycle;</span>
+<span class="source-line-no">030</span><span id="line-30">import org.apache.myfaces.test.mock.lifecycle.MockLifecycleFactory;</span>
+<span class="source-line-no">031</span><span id="line-31"></span>
+<span class="source-line-no">032</span><span id="line-32">import java.net.URL;</span>
+<span class="source-line-no">033</span><span id="line-33">import java.net.URLClassLoader;</span>
+<span class="source-line-no">034</span><span id="line-34"></span>
+<span class="source-line-no">035</span><span id="line-35">/**</span>
+<span class="source-line-no">036</span><span id="line-36"> * Replacement for MyFaces</span>
+<span class="source-line-no">037</span><span id="line-37"> * {@link org.apache.myfaces.test.base.junit4.AbstractJsfTestCase}, where the</span>
+<span class="source-line-no">038</span><span id="line-38"> * code is initially taken from</span>
+<span class="source-line-no">039</span><span id="line-39"> *</span>
+<span class="source-line-no">040</span><span id="line-40"> * @author Oliver Wolff</span>
+<span class="source-line-no">041</span><span id="line-41"> */</span>
+<span class="source-line-no">042</span><span id="line-42">public class JsfRuntimeSetup {</span>
+<span class="source-line-no">043</span><span id="line-43"></span>
+<span class="source-line-no">044</span><span id="line-44">    @Getter</span>
+<span class="source-line-no">045</span><span id="line-45">    @Setter</span>
+<span class="source-line-no">046</span><span id="line-46">    private Application application = null;</span>
 <span class="source-line-no">047</span><span id="line-47"></span>
-<span class="source-line-no">048</span><span id="line-48">/**</span>
-<span class="source-line-no">049</span><span id="line-49"> * Replacement for MyFaces</span>
-<span class="source-line-no">050</span><span id="line-50"> * {@link org.apache.myfaces.test.base.junit4.AbstractJsfTestCase}, where the</span>
-<span class="source-line-no">051</span><span id="line-51"> * code is initially taken from</span>
-<span class="source-line-no">052</span><span id="line-52"> *</span>
-<span class="source-line-no">053</span><span id="line-53"> * @author Oliver Wolff</span>
-<span class="source-line-no">054</span><span id="line-54"> *</span>
-<span class="source-line-no">055</span><span id="line-55"> */</span>
-<span class="source-line-no">056</span><span id="line-56">public class JsfRuntimeSetup {</span>
-<span class="source-line-no">057</span><span id="line-57"></span>
-<span class="source-line-no">058</span><span id="line-58">    @Getter</span>
-<span class="source-line-no">059</span><span id="line-59">    @Setter</span>
-<span class="source-line-no">060</span><span id="line-60">    private Application application = null;</span>
-<span class="source-line-no">061</span><span id="line-61"></span>
-<span class="source-line-no">062</span><span id="line-62">    @Getter</span>
-<span class="source-line-no">063</span><span id="line-63">    @Setter</span>
-<span class="source-line-no">064</span><span id="line-64">    private MockServletConfig config = null;</span>
-<span class="source-line-no">065</span><span id="line-65"></span>
-<span class="source-line-no">066</span><span id="line-66">    @Getter</span>
-<span class="source-line-no">067</span><span id="line-67">    @Setter</span>
-<span class="source-line-no">068</span><span id="line-68">    private MockExternalContext externalContext = null;</span>
-<span class="source-line-no">069</span><span id="line-69"></span>
-<span class="source-line-no">070</span><span id="line-70">    @Getter</span>
-<span class="source-line-no">071</span><span id="line-71">    @Setter</span>
-<span class="source-line-no">072</span><span id="line-72">    private MockFacesContext facesContext = null;</span>
-<span class="source-line-no">073</span><span id="line-73"></span>
-<span class="source-line-no">074</span><span id="line-74">    @Getter</span>
-<span class="source-line-no">075</span><span id="line-75">    @Setter</span>
-<span class="source-line-no">076</span><span id="line-76">    private MockFacesContextFactory facesContextFactory = null;</span>
-<span class="source-line-no">077</span><span id="line-77"></span>
-<span class="source-line-no">078</span><span id="line-78">    @Getter</span>
-<span class="source-line-no">079</span><span id="line-79">    @Setter</span>
-<span class="source-line-no">080</span><span id="line-80">    private MockLifecycle lifecycle = null;</span>
-<span class="source-line-no">081</span><span id="line-81"></span>
-<span class="source-line-no">082</span><span id="line-82">    @Getter</span>
-<span class="source-line-no">083</span><span id="line-83">    @Setter</span>
-<span class="source-line-no">084</span><span id="line-84">    private MockLifecycleFactory lifecycleFactory = null;</span>
-<span class="source-line-no">085</span><span id="line-85"></span>
-<span class="source-line-no">086</span><span id="line-86">    @Getter</span>
-<span class="source-line-no">087</span><span id="line-87">    @Setter</span>
-<span class="source-line-no">088</span><span id="line-88">    private MockRenderKit renderKit = null;</span>
-<span class="source-line-no">089</span><span id="line-89"></span>
-<span class="source-line-no">090</span><span id="line-90">    @Getter</span>
-<span class="source-line-no">091</span><span id="line-91">    @Setter</span>
-<span class="source-line-no">092</span><span id="line-92">    private MockHttpServletRequest request = null;</span>
-<span class="source-line-no">093</span><span id="line-93"></span>
-<span class="source-line-no">094</span><span id="line-94">    @Getter</span>
-<span class="source-line-no">095</span><span id="line-95">    @Setter</span>
-<span class="source-line-no">096</span><span id="line-96">    private MockHttpServletResponse response = null;</span>
-<span class="source-line-no">097</span><span id="line-97"></span>
-<span class="source-line-no">098</span><span id="line-98">    @Getter</span>
-<span class="source-line-no">099</span><span id="line-99">    @Setter</span>
-<span class="source-line-no">100</span><span id="line-100">    private CuiMockServletContext servletContext = null;</span>
-<span class="source-line-no">101</span><span id="line-101"></span>
-<span class="source-line-no">102</span><span id="line-102">    @Getter</span>
-<span class="source-line-no">103</span><span id="line-103">    @Setter</span>
-<span class="source-line-no">104</span><span id="line-104">    private MockHttpSession session = null;</span>
-<span class="source-line-no">105</span><span id="line-105"></span>
-<span class="source-line-no">106</span><span id="line-106">    // Thread context class loader saved and restored after each test</span>
-<span class="source-line-no">107</span><span id="line-107">    private ClassLoader threadContextClassLoader = null;</span>
-<span class="source-line-no">108</span><span id="line-108">    private boolean classLoaderSet = false;</span>
-<span class="source-line-no">109</span><span id="line-109"></span>
-<span class="source-line-no">110</span><span id="line-110">    /**</span>
-<span class="source-line-no">111</span><span id="line-111">     * &lt;p&gt;</span>
-<span class="source-line-no">112</span><span id="line-112">     * Set up instance variables required by this test case.</span>
-<span class="source-line-no">113</span><span id="line-113">     * &lt;/p&gt;</span>
-<span class="source-line-no">114</span><span id="line-114">     */</span>
-<span class="source-line-no">115</span><span id="line-115">    public void setUp() {</span>
-<span class="source-line-no">116</span><span id="line-116">        // Set up a new thread context class loader</span>
-<span class="source-line-no">117</span><span id="line-117">        setUpClassloader();</span>
-<span class="source-line-no">118</span><span id="line-118"></span>
-<span class="source-line-no">119</span><span id="line-119">        // Set up Servlet API Objects</span>
-<span class="source-line-no">120</span><span id="line-120">        setUpServletObjects();</span>
-<span class="source-line-no">121</span><span id="line-121"></span>
-<span class="source-line-no">122</span><span id="line-122">        // Set up JSF API Objects</span>
-<span class="source-line-no">123</span><span id="line-123">        FactoryFinder.releaseFactories();</span>
-<span class="source-line-no">124</span><span id="line-124"></span>
-<span class="source-line-no">125</span><span id="line-125">        setFactories();</span>
-<span class="source-line-no">126</span><span id="line-126"></span>
-<span class="source-line-no">127</span><span id="line-127">        setUpJSFObjects();</span>
-<span class="source-line-no">128</span><span id="line-128">    }</span>
-<span class="source-line-no">129</span><span id="line-129"></span>
-<span class="source-line-no">130</span><span id="line-130">    /**</span>
-<span class="source-line-no">131</span><span id="line-131">     * &lt;p&gt;</span>
-<span class="source-line-no">132</span><span id="line-132">     * Tear down instance variables required by this test case.</span>
-<span class="source-line-no">133</span><span id="line-133">     * &lt;/p&gt;</span>
-<span class="source-line-no">134</span><span id="line-134">     */</span>
-<span class="source-line-no">135</span><span id="line-135">    public void tearDown() {</span>
-<span class="source-line-no">136</span><span id="line-136">        application = null;</span>
-<span class="source-line-no">137</span><span id="line-137">        config = null;</span>
-<span class="source-line-no">138</span><span id="line-138">        externalContext = null;</span>
-<span class="source-line-no">139</span><span id="line-139">        if (facesContext != null) {</span>
-<span class="source-line-no">140</span><span id="line-140">            facesContext.release();</span>
-<span class="source-line-no">141</span><span id="line-141">        }</span>
-<span class="source-line-no">142</span><span id="line-142">        facesContext = null;</span>
-<span class="source-line-no">143</span><span id="line-143">        lifecycle = null;</span>
-<span class="source-line-no">144</span><span id="line-144">        lifecycleFactory = null;</span>
-<span class="source-line-no">145</span><span id="line-145">        renderKit = null;</span>
-<span class="source-line-no">146</span><span id="line-146">        request = null;</span>
-<span class="source-line-no">147</span><span id="line-147">        response = null;</span>
-<span class="source-line-no">148</span><span id="line-148">        servletContext = null;</span>
-<span class="source-line-no">149</span><span id="line-149">        session = null;</span>
-<span class="source-line-no">150</span><span id="line-150">        FactoryFinder.releaseFactories();</span>
-<span class="source-line-no">151</span><span id="line-151">        ResourceBundleVarNames.resetNames();</span>
+<span class="source-line-no">048</span><span id="line-48">    @Getter</span>
+<span class="source-line-no">049</span><span id="line-49">    @Setter</span>
+<span class="source-line-no">050</span><span id="line-50">    private MockServletConfig config = null;</span>
+<span class="source-line-no">051</span><span id="line-51"></span>
+<span class="source-line-no">052</span><span id="line-52">    @Getter</span>
+<span class="source-line-no">053</span><span id="line-53">    @Setter</span>
+<span class="source-line-no">054</span><span id="line-54">    private MockExternalContext externalContext = null;</span>
+<span class="source-line-no">055</span><span id="line-55"></span>
+<span class="source-line-no">056</span><span id="line-56">    @Getter</span>
+<span class="source-line-no">057</span><span id="line-57">    @Setter</span>
+<span class="source-line-no">058</span><span id="line-58">    private MockFacesContext facesContext = null;</span>
+<span class="source-line-no">059</span><span id="line-59"></span>
+<span class="source-line-no">060</span><span id="line-60">    @Getter</span>
+<span class="source-line-no">061</span><span id="line-61">    @Setter</span>
+<span class="source-line-no">062</span><span id="line-62">    private MockFacesContextFactory facesContextFactory = null;</span>
+<span class="source-line-no">063</span><span id="line-63"></span>
+<span class="source-line-no">064</span><span id="line-64">    @Getter</span>
+<span class="source-line-no">065</span><span id="line-65">    @Setter</span>
+<span class="source-line-no">066</span><span id="line-66">    private MockLifecycle lifecycle = null;</span>
+<span class="source-line-no">067</span><span id="line-67"></span>
+<span class="source-line-no">068</span><span id="line-68">    @Getter</span>
+<span class="source-line-no">069</span><span id="line-69">    @Setter</span>
+<span class="source-line-no">070</span><span id="line-70">    private MockLifecycleFactory lifecycleFactory = null;</span>
+<span class="source-line-no">071</span><span id="line-71"></span>
+<span class="source-line-no">072</span><span id="line-72">    @Getter</span>
+<span class="source-line-no">073</span><span id="line-73">    @Setter</span>
+<span class="source-line-no">074</span><span id="line-74">    private MockRenderKit renderKit = null;</span>
+<span class="source-line-no">075</span><span id="line-75"></span>
+<span class="source-line-no">076</span><span id="line-76">    @Getter</span>
+<span class="source-line-no">077</span><span id="line-77">    @Setter</span>
+<span class="source-line-no">078</span><span id="line-78">    private MockHttpServletRequest request = null;</span>
+<span class="source-line-no">079</span><span id="line-79"></span>
+<span class="source-line-no">080</span><span id="line-80">    @Getter</span>
+<span class="source-line-no">081</span><span id="line-81">    @Setter</span>
+<span class="source-line-no">082</span><span id="line-82">    private MockHttpServletResponse response = null;</span>
+<span class="source-line-no">083</span><span id="line-83"></span>
+<span class="source-line-no">084</span><span id="line-84">    @Getter</span>
+<span class="source-line-no">085</span><span id="line-85">    @Setter</span>
+<span class="source-line-no">086</span><span id="line-86">    private CuiMockServletContext servletContext = null;</span>
+<span class="source-line-no">087</span><span id="line-87"></span>
+<span class="source-line-no">088</span><span id="line-88">    @Getter</span>
+<span class="source-line-no">089</span><span id="line-89">    @Setter</span>
+<span class="source-line-no">090</span><span id="line-90">    private MockHttpSession session = null;</span>
+<span class="source-line-no">091</span><span id="line-91"></span>
+<span class="source-line-no">092</span><span id="line-92">    // Thread context class loader saved and restored after each test</span>
+<span class="source-line-no">093</span><span id="line-93">    private ClassLoader threadContextClassLoader = null;</span>
+<span class="source-line-no">094</span><span id="line-94">    private boolean classLoaderSet = false;</span>
+<span class="source-line-no">095</span><span id="line-95"></span>
+<span class="source-line-no">096</span><span id="line-96">    /**</span>
+<span class="source-line-no">097</span><span id="line-97">     * &lt;p&gt;</span>
+<span class="source-line-no">098</span><span id="line-98">     * Set up instance variables required by this test case.</span>
+<span class="source-line-no">099</span><span id="line-99">     * &lt;/p&gt;</span>
+<span class="source-line-no">100</span><span id="line-100">     */</span>
+<span class="source-line-no">101</span><span id="line-101">    public void setUp() {</span>
+<span class="source-line-no">102</span><span id="line-102">        // Set up a new thread context class loader</span>
+<span class="source-line-no">103</span><span id="line-103">        setUpClassloader();</span>
+<span class="source-line-no">104</span><span id="line-104"></span>
+<span class="source-line-no">105</span><span id="line-105">        // Set up Servlet API Objects</span>
+<span class="source-line-no">106</span><span id="line-106">        setUpServletObjects();</span>
+<span class="source-line-no">107</span><span id="line-107"></span>
+<span class="source-line-no">108</span><span id="line-108">        // Set up JSF API Objects</span>
+<span class="source-line-no">109</span><span id="line-109">        FactoryFinder.releaseFactories();</span>
+<span class="source-line-no">110</span><span id="line-110"></span>
+<span class="source-line-no">111</span><span id="line-111">        setFactories();</span>
+<span class="source-line-no">112</span><span id="line-112"></span>
+<span class="source-line-no">113</span><span id="line-113">        setUpJSFObjects();</span>
+<span class="source-line-no">114</span><span id="line-114">    }</span>
+<span class="source-line-no">115</span><span id="line-115"></span>
+<span class="source-line-no">116</span><span id="line-116">    /**</span>
+<span class="source-line-no">117</span><span id="line-117">     * &lt;p&gt;</span>
+<span class="source-line-no">118</span><span id="line-118">     * Tear down instance variables required by this test case.</span>
+<span class="source-line-no">119</span><span id="line-119">     * &lt;/p&gt;</span>
+<span class="source-line-no">120</span><span id="line-120">     */</span>
+<span class="source-line-no">121</span><span id="line-121">    public void tearDown() {</span>
+<span class="source-line-no">122</span><span id="line-122">        application = null;</span>
+<span class="source-line-no">123</span><span id="line-123">        config = null;</span>
+<span class="source-line-no">124</span><span id="line-124">        externalContext = null;</span>
+<span class="source-line-no">125</span><span id="line-125">        if (facesContext != null) {</span>
+<span class="source-line-no">126</span><span id="line-126">            facesContext.release();</span>
+<span class="source-line-no">127</span><span id="line-127">        }</span>
+<span class="source-line-no">128</span><span id="line-128">        facesContext = null;</span>
+<span class="source-line-no">129</span><span id="line-129">        lifecycle = null;</span>
+<span class="source-line-no">130</span><span id="line-130">        lifecycleFactory = null;</span>
+<span class="source-line-no">131</span><span id="line-131">        renderKit = null;</span>
+<span class="source-line-no">132</span><span id="line-132">        request = null;</span>
+<span class="source-line-no">133</span><span id="line-133">        response = null;</span>
+<span class="source-line-no">134</span><span id="line-134">        servletContext = null;</span>
+<span class="source-line-no">135</span><span id="line-135">        session = null;</span>
+<span class="source-line-no">136</span><span id="line-136">        FactoryFinder.releaseFactories();</span>
+<span class="source-line-no">137</span><span id="line-137">        ResourceBundleVarNames.resetNames();</span>
+<span class="source-line-no">138</span><span id="line-138"></span>
+<span class="source-line-no">139</span><span id="line-139">        tearDownClassloader();</span>
+<span class="source-line-no">140</span><span id="line-140">    }</span>
+<span class="source-line-no">141</span><span id="line-141"></span>
+<span class="source-line-no">142</span><span id="line-142">    /**</span>
+<span class="source-line-no">143</span><span id="line-143">     * Set up the thread context classloader. JSF uses the this classloader in order</span>
+<span class="source-line-no">144</span><span id="line-144">     * to find related factory classes and other resources, but in some selected</span>
+<span class="source-line-no">145</span><span id="line-145">     * cases, the default classloader cannot be properly set.</span>
+<span class="source-line-no">146</span><span id="line-146">     */</span>
+<span class="source-line-no">147</span><span id="line-147">    private void setUpClassloader() {</span>
+<span class="source-line-no">148</span><span id="line-148">        threadContextClassLoader = Thread.currentThread().getContextClassLoader();</span>
+<span class="source-line-no">149</span><span id="line-149">        Thread.currentThread().setContextClassLoader(new URLClassLoader(new URL[0], this.getClass().getClassLoader()));</span>
+<span class="source-line-no">150</span><span id="line-150">        classLoaderSet = true;</span>
+<span class="source-line-no">151</span><span id="line-151">    }</span>
 <span class="source-line-no">152</span><span id="line-152"></span>
-<span class="source-line-no">153</span><span id="line-153">        tearDownClassloader();</span>
-<span class="source-line-no">154</span><span id="line-154">    }</span>
-<span class="source-line-no">155</span><span id="line-155"></span>
-<span class="source-line-no">156</span><span id="line-156">    /**</span>
-<span class="source-line-no">157</span><span id="line-157">     * Set up the thread context classloader. JSF uses the this classloader in order</span>
-<span class="source-line-no">158</span><span id="line-158">     * to find related factory classes and other resources, but in some selected</span>
-<span class="source-line-no">159</span><span id="line-159">     * cases, the default classloader cannot be properly set.</span>
-<span class="source-line-no">160</span><span id="line-160">     *</span>
-<span class="source-line-no">161</span><span id="line-161">     */</span>
-<span class="source-line-no">162</span><span id="line-162">    private void setUpClassloader() {</span>
-<span class="source-line-no">163</span><span id="line-163">        threadContextClassLoader = Thread.currentThread().getContextClassLoader();</span>
-<span class="source-line-no">164</span><span id="line-164">        Thread.currentThread().setContextClassLoader(new URLClassLoader(new URL[0], this.getClass().getClassLoader()));</span>
-<span class="source-line-no">165</span><span id="line-165">        classLoaderSet = true;</span>
-<span class="source-line-no">166</span><span id="line-166">    }</span>
-<span class="source-line-no">167</span><span id="line-167"></span>
-<span class="source-line-no">168</span><span id="line-168">    /**</span>
-<span class="source-line-no">169</span><span id="line-169">     * &lt;p&gt;</span>
-<span class="source-line-no">170</span><span id="line-170">     * Setup JSF object used for the test. By default it calls to the following</span>
-<span class="source-line-no">171</span><span id="line-171">     * methods in this order:</span>
-<span class="source-line-no">172</span><span id="line-172">     * &lt;/p&gt;</span>
-<span class="source-line-no">173</span><span id="line-173">     *</span>
-<span class="source-line-no">174</span><span id="line-174">     * &lt;ul&gt;</span>
-<span class="source-line-no">175</span><span id="line-175">     * &lt;li&gt;&lt;code&gt;setUpExternalContext();&lt;/code&gt;&lt;/li&gt;</span>
-<span class="source-line-no">176</span><span id="line-176">     * &lt;li&gt;&lt;code&gt;setUpLifecycle();&lt;/code&gt;&lt;/li&gt;</span>
-<span class="source-line-no">177</span><span id="line-177">     * &lt;li&gt;&lt;code&gt;setUpFacesContext();&lt;/code&gt;&lt;/li&gt;</span>
-<span class="source-line-no">178</span><span id="line-178">     * &lt;li&gt;&lt;code&gt;setUpView();&lt;/code&gt;&lt;/li&gt;</span>
-<span class="source-line-no">179</span><span id="line-179">     * &lt;li&gt;&lt;code&gt;setUpApplication();&lt;/code&gt;&lt;/li&gt;</span>
-<span class="source-line-no">180</span><span id="line-180">     * &lt;li&gt;&lt;code&gt;setUpRenderKit();&lt;/code&gt;&lt;/li&gt;</span>
-<span class="source-line-no">181</span><span id="line-181">     * &lt;/ul&gt;</span>
-<span class="source-line-no">182</span><span id="line-182">     */</span>
-<span class="source-line-no">183</span><span id="line-183">    private void setUpJSFObjects() {</span>
-<span class="source-line-no">184</span><span id="line-184">        setUpExternalContext();</span>
-<span class="source-line-no">185</span><span id="line-185">        setUpLifecycle();</span>
-<span class="source-line-no">186</span><span id="line-186">        setUpFacesContext();</span>
-<span class="source-line-no">187</span><span id="line-187">        setUpView();</span>
-<span class="source-line-no">188</span><span id="line-188">        setUpApplication();</span>
-<span class="source-line-no">189</span><span id="line-189">        setUpRenderKit();</span>
-<span class="source-line-no">190</span><span id="line-190">    }</span>
-<span class="source-line-no">191</span><span id="line-191"></span>
-<span class="source-line-no">192</span><span id="line-192">    /**</span>
-<span class="source-line-no">193</span><span id="line-193">     * &lt;p&gt;</span>
-<span class="source-line-no">194</span><span id="line-194">     * Setup servlet objects that will be used for the test:</span>
-<span class="source-line-no">195</span><span id="line-195">     * &lt;/p&gt;</span>
-<span class="source-line-no">196</span><span id="line-196">     *</span>
-<span class="source-line-no">197</span><span id="line-197">     * &lt;ul&gt;</span>
-<span class="source-line-no">198</span><span id="line-198">     * &lt;li&gt;&lt;code&gt;config&lt;/code&gt; (&lt;code&gt;MockServletConfig&lt;/code&gt;)&lt;/li&gt;</span>
-<span class="source-line-no">199</span><span id="line-199">     * &lt;li&gt;&lt;code&gt;servletContext&lt;/code&gt; (&lt;code&gt;MockServletContext&lt;/code&gt;)&lt;/li&gt;</span>
-<span class="source-line-no">200</span><span id="line-200">     * &lt;li&gt;&lt;code&gt;request&lt;/code&gt; (&lt;code&gt;CuiMockHttpServletRequest&lt;/code&gt;&lt;/li&gt;</span>
-<span class="source-line-no">201</span><span id="line-201">     * &lt;li&gt;&lt;code&gt;response&lt;/code&gt; (&lt;code&gt;MockHttpServletResponse&lt;/code&gt;)&lt;/li&gt;</span>
-<span class="source-line-no">202</span><span id="line-202">     * &lt;li&gt;&lt;code&gt;session&lt;/code&gt; (&lt;code&gt;CuiMockHttpSession&lt;/code&gt;)&lt;/li&gt;</span>
-<span class="source-line-no">203</span><span id="line-203">     * &lt;/ul&gt;</span>
-<span class="source-line-no">204</span><span id="line-204">     *</span>
-<span class="source-line-no">205</span><span id="line-205">     */</span>
-<span class="source-line-no">206</span><span id="line-206">    private void setUpServletObjects() {</span>
-<span class="source-line-no">207</span><span id="line-207">        servletContext = new CuiMockServletContext();</span>
-<span class="source-line-no">208</span><span id="line-208">        config = new MockServletConfig(servletContext);</span>
-<span class="source-line-no">209</span><span id="line-209">        session = new CuiMockHttpSession(servletContext);</span>
-<span class="source-line-no">210</span><span id="line-210">        request = new CuiMockHttpServletRequest();</span>
-<span class="source-line-no">211</span><span id="line-211">        request.setHttpSession(session);</span>
-<span class="source-line-no">212</span><span id="line-212">        request.setServletContext(servletContext);</span>
-<span class="source-line-no">213</span><span id="line-213">        response = new MockHttpServletResponse();</span>
-<span class="source-line-no">214</span><span id="line-214">    }</span>
-<span class="source-line-no">215</span><span id="line-215"></span>
-<span class="source-line-no">216</span><span id="line-216">    /**</span>
-<span class="source-line-no">217</span><span id="line-217">     * &lt;p&gt;</span>
-<span class="source-line-no">218</span><span id="line-218">     * Set JSF factories using FactoryFinder method setFactory.</span>
-<span class="source-line-no">219</span><span id="line-219">     * &lt;/p&gt;</span>
-<span class="source-line-no">220</span><span id="line-220">     *</span>
-<span class="source-line-no">221</span><span id="line-221">     */</span>
-<span class="source-line-no">222</span><span id="line-222">    private void setFactories() {</span>
-<span class="source-line-no">223</span><span id="line-223">        FactoryFinder.setFactory(FactoryFinder.APPLICATION_FACTORY,</span>
-<span class="source-line-no">224</span><span id="line-224">                "org.apache.myfaces.test.mock.MockApplicationFactory");</span>
-<span class="source-line-no">225</span><span id="line-225">        FactoryFinder.setFactory(FactoryFinder.FACES_CONTEXT_FACTORY,</span>
-<span class="source-line-no">226</span><span id="line-226">                "org.apache.myfaces.test.mock.MockFacesContextFactory");</span>
-<span class="source-line-no">227</span><span id="line-227">        FactoryFinder.setFactory(FactoryFinder.LIFECYCLE_FACTORY,</span>
-<span class="source-line-no">228</span><span id="line-228">                "org.apache.myfaces.test.mock.lifecycle.MockLifecycleFactory");</span>
-<span class="source-line-no">229</span><span id="line-229">        FactoryFinder.setFactory(FactoryFinder.RENDER_KIT_FACTORY, "org.apache.myfaces.test.mock.MockRenderKitFactory");</span>
-<span class="source-line-no">230</span><span id="line-230">        FactoryFinder.setFactory(FactoryFinder.EXCEPTION_HANDLER_FACTORY,</span>
-<span class="source-line-no">231</span><span id="line-231">                "org.apache.myfaces.test.mock.MockExceptionHandlerFactory");</span>
-<span class="source-line-no">232</span><span id="line-232">        FactoryFinder.setFactory(FactoryFinder.PARTIAL_VIEW_CONTEXT_FACTORY,</span>
-<span class="source-line-no">233</span><span id="line-233">                "org.apache.myfaces.test.mock.MockPartialViewContextFactory");</span>
-<span class="source-line-no">234</span><span id="line-234">        FactoryFinder.setFactory(FactoryFinder.VISIT_CONTEXT_FACTORY,</span>
-<span class="source-line-no">235</span><span id="line-235">                "org.apache.myfaces.test.mock.visit.MockVisitContextFactory");</span>
-<span class="source-line-no">236</span><span id="line-236">        FactoryFinder.setFactory(FactoryFinder.CLIENT_WINDOW_FACTORY,</span>
-<span class="source-line-no">237</span><span id="line-237">                "org.apache.myfaces.test.mock.MockClientWindowFactory");</span>
-<span class="source-line-no">238</span><span id="line-238">        // Cui Extensions</span>
-<span class="source-line-no">239</span><span id="line-239">        FactoryFinder.setFactory(FactoryFinder.SEARCH_EXPRESSION_CONTEXT_FACTORY,</span>
-<span class="source-line-no">240</span><span id="line-240">                CuiMockSearchExpressionContextFactory.class.getName());</span>
-<span class="source-line-no">241</span><span id="line-241">    }</span>
-<span class="source-line-no">242</span><span id="line-242"></span>
-<span class="source-line-no">243</span><span id="line-243">    /**</span>
-<span class="source-line-no">244</span><span id="line-244">     * Setup the &lt;code&gt;externalContext&lt;/code&gt; variable, using the servlet variables</span>
-<span class="source-line-no">245</span><span id="line-245">     * already initialized.</span>
-<span class="source-line-no">246</span><span id="line-246">     *</span>
-<span class="source-line-no">247</span><span id="line-247">     */</span>
-<span class="source-line-no">248</span><span id="line-248">    private void setUpExternalContext() {</span>
-<span class="source-line-no">249</span><span id="line-249">        externalContext = new MockExternalContext(servletContext, request, response);</span>
-<span class="source-line-no">250</span><span id="line-250">    }</span>
-<span class="source-line-no">251</span><span id="line-251"></span>
-<span class="source-line-no">252</span><span id="line-252">    /**</span>
-<span class="source-line-no">253</span><span id="line-253">     * Setup the &lt;code&gt;lifecycle&lt;/code&gt; and &lt;code&gt;lifecycleFactory&lt;/code&gt; variables.</span>
-<span class="source-line-no">254</span><span id="line-254">     *</span>
-<span class="source-line-no">255</span><span id="line-255">     */</span>
-<span class="source-line-no">256</span><span id="line-256">    private void setUpLifecycle() {</span>
-<span class="source-line-no">257</span><span id="line-257">        lifecycleFactory = (MockLifecycleFactory) FactoryFinder.getFactory(FactoryFinder.LIFECYCLE_FACTORY);</span>
-<span class="source-line-no">258</span><span id="line-258">        lifecycle = (MockLifecycle) lifecycleFactory.getLifecycle(LifecycleFactory.DEFAULT_LIFECYCLE);</span>
-<span class="source-line-no">259</span><span id="line-259">    }</span>
-<span class="source-line-no">260</span><span id="line-260"></span>
-<span class="source-line-no">261</span><span id="line-261">    /**</span>
-<span class="source-line-no">262</span><span id="line-262">     * Setup the &lt;code&gt;facesContextFactory&lt;/code&gt; and &lt;code&gt;facesContext&lt;/code&gt;</span>
-<span class="source-line-no">263</span><span id="line-263">     * variable. Before end, by default it override &lt;code&gt;externalContext&lt;/code&gt;</span>
-<span class="source-line-no">264</span><span id="line-264">     * variable from the value retrieved from facesContext.getExternalContext(),</span>
-<span class="source-line-no">265</span><span id="line-265">     * because sometimes it is possible facesContext overrides externalContext</span>
-<span class="source-line-no">266</span><span id="line-266">     * internally.</span>
-<span class="source-line-no">267</span><span id="line-267">     *</span>
-<span class="source-line-no">268</span><span id="line-268">     */</span>
-<span class="source-line-no">269</span><span id="line-269">    private void setUpFacesContext() {</span>
-<span class="source-line-no">270</span><span id="line-270">        facesContextFactory = (MockFacesContextFactory) FactoryFinder.getFactory(FactoryFinder.FACES_CONTEXT_FACTORY);</span>
-<span class="source-line-no">271</span><span id="line-271">        facesContext = (MockFacesContext) facesContextFactory.getFacesContext(servletContext, request, response,</span>
-<span class="source-line-no">272</span><span id="line-272">                lifecycle);</span>
-<span class="source-line-no">273</span><span id="line-273">        if (facesContext.getExternalContext() != null) {</span>
-<span class="source-line-no">274</span><span id="line-274">            externalContext = (MockExternalContext) facesContext.getExternalContext();</span>
-<span class="source-line-no">275</span><span id="line-275">        }</span>
-<span class="source-line-no">276</span><span id="line-276">    }</span>
-<span class="source-line-no">277</span><span id="line-277"></span>
-<span class="source-line-no">278</span><span id="line-278">    /**</span>
-<span class="source-line-no">279</span><span id="line-279">     * By default, create an instance of UIViewRoot, set its viewId as "/viewId" and</span>
-<span class="source-line-no">280</span><span id="line-280">     * assign it to the current facesContext.</span>
-<span class="source-line-no">281</span><span id="line-281">     *</span>
-<span class="source-line-no">282</span><span id="line-282">     */</span>
-<span class="source-line-no">283</span><span id="line-283">    private void setUpView() {</span>
-<span class="source-line-no">284</span><span id="line-284">        UIViewRoot root = new CuiMockUIViewRoot();</span>
-<span class="source-line-no">285</span><span id="line-285">        root.setViewId("/viewId");</span>
-<span class="source-line-no">286</span><span id="line-286">        root.setRenderKitId(RenderKitFactory.HTML_BASIC_RENDER_KIT);</span>
-<span class="source-line-no">287</span><span id="line-287">        facesContext.setViewRoot(root);</span>
-<span class="source-line-no">288</span><span id="line-288">    }</span>
-<span class="source-line-no">289</span><span id="line-289"></span>
-<span class="source-line-no">290</span><span id="line-290">    /**</span>
-<span class="source-line-no">291</span><span id="line-291">     * Setup the &lt;code&gt;application&lt;/code&gt; variable and before the end by default it</span>
-<span class="source-line-no">292</span><span id="line-292">     * is assigned to the &lt;code&gt;facesContext&lt;/code&gt; variable, calling</span>
-<span class="source-line-no">293</span><span id="line-293">     * &lt;code&gt;facesContext.setApplication(application)&lt;/code&gt;</span>
-<span class="source-line-no">294</span><span id="line-294">     *</span>
-<span class="source-line-no">295</span><span id="line-295">     */</span>
-<span class="source-line-no">296</span><span id="line-296">    private void setUpApplication() {</span>
-<span class="source-line-no">297</span><span id="line-297">        var applicationFactory = (ApplicationFactory) FactoryFinder.getFactory(FactoryFinder.APPLICATION_FACTORY);</span>
-<span class="source-line-no">298</span><span id="line-298">        application = applicationFactory.getApplication();</span>
-<span class="source-line-no">299</span><span id="line-299">        facesContext.setApplication(application);</span>
-<span class="source-line-no">300</span><span id="line-300">    }</span>
-<span class="source-line-no">301</span><span id="line-301"></span>
-<span class="source-line-no">302</span><span id="line-302">    /**</span>
-<span class="source-line-no">303</span><span id="line-303">     * Setup the &lt;code&gt;renderKit&lt;/code&gt; variable. This is a good place to use</span>
-<span class="source-line-no">304</span><span id="line-304">     * &lt;code&gt;ConfigParser&lt;/code&gt; to register converters, validators, components or</span>
-<span class="source-line-no">305</span><span id="line-305">     * renderkits.</span>
-<span class="source-line-no">306</span><span id="line-306">     *</span>
-<span class="source-line-no">307</span><span id="line-307">     */</span>
-<span class="source-line-no">308</span><span id="line-308">    private void setUpRenderKit() {</span>
-<span class="source-line-no">309</span><span id="line-309">        var renderKitFactory = (RenderKitFactory) FactoryFinder.getFactory(FactoryFinder.RENDER_KIT_FACTORY);</span>
-<span class="source-line-no">310</span><span id="line-310">        renderKit = new MockRenderKit();</span>
-<span class="source-line-no">311</span><span id="line-311">        renderKitFactory.addRenderKit(RenderKitFactory.HTML_BASIC_RENDER_KIT, renderKit);</span>
-<span class="source-line-no">312</span><span id="line-312">    }</span>
-<span class="source-line-no">313</span><span id="line-313"></span>
-<span class="source-line-no">314</span><span id="line-314">    private void tearDownClassloader() {</span>
-<span class="source-line-no">315</span><span id="line-315">        if (classLoaderSet) {</span>
-<span class="source-line-no">316</span><span id="line-316">            Thread.currentThread().setContextClassLoader(threadContextClassLoader);</span>
-<span class="source-line-no">317</span><span id="line-317">            threadContextClassLoader = null;</span>
-<span class="source-line-no">318</span><span id="line-318">            classLoaderSet = false;</span>
-<span class="source-line-no">319</span><span id="line-319">        }</span>
-<span class="source-line-no">320</span><span id="line-320">    }</span>
-<span class="source-line-no">321</span><span id="line-321">}</span>
+<span class="source-line-no">153</span><span id="line-153">    /**</span>
+<span class="source-line-no">154</span><span id="line-154">     * &lt;p&gt;</span>
+<span class="source-line-no">155</span><span id="line-155">     * Setup JSF object used for the test. By default it calls to the following</span>
+<span class="source-line-no">156</span><span id="line-156">     * methods in this order:</span>
+<span class="source-line-no">157</span><span id="line-157">     * &lt;/p&gt;</span>
+<span class="source-line-no">158</span><span id="line-158">     *</span>
+<span class="source-line-no">159</span><span id="line-159">     * &lt;ul&gt;</span>
+<span class="source-line-no">160</span><span id="line-160">     * &lt;li&gt;&lt;code&gt;setUpExternalContext();&lt;/code&gt;&lt;/li&gt;</span>
+<span class="source-line-no">161</span><span id="line-161">     * &lt;li&gt;&lt;code&gt;setUpLifecycle();&lt;/code&gt;&lt;/li&gt;</span>
+<span class="source-line-no">162</span><span id="line-162">     * &lt;li&gt;&lt;code&gt;setUpFacesContext();&lt;/code&gt;&lt;/li&gt;</span>
+<span class="source-line-no">163</span><span id="line-163">     * &lt;li&gt;&lt;code&gt;setUpView();&lt;/code&gt;&lt;/li&gt;</span>
+<span class="source-line-no">164</span><span id="line-164">     * &lt;li&gt;&lt;code&gt;setUpApplication();&lt;/code&gt;&lt;/li&gt;</span>
+<span class="source-line-no">165</span><span id="line-165">     * &lt;li&gt;&lt;code&gt;setUpRenderKit();&lt;/code&gt;&lt;/li&gt;</span>
+<span class="source-line-no">166</span><span id="line-166">     * &lt;/ul&gt;</span>
+<span class="source-line-no">167</span><span id="line-167">     */</span>
+<span class="source-line-no">168</span><span id="line-168">    private void setUpJSFObjects() {</span>
+<span class="source-line-no">169</span><span id="line-169">        setUpExternalContext();</span>
+<span class="source-line-no">170</span><span id="line-170">        setUpLifecycle();</span>
+<span class="source-line-no">171</span><span id="line-171">        setUpFacesContext();</span>
+<span class="source-line-no">172</span><span id="line-172">        setUpView();</span>
+<span class="source-line-no">173</span><span id="line-173">        setUpApplication();</span>
+<span class="source-line-no">174</span><span id="line-174">        setUpRenderKit();</span>
+<span class="source-line-no">175</span><span id="line-175">    }</span>
+<span class="source-line-no">176</span><span id="line-176"></span>
+<span class="source-line-no">177</span><span id="line-177">    /**</span>
+<span class="source-line-no">178</span><span id="line-178">     * &lt;p&gt;</span>
+<span class="source-line-no">179</span><span id="line-179">     * Setup servlet objects that will be used for the test:</span>
+<span class="source-line-no">180</span><span id="line-180">     * &lt;/p&gt;</span>
+<span class="source-line-no">181</span><span id="line-181">     *</span>
+<span class="source-line-no">182</span><span id="line-182">     * &lt;ul&gt;</span>
+<span class="source-line-no">183</span><span id="line-183">     * &lt;li&gt;&lt;code&gt;config&lt;/code&gt; (&lt;code&gt;MockServletConfig&lt;/code&gt;)&lt;/li&gt;</span>
+<span class="source-line-no">184</span><span id="line-184">     * &lt;li&gt;&lt;code&gt;servletContext&lt;/code&gt; (&lt;code&gt;MockServletContext&lt;/code&gt;)&lt;/li&gt;</span>
+<span class="source-line-no">185</span><span id="line-185">     * &lt;li&gt;&lt;code&gt;request&lt;/code&gt; (&lt;code&gt;CuiMockHttpServletRequest&lt;/code&gt;&lt;/li&gt;</span>
+<span class="source-line-no">186</span><span id="line-186">     * &lt;li&gt;&lt;code&gt;response&lt;/code&gt; (&lt;code&gt;MockHttpServletResponse&lt;/code&gt;)&lt;/li&gt;</span>
+<span class="source-line-no">187</span><span id="line-187">     * &lt;li&gt;&lt;code&gt;session&lt;/code&gt; (&lt;code&gt;CuiMockHttpSession&lt;/code&gt;)&lt;/li&gt;</span>
+<span class="source-line-no">188</span><span id="line-188">     * &lt;/ul&gt;</span>
+<span class="source-line-no">189</span><span id="line-189">     */</span>
+<span class="source-line-no">190</span><span id="line-190">    private void setUpServletObjects() {</span>
+<span class="source-line-no">191</span><span id="line-191">        servletContext = new CuiMockServletContext();</span>
+<span class="source-line-no">192</span><span id="line-192">        config = new MockServletConfig(servletContext);</span>
+<span class="source-line-no">193</span><span id="line-193">        session = new CuiMockHttpSession(servletContext);</span>
+<span class="source-line-no">194</span><span id="line-194">        request = new CuiMockHttpServletRequest();</span>
+<span class="source-line-no">195</span><span id="line-195">        request.setHttpSession(session);</span>
+<span class="source-line-no">196</span><span id="line-196">        request.setServletContext(servletContext);</span>
+<span class="source-line-no">197</span><span id="line-197">        response = new MockHttpServletResponse();</span>
+<span class="source-line-no">198</span><span id="line-198">    }</span>
+<span class="source-line-no">199</span><span id="line-199"></span>
+<span class="source-line-no">200</span><span id="line-200">    /**</span>
+<span class="source-line-no">201</span><span id="line-201">     * &lt;p&gt;</span>
+<span class="source-line-no">202</span><span id="line-202">     * Set JSF factories using FactoryFinder method setFactory.</span>
+<span class="source-line-no">203</span><span id="line-203">     * &lt;/p&gt;</span>
+<span class="source-line-no">204</span><span id="line-204">     */</span>
+<span class="source-line-no">205</span><span id="line-205">    private void setFactories() {</span>
+<span class="source-line-no">206</span><span id="line-206">        FactoryFinder.setFactory(FactoryFinder.APPLICATION_FACTORY,</span>
+<span class="source-line-no">207</span><span id="line-207">            "org.apache.myfaces.test.mock.MockApplicationFactory");</span>
+<span class="source-line-no">208</span><span id="line-208">        FactoryFinder.setFactory(FactoryFinder.FACES_CONTEXT_FACTORY,</span>
+<span class="source-line-no">209</span><span id="line-209">            "org.apache.myfaces.test.mock.MockFacesContextFactory");</span>
+<span class="source-line-no">210</span><span id="line-210">        FactoryFinder.setFactory(FactoryFinder.LIFECYCLE_FACTORY,</span>
+<span class="source-line-no">211</span><span id="line-211">            "org.apache.myfaces.test.mock.lifecycle.MockLifecycleFactory");</span>
+<span class="source-line-no">212</span><span id="line-212">        FactoryFinder.setFactory(FactoryFinder.RENDER_KIT_FACTORY, "org.apache.myfaces.test.mock.MockRenderKitFactory");</span>
+<span class="source-line-no">213</span><span id="line-213">        FactoryFinder.setFactory(FactoryFinder.EXCEPTION_HANDLER_FACTORY,</span>
+<span class="source-line-no">214</span><span id="line-214">            "org.apache.myfaces.test.mock.MockExceptionHandlerFactory");</span>
+<span class="source-line-no">215</span><span id="line-215">        FactoryFinder.setFactory(FactoryFinder.PARTIAL_VIEW_CONTEXT_FACTORY,</span>
+<span class="source-line-no">216</span><span id="line-216">            "org.apache.myfaces.test.mock.MockPartialViewContextFactory");</span>
+<span class="source-line-no">217</span><span id="line-217">        FactoryFinder.setFactory(FactoryFinder.VISIT_CONTEXT_FACTORY,</span>
+<span class="source-line-no">218</span><span id="line-218">            "org.apache.myfaces.test.mock.visit.MockVisitContextFactory");</span>
+<span class="source-line-no">219</span><span id="line-219">        FactoryFinder.setFactory(FactoryFinder.CLIENT_WINDOW_FACTORY,</span>
+<span class="source-line-no">220</span><span id="line-220">            "org.apache.myfaces.test.mock.MockClientWindowFactory");</span>
+<span class="source-line-no">221</span><span id="line-221">        // Cui Extensions</span>
+<span class="source-line-no">222</span><span id="line-222">        FactoryFinder.setFactory(FactoryFinder.SEARCH_EXPRESSION_CONTEXT_FACTORY,</span>
+<span class="source-line-no">223</span><span id="line-223">            CuiMockSearchExpressionContextFactory.class.getName());</span>
+<span class="source-line-no">224</span><span id="line-224">    }</span>
+<span class="source-line-no">225</span><span id="line-225"></span>
+<span class="source-line-no">226</span><span id="line-226">    /**</span>
+<span class="source-line-no">227</span><span id="line-227">     * Setup the &lt;code&gt;externalContext&lt;/code&gt; variable, using the servlet variables</span>
+<span class="source-line-no">228</span><span id="line-228">     * already initialized.</span>
+<span class="source-line-no">229</span><span id="line-229">     */</span>
+<span class="source-line-no">230</span><span id="line-230">    private void setUpExternalContext() {</span>
+<span class="source-line-no">231</span><span id="line-231">        externalContext = new MockExternalContext(servletContext, request, response);</span>
+<span class="source-line-no">232</span><span id="line-232">    }</span>
+<span class="source-line-no">233</span><span id="line-233"></span>
+<span class="source-line-no">234</span><span id="line-234">    /**</span>
+<span class="source-line-no">235</span><span id="line-235">     * Setup the &lt;code&gt;lifecycle&lt;/code&gt; and &lt;code&gt;lifecycleFactory&lt;/code&gt; variables.</span>
+<span class="source-line-no">236</span><span id="line-236">     */</span>
+<span class="source-line-no">237</span><span id="line-237">    private void setUpLifecycle() {</span>
+<span class="source-line-no">238</span><span id="line-238">        lifecycleFactory = (MockLifecycleFactory) FactoryFinder.getFactory(FactoryFinder.LIFECYCLE_FACTORY);</span>
+<span class="source-line-no">239</span><span id="line-239">        lifecycle = (MockLifecycle) lifecycleFactory.getLifecycle(LifecycleFactory.DEFAULT_LIFECYCLE);</span>
+<span class="source-line-no">240</span><span id="line-240">    }</span>
+<span class="source-line-no">241</span><span id="line-241"></span>
+<span class="source-line-no">242</span><span id="line-242">    /**</span>
+<span class="source-line-no">243</span><span id="line-243">     * Setup the &lt;code&gt;facesContextFactory&lt;/code&gt; and &lt;code&gt;facesContext&lt;/code&gt;</span>
+<span class="source-line-no">244</span><span id="line-244">     * variable. Before end, by default it override &lt;code&gt;externalContext&lt;/code&gt;</span>
+<span class="source-line-no">245</span><span id="line-245">     * variable from the value retrieved from facesContext.getExternalContext(),</span>
+<span class="source-line-no">246</span><span id="line-246">     * because sometimes it is possible facesContext overrides externalContext</span>
+<span class="source-line-no">247</span><span id="line-247">     * internally.</span>
+<span class="source-line-no">248</span><span id="line-248">     */</span>
+<span class="source-line-no">249</span><span id="line-249">    private void setUpFacesContext() {</span>
+<span class="source-line-no">250</span><span id="line-250">        facesContextFactory = (MockFacesContextFactory) FactoryFinder.getFactory(FactoryFinder.FACES_CONTEXT_FACTORY);</span>
+<span class="source-line-no">251</span><span id="line-251">        facesContext = (MockFacesContext) facesContextFactory.getFacesContext(servletContext, request, response,</span>
+<span class="source-line-no">252</span><span id="line-252">            lifecycle);</span>
+<span class="source-line-no">253</span><span id="line-253">        if (facesContext.getExternalContext() != null) {</span>
+<span class="source-line-no">254</span><span id="line-254">            externalContext = (MockExternalContext) facesContext.getExternalContext();</span>
+<span class="source-line-no">255</span><span id="line-255">        }</span>
+<span class="source-line-no">256</span><span id="line-256">    }</span>
+<span class="source-line-no">257</span><span id="line-257"></span>
+<span class="source-line-no">258</span><span id="line-258">    /**</span>
+<span class="source-line-no">259</span><span id="line-259">     * By default, create an instance of UIViewRoot, set its viewId as "/viewId" and</span>
+<span class="source-line-no">260</span><span id="line-260">     * assign it to the current facesContext.</span>
+<span class="source-line-no">261</span><span id="line-261">     */</span>
+<span class="source-line-no">262</span><span id="line-262">    private void setUpView() {</span>
+<span class="source-line-no">263</span><span id="line-263">        UIViewRoot root = new CuiMockUIViewRoot();</span>
+<span class="source-line-no">264</span><span id="line-264">        root.setViewId("/viewId");</span>
+<span class="source-line-no">265</span><span id="line-265">        root.setRenderKitId(RenderKitFactory.HTML_BASIC_RENDER_KIT);</span>
+<span class="source-line-no">266</span><span id="line-266">        facesContext.setViewRoot(root);</span>
+<span class="source-line-no">267</span><span id="line-267">    }</span>
+<span class="source-line-no">268</span><span id="line-268"></span>
+<span class="source-line-no">269</span><span id="line-269">    /**</span>
+<span class="source-line-no">270</span><span id="line-270">     * Setup the &lt;code&gt;application&lt;/code&gt; variable and before the end by default it</span>
+<span class="source-line-no">271</span><span id="line-271">     * is assigned to the &lt;code&gt;facesContext&lt;/code&gt; variable, calling</span>
+<span class="source-line-no">272</span><span id="line-272">     * &lt;code&gt;facesContext.setApplication(application)&lt;/code&gt;</span>
+<span class="source-line-no">273</span><span id="line-273">     */</span>
+<span class="source-line-no">274</span><span id="line-274">    private void setUpApplication() {</span>
+<span class="source-line-no">275</span><span id="line-275">        var applicationFactory = (ApplicationFactory) FactoryFinder.getFactory(FactoryFinder.APPLICATION_FACTORY);</span>
+<span class="source-line-no">276</span><span id="line-276">        application = applicationFactory.getApplication();</span>
+<span class="source-line-no">277</span><span id="line-277">        facesContext.setApplication(application);</span>
+<span class="source-line-no">278</span><span id="line-278">    }</span>
+<span class="source-line-no">279</span><span id="line-279"></span>
+<span class="source-line-no">280</span><span id="line-280">    /**</span>
+<span class="source-line-no">281</span><span id="line-281">     * Setup the &lt;code&gt;renderKit&lt;/code&gt; variable. This is a good place to use</span>
+<span class="source-line-no">282</span><span id="line-282">     * &lt;code&gt;ConfigParser&lt;/code&gt; to register converters, validators, components or</span>
+<span class="source-line-no">283</span><span id="line-283">     * renderkits.</span>
+<span class="source-line-no">284</span><span id="line-284">     */</span>
+<span class="source-line-no">285</span><span id="line-285">    private void setUpRenderKit() {</span>
+<span class="source-line-no">286</span><span id="line-286">        var renderKitFactory = (RenderKitFactory) FactoryFinder.getFactory(FactoryFinder.RENDER_KIT_FACTORY);</span>
+<span class="source-line-no">287</span><span id="line-287">        renderKit = new MockRenderKit();</span>
+<span class="source-line-no">288</span><span id="line-288">        renderKitFactory.addRenderKit(RenderKitFactory.HTML_BASIC_RENDER_KIT, renderKit);</span>
+<span class="source-line-no">289</span><span id="line-289">    }</span>
+<span class="source-line-no">290</span><span id="line-290"></span>
+<span class="source-line-no">291</span><span id="line-291">    private void tearDownClassloader() {</span>
+<span class="source-line-no">292</span><span id="line-292">        if (classLoaderSet) {</span>
+<span class="source-line-no">293</span><span id="line-293">            Thread.currentThread().setContextClassLoader(threadContextClassLoader);</span>
+<span class="source-line-no">294</span><span id="line-294">            threadContextClassLoader = null;</span>
+<span class="source-line-no">295</span><span id="line-295">            classLoaderSet = false;</span>
+<span class="source-line-no">296</span><span id="line-296">        }</span>
+<span class="source-line-no">297</span><span id="line-297">    }</span>
+<span class="source-line-no">298</span><span id="line-298">}</span>
 
 
 

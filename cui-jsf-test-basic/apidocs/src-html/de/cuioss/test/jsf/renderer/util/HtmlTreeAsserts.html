@@ -28,128 +28,125 @@
 <span class="source-line-no">015</span><span id="line-15"> */</span>
 <span class="source-line-no">016</span><span id="line-16">package de.cuioss.test.jsf.renderer.util;</span>
 <span class="source-line-no">017</span><span id="line-17"></span>
-<span class="source-line-no">018</span><span id="line-18">import static org.junit.jupiter.api.Assertions.assertEquals;</span>
-<span class="source-line-no">019</span><span id="line-19">import static org.junit.jupiter.api.Assertions.assertNotNull;</span>
-<span class="source-line-no">020</span><span id="line-20">import static org.junit.jupiter.api.Assertions.fail;</span>
-<span class="source-line-no">021</span><span id="line-21"></span>
-<span class="source-line-no">022</span><span id="line-22">import org.jdom2.Attribute;</span>
-<span class="source-line-no">023</span><span id="line-23">import org.jdom2.Document;</span>
-<span class="source-line-no">024</span><span id="line-24">import org.jdom2.Element;</span>
-<span class="source-line-no">025</span><span id="line-25"></span>
-<span class="source-line-no">026</span><span id="line-26">import lombok.experimental.UtilityClass;</span>
-<span class="source-line-no">027</span><span id="line-27"></span>
-<span class="source-line-no">028</span><span id="line-28">/**</span>
-<span class="source-line-no">029</span><span id="line-29"> * Provides asserts for {@link Document} and Jdom elements.</span>
-<span class="source-line-no">030</span><span id="line-30"> *</span>
-<span class="source-line-no">031</span><span id="line-31"> * @author Oliver Wolff</span>
-<span class="source-line-no">032</span><span id="line-32"> */</span>
-<span class="source-line-no">033</span><span id="line-33">@UtilityClass</span>
-<span class="source-line-no">034</span><span id="line-34">public final class HtmlTreeAsserts {</span>
-<span class="source-line-no">035</span><span id="line-35"></span>
-<span class="source-line-no">036</span><span id="line-36">    private static final String THE_VALUES_ARE_NOT_EQUAL_EXPECTED = "%s: The values for attribute '%s' are not equal, expected=%s, actual=%s";</span>
-<span class="source-line-no">037</span><span id="line-37"></span>
-<span class="source-line-no">038</span><span id="line-38">    private static final String ACTUAL_MUST_NOT_BE_NULL = "Actual must not be null";</span>
-<span class="source-line-no">039</span><span id="line-39"></span>
-<span class="source-line-no">040</span><span id="line-40">    private static final String EXPECTED_MUST_NOT_BE_NULL = "Expected must not be null";</span>
-<span class="source-line-no">041</span><span id="line-41"></span>
-<span class="source-line-no">042</span><span id="line-42">    private static final AttributeComparator ATTRIBUTE_COMPARATOR = new AttributeComparator();</span>
-<span class="source-line-no">043</span><span id="line-43"></span>
-<span class="source-line-no">044</span><span id="line-44">    /**</span>
-<span class="source-line-no">045</span><span id="line-45">     * Compares two instances of {@link Document} for equality. Attribute order is</span>
-<span class="source-line-no">046</span><span id="line-46">     * not relevant, but element order is.</span>
-<span class="source-line-no">047</span><span id="line-47">     *</span>
-<span class="source-line-no">048</span><span id="line-48">     * @param expected expected value</span>
-<span class="source-line-no">049</span><span id="line-49">     * @param actual   the value to check against &lt;code&gt;expected&lt;/code&gt;</span>
-<span class="source-line-no">050</span><span id="line-50">     */</span>
-<span class="source-line-no">051</span><span id="line-51">    public static void assertHtmlTreeEquals(final Document expected, final Document actual) {</span>
-<span class="source-line-no">052</span><span id="line-52">        assertNotNull(expected, EXPECTED_MUST_NOT_BE_NULL);</span>
-<span class="source-line-no">053</span><span id="line-53">        assertNotNull(actual, ACTUAL_MUST_NOT_BE_NULL);</span>
-<span class="source-line-no">054</span><span id="line-54">        var expectedNode = expected.getRootElement();</span>
-<span class="source-line-no">055</span><span id="line-55">        var actualNode = actual.getRootElement();</span>
-<span class="source-line-no">056</span><span id="line-56">        assertElementWithChildrenEquals(expectedNode, actualNode, "");</span>
-<span class="source-line-no">057</span><span id="line-57">    }</span>
-<span class="source-line-no">058</span><span id="line-58"></span>
-<span class="source-line-no">059</span><span id="line-59">    /**</span>
-<span class="source-line-no">060</span><span id="line-60">     * Compares two instances of {@link Element} for equality. Attribute order is</span>
-<span class="source-line-no">061</span><span id="line-61">     * not relevant.It checks the children recursively as well.</span>
-<span class="source-line-no">062</span><span id="line-62">     *</span>
-<span class="source-line-no">063</span><span id="line-63">     * @param expected expected value</span>
-<span class="source-line-no">064</span><span id="line-64">     * @param actual   the value to check against &lt;code&gt;expected&lt;/code&gt;</span>
-<span class="source-line-no">065</span><span id="line-65">     * @param pointer  String based path identifier</span>
-<span class="source-line-no">066</span><span id="line-66">     */</span>
-<span class="source-line-no">067</span><span id="line-67">    public static void assertElementWithChildrenEquals(final Element expected, final Element actual,</span>
-<span class="source-line-no">068</span><span id="line-68">            final String pointer) {</span>
-<span class="source-line-no">069</span><span id="line-69">        var currentPointer = pointer + "&gt;" + expected.getName();</span>
-<span class="source-line-no">070</span><span id="line-70">        assertElementEquals(expected, actual, currentPointer);</span>
-<span class="source-line-no">071</span><span id="line-71">        var expectedChildren = expected.getChildren();</span>
-<span class="source-line-no">072</span><span id="line-72">        var actualChildren = actual.getChildren();</span>
-<span class="source-line-no">073</span><span id="line-73">        if (null != expected.getAttribute("id")) {</span>
-<span class="source-line-no">074</span><span id="line-74">            currentPointer = currentPointer + "[" + expected.getAttribute("id").getValue() + "]";</span>
-<span class="source-line-no">075</span><span id="line-75">        }</span>
-<span class="source-line-no">076</span><span id="line-76">        var expectedTextChild = expected.getTextNormalize();</span>
-<span class="source-line-no">077</span><span id="line-77">        var actualTextChild = actual.getTextNormalize();</span>
-<span class="source-line-no">078</span><span id="line-78">        assertEquals(expectedTextChild, actualTextChild,</span>
-<span class="source-line-no">079</span><span id="line-79">                "%s: The text content of the elements are not equal, expected=%s, actual=%s".formatted(currentPointer,</span>
-<span class="source-line-no">080</span><span id="line-80">                        expectedTextChild, actualTextChild));</span>
-<span class="source-line-no">081</span><span id="line-81">        if (expectedChildren.isEmpty() &amp;&amp; actualChildren.isEmpty()) {</span>
-<span class="source-line-no">082</span><span id="line-82">            return;</span>
-<span class="source-line-no">083</span><span id="line-83">        }</span>
-<span class="source-line-no">084</span><span id="line-84">        if (expectedChildren.size() != actualChildren.size()) {</span>
-<span class="source-line-no">085</span><span id="line-85">            fail("%s: The number of children is not equal, expected=%s, actual=%s".formatted(currentPointer,</span>
-<span class="source-line-no">086</span><span id="line-86">                    expectedChildren, actualChildren));</span>
+<span class="source-line-no">018</span><span id="line-18">import lombok.experimental.UtilityClass;</span>
+<span class="source-line-no">019</span><span id="line-19">import org.jdom2.Attribute;</span>
+<span class="source-line-no">020</span><span id="line-20">import org.jdom2.Document;</span>
+<span class="source-line-no">021</span><span id="line-21">import org.jdom2.Element;</span>
+<span class="source-line-no">022</span><span id="line-22"></span>
+<span class="source-line-no">023</span><span id="line-23">import static org.junit.jupiter.api.Assertions.*;</span>
+<span class="source-line-no">024</span><span id="line-24"></span>
+<span class="source-line-no">025</span><span id="line-25">/**</span>
+<span class="source-line-no">026</span><span id="line-26"> * Provides asserts for {@link Document} and Jdom elements.</span>
+<span class="source-line-no">027</span><span id="line-27"> *</span>
+<span class="source-line-no">028</span><span id="line-28"> * @author Oliver Wolff</span>
+<span class="source-line-no">029</span><span id="line-29"> */</span>
+<span class="source-line-no">030</span><span id="line-30">@UtilityClass</span>
+<span class="source-line-no">031</span><span id="line-31">public final class HtmlTreeAsserts {</span>
+<span class="source-line-no">032</span><span id="line-32"></span>
+<span class="source-line-no">033</span><span id="line-33">    private static final String THE_VALUES_ARE_NOT_EQUAL_EXPECTED = "%s: The values for attribute '%s' are not equal, expected=%s, actual=%s";</span>
+<span class="source-line-no">034</span><span id="line-34"></span>
+<span class="source-line-no">035</span><span id="line-35">    private static final String ACTUAL_MUST_NOT_BE_NULL = "Actual must not be null";</span>
+<span class="source-line-no">036</span><span id="line-36"></span>
+<span class="source-line-no">037</span><span id="line-37">    private static final String EXPECTED_MUST_NOT_BE_NULL = "Expected must not be null";</span>
+<span class="source-line-no">038</span><span id="line-38"></span>
+<span class="source-line-no">039</span><span id="line-39">    private static final AttributeComparator ATTRIBUTE_COMPARATOR = new AttributeComparator();</span>
+<span class="source-line-no">040</span><span id="line-40"></span>
+<span class="source-line-no">041</span><span id="line-41">    /**</span>
+<span class="source-line-no">042</span><span id="line-42">     * Compares two instances of {@link Document} for equality. Attribute order is</span>
+<span class="source-line-no">043</span><span id="line-43">     * not relevant, but element order is.</span>
+<span class="source-line-no">044</span><span id="line-44">     *</span>
+<span class="source-line-no">045</span><span id="line-45">     * @param expected expected value</span>
+<span class="source-line-no">046</span><span id="line-46">     * @param actual   the value to check against &lt;code&gt;expected&lt;/code&gt;</span>
+<span class="source-line-no">047</span><span id="line-47">     */</span>
+<span class="source-line-no">048</span><span id="line-48">    public static void assertHtmlTreeEquals(final Document expected, final Document actual) {</span>
+<span class="source-line-no">049</span><span id="line-49">        assertNotNull(expected, EXPECTED_MUST_NOT_BE_NULL);</span>
+<span class="source-line-no">050</span><span id="line-50">        assertNotNull(actual, ACTUAL_MUST_NOT_BE_NULL);</span>
+<span class="source-line-no">051</span><span id="line-51">        var expectedNode = expected.getRootElement();</span>
+<span class="source-line-no">052</span><span id="line-52">        var actualNode = actual.getRootElement();</span>
+<span class="source-line-no">053</span><span id="line-53">        assertElementWithChildrenEquals(expectedNode, actualNode, "");</span>
+<span class="source-line-no">054</span><span id="line-54">    }</span>
+<span class="source-line-no">055</span><span id="line-55"></span>
+<span class="source-line-no">056</span><span id="line-56">    /**</span>
+<span class="source-line-no">057</span><span id="line-57">     * Compares two instances of {@link Element} for equality. Attribute order is</span>
+<span class="source-line-no">058</span><span id="line-58">     * not relevant.It checks the children recursively as well.</span>
+<span class="source-line-no">059</span><span id="line-59">     *</span>
+<span class="source-line-no">060</span><span id="line-60">     * @param expected expected value</span>
+<span class="source-line-no">061</span><span id="line-61">     * @param actual   the value to check against &lt;code&gt;expected&lt;/code&gt;</span>
+<span class="source-line-no">062</span><span id="line-62">     * @param pointer  String based path identifier</span>
+<span class="source-line-no">063</span><span id="line-63">     */</span>
+<span class="source-line-no">064</span><span id="line-64">    public static void assertElementWithChildrenEquals(final Element expected, final Element actual,</span>
+<span class="source-line-no">065</span><span id="line-65">                                                       final String pointer) {</span>
+<span class="source-line-no">066</span><span id="line-66">        var currentPointer = pointer + "&gt;" + expected.getName();</span>
+<span class="source-line-no">067</span><span id="line-67">        assertElementEquals(expected, actual, currentPointer);</span>
+<span class="source-line-no">068</span><span id="line-68">        var expectedChildren = expected.getChildren();</span>
+<span class="source-line-no">069</span><span id="line-69">        var actualChildren = actual.getChildren();</span>
+<span class="source-line-no">070</span><span id="line-70">        if (null != expected.getAttribute("id")) {</span>
+<span class="source-line-no">071</span><span id="line-71">            currentPointer = currentPointer + "[" + expected.getAttribute("id").getValue() + "]";</span>
+<span class="source-line-no">072</span><span id="line-72">        }</span>
+<span class="source-line-no">073</span><span id="line-73">        var expectedTextChild = expected.getTextNormalize();</span>
+<span class="source-line-no">074</span><span id="line-74">        var actualTextChild = actual.getTextNormalize();</span>
+<span class="source-line-no">075</span><span id="line-75">        assertEquals(expectedTextChild, actualTextChild,</span>
+<span class="source-line-no">076</span><span id="line-76">            "%s: The text content of the elements are not equal, expected=%s, actual=%s".formatted(currentPointer,</span>
+<span class="source-line-no">077</span><span id="line-77">                expectedTextChild, actualTextChild));</span>
+<span class="source-line-no">078</span><span id="line-78">        if (expectedChildren.isEmpty() &amp;&amp; actualChildren.isEmpty()) {</span>
+<span class="source-line-no">079</span><span id="line-79">            return;</span>
+<span class="source-line-no">080</span><span id="line-80">        }</span>
+<span class="source-line-no">081</span><span id="line-81">        if (expectedChildren.size() != actualChildren.size()) {</span>
+<span class="source-line-no">082</span><span id="line-82">            fail("%s: The number of children is not equal, expected=%s, actual=%s".formatted(currentPointer,</span>
+<span class="source-line-no">083</span><span id="line-83">                expectedChildren, actualChildren));</span>
+<span class="source-line-no">084</span><span id="line-84">        }</span>
+<span class="source-line-no">085</span><span id="line-85">        for (var i = 0; i &lt; expectedChildren.size(); i++) {</span>
+<span class="source-line-no">086</span><span id="line-86">            assertElementWithChildrenEquals(expectedChildren.get(i), actualChildren.get(i), currentPointer);</span>
 <span class="source-line-no">087</span><span id="line-87">        }</span>
-<span class="source-line-no">088</span><span id="line-88">        for (var i = 0; i &lt; expectedChildren.size(); i++) {</span>
-<span class="source-line-no">089</span><span id="line-89">            assertElementWithChildrenEquals(expectedChildren.get(i), actualChildren.get(i), currentPointer);</span>
-<span class="source-line-no">090</span><span id="line-90">        }</span>
-<span class="source-line-no">091</span><span id="line-91">    }</span>
-<span class="source-line-no">092</span><span id="line-92"></span>
-<span class="source-line-no">093</span><span id="line-93">    /**</span>
-<span class="source-line-no">094</span><span id="line-94">     * Compares two instances of {@link Element} for equality. Attribute order is</span>
-<span class="source-line-no">095</span><span id="line-95">     * not relevant. It checks the name of the elements and the attributes,</span>
-<span class="source-line-no">096</span><span id="line-96">     * &lt;em&gt;not&lt;/em&gt; the children</span>
-<span class="source-line-no">097</span><span id="line-97">     *</span>
-<span class="source-line-no">098</span><span id="line-98">     * @param expected expected value</span>
-<span class="source-line-no">099</span><span id="line-99">     * @param actual   actual the value to check against &lt;code&gt;expected&lt;/code&gt;</span>
-<span class="source-line-no">100</span><span id="line-100">     * @param pointer  String based path identifier</span>
-<span class="source-line-no">101</span><span id="line-101">     */</span>
-<span class="source-line-no">102</span><span id="line-102">    public static void assertElementEquals(final Element expected, final Element actual, final String pointer) {</span>
-<span class="source-line-no">103</span><span id="line-103">        assertNotNull(expected, EXPECTED_MUST_NOT_BE_NULL);</span>
-<span class="source-line-no">104</span><span id="line-104">        assertNotNull(actual, ACTUAL_MUST_NOT_BE_NULL);</span>
-<span class="source-line-no">105</span><span id="line-105">        assertEquals(expected.getName(), actual.getName(),</span>
-<span class="source-line-no">106</span><span id="line-106">                "%s: The names are not equal, expected=%s, actual=%s".formatted(pointer, expected, actual));</span>
-<span class="source-line-no">107</span><span id="line-107">        var expectedAttributes = expected.getAttributes();</span>
-<span class="source-line-no">108</span><span id="line-108">        var actualAttributes = actual.getAttributes();</span>
-<span class="source-line-no">109</span><span id="line-109">        if (expectedAttributes.isEmpty() &amp;&amp; actualAttributes.isEmpty()) {</span>
-<span class="source-line-no">110</span><span id="line-110">            return;</span>
-<span class="source-line-no">111</span><span id="line-111">        }</span>
-<span class="source-line-no">112</span><span id="line-112">        expectedAttributes.sort(ATTRIBUTE_COMPARATOR);</span>
-<span class="source-line-no">113</span><span id="line-113">        actualAttributes.sort(ATTRIBUTE_COMPARATOR);</span>
-<span class="source-line-no">114</span><span id="line-114">        if (expectedAttributes.size() != actualAttributes.size()) {</span>
-<span class="source-line-no">115</span><span id="line-115">            fail("%s: The number of the attributes are not equal, expected=%s, actual=%s".formatted(pointer,</span>
-<span class="source-line-no">116</span><span id="line-116">                    expectedAttributes, actualAttributes));</span>
+<span class="source-line-no">088</span><span id="line-88">    }</span>
+<span class="source-line-no">089</span><span id="line-89"></span>
+<span class="source-line-no">090</span><span id="line-90">    /**</span>
+<span class="source-line-no">091</span><span id="line-91">     * Compares two instances of {@link Element} for equality. Attribute order is</span>
+<span class="source-line-no">092</span><span id="line-92">     * not relevant. It checks the name of the elements and the attributes,</span>
+<span class="source-line-no">093</span><span id="line-93">     * &lt;em&gt;not&lt;/em&gt; the children</span>
+<span class="source-line-no">094</span><span id="line-94">     *</span>
+<span class="source-line-no">095</span><span id="line-95">     * @param expected expected value</span>
+<span class="source-line-no">096</span><span id="line-96">     * @param actual   actual the value to check against &lt;code&gt;expected&lt;/code&gt;</span>
+<span class="source-line-no">097</span><span id="line-97">     * @param pointer  String based path identifier</span>
+<span class="source-line-no">098</span><span id="line-98">     */</span>
+<span class="source-line-no">099</span><span id="line-99">    public static void assertElementEquals(final Element expected, final Element actual, final String pointer) {</span>
+<span class="source-line-no">100</span><span id="line-100">        assertNotNull(expected, EXPECTED_MUST_NOT_BE_NULL);</span>
+<span class="source-line-no">101</span><span id="line-101">        assertNotNull(actual, ACTUAL_MUST_NOT_BE_NULL);</span>
+<span class="source-line-no">102</span><span id="line-102">        assertEquals(expected.getName(), actual.getName(),</span>
+<span class="source-line-no">103</span><span id="line-103">            "%s: The names are not equal, expected=%s, actual=%s".formatted(pointer, expected, actual));</span>
+<span class="source-line-no">104</span><span id="line-104">        var expectedAttributes = expected.getAttributes();</span>
+<span class="source-line-no">105</span><span id="line-105">        var actualAttributes = actual.getAttributes();</span>
+<span class="source-line-no">106</span><span id="line-106">        if (expectedAttributes.isEmpty() &amp;&amp; actualAttributes.isEmpty()) {</span>
+<span class="source-line-no">107</span><span id="line-107">            return;</span>
+<span class="source-line-no">108</span><span id="line-108">        }</span>
+<span class="source-line-no">109</span><span id="line-109">        expectedAttributes.sort(ATTRIBUTE_COMPARATOR);</span>
+<span class="source-line-no">110</span><span id="line-110">        actualAttributes.sort(ATTRIBUTE_COMPARATOR);</span>
+<span class="source-line-no">111</span><span id="line-111">        if (expectedAttributes.size() != actualAttributes.size()) {</span>
+<span class="source-line-no">112</span><span id="line-112">            fail("%s: The number of the attributes are not equal, expected=%s, actual=%s".formatted(pointer,</span>
+<span class="source-line-no">113</span><span id="line-113">                expectedAttributes, actualAttributes));</span>
+<span class="source-line-no">114</span><span id="line-114">        }</span>
+<span class="source-line-no">115</span><span id="line-115">        for (var i = 0; i &lt; expectedAttributes.size(); i++) {</span>
+<span class="source-line-no">116</span><span id="line-116">            assertAttributeEquals(expectedAttributes.get(i), actualAttributes.get(i), pointer);</span>
 <span class="source-line-no">117</span><span id="line-117">        }</span>
-<span class="source-line-no">118</span><span id="line-118">        for (var i = 0; i &lt; expectedAttributes.size(); i++) {</span>
-<span class="source-line-no">119</span><span id="line-119">            assertAttributeEquals(expectedAttributes.get(i), actualAttributes.get(i), pointer);</span>
-<span class="source-line-no">120</span><span id="line-120">        }</span>
-<span class="source-line-no">121</span><span id="line-121">    }</span>
-<span class="source-line-no">122</span><span id="line-122"></span>
-<span class="source-line-no">123</span><span id="line-123">    /**</span>
-<span class="source-line-no">124</span><span id="line-124">     * Compares two instances of {@link Attribute} for equality.</span>
-<span class="source-line-no">125</span><span id="line-125">     *</span>
-<span class="source-line-no">126</span><span id="line-126">     * @param expected expected value</span>
-<span class="source-line-no">127</span><span id="line-127">     * @param actual   the value to check against &lt;code&gt;expected&lt;/code&gt;</span>
-<span class="source-line-no">128</span><span id="line-128">     * @param pointer  String based path identifier</span>
-<span class="source-line-no">129</span><span id="line-129">     */</span>
-<span class="source-line-no">130</span><span id="line-130">    public static void assertAttributeEquals(final Attribute expected, final Attribute actual, final String pointer) {</span>
-<span class="source-line-no">131</span><span id="line-131">        assertNotNull(expected, EXPECTED_MUST_NOT_BE_NULL);</span>
-<span class="source-line-no">132</span><span id="line-132">        assertNotNull(actual, ACTUAL_MUST_NOT_BE_NULL);</span>
-<span class="source-line-no">133</span><span id="line-133">        assertEquals(expected.getName(), actual.getName(),</span>
-<span class="source-line-no">134</span><span id="line-134">                "%s: The name of the attributes are not equal, expected=%s, actual=%s".formatted(pointer, expected,</span>
-<span class="source-line-no">135</span><span id="line-135">                        actual));</span>
-<span class="source-line-no">136</span><span id="line-136">        assertEquals(expected.getValue(), actual.getValue(), THE_VALUES_ARE_NOT_EQUAL_EXPECTED.formatted(pointer,</span>
-<span class="source-line-no">137</span><span id="line-137">                expected.getName(), expected.getValue(), actual.getValue()));</span>
-<span class="source-line-no">138</span><span id="line-138">    }</span>
-<span class="source-line-no">139</span><span id="line-139">}</span>
+<span class="source-line-no">118</span><span id="line-118">    }</span>
+<span class="source-line-no">119</span><span id="line-119"></span>
+<span class="source-line-no">120</span><span id="line-120">    /**</span>
+<span class="source-line-no">121</span><span id="line-121">     * Compares two instances of {@link Attribute} for equality.</span>
+<span class="source-line-no">122</span><span id="line-122">     *</span>
+<span class="source-line-no">123</span><span id="line-123">     * @param expected expected value</span>
+<span class="source-line-no">124</span><span id="line-124">     * @param actual   the value to check against &lt;code&gt;expected&lt;/code&gt;</span>
+<span class="source-line-no">125</span><span id="line-125">     * @param pointer  String based path identifier</span>
+<span class="source-line-no">126</span><span id="line-126">     */</span>
+<span class="source-line-no">127</span><span id="line-127">    public static void assertAttributeEquals(final Attribute expected, final Attribute actual, final String pointer) {</span>
+<span class="source-line-no">128</span><span id="line-128">        assertNotNull(expected, EXPECTED_MUST_NOT_BE_NULL);</span>
+<span class="source-line-no">129</span><span id="line-129">        assertNotNull(actual, ACTUAL_MUST_NOT_BE_NULL);</span>
+<span class="source-line-no">130</span><span id="line-130">        assertEquals(expected.getName(), actual.getName(),</span>
+<span class="source-line-no">131</span><span id="line-131">            "%s: The name of the attributes are not equal, expected=%s, actual=%s".formatted(pointer, expected,</span>
+<span class="source-line-no">132</span><span id="line-132">                actual));</span>
+<span class="source-line-no">133</span><span id="line-133">        assertEquals(expected.getValue(), actual.getValue(), THE_VALUES_ARE_NOT_EQUAL_EXPECTED.formatted(pointer,</span>
+<span class="source-line-no">134</span><span id="line-134">            expected.getName(), expected.getValue(), actual.getValue()));</span>
+<span class="source-line-no">135</span><span id="line-135">    }</span>
+<span class="source-line-no">136</span><span id="line-136">}</span>
 
 
 

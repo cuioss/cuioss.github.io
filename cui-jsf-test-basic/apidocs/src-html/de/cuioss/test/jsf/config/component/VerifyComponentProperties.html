@@ -28,65 +28,60 @@
 <span class="source-line-no">015</span><span id="line-15"> */</span>
 <span class="source-line-no">016</span><span id="line-16">package de.cuioss.test.jsf.config.component;</span>
 <span class="source-line-no">017</span><span id="line-17"></span>
-<span class="source-line-no">018</span><span id="line-18">import java.lang.annotation.ElementType;</span>
-<span class="source-line-no">019</span><span id="line-19">import java.lang.annotation.Repeatable;</span>
-<span class="source-line-no">020</span><span id="line-20">import java.lang.annotation.Retention;</span>
-<span class="source-line-no">021</span><span id="line-21">import java.lang.annotation.RetentionPolicy;</span>
-<span class="source-line-no">022</span><span id="line-22">import java.lang.annotation.Target;</span>
-<span class="source-line-no">023</span><span id="line-23">import java.util.Collection;</span>
-<span class="source-line-no">024</span><span id="line-24"></span>
-<span class="source-line-no">025</span><span id="line-25">import javax.el.ValueExpression;</span>
+<span class="source-line-no">018</span><span id="line-18">import de.cuioss.test.jsf.component.AbstractComponentTest;</span>
+<span class="source-line-no">019</span><span id="line-19">import de.cuioss.test.valueobjects.api.property.PropertyConfig;</span>
+<span class="source-line-no">020</span><span id="line-20">import de.cuioss.test.valueobjects.property.PropertyMetadata;</span>
+<span class="source-line-no">021</span><span id="line-21">import de.cuioss.test.valueobjects.property.util.AssertionStrategy;</span>
+<span class="source-line-no">022</span><span id="line-22">import jakarta.el.ValueExpression;</span>
+<span class="source-line-no">023</span><span id="line-23"></span>
+<span class="source-line-no">024</span><span id="line-24">import java.lang.annotation.*;</span>
+<span class="source-line-no">025</span><span id="line-25">import java.util.Collection;</span>
 <span class="source-line-no">026</span><span id="line-26"></span>
-<span class="source-line-no">027</span><span id="line-27">import de.cuioss.test.jsf.component.AbstractComponentTest;</span>
-<span class="source-line-no">028</span><span id="line-28">import de.cuioss.test.valueobjects.api.property.PropertyConfig;</span>
-<span class="source-line-no">029</span><span id="line-29">import de.cuioss.test.valueobjects.property.PropertyMetadata;</span>
-<span class="source-line-no">030</span><span id="line-30">import de.cuioss.test.valueobjects.property.util.AssertionStrategy;</span>
-<span class="source-line-no">031</span><span id="line-31"></span>
-<span class="source-line-no">032</span><span id="line-32">/**</span>
-<span class="source-line-no">033</span><span id="line-33"> * If used on {@link AbstractComponentTest} type configures the property-tests.</span>
-<span class="source-line-no">034</span><span id="line-34"> * &lt;p&gt;</span>
-<span class="source-line-no">035</span><span id="line-35"> * In essence it checks the getters and setters. As default it assumes the</span>
-<span class="source-line-no">036</span><span id="line-36"> * individual properties to not provide a default value. This can be controlled</span>
-<span class="source-line-no">037</span><span id="line-37"> * using {@link #defaultValued()}</span>
-<span class="source-line-no">038</span><span id="line-38"> *</span>
-<span class="source-line-no">039</span><span id="line-39"> * @author Oliver Wolff</span>
-<span class="source-line-no">040</span><span id="line-40"> */</span>
-<span class="source-line-no">041</span><span id="line-41">@Repeatable(VerifyComponentPropertiesRepeat.class)</span>
-<span class="source-line-no">042</span><span id="line-42">@Retention(RetentionPolicy.RUNTIME)</span>
-<span class="source-line-no">043</span><span id="line-43">@Target({ ElementType.TYPE })</span>
-<span class="source-line-no">044</span><span id="line-44">public @interface VerifyComponentProperties {</span>
-<span class="source-line-no">045</span><span id="line-45"></span>
-<span class="source-line-no">046</span><span id="line-46">    /**</span>
-<span class="source-line-no">047</span><span id="line-47">     * @return a number of properties, identified by their names that are to be</span>
-<span class="source-line-no">048</span><span id="line-48">     *         considered for this test: white-list</span>
-<span class="source-line-no">049</span><span id="line-49">     */</span>
-<span class="source-line-no">050</span><span id="line-50">    String[] of() default {};</span>
-<span class="source-line-no">051</span><span id="line-51"></span>
-<span class="source-line-no">052</span><span id="line-52">    /**</span>
-<span class="source-line-no">053</span><span id="line-53">     * @return a number of properties, identified by their names that are to be</span>
-<span class="source-line-no">054</span><span id="line-54">     *         treated as having a default values, see</span>
-<span class="source-line-no">055</span><span id="line-55">     *         {@link PropertyMetadata#isDefaultValue()}</span>
-<span class="source-line-no">056</span><span id="line-56">     */</span>
-<span class="source-line-no">057</span><span id="line-57">    String[] defaultValued() default {};</span>
-<span class="source-line-no">058</span><span id="line-58"></span>
-<span class="source-line-no">059</span><span id="line-59">    /**</span>
-<span class="source-line-no">060</span><span id="line-60">     * @return a number of properties, identified by their names that are to be</span>
-<span class="source-line-no">061</span><span id="line-61">     *         ignore on the tests with {@link ValueExpression}s. &lt;em&gt;Caution&lt;/em&gt;</span>
-<span class="source-line-no">062</span><span id="line-62">     *         the need of the configuration hints on an invalid implementation,</span>
-<span class="source-line-no">063</span><span id="line-63">     *         because all properties should consider {@link ValueExpression}s.</span>
-<span class="source-line-no">064</span><span id="line-64">     */</span>
-<span class="source-line-no">065</span><span id="line-65">    String[] noValueExpression() default {};</span>
-<span class="source-line-no">066</span><span id="line-66"></span>
-<span class="source-line-no">067</span><span id="line-67">    /**</span>
-<span class="source-line-no">068</span><span id="line-68">     * @return a number of properties, identified by their names representing at</span>
-<span class="source-line-no">069</span><span id="line-69">     *         least a {@link Collection} that are to be asserted ignoring the</span>
-<span class="source-line-no">070</span><span id="line-70">     *         concrete order, see {@link PropertyConfig#assertionStrategy()} and</span>
-<span class="source-line-no">071</span><span id="line-71">     *         {@link AssertionStrategy#COLLECTION_IGNORE_ORDER}. The default</span>
-<span class="source-line-no">072</span><span id="line-72">     *         implementation will always respect / assert the same order of</span>
-<span class="source-line-no">073</span><span id="line-73">     *         elements.</span>
-<span class="source-line-no">074</span><span id="line-74">     */</span>
-<span class="source-line-no">075</span><span id="line-75">    String[] assertUnorderedCollection() default {};</span>
-<span class="source-line-no">076</span><span id="line-76">}</span>
+<span class="source-line-no">027</span><span id="line-27">/**</span>
+<span class="source-line-no">028</span><span id="line-28"> * If used on {@link AbstractComponentTest} type configures the property-tests.</span>
+<span class="source-line-no">029</span><span id="line-29"> * &lt;p&gt;</span>
+<span class="source-line-no">030</span><span id="line-30"> * In essence it checks the getters and setters. As default it assumes the</span>
+<span class="source-line-no">031</span><span id="line-31"> * individual properties to not provide a default value. This can be controlled</span>
+<span class="source-line-no">032</span><span id="line-32"> * using {@link #defaultValued()}</span>
+<span class="source-line-no">033</span><span id="line-33"> *</span>
+<span class="source-line-no">034</span><span id="line-34"> * @author Oliver Wolff</span>
+<span class="source-line-no">035</span><span id="line-35"> */</span>
+<span class="source-line-no">036</span><span id="line-36">@Repeatable(VerifyComponentPropertiesRepeat.class)</span>
+<span class="source-line-no">037</span><span id="line-37">@Retention(RetentionPolicy.RUNTIME)</span>
+<span class="source-line-no">038</span><span id="line-38">@Target({ElementType.TYPE})</span>
+<span class="source-line-no">039</span><span id="line-39">public @interface VerifyComponentProperties {</span>
+<span class="source-line-no">040</span><span id="line-40"></span>
+<span class="source-line-no">041</span><span id="line-41">    /**</span>
+<span class="source-line-no">042</span><span id="line-42">     * @return a number of properties, identified by their names that are to be</span>
+<span class="source-line-no">043</span><span id="line-43">     * considered for this test: white-list</span>
+<span class="source-line-no">044</span><span id="line-44">     */</span>
+<span class="source-line-no">045</span><span id="line-45">    String[] of() default {};</span>
+<span class="source-line-no">046</span><span id="line-46"></span>
+<span class="source-line-no">047</span><span id="line-47">    /**</span>
+<span class="source-line-no">048</span><span id="line-48">     * @return a number of properties, identified by their names that are to be</span>
+<span class="source-line-no">049</span><span id="line-49">     * treated as having a default values, see</span>
+<span class="source-line-no">050</span><span id="line-50">     * {@link PropertyMetadata#isDefaultValue()}</span>
+<span class="source-line-no">051</span><span id="line-51">     */</span>
+<span class="source-line-no">052</span><span id="line-52">    String[] defaultValued() default {};</span>
+<span class="source-line-no">053</span><span id="line-53"></span>
+<span class="source-line-no">054</span><span id="line-54">    /**</span>
+<span class="source-line-no">055</span><span id="line-55">     * @return a number of properties, identified by their names that are to be</span>
+<span class="source-line-no">056</span><span id="line-56">     * ignore on the tests with {@link ValueExpression}s. &lt;em&gt;Caution&lt;/em&gt;</span>
+<span class="source-line-no">057</span><span id="line-57">     * the need of the configuration hints on an invalid implementation,</span>
+<span class="source-line-no">058</span><span id="line-58">     * because all properties should consider {@link ValueExpression}s.</span>
+<span class="source-line-no">059</span><span id="line-59">     */</span>
+<span class="source-line-no">060</span><span id="line-60">    String[] noValueExpression() default {};</span>
+<span class="source-line-no">061</span><span id="line-61"></span>
+<span class="source-line-no">062</span><span id="line-62">    /**</span>
+<span class="source-line-no">063</span><span id="line-63">     * @return a number of properties, identified by their names representing at</span>
+<span class="source-line-no">064</span><span id="line-64">     * least a {@link Collection} that are to be asserted ignoring the</span>
+<span class="source-line-no">065</span><span id="line-65">     * concrete order, see {@link PropertyConfig#assertionStrategy()} and</span>
+<span class="source-line-no">066</span><span id="line-66">     * {@link AssertionStrategy#COLLECTION_IGNORE_ORDER}. The default</span>
+<span class="source-line-no">067</span><span id="line-67">     * implementation will always respect / assert the same order of</span>
+<span class="source-line-no">068</span><span id="line-68">     * elements.</span>
+<span class="source-line-no">069</span><span id="line-69">     */</span>
+<span class="source-line-no">070</span><span id="line-70">    String[] assertUnorderedCollection() default {};</span>
+<span class="source-line-no">071</span><span id="line-71">}</span>
 
 
 
