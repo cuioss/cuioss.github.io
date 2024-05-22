@@ -223,10 +223,10 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="extractEventsFromViewRoot()">
 <h3>extractEventsFromViewRoot</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;jakarta.faces.event.FacesEvent&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/de/cuioss/test/jsf/renderer/AbstractComponentRendererTest.html#line-123">extractEventsFromViewRoot</a></span>()</div>
-<div class="block">Helper method that extracts all queued events from <code>UIViewRoot</code>. In
- order to use this method the corresponding test must ensure, that the
- component under test is child of <code>UIViewRoot</code>. Otherwise the events can
- not be extracted</div>
+<div class="block">Helper method that extracts all queued events from <code>UIViewRoot</code>.
+ To use this method, the corresponding test must ensure that the
+ component under test is child of <code>UIViewRoot</code>.
+ Otherwise, the events cannot be extracted</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the plain list of events available at <code>UIViewRoot</code> at this

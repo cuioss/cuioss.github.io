@@ -70,7 +70,7 @@
 <span class="source-line-no">057</span><span id="line-57">    @SuppressWarnings("squid:S3655")</span>
 <span class="source-line-no">058</span><span id="line-58">    public void postProcessTestInstance(Object testInstance, ExtensionContext context) throws Exception {</span>
 <span class="source-line-no">059</span><span id="line-59">        var setup = new JsfRuntimeSetup();</span>
-<span class="source-line-no">060</span><span id="line-60">        LOGGER.info(() -&gt; "Starting JSF-Environment");</span>
+<span class="source-line-no">060</span><span id="line-60">        LOGGER.debug(() -&gt; "Starting JSF-Environment");</span>
 <span class="source-line-no">061</span><span id="line-61">        setup.setUp();</span>
 <span class="source-line-no">062</span><span id="line-62">        put(setup, context);</span>
 <span class="source-line-no">063</span><span id="line-63"></span>

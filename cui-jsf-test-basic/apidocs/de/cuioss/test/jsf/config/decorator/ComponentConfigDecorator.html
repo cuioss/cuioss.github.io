@@ -156,8 +156,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#registerCuiMockComponentWithRenderer()" class="member-name-link">registerCuiMockComponentWithRenderer</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockComponent.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockComponent</code></a> with a
- <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a>.</div>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockComponent.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockComponent</code></a> with a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#registerMockRenderer(java.lang.String,java.lang.String)" class="member-name-link">registerMockRenderer</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;family,
@@ -292,12 +291,12 @@ loadScripts(document, 'script');</script>
  <code>FacesValidator</code>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>validator</code> - the actual <code>Validator</code> class, must not be null. In
-                  order to work the <code>Validator</code> must provide the
-                  <code>FacesValidator</code> annotation in order to identify the
+<dd><code>validator</code> - the actual <code>Validator</code> class, must not be null.
+                  To work the <code>Validator</code> must provide the
+                  <code>FacesValidator</code> annotation to identify
                   the needed validatorId</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -310,10 +309,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Register a <code>Converter</code> for a given target class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>converter</code> - to be registered , must not be null</dd>
+<dd><code>converter</code> - to be registered must not be null</dd>
 <dd><code>targetClass</code> - must not be null</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -325,11 +324,11 @@ loadScripts(document, 'script');</script>
 <div class="block">Register a <code>Converter</code> for a given target class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>converter</code> - to be registered , must not be null and must provide a
+<dd><code>converter</code> - to be registered, must not be null and must provide a
                   <code>FacesConverter</code> annotation for deriving targetType or
-                  converter.id</dd>
+                  converter-id</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -342,10 +341,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Register a <code>Converter</code> to a given converterId.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>converter</code> - to be registered , must not be null</dd>
+<dd><code>converter</code> - to be registered must not be null</dd>
 <dd><code>converterId</code> - must not be null</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -358,10 +357,10 @@ loadScripts(document, 'script');</script>
 <div class="block">Registers a <code>UIComponent</code></div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>componentType</code> - identifying the component, must not be null</dd>
-<dd><code>component</code> - the actual component, must not be null</dd>
+<dd><code>componentType</code> - identifying the component must not be null</dd>
+<dd><code>component</code> - the actual component must not be null</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -373,11 +372,11 @@ loadScripts(document, 'script');</script>
 <div class="block">Registers a <code>UIComponent</code></div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>component</code> - the actual component, must not be null must provide the
+<dd><code>component</code> - the actual component must not be null must provide the
                   <code>FacesComponent</code> annotation to derive the componentId
                   to be registered to.</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -385,12 +384,11 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerCuiMockComponentWithRenderer()">
 <h3>registerCuiMockComponentWithRenderer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-205">registerCuiMockComponentWithRenderer</a></span>()</div>
-<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockComponent.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockComponent</code></a> with a
- <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a>.</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-204">registerCuiMockComponentWithRenderer</a></span>()</div>
+<div class="block">Shorthand for registering a <a href="../../mocks/CuiMockComponent.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockComponent</code></a> with a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -398,7 +396,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerMockRenderer(java.lang.String,java.lang.String)">
 <h3>registerMockRenderer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-221">registerMockRenderer</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;family,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-220">registerMockRenderer</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;family,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;rendererType)</span></div>
 <div class="block">Registers a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for the given attributes.</div>
 <dl class="notes">
@@ -408,7 +406,7 @@ loadScripts(document, 'script');</script>
 <dd><code>rendererType</code> - identifying the type of the renderer is related to, must
                      not be null</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -416,12 +414,12 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerMockRendererForHtmlOutputText()">
 <h3>registerMockRendererForHtmlOutputText</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-235">registerMockRendererForHtmlOutputText</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-234">registerMockRendererForHtmlOutputText</a></span>()</div>
 <div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
  <code>HtmlOutputText</code>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -429,12 +427,12 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerMockRendererForHtmlSelectBooleanCheckbox()">
 <h3>registerMockRendererForHtmlSelectBooleanCheckbox</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-247">registerMockRendererForHtmlSelectBooleanCheckbox</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-246">registerMockRendererForHtmlSelectBooleanCheckbox</a></span>()</div>
 <div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
  <code>HtmlSelectBooleanCheckbox</code>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -442,12 +440,12 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerMockRendererForHtmlSelectOneRadio()">
 <h3>registerMockRendererForHtmlSelectOneRadio</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-259">registerMockRendererForHtmlSelectOneRadio</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-258">registerMockRendererForHtmlSelectOneRadio</a></span>()</div>
 <div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
  <code>HtmlSelectOneRadio</code>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -455,12 +453,12 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerMockRendererForHtmlInputText()">
 <h3>registerMockRendererForHtmlInputText</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-271">registerMockRendererForHtmlInputText</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-270">registerMockRendererForHtmlInputText</a></span>()</div>
 <div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
  <code>HtmlInputText</code>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -468,11 +466,11 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerMockRendererForHtmlForm()">
 <h3>registerMockRendererForHtmlForm</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-282">registerMockRendererForHtmlForm</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-281">registerMockRendererForHtmlForm</a></span>()</div>
 <div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for <code>HtmlForm</code>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -480,12 +478,12 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerMockRendererForCommandButton()">
 <h3>registerMockRendererForCommandButton</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-294">registerMockRendererForCommandButton</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-293">registerMockRendererForCommandButton</a></span>()</div>
 <div class="block">Shorthand for registering a <a href="../../mocks/CuiMockRenderer.html" title="class in de.cuioss.test.jsf.mocks"><code>CuiMockRenderer</code></a> for
  <code>HtmlCommandButton</code>.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -493,7 +491,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerRenderer(java.lang.String,java.lang.String,jakarta.faces.render.Renderer)">
 <h3>registerRenderer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-311">registerRenderer</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;family,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-310">registerRenderer</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;family,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;rendererType,
  jakarta.faces.render.Renderer&nbsp;renderer)</span></div>
 <div class="block">Registers a <code>Renderer</code></div>
@@ -505,7 +503,7 @@ loadScripts(document, 'script');</script>
                      not be null</dd>
 <dd><code>renderer</code> - the actual renderer to be registered, must not be null</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -513,7 +511,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerRenderer(java.lang.Class)">
 <h3>registerRenderer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-330">registerRenderer</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends jakarta.faces.render.Renderer&gt;&nbsp;renderer)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-329">registerRenderer</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends jakarta.faces.render.Renderer&gt;&nbsp;renderer)</span></div>
 <div class="block">Registers a <code>Renderer</code> The family and rendererType will be derived by
  the mandatory <code>FacesRenderer</code> annotation</div>
 <dl class="notes">
@@ -522,7 +520,7 @@ loadScripts(document, 'script');</script>
                  provide <code>FacesRenderer</code> annotation and a no arg public
                  constructor.</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -530,7 +528,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerBehavior(java.lang.String,java.lang.Class)">
 <h3>registerBehavior</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-351">registerBehavior</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;behaviorId,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-350">registerBehavior</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;behaviorId,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends jakarta.faces.component.behavior.ClientBehavior&gt;&nbsp;behaviorClass)</span></div>
 <div class="block">Register a <code>ClientBehavior</code> for a given behaviorId</div>
 <dl class="notes">
@@ -540,7 +538,7 @@ loadScripts(document, 'script');</script>
 <dd><code>behaviorClass</code> - the actual type of the <code>ClientBehavior</code> must not
                       be null</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -548,16 +546,16 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerBehavior(java.lang.Class)">
 <h3>registerBehavior</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-369">registerBehavior</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends jakarta.faces.component.behavior.ClientBehavior&gt;&nbsp;behaviorClass)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-368">registerBehavior</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends jakarta.faces.component.behavior.ClientBehavior&gt;&nbsp;behaviorClass)</span></div>
 <div class="block">Register a <code>ClientBehavior</code>. The behaviorId will be extracted by the
  mandatory <code>FacesBehavior</code> annotation</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>behaviorClass</code> - the actual type of the <code>ClientBehavior</code> must not
                       be null and provide the <code>FacesBehavior</code> annotation
-                      in order to extract the correct behaviorId</dd>
+                      to extract the correct behaviorId</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -565,7 +563,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="registerCompositeComponent(java.lang.String,java.lang.String,jakarta.faces.component.UIComponent)">
 <h3>registerCompositeComponent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-388">registerCompositeComponent</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;libraryName,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-387">registerCompositeComponent</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;libraryName,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tagName,
  jakarta.faces.component.UIComponent&nbsp;uiComponent)</span></div>
 <div class="block">Register a composite component to be rendered.</div>
@@ -577,7 +575,7 @@ loadScripts(document, 'script');</script>
 <dd><code>uiComponent</code> - the component that should be returned as mock /
                     placeholder for the composite component</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
@@ -585,7 +583,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addUiComponent(java.lang.String,jakarta.faces.component.UIComponent)">
 <h3>addUiComponent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-407">addUiComponent</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;expr,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator">ComponentConfigDecorator</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/de/cuioss/test/jsf/config/decorator/ComponentConfigDecorator.html#line-406">addUiComponent</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;expr,
  jakarta.faces.component.UIComponent&nbsp;component)</span></div>
 <div class="block">Add a component to the view root to be found when searching via
  <code>UIComponentBase.findComponent(String)</code>.</div>
@@ -594,7 +592,7 @@ loadScripts(document, 'script');</script>
 <dd><code>expr</code> - the expression the component should be found with</dd>
 <dd><code>component</code> - the component</dd>
 <dt>Returns:</dt>
-<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself in order to enable a
+<dd>the <a href="ComponentConfigDecorator.html" title="class in de.cuioss.test.jsf.config.decorator"><code>ComponentConfigDecorator</code></a> itself to enable a
  fluent-api style usage</dd>
 </dl>
 </section>
