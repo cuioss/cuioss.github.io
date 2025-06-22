@@ -1,0 +1,182 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-22T18:54:29.409Z",
+    "end": "2025-06-22T18:54:31.307Z",
+    "duration": 1898,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "79045fee-94ba-41f7-9a1c-c8ea1698ae2c",
+      "title": "",
+      "fullFile": "cypress/e2e/02-nifi-functional.cy.js",
+      "file": "cypress/e2e/02-nifi-functional.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8195845c-9a05-40f3-a985-c7d1eaf958ad",
+          "title": "NiFi Functional Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should connect to NiFi",
+              "fullTitle": "NiFi Functional Test should connect to NiFi",
+              "timedOut": null,
+              "duration": 736,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Basic check that we can load the page\ncy.get('body', {\n  timeout: 5000\n}).should('exist');",
+              "err": {},
+              "uuid": "9992105c-6194-482b-b08f-2e33c522a62c",
+              "parentUUID": "8195845c-9a05-40f3-a985-c7d1eaf958ad",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should detect NiFi canvas area",
+              "fullTitle": "NiFi Functional Test should detect NiFi canvas area",
+              "timedOut": null,
+              "duration": 217,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Look for the main canvas or workspace area\ncy.get('body').then($body => {\n  const hasCanvas = $body.find('#canvas').length > 0;\n  const hasWorkspace = $body.find('.workspace').length > 0;\n  const hasSvgCanvas = $body.find('svg').length > 0;\n  const hasFlowArea = $body.find('[id*=\"flow\"], [class*=\"flow\"]').length > 0;\n  cy.log(`Canvas elements found: Canvas: ${hasCanvas}, Workspace: ${hasWorkspace}, SVG: ${hasSvgCanvas}, Flow: ${hasFlowArea}`);\n  // Verify at least one canvas-like element exists\n  expect(hasCanvas || hasWorkspace || hasSvgCanvas || hasFlowArea).to.be.true;\n});\n// Verify the page is interactive\ncy.get('body').should('be.visible');",
+              "err": {},
+              "uuid": "3753fc69-0ad5-4acc-bc1d-4a1051214e80",
+              "parentUUID": "8195845c-9a05-40f3-a985-c7d1eaf958ad",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should identify NiFi UI components",
+              "fullTitle": "NiFi Functional Test should identify NiFi UI components",
+              "timedOut": null,
+              "duration": 176,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Look for typical NiFi UI elements like toolbars, menus, etc.\ncy.get('body').then($body => {\n  const hasToolbar = $body.find('.toolbar, [class*=\"toolbar\"]').length > 0;\n  const hasMenu = $body.find('.menu, [class*=\"menu\"]').length > 0;\n  const hasNavigation = $body.find('nav, .navigation').length > 0;\n  const hasButtons = $body.find('button').length > 0;\n  const hasHeaders = $body.find('h1, h2, h3, .header').length > 0;\n  const hasLinks = $body.find('a').length > 0;\n  const hasInputs = $body.find('input').length > 0;\n  const hasDivs = $body.find('div').length > 0;\n  cy.log(`UI components: Toolbar: ${hasToolbar}, Menu: ${hasMenu}, Nav: ${hasNavigation}, Buttons: ${hasButtons}, Headers: ${hasHeaders}, Links: ${hasLinks}, Inputs: ${hasInputs}, Divs: ${hasDivs}`);\n  // Verify we have some interactive UI elements (more flexible check)\n  const hasInteractiveElements = hasToolbar || hasMenu || hasNavigation || hasButtons || hasHeaders || hasLinks || hasInputs;\n  const hasBasicElements = hasDivs; // Even basic page structure counts\n  expect(hasInteractiveElements || hasBasicElements).to.be.true;\n});\n// Verify page responsiveness\ncy.get('body').should('be.visible');",
+              "err": {},
+              "uuid": "a1f44508-a2e8-4991-92c9-8ba6d2558168",
+              "parentUUID": "8195845c-9a05-40f3-a985-c7d1eaf958ad",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should test processor interaction capabilities",
+              "fullTitle": "NiFi Functional Test should test processor interaction capabilities",
+              "timedOut": null,
+              "duration": 253,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Test advanced processor interactions\ncy.get('body').then($body => {\n  const hasProcessors = $body.find('.processor, .component').length > 0;\n  if (hasProcessors) {\n    // If processors exist, test interaction capabilities\n    cy.log('Testing processor interaction on existing processors');\n    // Try to interact with first processor\n    cy.get('.processor, .component').first().then($processor => {\n      // Test hover/focus capability\n      cy.wrap($processor).trigger('mouseover', {\n        force: true\n      });\n      // Test selection capability\n      cy.wrap($processor).click({\n        force: true\n      });\n      cy.log('Processor interaction test completed');\n    });\n  } else {\n    // No processors - test canvas interaction instead\n    cy.log('Testing canvas interaction capabilities');\n    // Look for canvas or workspace area\n    cy.get('body').then($body => {\n      const hasCanvas = $body.find('#canvas, .canvas, svg').length > 0;\n      if (hasCanvas) {\n        // Test canvas interaction\n        cy.get('#canvas, .canvas, svg').first().then($canvas => {\n          cy.wrap($canvas).trigger('mouseover', {\n            force: true\n          });\n          cy.wrap($canvas).click({\n            force: true\n          });\n          cy.log('Canvas interaction test completed');\n        });\n      } else {\n        // Fallback - test basic page interaction\n        cy.get('body').click({\n          force: true\n        });\n        cy.log('Basic page interaction test completed');\n      }\n    });\n  }\n});\n// Verify the page remains responsive after interaction\ncy.get('body').should('be.visible');",
+              "err": {},
+              "uuid": "7ba919ac-1be3-41b5-9ab8-0568ac56e2e8",
+              "parentUUID": "8195845c-9a05-40f3-a985-c7d1eaf958ad",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should validate NiFi system readiness",
+              "fullTitle": "NiFi Functional Test should validate NiFi system readiness",
+              "timedOut": null,
+              "duration": 169,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Comprehensive test to validate NiFi is ready for serious testing\ncy.get('body').then($body => {\n  const pageHtml = $body.html();\n  // Check for NiFi-specific content\n  const hasNiFiContent = pageHtml.includes('NiFi') || pageHtml.includes('nifi');\n  const hasFlowContent = pageHtml.includes('flow') || pageHtml.includes('Flow');\n  const hasProcessorContent = pageHtml.includes('processor') || pageHtml.includes('Processor');\n  // Check for interactive elements\n  const hasClickableElements = $body.find('button, a, input, select').length > 0;\n  const hasFormElements = $body.find('form, input, select, textarea').length > 0;\n  // Check for visual structure\n  const hasContainers = $body.find('div, section, main, article').length > 0;\n  const hasVisualElements = $body.find('svg, canvas, img').length > 0;\n  cy.log(`System readiness check:\n    NiFi content: ${hasNiFiContent}\n    Flow content: ${hasFlowContent} \n    Processor content: ${hasProcessorContent}\n    Interactive elements: ${hasClickableElements}\n    Form elements: ${hasFormElements}\n    Containers: ${hasContainers}\n    Visual elements: ${hasVisualElements}\n  `);\n  // System is ready if we have basic content AND some interactive capabilities\n  const hasBasicContent = hasNiFiContent || hasFlowContent || hasProcessorContent;\n  const hasInteractivity = hasClickableElements || hasFormElements;\n  const hasStructure = hasContainers;\n  // At minimum, we need page structure and some indication this is NiFi\n  expect(hasStructure && (hasBasicContent || hasInteractivity)).to.be.true;\n});\n// Final verification that the system is responsive\ncy.get('body').should('be.visible');\ncy.title().should('exist');\ncy.log('NiFi system readiness validation completed successfully');",
+              "err": {},
+              "uuid": "f9aa48cd-1963-4f75-a960-664f4d21f253",
+              "parentUUID": "8195845c-9a05-40f3-a985-c7d1eaf958ad",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9992105c-6194-482b-b08f-2e33c522a62c",
+            "3753fc69-0ad5-4acc-bc1d-4a1051214e80",
+            "a1f44508-a2e8-4991-92c9-8ba6d2558168",
+            "7ba919ac-1be3-41b5-9ab8-0568ac56e2e8",
+            "f9aa48cd-1963-4f75-a960-664f4d21f253"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1551,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "tests-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

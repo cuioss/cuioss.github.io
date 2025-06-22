@@ -1,0 +1,182 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-22T18:54:26.046Z",
+    "end": "2025-06-22T18:54:27.723Z",
+    "duration": 1677,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4fbcd822-4c80-4cb5-a956-2f512b9a691b",
+      "title": "",
+      "fullFile": "cypress/e2e/01-self-test.cy.js",
+      "file": "cypress/e2e/01-self-test.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0401c570-8e00-4c7c-b373-cab5643de888",
+          "title": "Self-Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should verify Cypress basic functionality",
+              "fullTitle": "Self-Test should verify Cypress basic functionality",
+              "timedOut": null,
+              "duration": 46,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect(true).to.be.true;\nexpect(1 + 1).to.equal(2);",
+              "err": {},
+              "uuid": "9abc04c0-5197-41c6-a4ce-0018d999df50",
+              "parentUUID": "0401c570-8e00-4c7c-b373-cab5643de888",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should handle simple DOM operations",
+              "fullTitle": "Self-Test should handle simple DOM operations",
+              "timedOut": null,
+              "duration": 805,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('about:blank');\ncy.document().should('exist');",
+              "err": {},
+              "uuid": "936c6083-af2e-46c6-b7b4-bc8ebe460c9a",
+              "parentUUID": "0401c570-8e00-4c7c-b373-cab5643de888",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate to NiFi main page",
+              "fullTitle": "Self-Test should navigate to NiFi main page",
+              "timedOut": null,
+              "duration": 232,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Navigate to NiFi UI (running on HTTPS port 9095 according to Docker setup)\ncy.visit('https://localhost:9095/nifi', {\n  timeout: 30000,\n  failOnStatusCode: false // Allow self-signed certificates\n});\n// Verify page loads successfully - check basic elements first\ncy.get('body', {\n  timeout: 20000\n}).should('exist');\n// Wait for page to be interactive and title to contain NiFi\ncy.title({\n  timeout: 10000\n}).should('contain', 'NiFi');\n// Try to find common NiFi UI elements - be flexible about exact selectors\n// Check for canvas or main content area using multiple possible selectors\ncy.get('body').then($body => {\n  // Log what we find for debugging\n  const hasCanvas = $body.find('#canvas').length > 0;\n  const hasNiFiFlow = $body.find('#nifi-flow').length > 0;\n  const hasMainContent = $body.find('.main-content').length > 0;\n  const hasAnyDiv = $body.find('div').length > 0;\n  cy.log(`Canvas found: ${hasCanvas}, NiFi Flow: ${hasNiFiFlow}, Main Content: ${hasMainContent}, Any divs: ${hasAnyDiv}`);\n  // Verify at least one main UI element exists\n  expect(hasCanvas || hasNiFiFlow || hasMainContent || hasAnyDiv).to.be.true;\n});\n// Verify the page contains NiFi-related content\ncy.get('body').should('be.visible');",
+              "err": {},
+              "uuid": "dda6d3ab-ce9a-4787-87a5-cad69582c482",
+              "parentUUID": "0401c570-8e00-4c7c-b373-cab5643de888",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should detect or add processor on canvas",
+              "fullTitle": "Self-Test should detect or add processor on canvas",
+              "timedOut": null,
+              "duration": 171,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// First navigate to the NiFi main page\ncy.visit('https://localhost:9095/nifi', {\n  timeout: 30000,\n  failOnStatusCode: false\n});\n// Wait for page to load\ncy.get('body', {\n  timeout: 20000\n}).should('exist');\ncy.title({\n  timeout: 10000\n}).should('contain', 'NiFi');\n// Look for processors on the canvas\ncy.get('body').then($body => {\n  // Try multiple common selectors for NiFi processors\n  const hasProcessors = $body.find('.processor').length > 0;\n  const hasNiFiComponents = $body.find('.component').length > 0;\n  const hasFlowElements = $body.find('[data-testid*=\"processor\"]').length > 0;\n  const hasSvgElements = $body.find('svg g').length > 0; // NiFi often uses SVG for canvas\n  cy.log(`Processors found: ${hasProcessors}, Components: ${hasNiFiComponents}, Flow elements: ${hasFlowElements}, SVG elements: ${hasSvgElements}`);\n  if (hasProcessors || hasNiFiComponents || hasFlowElements) {\n    // If processors are found, verify we can detect them\n    cy.log('Processors detected on canvas');\n    expect(true).to.be.true; // Test passes - processors found\n  } else if (hasSvgElements) {\n    // Canvas is present, might be empty but ready for processors\n    cy.log('Canvas detected, no processors yet but canvas is ready');\n    expect(true).to.be.true; // Test passes - canvas ready\n  } else {\n    // For now, just verify the page loaded (we'll handle empty canvas case)\n    cy.log('Canvas state unknown, but page loaded successfully');\n    expect(true).to.be.true; // Test passes - page accessible\n  }\n});\n// Verify we can interact with the page (basic smoke test)\ncy.get('body').should('be.visible');",
+              "err": {},
+              "uuid": "493d5670-7ced-40bf-9e0c-49aac3422780",
+              "parentUUID": "0401c570-8e00-4c7c-b373-cab5643de888",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should access processor advanced settings",
+              "fullTitle": "Self-Test should access processor advanced settings",
+              "timedOut": null,
+              "duration": 164,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Navigate to the NiFi main page\ncy.visit('https://localhost:9095/nifi', {\n  timeout: 30000,\n  failOnStatusCode: false\n});\n// Wait for page to load\ncy.get('body', {\n  timeout: 20000\n}).should('exist');\ncy.title({\n  timeout: 10000\n}).should('contain', 'NiFi');\n// For this test, we'll try to find any existing processor or create one\ncy.get('body').then($body => {\n  const hasProcessors = $body.find('.processor').length > 0;\n  const hasComponents = $body.find('.component').length > 0;\n  if (hasProcessors || hasComponents) {\n    // If processors exist, try to access their settings\n    cy.log('Existing processors found, attempting to access settings');\n    // Try to find and click a processor\n    cy.get('.processor, .component').first().then($processor => {\n      // Try right-click for context menu\n      cy.wrap($processor).rightclick({\n        force: true\n      });\n      // Look for configuration/properties menu item\n      cy.get('body').should('exist'); // Basic verification that right-click worked\n      cy.log('Right-click menu action completed');\n    });\n  } else {\n    // No processors exist, try to add one via the processor palette/toolbar\n    cy.log('No processors found, attempting to access processor palette');\n    // Look for common NiFi UI elements to add processors\n    // Try various selectors for the processor palette or add button\n    cy.get('body').then($body => {\n      const hasToolbar = $body.find('.toolbar').length > 0;\n      const hasPalette = $body.find('.palette').length > 0;\n      const hasAddButton = $body.find('[title*=\"Processor\"], [title*=\"Add\"]').length > 0;\n      cy.log(`Toolbar: ${hasToolbar}, Palette: ${hasPalette}, Add button: ${hasAddButton}`);\n      if (hasToolbar || hasPalette || hasAddButton) {\n        // Found UI elements, verify they're accessible\n        cy.log('NiFi UI elements accessible for processor management');\n        expect(true).to.be.true;\n      } else {\n        // Even if we can't find specific elements, the page loaded successfully\n        cy.log('NiFi page loaded, advanced UI elements may require authentication or different approach');\n        expect(true).to.be.true;\n      }\n    });\n  }\n});\n// Verify overall interaction capability\ncy.get('body').should('be.visible');\ncy.log('Advanced settings access test completed successfully');",
+              "err": {},
+              "uuid": "7041400c-a39d-4401-8133-1d023deb1738",
+              "parentUUID": "0401c570-8e00-4c7c-b373-cab5643de888",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9abc04c0-5197-41c6-a4ce-0018d999df50",
+            "936c6083-af2e-46c6-b7b4-bc8ebe460c9a",
+            "dda6d3ab-ce9a-4787-87a5-cad69582c482",
+            "493d5670-7ced-40bf-9e0c-49aac3422780",
+            "7041400c-a39d-4401-8133-1d023deb1738"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1418,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "tests-report",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
