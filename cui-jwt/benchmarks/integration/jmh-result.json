@@ -3,7 +3,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.CoreIntegrationBenchmark.measureBaselinePerformance",
         "mode" : "thrpt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -13,7 +13,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -30,29 +30,29 @@
         "measurementTime" : "2 s",
         "measurementBatchSize" : 1,
         "primaryMetric" : {
-            "score" : 174.36503640839618,
+            "score" : 168.0843242089055,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 169.4577622467599,
-                "50.0" : 174.36503640839618,
-                "90.0" : 179.27231057003243,
-                "95.0" : 179.27231057003243,
-                "99.0" : 179.27231057003243,
-                "99.9" : 179.27231057003243,
-                "99.99" : 179.27231057003243,
-                "99.999" : 179.27231057003243,
-                "99.9999" : 179.27231057003243,
-                "100.0" : 179.27231057003243
+                "0.0" : 162.941730295456,
+                "50.0" : 168.0843242089055,
+                "90.0" : 173.22691812235504,
+                "95.0" : 173.22691812235504,
+                "99.0" : 173.22691812235504,
+                "99.9" : 173.22691812235504,
+                "99.99" : 173.22691812235504,
+                "99.999" : 173.22691812235504,
+                "99.9999" : 173.22691812235504,
+                "100.0" : 173.22691812235504
             },
             "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    169.4577622467599,
-                    179.27231057003243
+                    162.941730295456,
+                    173.22691812235504
                 ]
             ]
         },
@@ -63,7 +63,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.CoreIntegrationBenchmark.measureErrorHandling",
         "mode" : "thrpt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -73,7 +73,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -90,29 +90,29 @@
         "measurementTime" : "2 s",
         "measurementBatchSize" : 1,
         "primaryMetric" : {
-            "score" : 171.86573139640197,
+            "score" : 170.00554227907594,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 164.6137461030604,
-                "50.0" : 171.86573139640197,
-                "90.0" : 179.11771668974353,
-                "95.0" : 179.11771668974353,
-                "99.0" : 179.11771668974353,
-                "99.9" : 179.11771668974353,
-                "99.99" : 179.11771668974353,
-                "99.999" : 179.11771668974353,
-                "99.9999" : 179.11771668974353,
-                "100.0" : 179.11771668974353
+                "0.0" : 168.77060477080354,
+                "50.0" : 170.00554227907594,
+                "90.0" : 171.24047978734836,
+                "95.0" : 171.24047978734836,
+                "99.0" : 171.24047978734836,
+                "99.9" : 171.24047978734836,
+                "99.99" : 171.24047978734836,
+                "99.999" : 171.24047978734836,
+                "99.9999" : 171.24047978734836,
+                "100.0" : 171.24047978734836
             },
             "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    164.6137461030604,
-                    179.11771668974353
+                    168.77060477080354,
+                    171.24047978734836
                 ]
             ]
         },
@@ -123,7 +123,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.CoreIntegrationBenchmark.measureErrorResilience",
         "mode" : "thrpt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -133,7 +133,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -150,29 +150,29 @@
         "measurementTime" : "2 s",
         "measurementBatchSize" : 1,
         "primaryMetric" : {
-            "score" : 172.491593270449,
+            "score" : 174.27608740574087,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 167.5105098226011,
-                "50.0" : 172.491593270449,
-                "90.0" : 177.47267671829687,
-                "95.0" : 177.47267671829687,
-                "99.0" : 177.47267671829687,
-                "99.9" : 177.47267671829687,
-                "99.99" : 177.47267671829687,
-                "99.999" : 177.47267671829687,
-                "99.9999" : 177.47267671829687,
-                "100.0" : 177.47267671829687
+                "0.0" : 168.94788617184676,
+                "50.0" : 174.27608740574087,
+                "90.0" : 179.60428863963497,
+                "95.0" : 179.60428863963497,
+                "99.0" : 179.60428863963497,
+                "99.9" : 179.60428863963497,
+                "99.99" : 179.60428863963497,
+                "99.999" : 179.60428863963497,
+                "99.9999" : 179.60428863963497,
+                "100.0" : 179.60428863963497
             },
             "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    167.5105098226011,
-                    177.47267671829687
+                    168.94788617184676,
+                    179.60428863963497
                 ]
             ]
         },
@@ -183,7 +183,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.CoreIntegrationBenchmark.measureMixedLoad",
         "mode" : "thrpt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -193,7 +193,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -210,29 +210,29 @@
         "measurementTime" : "2 s",
         "measurementBatchSize" : 1,
         "primaryMetric" : {
-            "score" : 166.51736199206834,
+            "score" : 169.54418098442147,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 165.9085201712203,
-                "50.0" : 166.51736199206834,
-                "90.0" : 167.1262038129164,
-                "95.0" : 167.1262038129164,
-                "99.0" : 167.1262038129164,
-                "99.9" : 167.1262038129164,
-                "99.99" : 167.1262038129164,
-                "99.999" : 167.1262038129164,
-                "99.9999" : 167.1262038129164,
-                "100.0" : 167.1262038129164
+                "0.0" : 160.80741204738072,
+                "50.0" : 169.54418098442147,
+                "90.0" : 178.28094992146225,
+                "95.0" : 178.28094992146225,
+                "99.0" : 178.28094992146225,
+                "99.9" : 178.28094992146225,
+                "99.99" : 178.28094992146225,
+                "99.999" : 178.28094992146225,
+                "99.9999" : 178.28094992146225,
+                "100.0" : 178.28094992146225
             },
             "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    165.9085201712203,
-                    167.1262038129164
+                    160.80741204738072,
+                    178.28094992146225
                 ]
             ]
         },
@@ -243,7 +243,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.CoreIntegrationBenchmark.measureThroughput",
         "mode" : "thrpt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -253,7 +253,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -270,29 +270,29 @@
         "measurementTime" : "2 s",
         "measurementBatchSize" : 1,
         "primaryMetric" : {
-            "score" : 161.15237475450573,
+            "score" : 157.90012047429377,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 158.67784846197324,
-                "50.0" : 161.15237475450573,
-                "90.0" : 163.62690104703825,
-                "95.0" : 163.62690104703825,
-                "99.0" : 163.62690104703825,
-                "99.9" : 163.62690104703825,
-                "99.99" : 163.62690104703825,
-                "99.999" : 163.62690104703825,
-                "99.9999" : 163.62690104703825,
-                "100.0" : 163.62690104703825
+                "0.0" : 156.87885902602818,
+                "50.0" : 157.90012047429377,
+                "90.0" : 158.92138192255936,
+                "95.0" : 158.92138192255936,
+                "99.0" : 158.92138192255936,
+                "99.9" : 158.92138192255936,
+                "99.99" : 158.92138192255936,
+                "99.999" : 158.92138192255936,
+                "99.9999" : 158.92138192255936,
+                "100.0" : 158.92138192255936
             },
             "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    158.67784846197324,
-                    163.62690104703825
+                    156.87885902602818,
+                    158.92138192255936
                 ]
             ]
         },
@@ -303,7 +303,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.CoreIntegrationBenchmark.measureAverageTime",
         "mode" : "avgt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -313,7 +313,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -330,29 +330,29 @@
         "measurementTime" : "2 s",
         "measurementBatchSize" : 1,
         "primaryMetric" : {
-            "score" : 50.26927668992457,
+            "score" : 1296.5789849050002,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 49.64210055906296,
-                "50.0" : 50.26927668992457,
-                "90.0" : 50.896452820786166,
-                "95.0" : 50.896452820786166,
-                "99.0" : 50.896452820786166,
-                "99.9" : 50.896452820786166,
-                "99.99" : 50.896452820786166,
-                "99.999" : 50.896452820786166,
-                "99.9999" : 50.896452820786166,
-                "100.0" : 50.896452820786166
+                "0.0" : 1170.0274331100004,
+                "50.0" : 1296.5789849050002,
+                "90.0" : 1423.1305367,
+                "95.0" : 1423.1305367,
+                "99.0" : 1423.1305367,
+                "99.9" : 1423.1305367,
+                "99.99" : 1423.1305367,
+                "99.999" : 1423.1305367,
+                "99.9999" : 1423.1305367,
+                "100.0" : 1423.1305367
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    50.896452820786166,
-                    49.64210055906296
+                    1423.1305367,
+                    1170.0274331100004
                 ]
             ]
         },
@@ -363,7 +363,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.ErrorScenarioBenchmark.validateExpiredToken",
         "mode" : "avgt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -373,7 +373,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -393,29 +393,29 @@
             "errorPercentage" : "0"
         },
         "primaryMetric" : {
-            "score" : 49.513819500500496,
+            "score" : 1279.6002391599993,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 48.10083100814578,
-                "50.0" : 49.513819500500496,
-                "90.0" : 50.92680799285521,
-                "95.0" : 50.92680799285521,
-                "99.0" : 50.92680799285521,
-                "99.9" : 50.92680799285521,
-                "99.99" : 50.92680799285521,
-                "99.999" : 50.92680799285521,
-                "99.9999" : 50.92680799285521,
-                "100.0" : 50.92680799285521
+                "0.0" : 1165.9718604574994,
+                "50.0" : 1279.6002391599993,
+                "90.0" : 1393.2286178624993,
+                "95.0" : 1393.2286178624993,
+                "99.0" : 1393.2286178624993,
+                "99.9" : 1393.2286178624993,
+                "99.99" : 1393.2286178624993,
+                "99.999" : 1393.2286178624993,
+                "99.9999" : 1393.2286178624993,
+                "100.0" : 1393.2286178624993
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    50.92680799285521,
-                    48.10083100814578
+                    1393.2286178624993,
+                    1165.9718604574994
                 ]
             ]
         },
@@ -426,7 +426,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.ErrorScenarioBenchmark.validateExpiredToken",
         "mode" : "avgt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -436,7 +436,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -456,29 +456,29 @@
             "errorPercentage" : "50"
         },
         "primaryMetric" : {
-            "score" : 48.945378635393936,
+            "score" : 1327.89185467375,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 47.78535302100579,
-                "50.0" : 48.945378635393936,
-                "90.0" : 50.10540424978208,
-                "95.0" : 50.10540424978208,
-                "99.0" : 50.10540424978208,
-                "99.9" : 50.10540424978208,
-                "99.99" : 50.10540424978208,
-                "99.999" : 50.10540424978208,
-                "99.9999" : 50.10540424978208,
-                "100.0" : 50.10540424978208
+                "0.0" : 1295.4564555099998,
+                "50.0" : 1327.89185467375,
+                "90.0" : 1360.3272538375002,
+                "95.0" : 1360.3272538375002,
+                "99.0" : 1360.3272538375002,
+                "99.9" : 1360.3272538375002,
+                "99.99" : 1360.3272538375002,
+                "99.999" : 1360.3272538375002,
+                "99.9999" : 1360.3272538375002,
+                "100.0" : 1360.3272538375002
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    50.10540424978208,
-                    47.78535302100579
+                    1295.4564555099998,
+                    1360.3272538375002
                 ]
             ]
         },
@@ -489,7 +489,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.ErrorScenarioBenchmark.validateInvalidToken",
         "mode" : "avgt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -499,7 +499,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -519,29 +519,29 @@
             "errorPercentage" : "0"
         },
         "primaryMetric" : {
-            "score" : 47.208324731148664,
+            "score" : 1157.64564198,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 46.658773700890094,
-                "50.0" : 47.208324731148664,
-                "90.0" : 47.75787576140723,
-                "95.0" : 47.75787576140723,
-                "99.0" : 47.75787576140723,
-                "99.9" : 47.75787576140723,
-                "99.99" : 47.75787576140723,
-                "99.999" : 47.75787576140723,
-                "99.9999" : 47.75787576140723,
-                "100.0" : 47.75787576140723
+                "0.0" : 1062.62447131,
+                "50.0" : 1157.64564198,
+                "90.0" : 1252.6668126499999,
+                "95.0" : 1252.6668126499999,
+                "99.0" : 1252.6668126499999,
+                "99.9" : 1252.6668126499999,
+                "99.99" : 1252.6668126499999,
+                "99.999" : 1252.6668126499999,
+                "99.9999" : 1252.6668126499999,
+                "100.0" : 1252.6668126499999
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    47.75787576140723,
-                    46.658773700890094
+                    1252.6668126499999,
+                    1062.62447131
                 ]
             ]
         },
@@ -552,7 +552,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.ErrorScenarioBenchmark.validateInvalidToken",
         "mode" : "avgt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -562,7 +562,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -582,29 +582,29 @@
             "errorPercentage" : "50"
         },
         "primaryMetric" : {
-            "score" : 47.893522975380066,
+            "score" : 1263.4559811849995,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 47.8808981753229,
-                "50.0" : 47.893522975380066,
-                "90.0" : 47.906147775437226,
-                "95.0" : 47.906147775437226,
-                "99.0" : 47.906147775437226,
-                "99.9" : 47.906147775437226,
-                "99.99" : 47.906147775437226,
-                "99.999" : 47.906147775437226,
-                "99.9999" : 47.906147775437226,
-                "100.0" : 47.906147775437226
+                "0.0" : 1186.4705505124996,
+                "50.0" : 1263.4559811849995,
+                "90.0" : 1340.4414118574994,
+                "95.0" : 1340.4414118574994,
+                "99.0" : 1340.4414118574994,
+                "99.9" : 1340.4414118574994,
+                "99.99" : 1340.4414118574994,
+                "99.999" : 1340.4414118574994,
+                "99.9999" : 1340.4414118574994,
+                "100.0" : 1340.4414118574994
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    47.8808981753229,
-                    47.906147775437226
+                    1340.4414118574994,
+                    1186.4705505124996
                 ]
             ]
         },
@@ -615,7 +615,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.ErrorScenarioBenchmark.validateMissingAuthHeader",
         "mode" : "avgt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -625,7 +625,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -645,29 +645,29 @@
             "errorPercentage" : "0"
         },
         "primaryMetric" : {
-            "score" : 47.801471421269625,
+            "score" : 1281.2664489712502,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 46.568839988406936,
-                "50.0" : 47.801471421269625,
-                "90.0" : 49.034102854132314,
-                "95.0" : 49.034102854132314,
-                "99.0" : 49.034102854132314,
-                "99.9" : 49.034102854132314,
-                "99.99" : 49.034102854132314,
-                "99.999" : 49.034102854132314,
-                "99.9999" : 49.034102854132314,
-                "100.0" : 49.034102854132314
+                "0.0" : 1276.5289398900006,
+                "50.0" : 1281.2664489712502,
+                "90.0" : 1286.0039580524995,
+                "95.0" : 1286.0039580524995,
+                "99.0" : 1286.0039580524995,
+                "99.9" : 1286.0039580524995,
+                "99.99" : 1286.0039580524995,
+                "99.999" : 1286.0039580524995,
+                "99.9999" : 1286.0039580524995,
+                "100.0" : 1286.0039580524995
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    49.034102854132314,
-                    46.568839988406936
+                    1286.0039580524995,
+                    1276.5289398900006
                 ]
             ]
         },
@@ -678,7 +678,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.ErrorScenarioBenchmark.validateMissingAuthHeader",
         "mode" : "avgt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -688,7 +688,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -708,29 +708,29 @@
             "errorPercentage" : "50"
         },
         "primaryMetric" : {
-            "score" : 48.51528998336644,
+            "score" : 1272.5340966924996,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 47.03858460993372,
-                "50.0" : 48.51528998336644,
-                "90.0" : 49.991995356799166,
-                "95.0" : 49.991995356799166,
-                "99.0" : 49.991995356799166,
-                "99.9" : 49.991995356799166,
-                "99.99" : 49.991995356799166,
-                "99.999" : 49.991995356799166,
-                "99.9999" : 49.991995356799166,
-                "100.0" : 49.991995356799166
+                "0.0" : 1253.6347059524999,
+                "50.0" : 1272.5340966924996,
+                "90.0" : 1291.433487432499,
+                "95.0" : 1291.433487432499,
+                "99.0" : 1291.433487432499,
+                "99.9" : 1291.433487432499,
+                "99.99" : 1291.433487432499,
+                "99.999" : 1291.433487432499,
+                "99.9999" : 1291.433487432499,
+                "100.0" : 1291.433487432499
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    49.991995356799166,
-                    47.03858460993372
+                    1291.433487432499,
+                    1253.6347059524999
                 ]
             ]
         },
@@ -741,7 +741,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.ErrorScenarioBenchmark.validateMixedErrorLoad",
         "mode" : "avgt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -751,7 +751,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -771,29 +771,29 @@
             "errorPercentage" : "0"
         },
         "primaryMetric" : {
-            "score" : 48.940410384614694,
+            "score" : 1216.59757800125,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 46.815346216551916,
-                "50.0" : 48.940410384614694,
-                "90.0" : 51.06547455267748,
-                "95.0" : 51.06547455267748,
-                "99.0" : 51.06547455267748,
-                "99.9" : 51.06547455267748,
-                "99.99" : 51.06547455267748,
-                "99.999" : 51.06547455267748,
-                "99.9999" : 51.06547455267748,
-                "100.0" : 51.06547455267748
+                "0.0" : 1050.3312315324997,
+                "50.0" : 1216.59757800125,
+                "90.0" : 1382.8639244700005,
+                "95.0" : 1382.8639244700005,
+                "99.0" : 1382.8639244700005,
+                "99.9" : 1382.8639244700005,
+                "99.99" : 1382.8639244700005,
+                "99.999" : 1382.8639244700005,
+                "99.9999" : 1382.8639244700005,
+                "100.0" : 1382.8639244700005
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    51.06547455267748,
-                    46.815346216551916
+                    1382.8639244700005,
+                    1050.3312315324997
                 ]
             ]
         },
@@ -804,7 +804,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.ErrorScenarioBenchmark.validateMixedErrorLoad",
         "mode" : "avgt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -814,7 +814,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -834,29 +834,29 @@
             "errorPercentage" : "50"
         },
         "primaryMetric" : {
-            "score" : 49.38985445644144,
+            "score" : 1141.0365519337497,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 49.01290690046451,
-                "50.0" : 49.38985445644144,
-                "90.0" : 49.766802012418374,
-                "95.0" : 49.766802012418374,
-                "99.0" : 49.766802012418374,
-                "99.9" : 49.766802012418374,
-                "99.99" : 49.766802012418374,
-                "99.999" : 49.766802012418374,
-                "99.9999" : 49.766802012418374,
-                "100.0" : 49.766802012418374
+                "0.0" : 1104.3913309099999,
+                "50.0" : 1141.0365519337497,
+                "90.0" : 1177.6817729574996,
+                "95.0" : 1177.6817729574996,
+                "99.0" : 1177.6817729574996,
+                "99.9" : 1177.6817729574996,
+                "99.99" : 1177.6817729574996,
+                "99.999" : 1177.6817729574996,
+                "99.9999" : 1177.6817729574996,
+                "100.0" : 1177.6817729574996
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    49.01290690046451,
-                    49.766802012418374
+                    1177.6817729574996,
+                    1104.3913309099999
                 ]
             ]
         },
@@ -867,7 +867,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.ErrorScenarioBenchmark.validateValidToken",
         "mode" : "avgt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -877,7 +877,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -897,29 +897,29 @@
             "errorPercentage" : "0"
         },
         "primaryMetric" : {
-            "score" : 47.16930279390114,
+            "score" : 1229.5879011962497,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 45.71119025146349,
-                "50.0" : 47.16930279390114,
-                "90.0" : 48.62741533633879,
-                "95.0" : 48.62741533633879,
-                "99.0" : 48.62741533633879,
-                "99.9" : 48.62741533633879,
-                "99.99" : 48.62741533633879,
-                "99.999" : 48.62741533633879,
-                "99.9999" : 48.62741533633879,
-                "100.0" : 48.62741533633879
+                "0.0" : 1218.1408142975,
+                "50.0" : 1229.5879011962497,
+                "90.0" : 1241.0349880949998,
+                "95.0" : 1241.0349880949998,
+                "99.0" : 1241.0349880949998,
+                "99.9" : 1241.0349880949998,
+                "99.99" : 1241.0349880949998,
+                "99.999" : 1241.0349880949998,
+                "99.9999" : 1241.0349880949998,
+                "100.0" : 1241.0349880949998
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    48.62741533633879,
-                    45.71119025146349
+                    1218.1408142975,
+                    1241.0349880949998
                 ]
             ]
         },
@@ -930,7 +930,7 @@
         "jmhVersion" : "1.37",
         "benchmark" : "de.cuioss.jwt.quarkus.integration.benchmark.ErrorScenarioBenchmark.validateValidToken",
         "mode" : "avgt",
-        "threads" : 8,
+        "threads" : 200,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
         "jvmArgs" : [
@@ -940,7 +940,7 @@
             "-Djmh.iterations=2",
             "-Djmh.warmupIterations=1",
             "-Djmh.forks=1",
-            "-Djmh.threads=8",
+            "-Djmh.threads=200",
             "-Djmh.time=2s",
             "-Djmh.warmupTime=2s",
             "-Dtest.https.port=10443",
@@ -960,29 +960,29 @@
             "errorPercentage" : "50"
         },
         "primaryMetric" : {
-            "score" : 47.36919129580832,
+            "score" : 1223.07544131625,
             "scoreError" : "NaN",
             "scoreConfidence" : [
                 "NaN",
                 "NaN"
             ],
             "scorePercentiles" : {
-                "0.0" : 45.87406853932408,
-                "50.0" : 47.36919129580832,
-                "90.0" : 48.864314052292556,
-                "95.0" : 48.864314052292556,
-                "99.0" : 48.864314052292556,
-                "99.9" : 48.864314052292556,
-                "99.99" : 48.864314052292556,
-                "99.999" : 48.864314052292556,
-                "99.9999" : 48.864314052292556,
-                "100.0" : 48.864314052292556
+                "0.0" : 1222.5463084824999,
+                "50.0" : 1223.07544131625,
+                "90.0" : 1223.6045741500002,
+                "95.0" : 1223.6045741500002,
+                "99.0" : 1223.6045741500002,
+                "99.9" : 1223.6045741500002,
+                "99.99" : 1223.6045741500002,
+                "99.999" : 1223.6045741500002,
+                "99.9999" : 1223.6045741500002,
+                "100.0" : 1223.6045741500002
             },
             "scoreUnit" : "ms/op",
             "rawData" : [
                 [
-                    48.864314052292556,
-                    45.87406853932408
+                    1222.5463084824999,
+                    1223.6045741500002
                 ]
             ]
         },
