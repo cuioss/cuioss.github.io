@@ -1,4 +1,19 @@
 {
+  "metadata": {
+    "timestamp": "2025-09-20T13:31:24.870879292Z",
+    "displayTimestamp": "2025-09-20 13:31:24 UTC",
+    "benchmarkType": "Integration Performance",
+    "reportVersion": "1.0"
+  },
+  "overview": {
+    "throughput": "3.9K ops/s",
+    "latency": "6.1ms",
+    "throughputBenchmarkName": "validateJwtThroughput",
+    "latencyBenchmarkName": "validateJwtThroughput",
+    "performanceScore": 28,
+    "performanceGrade": "F",
+    "performanceGradeClass": "grade-f"
+  },
   "benchmarks": [
     {
       "name": "healthCheckThroughput",
@@ -145,5 +160,120 @@
       }
     }
   ],
-  "generated": "2025-09-20T13:31:24.931328768Z"
+  "chartData": {
+    "labels": [
+      "healthCheckThroughput",
+      "validateJwtThroughput",
+      "healthCheckThroughput",
+      "healthCheckThroughput",
+      "validateJwtThroughput",
+      "healthCheckThroughput"
+    ],
+    "throughput": [
+      5525.528780116292,
+      3891.6667844117064,
+      null,
+      null,
+      null,
+      null
+    ],
+    "latency": [
+      null,
+      null,
+      4.449888999676417,
+      4.354926952231625,
+      6.13378822796251,
+      17.766699141666667
+    ],
+    "percentilesData": {
+      "percentileLabels": [
+        "P0",
+        "P50",
+        "P90",
+        "P95",
+        "P99",
+        "P99.9",
+        "P99.99",
+        "P100"
+      ],
+      "benchmarks": [
+        "healthCheckThroughput",
+        "healthCheckThroughput",
+        "validateJwtThroughput"
+      ],
+      "data": {
+        "healthCheckThroughput": [
+          0.835584,
+          3.919872,
+          5.431296,
+          6.5208319999999995,
+          8.437759999999999,
+          14.024704,
+          18.907135999999998,
+          41.025535999999995
+        ],
+        "validateJwtThroughput": [
+          1.316864,
+          5.373952,
+          8.470528,
+          9.846784,
+          13.238272,
+          19.00544,
+          25.15828408319664,
+          32.178176
+        ]
+      },
+      "labels": [
+        "healthCheckThroughput",
+        "healthCheckThroughput",
+        "validateJwtThroughput"
+      ],
+      "datasets": {
+        "0.0th": [
+          0.835584,
+          0.835584,
+          1.316864
+        ],
+        "50.0th": [
+          3.919872,
+          3.919872,
+          5.373952
+        ],
+        "90.0th": [
+          5.431296,
+          5.431296,
+          8.470528
+        ],
+        "95.0th": [
+          6.5208319999999995,
+          6.5208319999999995,
+          9.846784
+        ],
+        "99.0th": [
+          8.437759999999999,
+          8.437759999999999,
+          13.238272
+        ],
+        "99.9th": [
+          14.024704,
+          14.024704,
+          19.00544
+        ],
+        "99.99th": [
+          18.907135999999998,
+          18.907135999999998,
+          25.15828408319664
+        ],
+        "100.0th": [
+          41.025535999999995,
+          41.025535999999995,
+          32.178176
+        ]
+      }
+    }
+  },
+  "trends": {
+    "available": false,
+    "message": "Historical data not yet available"
+  }
 }

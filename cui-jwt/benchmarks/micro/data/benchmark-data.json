@@ -1,4 +1,19 @@
 {
+  "metadata": {
+    "timestamp": "2025-09-20T13:17:44.392405915Z",
+    "displayTimestamp": "2025-09-20 13:17:44 UTC",
+    "benchmarkType": "Micro Performance",
+    "reportVersion": "1.0"
+  },
+  "overview": {
+    "throughput": "47K ops/s",
+    "latency": "2.2ms",
+    "throughputBenchmarkName": "measureThroughput",
+    "latencyBenchmarkName": "measureAverageTime",
+    "performanceScore": 257,
+    "performanceGrade": "A+",
+    "performanceGradeClass": "grade-a-plus"
+  },
   "benchmarks": [
     {
       "name": "measureThroughput",
@@ -121,5 +136,107 @@
       }
     }
   ],
-  "generated": "2025-09-20T13:17:44.462184233Z"
+  "chartData": {
+    "labels": [
+      "measureThroughput",
+      "validateMixedTokens0",
+      "validateMixedTokens50",
+      "measureAverageTime",
+      "measureConcurrentValidation"
+    ],
+    "throughput": [
+      46920.994851741816,
+      45428.414538484634,
+      67368.12893831903,
+      null,
+      null
+    ],
+    "latency": [
+      null,
+      null,
+      null,
+      2.2430353477663196,
+      2.3310985472897934
+    ],
+    "percentilesData": {
+      "percentileLabels": [
+        "P0",
+        "P50",
+        "P90",
+        "P95",
+        "P99",
+        "P99.9",
+        "P99.99",
+        "P100"
+      ],
+      "benchmarks": [
+        "measureAverageTime",
+        "measureConcurrentValidation"
+      ],
+      "data": {
+        "measureAverageTime": [
+          2.057886177277994,
+          2.156479058295237,
+          2.6121873370744204,
+          2.6121873370744204,
+          2.6121873370744204,
+          2.6121873370744204,
+          2.6121873370744204,
+          2.6121873370744204
+        ],
+        "measureConcurrentValidation": [
+          2.020339739322412,
+          2.1304080685821987,
+          3.0689353116534033,
+          3.0689353116534033,
+          3.0689353116534033,
+          3.0689353116534033,
+          3.0689353116534033,
+          3.0689353116534033
+        ]
+      },
+      "labels": [
+        "measureAverageTime",
+        "measureConcurrentValidation"
+      ],
+      "datasets": {
+        "0.0th": [
+          2.057886177277994,
+          2.020339739322412
+        ],
+        "50.0th": [
+          2.156479058295237,
+          2.1304080685821987
+        ],
+        "90.0th": [
+          2.6121873370744204,
+          3.0689353116534033
+        ],
+        "95.0th": [
+          2.6121873370744204,
+          3.0689353116534033
+        ],
+        "99.0th": [
+          2.6121873370744204,
+          3.0689353116534033
+        ],
+        "99.9th": [
+          2.6121873370744204,
+          3.0689353116534033
+        ],
+        "99.99th": [
+          2.6121873370744204,
+          3.0689353116534033
+        ],
+        "100.0th": [
+          2.6121873370744204,
+          3.0689353116534033
+        ]
+      }
+    }
+  },
+  "trends": {
+    "available": false,
+    "message": "Historical data not yet available"
+  }
 }
