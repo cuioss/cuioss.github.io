@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "timestamp": "2025-10-14T07:31:09.840800656Z",
+    "displayTimestamp": "2025-10-14 07:31:09 UTC",
+    "benchmarkType": "Integration Performance",
+    "reportVersion": "2.0"
+  },
+  "overview": {
+    "throughput": "6.6K ops/s",
+    "latency": "8.0ms",
+    "throughputBenchmarkName": "jwtValidation",
+    "latencyBenchmarkName": "jwtValidation",
+    "performanceScore": 78,
+    "performanceGrade": "C",
+    "performanceGradeClass": "grade-c"
+  },
+  "benchmarks": [
+    {
+      "name": "healthLiveCheck",
+      "fullName": "wrk.healthLiveCheck",
+      "mode": "thrpt",
+      "score": "15.7K ops/s",
+      "scoreUnit": "ops/s",
+      "throughput": "15.7K ops/s",
+      "latency": "3.2ms",
+      "error": 2.38,
+      "variabilityCoefficient": 73.45679012345678,
+      "confidenceLow": 0.8600000000000003,
+      "confidenceHigh": 5.62,
+      "percentiles": {
+        "50.0": 2.81,
+        "75.0": 3.8,
+        "90.0": 5.05,
+        "99.0": 8.57,
+        "0.0": 0.8600000000000003,
+        "95.0": 7.524,
+        "99.9": 7.990480000000001,
+        "99.99": 7.999047999999999,
+        "100.0": 8
+      }
+    },
+    {
+      "name": "jwtValidation",
+      "fullName": "wrk.jwtValidation",
+      "mode": "thrpt",
+      "score": "6.6K ops/s",
+      "scoreUnit": "ops/s",
+      "throughput": "6.6K ops/s",
+      "latency": "8.0ms",
+      "error": 5.65,
+      "variabilityCoefficient": 70.71339173967459,
+      "confidenceLow": 2.34,
+      "confidenceHigh": 13.64,
+      "percentiles": {
+        "50.0": 6.88,
+        "75.0": 10.04,
+        "90.0": 14.04,
+        "99.0": 24.1,
+        "0.0": 2.34,
+        "95.0": 18.160000000000004,
+        "99.9": 19.267400000000002,
+        "99.99": 19.28774,
+        "100.0": 19.29
+      }
+    }
+  ],
+  "chartData": {
+    "labels": [
+      "healthLiveCheck",
+      "jwtValidation"
+    ],
+    "throughput": [
+      15731.74,
+      6553.34
+    ],
+    "latency": [
+      2.81,
+      6.88
+    ],
+    "percentilesData": {
+      "percentileLabels": [
+        "P0",
+        "P50",
+        "P90",
+        "P95",
+        "P99",
+        "P99.9",
+        "P99.99",
+        "P100"
+      ],
+      "benchmarks": [
+        "healthLiveCheck",
+        "jwtValidation"
+      ],
+      "data": {
+        "healthLiveCheck": [
+          0.8600000000000003,
+          2.81,
+          5.05,
+          7.524,
+          8.57,
+          7.990480000000001,
+          7.999047999999999,
+          8
+        ],
+        "jwtValidation": [
+          2.34,
+          6.88,
+          14.04,
+          18.160000000000004,
+          24.1,
+          19.267400000000002,
+          19.28774,
+          19.29
+        ]
+      },
+      "labels": [
+        "healthLiveCheck",
+        "jwtValidation"
+      ],
+      "datasets": {
+        "0.0th": [
+          0.8600000000000003,
+          2.34
+        ],
+        "50.0th": [
+          2.81,
+          6.88
+        ],
+        "90.0th": [
+          5.05,
+          14.04
+        ],
+        "95.0th": [
+          7.524,
+          18.160000000000004
+        ],
+        "99.0th": [
+          8.57,
+          24.1
+        ],
+        "99.9th": [
+          7.990480000000001,
+          19.267400000000002
+        ],
+        "99.99th": [
+          7.999047999999999,
+          19.28774
+        ],
+        "100.0th": [
+          8,
+          19.29
+        ]
+      }
+    }
+  },
+  "trends": {
+    "available": false,
+    "message": "Historical data not yet available"
+  }
+}
