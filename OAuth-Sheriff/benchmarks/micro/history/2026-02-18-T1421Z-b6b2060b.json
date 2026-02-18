@@ -1,0 +1,227 @@
+{
+  "metadata": {
+    "timestamp": "2026-02-18T14:21:34.925603003Z",
+    "displayTimestamp": "2026-02-18 14:21:34 UTC",
+    "benchmarkType": "Micro Performance",
+    "reportVersion": "2.0"
+  },
+  "overview": {
+    "throughput": "74.2K ops/s",
+    "latency": "1.9K us/op",
+    "throughputBenchmarkName": "validateMixedTokens50",
+    "latencyBenchmarkName": "measureConcurrentValidation",
+    "performanceScore": 397,
+    "performanceGrade": "A+",
+    "performanceGradeClass": "grade-a+"
+  },
+  "benchmarks": [
+    {
+      "name": "measureThroughput",
+      "fullName": "de.cuioss.sheriff.oauth.core.benchmark.standard.SimpleCoreValidationBenchmark.measureThroughput",
+      "mode": "thrpt",
+      "score": "54.1K ops/s",
+      "scoreUnit": "ops/s",
+      "throughput": "54.1K ops/s",
+      "error": 10450.88762735876,
+      "percentiles": {
+        "0.0": 49523.8516880418,
+        "50.0": 55192.18445304719,
+        "90.0": 56144.93930326653,
+        "95.0": 56144.93930326653,
+        "99.0": 56144.93930326653,
+        "99.9": 56144.93930326653,
+        "99.99": 56144.93930326653,
+        "99.999": 56144.93930326653,
+        "99.9999": 56144.93930326653,
+        "100.0": 56144.93930326653
+      }
+    },
+    {
+      "name": "validateMixedTokens0",
+      "fullName": "de.cuioss.sheriff.oauth.core.benchmark.standard.SimpleErrorLoadBenchmark.validateMixedTokens0",
+      "mode": "thrpt",
+      "score": "51.3K ops/s",
+      "scoreUnit": "ops/s",
+      "throughput": "51.3K ops/s",
+      "error": 19014.70963248499,
+      "percentiles": {
+        "0.0": 42734.93105300273,
+        "50.0": 52976.6626484713,
+        "90.0": 55214.206443621944,
+        "95.0": 55214.206443621944,
+        "99.0": 55214.206443621944,
+        "99.9": 55214.206443621944,
+        "99.99": 55214.206443621944,
+        "99.999": 55214.206443621944,
+        "99.9999": 55214.206443621944,
+        "100.0": 55214.206443621944
+      }
+    },
+    {
+      "name": "validateMixedTokens50",
+      "fullName": "de.cuioss.sheriff.oauth.core.benchmark.standard.SimpleErrorLoadBenchmark.validateMixedTokens50",
+      "mode": "thrpt",
+      "score": "74.2K ops/s",
+      "scoreUnit": "ops/s",
+      "throughput": "74.2K ops/s",
+      "error": 31577.05316655876,
+      "percentiles": {
+        "0.0": 63345.4755729097,
+        "50.0": 78151.82273387213,
+        "90.0": 82014.76278809116,
+        "95.0": 82014.76278809116,
+        "99.0": 82014.76278809116,
+        "99.9": 82014.76278809116,
+        "99.99": 82014.76278809116,
+        "99.999": 82014.76278809116,
+        "99.9999": 82014.76278809116,
+        "100.0": 82014.76278809116
+      }
+    },
+    {
+      "name": "measureAverageTime",
+      "fullName": "de.cuioss.sheriff.oauth.core.benchmark.standard.SimpleCoreValidationBenchmark.measureAverageTime",
+      "mode": "avgt",
+      "score": "2.0K us/op",
+      "scoreUnit": "us/op",
+      "latency": "2.0K us/op",
+      "error": 962.2727595529662,
+      "percentiles": {
+        "0.0": 1894.390265182892,
+        "50.0": 1916.8345029025256,
+        "90.0": 2470.7333166047893,
+        "95.0": 2470.7333166047893,
+        "99.0": 2470.7333166047893,
+        "99.9": 2470.7333166047893,
+        "99.99": 2470.7333166047893,
+        "99.999": 2470.7333166047893,
+        "99.9999": 2470.7333166047893,
+        "100.0": 2470.7333166047893
+      }
+    },
+    {
+      "name": "measureConcurrentValidation",
+      "fullName": "de.cuioss.sheriff.oauth.core.benchmark.standard.SimpleCoreValidationBenchmark.measureConcurrentValidation",
+      "mode": "avgt",
+      "score": "1.9K us/op",
+      "scoreUnit": "us/op",
+      "latency": "1.9K us/op",
+      "error": 368.4107287143537,
+      "percentiles": {
+        "0.0": 1862.8303188193636,
+        "50.0": 1904.587187259846,
+        "90.0": 2095.0797396518165,
+        "95.0": 2095.0797396518165,
+        "99.0": 2095.0797396518165,
+        "99.9": 2095.0797396518165,
+        "99.99": 2095.0797396518165,
+        "99.999": 2095.0797396518165,
+        "99.9999": 2095.0797396518165,
+        "100.0": 2095.0797396518165
+      }
+    }
+  ],
+  "chartData": {
+    "labels": [
+      "measureThroughput",
+      "validateMixedTokens0",
+      "validateMixedTokens50",
+      "measureAverageTime",
+      "measureConcurrentValidation"
+    ],
+    "throughput": [
+      54088.043464144735,
+      51332.91401952702,
+      74212.81718715647,
+      null,
+      null
+    ],
+    "latency": [
+      null,
+      null,
+      null,
+      1916.8345029025256,
+      1904.587187259846
+    ],
+    "percentilesData": {
+      "percentileLabels": [
+        "P0",
+        "P50",
+        "P90",
+        "P95",
+        "P99",
+        "P99.9",
+        "P99.99",
+        "P100"
+      ],
+      "benchmarks": [
+        "measureAverageTime",
+        "measureConcurrentValidation"
+      ],
+      "data": {
+        "measureAverageTime": [
+          1894.390265182892,
+          1916.8345029025256,
+          2470.7333166047893,
+          2470.7333166047893,
+          2470.7333166047893,
+          2470.7333166047893,
+          2470.7333166047893,
+          2470.7333166047893
+        ],
+        "measureConcurrentValidation": [
+          1862.8303188193636,
+          1904.587187259846,
+          2095.0797396518165,
+          2095.0797396518165,
+          2095.0797396518165,
+          2095.0797396518165,
+          2095.0797396518165,
+          2095.0797396518165
+        ]
+      },
+      "labels": [
+        "measureAverageTime",
+        "measureConcurrentValidation"
+      ],
+      "datasets": {
+        "0.0th": [
+          1894.390265182892,
+          1862.8303188193636
+        ],
+        "50.0th": [
+          1916.8345029025256,
+          1904.587187259846
+        ],
+        "90.0th": [
+          2470.7333166047893,
+          2095.0797396518165
+        ],
+        "95.0th": [
+          2470.7333166047893,
+          2095.0797396518165
+        ],
+        "99.0th": [
+          2470.7333166047893,
+          2095.0797396518165
+        ],
+        "99.9th": [
+          2470.7333166047893,
+          2095.0797396518165
+        ],
+        "99.99th": [
+          2470.7333166047893,
+          2095.0797396518165
+        ],
+        "100.0th": [
+          2470.7333166047893,
+          2095.0797396518165
+        ]
+      }
+    }
+  },
+  "trends": {
+    "available": false,
+    "message": "Historical data not yet available"
+  }
+}
