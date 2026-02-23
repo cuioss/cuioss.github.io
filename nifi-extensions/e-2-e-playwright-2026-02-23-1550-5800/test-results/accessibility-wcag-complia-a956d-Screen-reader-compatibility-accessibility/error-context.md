@@ -1,0 +1,76 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e8]:
+  - banner [ref=e9]:
+    - generic [ref=e11]:
+      - navigation [ref=e12]:
+        - generic [ref=e13]:
+          - img "NiFi Logo" [ref=e16] [cursor=pointer]
+          - generic [ref=e17]:
+            - generic [ref=e18]:
+              - generic [ref=e19]: testUser
+              - generic [ref=e20] [cursor=pointer]: log out
+            - button "" [ref=e21] [cursor=pointer]:
+              - generic [ref=e23]: 
+      - link " Back to Processor" [ref=e26] [cursor=pointer]:
+        - /url: "#/process-groups/bfbfae55-79b0-5ac6-9830-8a95a2230479/Processor/8b2e05e4-019c-1000-470a-582d3fe3081f"
+        - generic [ref=e27]: 
+        - text: Back to Processor
+  - iframe [ref=e29]:
+    - generic [ref=f2e2]:
+      - heading "NiFi Component Configuration" [level=1] [ref=f2e3]
+      - main [ref=f2e4]:
+        - tablist [ref=f2e6]:
+          - tab "Configuration" [ref=f2e7] [cursor=pointer]
+          - tab "Token Verification" [ref=f2e8] [cursor=pointer]
+          - tab "Metrics" [ref=f2e9] [cursor=pointer]
+          - tab "Help" [ref=f2e10] [cursor=pointer]
+        - generic [ref=f2e11]:
+          - tabpanel [ref=f2e12]:
+            - generic [ref=f2e13]:
+              - heading "Issuer Configurations" [level=2] [ref=f2e14]
+              - paragraph [ref=f2e15]: Configure JWT issuers for token validation. Each issuer requires a name and properties like jwks-url and issuer URI.
+              - generic [ref=f2e17]:
+                - generic [ref=f2e18]:
+                  - generic [ref=f2e19]: "Issuer Name:"
+                  - textbox "Issuer Name" [ref=f2e20]:
+                    - /placeholder: e.g., keycloak
+                    - text: sample-issuer
+                  - button "Remove" [ref=f2e21] [cursor=pointer]
+                - generic [ref=f2e22]:
+                  - generic [ref=f2e23]:
+                    - generic [ref=f2e24]: "JWKS Source Type:"
+                    - combobox "JWKS Source Type" [ref=f2e25]:
+                      - option "URL (Remote JWKS endpoint)" [selected]
+                      - option "File (Local JWKS file)"
+                      - option "Memory (Inline JWKS content)"
+                  - generic [ref=f2e26]:
+                    - generic [ref=f2e27]: "Issuer URI:"
+                    - textbox "Issuer URI" [ref=f2e28]:
+                      - /placeholder: The URI of the token issuer (must match the iss claim)
+                      - text: https://sample-issuer.example.com
+                  - generic [ref=f2e29]:
+                    - generic [ref=f2e30]: "JWKS URL:"
+                    - textbox "JWKS URL" [ref=f2e31]:
+                      - /placeholder: The URL of the JWKS endpoint
+                      - text: https://sample-issuer.example.com/.well-known/jwks.json
+                  - generic [ref=f2e32]:
+                    - button "Test Connection" [ref=f2e33] [cursor=pointer]
+                    - status [ref=f2e34]:
+                      - emphasis [ref=f2e35]: Click the button to validate JWKS
+                  - generic [ref=f2e36]:
+                    - generic [ref=f2e37]: "Audience:"
+                    - textbox "Audience" [ref=f2e38]:
+                      - /placeholder: The expected audience claim value
+                      - text: sample-audience
+                  - generic [ref=f2e39]:
+                    - generic [ref=f2e40]: "Client ID:"
+                    - textbox "Client ID" [ref=f2e41]:
+                      - /placeholder: The client ID for token validation
+                      - text: sample-client
+                - alert
+                - button "Save Issuer" [ref=f2e42] [cursor=pointer]
+              - button "Add Issuer" [ref=f2e43] [cursor=pointer]
+          - text:              
+```
