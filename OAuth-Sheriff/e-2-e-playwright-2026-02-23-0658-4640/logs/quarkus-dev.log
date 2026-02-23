@@ -1,0 +1,97 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules
+[INFO] Installing Central Publishing features
+[INFO] 
+[INFO] --< de.cuioss.sheriff.oauth:oauth-sheriff-quarkus-integration-tests >---
+[INFO] Building OAuth Sheriff Quarkus Integration Tests 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact io.quarkus:quarkus-junit5:jar:3.32.0 has been relocated to io.quarkus:quarkus-junit:jar:3.32.0: Update the artifactId in your project build file. Refer to https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.31 for more information.
+[INFO] 
+[INFO] --- quarkus:3.32.0:dev (default-cli) @ oauth-sheriff-quarkus-integration-tests ---
+[INFO] Invoking enforcer:3.6.2:enforce (mojo-enforcer-rules) @ oauth-sheriff-quarkus-integration-tests
+[INFO] Rule 0: org.apache.maven.enforcer.rules.RequirePluginVersions passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 2: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 3: org.codehaus.mojo.extraenforcer.model.RequirePropertyDiverges passed
+[INFO] Rule 4: org.codehaus.mojo.extraenforcer.model.RequirePropertyDiverges passed
+[INFO] Rule 5: org.apache.maven.enforcer.rules.RequireSameVersions passed
+[INFO] Invoking resources:3.4.0:resources (default-resources) @ oauth-sheriff-quarkus-integration-tests
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] Invoking quarkus:3.32.0:generate-code (default) @ oauth-sheriff-quarkus-integration-tests
+[INFO] Invoking compiler:3.15.0:compile (default-compile) @ oauth-sheriff-quarkus-integration-tests
+[INFO] Recompiling the module because of added or removed source files.
+[INFO] Compiling 3 source files with javac [debug release 21] to target/classes
+[INFO] Invoking resources:3.4.0:testResources (default-testResources) @ oauth-sheriff-quarkus-integration-tests
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] Invoking quarkus:3.32.0:generate-code-tests (default) @ oauth-sheriff-quarkus-integration-tests
+[INFO] Invoking compiler:3.15.0:testCompile (default-testCompile) @ oauth-sheriff-quarkus-integration-tests
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 9 source files with javac [debug release 21] to target/test-classes
+[WARNING] [io.quarkus.bootstrap.devmode.DependenciesFilter] Live reload was disabled for the following project artifacts:
+- de.cuioss.sheriff.oauth:oauth-sheriff-quarkus:1.0.0-SNAPSHOT
+- de.cuioss.sheriff.oauth:oauth-sheriff-core:1.0.0-SNAPSHOT
+- de.cuioss.sheriff.oauth:oauth-sheriff-quarkus-deployment:1.0.0-SNAPSHOT
+The artifacts above appear to be either dependencies of non-reloadable application dependencies or Quarkus extensions
+Listening for transport dt_socket at address: 5005
+2026-02-23 06:55:22,346 UTC INFO  [de.cui.she.oau.qua.dep.OAuthSheriffProcessor] (build-2) OAUTH_SHERIFF_QUARKUS_DEPLOYMENT-1: OAuth Sheriff feature registered
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-02-23 06:55:24,165 UTC INFO  [de.cui.she.oau.qua.con.AccessLogFilterConfigResolver] (Quarkus Main Thread) OAUTH_SHERIFF_QUARKUS-13: Resolving access log filter configuration from properties
+2026-02-23 06:55:24,166 UTC INFO  [de.cui.she.oau.qua.log.CustomAccessLogFilter] (Quarkus Main Thread) OAUTH_SHERIFF_QUARKUS-65: CustomAccessLogFilter initialized: AccessLogFilterConfig{enabled=true, statusCodes=206-599, includeStatusCodes=[], includePaths=[], excludePaths=[], pattern='{remoteAddr} {method} {path} -> {status} ({duration}ms)'}
+2026-02-23 06:55:24,296 UTC WARN  [io.qua.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.enforceBuildGoal" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2026-02-23 06:55:24,296 UTC WARN  [io.qua.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.log.console.color" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2026-02-23 06:55:24,305 UTC WARN  [io.qua.config] (Quarkus Main Thread) The "quarkus.log.file.enable" config property is deprecated and should not be used anymore.
+2026-02-23 06:55:24,714 UTC WARN  [io.mic.cor.ins.MeterRegistry] (Quarkus Main Thread) This Gauge has been already registered (MeterId{name='netty.eventexecutor.workers', tags=[]}), the registration will be ignored. Note that subsequent logs will be logged at debug level.
+2026-02-23 06:55:25,004 UTC INFO  [de.cui.she.oau.qua.met.JwtMetricsCollector] (vert.x-worker-thread-1) OAUTH_SHERIFF_QUARKUS-21: Initializing JwtMetricsCollector
+2026-02-23 06:55:25,005 UTC INFO  [de.cui.she.oau.qua.pro.TokenValidatorProducer] (vert.x-worker-thread-1) OAUTH_SHERIFF_QUARKUS-11: Initializing JWT validation components from configuration
+2026-02-23 06:55:25,007 UTC INFO  [de.cui.she.oau.qua.con.ParserConfigResolver] (vert.x-worker-thread-1) OAUTH_SHERIFF_QUARKUS-4: Resolved ParserConfig: maxTokenSize=8192 bytes, maxPayloadSize=8192 bytes, maxStringLength=4096, maxBufferSize=131072
+2026-02-23 06:55:25,007 UTC INFO  [de.cui.she.oau.qua.con.IssuerConfigResolver] (vert.x-worker-thread-1) OAUTH_SHERIFF_QUARKUS-1: Resolving issuer configurations from properties
+2026-02-23 06:55:25,014 UTC INFO  [io.quarkus] (Quarkus Main Thread) oauth-sheriff-integration-tests 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.32.0) started in 3.781s. Listening on: http://localhost:8080 and https://localhost:8443
+2026-02-23 06:55:25,014 UTC INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2026-02-23 06:55:25,014 UTC INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, config-yaml, hibernate-validator, micrometer, oauth-sheriff, resteasy, resteasy-jackson, scheduler, security, smallrye-context-propagation, smallrye-health, vertx]
+2026-02-23 06:55:25,092 UTC INFO  [de.cui.she.oau.qua.map.ClaimMapperRegistry] (vert.x-worker-thread-1) OAUTH_SHERIFF_QUARKUS-15: No custom claim mappers discovered
+2026-02-23 06:55:25,094 UTC WARNING [de.cui.she.oau.cor.IssuerConfig] (vert.x-worker-thread-1) JWTValidation-134: IssuerConfig for issuer 'https://keycloak:8443/realms/benchmark' has claimSubOptional=true. This is not conform to RFC 7519 which requires the 'sub' claim for ACCESS_TOKEN and ID_TOKEN types. Use this setting only when necessary and ensure appropriate alternative validation mechanisms.
+2026-02-23 06:55:25,094 UTC INFO  [de.cui.she.oau.qua.con.IssuerConfigResolver] (vert.x-worker-thread-1) OAUTH_SHERIFF_QUARKUS-2: Resolved issuer configuration: keycloak
+2026-02-23 06:55:25,095 UTC INFO  [de.cui.she.oau.qua.con.IssuerConfigResolver] (vert.x-worker-thread-1) OAUTH_SHERIFF_QUARKUS-2: Resolved issuer configuration: integration
+2026-02-23 06:55:25,095 UTC INFO  [de.cui.she.oau.qua.con.IssuerConfigResolver] (vert.x-worker-thread-1) OAUTH_SHERIFF_QUARKUS-3: Resolved 2 enabled issuer configurations
+2026-02-23 06:55:25,442 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) JWTValidation-4: Background JWKS refresh started with interval: 10 seconds
+2026-02-23 06:55:25,445 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) JWTValidation-2: Keys updated due to data change - load state: loading
+2026-02-23 06:55:25,445 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) JWTValidation-9: JWKS loaded successfully for issuer: https://keycloak:8443/realms/benchmark
+2026-02-23 06:55:25,501 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) JWTValidation-4: Background JWKS refresh started with interval: 10 seconds
+2026-02-23 06:55:25,501 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) JWTValidation-2: Keys updated due to data change - load state: loading
+2026-02-23 06:55:25,502 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) JWTValidation-9: JWKS loaded successfully for issuer: https://keycloak:8443/realms/integration
+2026-02-23 06:55:25,502 UTC INFO  [de.cui.she.oau.qua.con.AccessTokenCacheConfigResolver] (vert.x-worker-thread-1) OAUTH_SHERIFF_QUARKUS-41: Resolving access token cache configuration from properties
+2026-02-23 06:55:25,503 UTC INFO  [de.cui.she.oau.qua.con.AccessTokenCacheConfigResolver] (vert.x-worker-thread-1) OAUTH_SHERIFF_QUARKUS-43: Access token cache configured: maxSize=20, evictionIntervalSeconds=10
+2026-02-23 06:55:25,513 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) JWTValidation-4: Background JWKS refresh started with interval: 10 seconds
+2026-02-23 06:55:25,516 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) JWTValidation-9: JWKS loaded successfully for issuer: https://keycloak:8443/realms/benchmark
+2026-02-23 06:55:25,525 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-1) JWTValidation-4: Background JWKS refresh started with interval: 10 seconds
+2026-02-23 06:55:25,525 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-1) JWTValidation-9: JWKS loaded successfully for issuer: https://keycloak:8443/realms/integration
+2026-02-23 06:55:25,534 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-1) JWTValidation-4: Background JWKS refresh started with interval: 10 seconds
+2026-02-23 06:55:25,534 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) JWTValidation-4: Background JWKS refresh started with interval: 10 seconds
+2026-02-23 06:55:25,534 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-1) JWTValidation-9: JWKS loaded successfully for issuer: https://keycloak:8443/realms/integration
+2026-02-23 06:55:25,535 UTC INFO  [de.cui.she.oau.cor.jwk.htt.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) JWTValidation-9: JWKS loaded successfully for issuer: https://keycloak:8443/realms/benchmark
+2026-02-23 06:55:25,535 UTC INFO  [de.cui.she.oau.cor.IssuerConfigResolver] (ForkJoinPool.commonPool-worker-3) JWTValidation-10: Issuer configuration loaded successfully: https://keycloak:8443/realms/benchmark
+2026-02-23 06:55:25,536 UTC INFO  [de.cui.she.oau.cor.IssuerConfigResolver] (ForkJoinPool.commonPool-worker-1) JWTValidation-10: Issuer configuration loaded successfully: https://keycloak:8443/realms/integration
+2026-02-23 06:55:25,536 UTC WARNING [de.cui.she.oau.cor.pip.val.TokenClaimValidator] (vert.x-worker-thread-1) JWTValidation-112: Missing recommended element: expectedAudience
+2026-02-23 06:55:25,538 UTC WARNING [de.cui.she.oau.cor.pip.val.TokenClaimValidator] (vert.x-worker-thread-1) JWTValidation-112: Missing recommended element: expectedAudience
+2026-02-23 06:55:25,544 UTC INFO  [de.cui.she.oau.cor.TokenValidator] (vert.x-worker-thread-1) JWTValidation-1: TokenValidator initialized with IssuerConfigResolver(mutableCache={https://keycloak:8443/realms/benchmark=IssuerConfig(enabled=true, issuerIdentifier=https://keycloak:8443/realms/benchmark, expectedAudience=[], expectedClientId=[benchmark-client], claimSubOptional=true, algorithmPreferences=de.cuioss.sheriff.oauth.core.security.SignatureAlgorithmPreferences@1ed8b698, claimMappers={}, jwksLoader=de.cuioss.sheriff.oauth.core.jwks.http.HttpJwksLoader@46e3d0ea), https://keycloak:8443/realms/integration=IssuerConfig(enabled=true, issuerIdentifier=https://keycloak:8443/realms/integration, expectedAudience=[], expectedClientId=[integration-client], claimSubOptional=false, algorithmPreferences=de.cuioss.sheriff.oauth.core.security.SignatureAlgorithmPreferences@5faf20c7, claimMappers={}, jwksLoader=de.cuioss.sheriff.oauth.core.jwks.http.HttpJwksLoader@58cca3e1)}, loadingFutures={}, immutableCache={https://keycloak:8443/realms/integration=IssuerConfig(enabled=true, issuerIdentifier=https://keycloak:8443/realms/integration, expectedAudience=[], expectedClientId=[integration-client], claimSubOptional=false, algorithmPreferences=de.cuioss.sheriff.oauth.core.security.SignatureAlgorithmPreferences@5faf20c7, claimMappers={}, jwksLoader=de.cuioss.sheriff.oauth.core.jwks.http.HttpJwksLoader@58cca3e1)})
+2026-02-23 06:55:25,544 UTC INFO  [de.cui.she.oau.qua.pro.TokenValidatorProducer] (vert.x-worker-thread-1) OAUTH_SHERIFF_QUARKUS-12: JWT validation components initialized successfully with 2 issuers
+2026-02-23 06:55:25,547 UTC INFO  [de.cui.she.oau.qua.met.JwtMetricsCollector] (vert.x-worker-thread-1) OAUTH_SHERIFF_QUARKUS-22: JwtMetricsCollector initialized with 21 event types
+2026-02-23 06:58:05,944 UTC WARNING [de.cui.she.oau.cor.pip.AccessTokenValidationPipeline] (executor-thread-2) JWTValidation-109: Token is missing required claim: iss
+2026-02-23 06:58:44,011 UTC INFO  [io.quarkus] (Shutdown thread) oauth-sheriff-integration-tests stopped in 0.017s
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  03:31 min
+[INFO] Finished at: 2026-02-23T06:58:44Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal io.quarkus:quarkus-maven-plugin:3.32.0:dev (default-cli) on project oauth-sheriff-quarkus-integration-tests: Failed to run: Dev mode process did not complete successfully -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
