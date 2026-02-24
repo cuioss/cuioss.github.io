@@ -1,0 +1,21 @@
+keycloak-1  | Updating the configuration and installing your custom providers, if any. Please wait.
+keycloak-1  | 2026-02-24 09:44:03,351 INFO  [io.quarkus.deployment.QuarkusAugmentor] (main) Quarkus augmentation completed in 6595ms
+keycloak-1  | Running the server in development mode. DO NOT use this configuration in production.
+keycloak-1  | 2026-02-24 09:44:05,053 INFO  [org.keycloak.url.HostnameV2ProviderFactory] (main) If hostname is specified, hostname-strict is effectively ignored
+keycloak-1  | 2026-02-24 09:44:08,127 INFO  [org.keycloak.quarkus.runtime.storage.database.liquibase.QuarkusJpaUpdaterProvider] (main) Initializing database schema. Using changelog META-INF/jpa-changelog-master.xml
+keycloak-1  | 2026-02-24 09:44:10,530 INFO  [org.keycloak.quarkus.runtime.storage.infinispan.CacheManagerFactory] (main) Starting Infinispan embedded cache manager
+keycloak-1  | 2026-02-24 09:44:10,581 INFO  [org.keycloak.quarkus.runtime.storage.infinispan.CacheManagerFactory] (main) JGroups JDBC_PING discovery enabled.
+keycloak-1  | 2026-02-24 09:44:10,664 INFO  [org.infinispan.CONTAINER] (main) Virtual threads support enabled
+keycloak-1  | 2026-02-24 09:44:10,858 INFO  [org.infinispan.CONTAINER] (main) ISPN000556: Starting user marshaller 'org.infinispan.commons.marshall.ImmutableProtoStreamMarshaller'
+keycloak-1  | 2026-02-24 09:44:11,185 INFO  [org.keycloak.connections.infinispan.DefaultInfinispanConnectionProviderFactory] (main) Node name: node_265665, Site name: null
+keycloak-1  | 2026-02-24 09:44:11,365 INFO  [org.keycloak.exportimport.dir.DirImportProvider] (main) Importing from directory /opt/keycloak/bin/../data/import
+keycloak-1  | 2026-02-24 09:44:11,370 INFO  [org.keycloak.services] (main) KC-SERVICES0050: Initializing master realm
+keycloak-1  | 2026-02-24 09:44:13,090 INFO  [org.keycloak.services] (main) KC-SERVICES0030: Full model import requested. Strategy: IGNORE_EXISTING
+keycloak-1  | 2026-02-24 09:44:14,397 INFO  [org.keycloak.exportimport.util.ImportUtils] (main) Realm 'other_realm' imported
+keycloak-1  | 2026-02-24 09:44:15,692 INFO  [org.keycloak.exportimport.util.ImportUtils] (main) Realm 'oauth_integration_tests' imported
+keycloak-1  | 2026-02-24 09:44:15,700 INFO  [org.keycloak.services] (main) KC-SERVICES0032: Import finished successfully
+keycloak-1  | 2026-02-24 09:44:15,776 INFO  [org.keycloak.services] (main) KC-SERVICES0077: Created temporary admin user with username admin
+keycloak-1  | 2026-02-24 09:44:15,960 INFO  [io.quarkus] (main) Keycloak 26.2.5 on JVM (powered by Quarkus 3.20.1) started in 12.487s. Listening on: http://0.0.0.0:8080. Management interface listening on http://0.0.0.0:9000.
+keycloak-1  | 2026-02-24 09:44:15,960 INFO  [io.quarkus] (main) Profile dev activated. 
+keycloak-1  | 2026-02-24 09:44:15,960 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, jdbc-h2, keycloak, micrometer, narayana-jta, opentelemetry, reactive-routes, rest, rest-jackson, smallrye-context-propagation, smallrye-health, vertx]
+keycloak-1  | 2026-02-24 09:44:45,917 WARN  [org.keycloak.events] (executor-thread-2) type="CLIENT_LOGIN_ERROR", realmId="391fd5fb-747e-4453-ba1d-418e2582d475", realmName="oauth_integration_tests", clientId="test_client", userId="null", ipAddress="172.18.0.1", error="invalid_client", reason="Client not enabled to retrieve service account", grant_type="client_credentials", client_auth_method="client-secret"
