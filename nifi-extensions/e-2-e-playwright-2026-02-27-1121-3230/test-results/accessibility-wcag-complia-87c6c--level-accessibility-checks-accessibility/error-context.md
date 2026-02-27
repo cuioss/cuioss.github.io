@@ -1,0 +1,84 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e8]:
+  - banner [ref=e9]:
+    - generic [ref=e11]:
+      - navigation [ref=e12]:
+        - generic [ref=e13]:
+          - img "NiFi Logo" [ref=e16] [cursor=pointer]
+          - generic [ref=e17]:
+            - generic [ref=e18]:
+              - generic [ref=e19]: testUser
+              - generic [ref=e20] [cursor=pointer]: log out
+            - button "" [ref=e21] [cursor=pointer]:
+              - generic [ref=e23]: 
+      - link " Back to Processor" [ref=e26] [cursor=pointer]:
+        - /url: "#/process-groups/bfbfae55-79b0-5ac6-9830-8a95a2230479/Processor/9ed09031-019c-1000-1ed2-4e301b8d4435"
+        - generic [ref=e27]: 
+        - text: Back to Processor
+  - iframe [ref=e29]:
+    - generic [ref=f3e2]:
+      - heading "NiFi Component Configuration" [level=1] [ref=f3e3]
+      - main [ref=f3e4]:
+        - tablist [ref=f3e6]:
+          - tab "Configuration" [ref=f3e7] [cursor=pointer]
+          - tab "Token Verification" [ref=f3e8] [cursor=pointer]
+          - tab "Metrics" [ref=f3e9] [cursor=pointer]
+          - tab "Help" [ref=f3e10] [cursor=pointer]
+        - generic [ref=f3e11]:
+          - tabpanel [ref=f3e12]:
+            - generic [ref=f3e13]:
+              - heading "Issuer Configurations" [level=2] [ref=f3e14]
+              - paragraph [ref=f3e15]: Configure JWT issuers for token validation. Each issuer requires a name and properties like jwks-url and issuer URI.
+              - generic [ref=f3e17]:
+                - generic [ref=f3e18]:
+                  - generic [ref=f3e19]: "Issuer Name:"
+                  - textbox "Issuer Name" [ref=f3e20]:
+                    - /placeholder: e.g., keycloak
+                    - text: sample-issuer
+                  - button " Remove" [ref=f3e21] [cursor=pointer]:
+                    - generic [ref=f3e22]: 
+                    - text: Remove
+                - generic [ref=f3e23]:
+                  - generic [ref=f3e24]:
+                    - generic [ref=f3e25]: "JWKS Source Type:"
+                    - combobox "JWKS Source Type" [ref=f3e26]:
+                      - option "URL (Remote JWKS endpoint)" [selected]
+                      - option "File (Local JWKS file)"
+                      - option "Memory (Inline JWKS content)"
+                  - generic [ref=f3e27]:
+                    - generic [ref=f3e28]: "Issuer URI:"
+                    - textbox "Issuer URI" [ref=f3e29]:
+                      - /placeholder: The URI of the token issuer (must match the iss claim)
+                      - text: https://sample-issuer.example.com
+                  - generic [ref=f3e30]:
+                    - generic [ref=f3e31]: "JWKS URL:"
+                    - textbox "JWKS URL" [ref=f3e32]:
+                      - /placeholder: The URL of the JWKS endpoint
+                      - text: https://sample-issuer.example.com/.well-known/jwks.json
+                  - generic [ref=f3e33]:
+                    - button " Test Connection" [ref=f3e34] [cursor=pointer]:
+                      - generic [ref=f3e35]: 
+                      - text: Test Connection
+                    - status [ref=f3e36]:
+                      - emphasis [ref=f3e37]: Click the button to validate JWKS
+                  - generic [ref=f3e38]:
+                    - generic [ref=f3e39]: "Audience:"
+                    - textbox "Audience" [ref=f3e40]:
+                      - /placeholder: The expected audience claim value
+                      - text: sample-audience
+                  - generic [ref=f3e41]:
+                    - generic [ref=f3e42]: "Client ID:"
+                    - textbox "Client ID" [ref=f3e43]:
+                      - /placeholder: The client ID for token validation
+                      - text: sample-client
+                - alert
+                - button " Save Issuer" [ref=f3e44] [cursor=pointer]:
+                  - generic [ref=f3e45]: 
+                  - text: Save Issuer
+              - button " Add Issuer" [ref=f3e46] [cursor=pointer]:
+                - generic [ref=f3e47]: 
+                - text: Add Issuer
+          - text:              
+```
