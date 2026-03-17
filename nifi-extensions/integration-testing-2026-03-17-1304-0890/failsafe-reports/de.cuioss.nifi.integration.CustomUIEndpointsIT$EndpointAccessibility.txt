@@ -1,0 +1,23 @@
+-------------------------------------------------------------------------------
+Test set: de.cuioss.nifi.integration.CustomUIEndpointsIT$EndpointAccessibility
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.613 s <<< FAILURE! -- in de.cuioss.nifi.integration.CustomUIEndpointsIT$EndpointAccessibility
+de.cuioss.nifi.integration.CustomUIEndpointsIT$EndpointAccessibility.verifyTokenWithValidKeycloakToken -- Time elapsed: 0.209 s <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+JSON path valid doesn't match.
+Expected: <true>
+  Actual: <false>
+
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:344)
+	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:516)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:344)
+	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:714)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:344)
+	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:274)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.selectMethod(IndyInterface.java:373)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:344)
+	at io.restassured.internal.ResponseSpecificationImpl.body(ResponseSpecificationImpl.groovy:121)
+	at io.restassured.internal.ValidatableResponseOptionsImpl.body(ValidatableResponseOptionsImpl.java:244)
+	at de.cuioss.nifi.integration.CustomUIEndpointsIT$EndpointAccessibility.verifyTokenWithValidKeycloakToken(CustomUIEndpointsIT.java:145)
+
