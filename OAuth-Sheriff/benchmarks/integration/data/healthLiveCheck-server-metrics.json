@@ -1,0 +1,54 @@
+{
+  "benchmark": {
+    "name": "healthLiveCheck",
+    "start_time": "2026-04-04T12:27:28Z",
+    "end_time": "2026-04-04T12:28:31Z",
+    "duration_seconds": 63
+  },
+  "resources": {
+    "cpu": {
+      "process": {
+        "average_percent": 63.9,
+        "peak_percent": 72.4,
+        "std_dev": 20.77,
+        "percentiles": {
+          "p50": 71.6,
+          "p75": 72.0,
+          "p90": 72.2,
+          "p99": 72.4
+        }
+      },
+      "system": {
+        "average_percent": 88.8,
+        "peak_percent": 97.6,
+        "std_dev": 23.4
+      },
+      "cores_available": 4
+    },
+    "memory": {
+      "heap": {
+        "average_mb": 15.0,
+        "peak_mb": 31.0,
+        "final_mb": 31.0
+      },
+      "gc": {
+        "overhead_percent": 0.0
+      }
+    },
+    "threads": {
+      "average": 28,
+      "peak": 29,
+      "final": 26,
+      "daemon": 5
+    }
+  },
+  "application": {
+    "jwt_validations": {
+      "total": 0,
+      "success": 0,
+      "errors": 0,
+      "cache_hits": 0,
+      "cache_hit_rate_percent": 0.0
+    }
+  }
+}
