@@ -1,0 +1,251 @@
+{
+  "metadata": {
+    "timestamp": "2026-07-04T09:00:18.419503287Z",
+    "displayTimestamp": "2026-07-04 09:00:18 UTC",
+    "benchmarkType": "Micro Performance",
+    "reportVersion": "2.0",
+    "projectName": "Token-Sheriff"
+  },
+  "overview": {
+    "throughput": "46.1K ops/s",
+    "latency": "2.2ms",
+    "throughputBenchmarkName": "measureThroughput",
+    "latencyBenchmarkName": "measureAverageTime",
+    "performanceScore": 253,
+    "performanceGrade": "A+",
+    "performanceGradeClass": "grade-a+"
+  },
+  "benchmarks": [
+    {
+      "name": "measureThroughput",
+      "fullName": "de.cuioss.sheriff.token.validation.benchmark.standard.SimpleCoreValidationBenchmark.measureThroughput",
+      "mode": "thrpt",
+      "score": "46.1K ops/s",
+      "scoreUnit": "ops/s",
+      "throughput": "46.1K ops/s",
+      "error": 15009.120517261785,
+      "percentiles": {
+        "0.0": 39218.62478582227,
+        "50.0": 47430.09360932885,
+        "90.0": 48945.814019945785,
+        "95.0": 48945.814019945785,
+        "99.0": 48945.814019945785,
+        "99.9": 48945.814019945785,
+        "99.99": 48945.814019945785,
+        "99.999": 48945.814019945785,
+        "99.9999": 48945.814019945785,
+        "100.0": 48945.814019945785
+      }
+    },
+    {
+      "name": "validateMixedTokens0",
+      "fullName": "de.cuioss.sheriff.token.validation.benchmark.standard.SimpleErrorLoadBenchmark.validateMixedTokens0",
+      "mode": "thrpt",
+      "score": "46.6K ops/s",
+      "scoreUnit": "ops/s",
+      "throughput": "46.6K ops/s",
+      "error": 12212.290408957733,
+      "percentiles": {
+        "0.0": 42127.611750953154,
+        "50.0": 48635.841094170464,
+        "90.0": 48946.027140228325,
+        "95.0": 48946.027140228325,
+        "99.0": 48946.027140228325,
+        "99.9": 48946.027140228325,
+        "99.99": 48946.027140228325,
+        "99.999": 48946.027140228325,
+        "99.9999": 48946.027140228325,
+        "100.0": 48946.027140228325
+      }
+    },
+    {
+      "name": "validateMixedTokens50",
+      "fullName": "de.cuioss.sheriff.token.validation.benchmark.standard.SimpleErrorLoadBenchmark.validateMixedTokens50",
+      "mode": "thrpt",
+      "score": "57.5K ops/s",
+      "scoreUnit": "ops/s",
+      "throughput": "57.5K ops/s",
+      "error": 22638.496600443694,
+      "percentiles": {
+        "0.0": 49645.8390234352,
+        "50.0": 58655.874755360914,
+        "90.0": 63842.617373310284,
+        "95.0": 63842.617373310284,
+        "99.0": 63842.617373310284,
+        "99.9": 63842.617373310284,
+        "99.99": 63842.617373310284,
+        "99.999": 63842.617373310284,
+        "99.9999": 63842.617373310284,
+        "100.0": 63842.617373310284
+      }
+    },
+    {
+      "name": "measureAverageTime",
+      "fullName": "de.cuioss.sheriff.token.validation.benchmark.standard.SimpleCoreValidationBenchmark.measureAverageTime",
+      "mode": "avgt",
+      "score": "2.2K us/op",
+      "scoreUnit": "us/op",
+      "latency": "2.2K us/op",
+      "error": 503.1214236331679,
+      "percentiles": {
+        "0.0": 2.0720789092580008,
+        "50.0": 2.1583988188079646,
+        "90.0": 2.4151340993366817,
+        "95.0": 2.4151340993366817,
+        "99.0": 2.4151340993366817,
+        "99.9": 2.4151340993366817,
+        "99.99": 2.4151340993366817,
+        "99.999": 2.4151340993366817,
+        "99.9999": 2.4151340993366817,
+        "100.0": 2.4151340993366817
+      }
+    }
+  ],
+  "chartData": {
+    "labels": [
+      "measureThroughput",
+      "validateMixedTokens0",
+      "validateMixedTokens50",
+      "measureAverageTime"
+    ],
+    "throughput": [
+      46087.81226345939,
+      46592.23698130565,
+      57491.23378037037,
+      null
+    ],
+    "latency": [
+      null,
+      null,
+      null,
+      2.1583988188079646
+    ],
+    "percentilesData": {
+      "percentileLabels": [
+        "P0",
+        "P50",
+        "P90",
+        "P95",
+        "P99",
+        "P99.9",
+        "P99.99",
+        "P100"
+      ],
+      "benchmarks": [
+        "measureAverageTime"
+      ],
+      "data": {
+        "measureAverageTime": [
+          2.0720789092580008,
+          2.1583988188079646,
+          2.4151340993366817,
+          2.4151340993366817,
+          2.4151340993366817,
+          2.4151340993366817,
+          2.4151340993366817,
+          2.4151340993366817
+        ]
+      },
+      "labels": [
+        "measureAverageTime"
+      ],
+      "datasets": {
+        "0.0th": [
+          2.0720789092580008
+        ],
+        "50.0th": [
+          2.1583988188079646
+        ],
+        "90.0th": [
+          2.4151340993366817
+        ],
+        "95.0th": [
+          2.4151340993366817
+        ],
+        "99.0th": [
+          2.4151340993366817
+        ],
+        "99.9th": [
+          2.4151340993366817
+        ],
+        "99.99th": [
+          2.4151340993366817
+        ],
+        "100.0th": [
+          2.4151340993366817
+        ]
+      }
+    }
+  },
+  "trends": {
+    "available": true,
+    "direction": "down",
+    "changePercentage": -8.640839443886819,
+    "movingAverage": 269.6,
+    "throughputTrend": -8.62404740667706,
+    "latencyTrend": 8.047001617948316,
+    "chartData": {
+      "timestamps": [
+        "2026-06-29T12:24:28.836667346Z",
+        "2026-06-29T13:24:28.984561749Z",
+        "2026-06-29T15:34:34.934765971Z",
+        "2026-06-29T16:14:47.548987462Z",
+        "2026-06-29T23:07:58.573594644Z",
+        "2026-07-03T21:42:26.194472707Z",
+        "2026-07-03T22:30:55.079919932Z",
+        "2026-07-04T03:42:35.430198987Z",
+        "2026-07-04T03:59:14.550008343Z",
+        "2026-07-04T08:36:14.160534840Z",
+        "Current"
+      ],
+      "throughput": [
+        47700,
+        49800,
+        49900,
+        50200,
+        59800,
+        48900,
+        47000,
+        43600,
+        60100,
+        48500,
+        46087.81226345939
+      ],
+      "latency": [
+        2.3,
+        2.2,
+        2.2,
+        2.1,
+        1.66,
+        2.1,
+        2.1,
+        2.3,
+        1.67,
+        2.1,
+        2.1916620739851673
+      ],
+      "performanceScores": [
+        261,
+        272,
+        272,
+        275,
+        329,
+        268,
+        258,
+        240,
+        331,
+        266,
+        253
+      ],
+      "statistics": {
+        "throughputMin": 43600,
+        "throughputMax": 60100,
+        "throughputAvg": 50144.3465694054,
+        "latencyMin": 1.66,
+        "latencyMax": 2.3,
+        "latencyAvg": 2.083787461271379
+      }
+    },
+    "summary": "Performance decreased by 8.6%"
+  }
+}
