@@ -1,0 +1,182 @@
+[21:42:34.406] [Test] [info] Started: Generate comprehensive accessibility report
+[21:42:34.406] [Auth] [info] Checking NiFi accessibility...
+[21:42:34.436] [Auth] [info] NiFi service is accessible
+[21:42:34.436] [Auth] [info] Ensuring NiFi is ready for testing...
+[21:42:34.436] [Auth] [info] Checking NiFi accessibility...
+[21:42:34.465] [Auth] [info] NiFi service is accessible
+[21:42:34.503] [Auth] [info] Checking NiFi accessibility...
+[21:42:34.531] [Auth] [info] NiFi service is accessible
+[21:42:34.531] [Auth] [info] Starting login for user: testUser...
+[21:42:36.013] [Auth] [info] Already authenticated
+[21:42:36.013] [Auth] [info] Login for user: testUser completed in 1482ms
+[21:42:36.030] [Auth] [info] NiFi is ready for testing
+[21:42:36.030] [Processor] [info] Navigating to process group: https://localhost:9095/nifi#/process-groups/bfbfae55-79b0-5ac6-9830-8a95a2230479
+[21:42:44.888] [Processor] [info] Opening Advanced UI via right-click menu
+[21:42:45.590] [Processor] [info] Clicked Advanced menu item
+[21:42:45.601] [Processor] [info] Successfully navigated to Advanced UI
+[21:42:45.828] [Processor] [info] Advanced UI iframe detected in DOM
+[21:42:45.860] [Processor] [info] [Processor] Attempt 1: Found 2 frames on page
+[21:42:45.860] [Processor] [info] [Processor] Frame 0: https://localhost:9095/nifi/#/process-groups/bfbfae55-79b0-5ac6-9830-8a95a2230479/Processor/143914df-0581-5ae2-ab51-514a7bc830e6/advanced
+[21:42:45.860] [Processor] [info] [Processor] Frame 1: https://localhost:9095/nifi-cuioss-ui-0.6.0-SNAPSHOT/?id=143914df-0581-5ae2-ab51-514a7bc830e6&revision=17&clientId=5e50fb15-44b3-42f5-9a2c-aa1052656306&editable=true&disconnectedNodeAcknowledged=false
+[21:42:45.862] [Processor] [info] [Processor] Found custom UI frame: https://localhost:9095/nifi-cuioss-ui-0.6.0-SNAPSHOT/?id=143914df-0581-5ae2-ab51-514a7bc830e6&revision=17&clientId=5e50fb15-44b3-42f5-9a2c-aa1052656306&editable=true&disconnectedNodeAcknowledged=false
+[21:42:46.350] [Processor] [info] Frame is stable and ready
+[21:42:46.350] [Processor] [info] [Processor] Custom UI frame is ready and stable
+[21:42:48.399] [A11y] [info] Accessibility Report Summary: {"wcagCompliant":true,"customChecksPassed":true,"keyboardAccessible":true,"screenReaderReady":true}
+[21:42:48.400] [A11y] [info] Full Accessibility Report: {
+  "timestamp": "2026-07-17T21:42:48.399Z",
+  "url": "https://localhost:9095/nifi-cuioss-ui-0.6.0-SNAPSHOT/?id=143914df-0581-5ae2-ab51-514a7bc830e6&revision=17&clientId=5e50fb15-44b3-42f5-9a2c-aa1052656306&editable=true&disconnectedNodeAcknowledged=false",
+  "summary": {
+    "wcagPassed": true,
+    "customChecksPassed": true,
+    "keyboardNavigable": true,
+    "screenReaderReady": true
+  },
+  "details": {
+    "wcag": {
+      "passed": true
+    },
+    "custom": {
+      "passed": true,
+      "failures": []
+    },
+    "keyboard": {
+      "passed": true,
+      "tabOrder": [
+        {
+          "index": 0,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 1,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 2,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 3,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 4,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 5,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 6,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 7,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 8,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 9,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 10,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 11,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 12,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 13,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 14,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 15,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 16,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 17,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 18,
+          "element": "Focusable element found",
+          "accessible": true
+        },
+        {
+          "index": 19,
+          "element": "Focusable element found",
+          "accessible": true
+        }
+      ],
+      "totalFocusable": 20,
+      "limited": true
+    },
+    "screenReader": {
+      "passed": true,
+      "announcements": [
+        {
+          "role": "alert",
+          "ariaLive": "assertive",
+          "ariaAtomic": null,
+          "content": ""
+        },
+        {
+          "role": "status",
+          "ariaLive": "polite",
+          "ariaAtomic": null,
+          "content": ""
+        },
+        {
+          "role": "status",
+          "ariaLive": "polite",
+          "ariaAtomic": null,
+          "content": "Last updated: Never"
+        },
+        {
+          "role": null,
+          "ariaLive": "polite",
+          "ariaAtomic": null,
+          "content": "Refreshing..."
+        }
+      ],
+      "message": null
+    }
+  },
+  "recommendations": []
+}
+[21:42:48.402] [Test] [info] Finished: passed
