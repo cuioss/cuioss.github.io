@@ -1,0 +1,55 @@
+{
+  "benchmark": {
+    "name": "jwtValidation",
+    "start_time": "2026-07-27T15:56:43Z",
+    "end_time": "2026-07-27T15:57:48Z",
+    "duration_seconds": 65
+  },
+  "resources": {
+    "cpu": {
+      "process": {
+        "average_percent": 75.8,
+        "peak_percent": 83.4,
+        "std_dev": 20.01,
+        "percentiles": {
+          "p50": 82.7,
+          "p75": 82.9,
+          "p90": 83.0,
+          "p99": 83.4
+        }
+      },
+      "system": {
+        "average_percent": 95.4,
+        "peak_percent": 99.2,
+        "std_dev": 1.28
+      },
+      "cores_available": 4
+    },
+    "memory": {
+      "heap": {
+        "average_mb": 13.0,
+        "peak_mb": 25.5,
+        "final_mb": 16.0
+      },
+      "gc": {
+        "overhead_percent": 0.0
+      }
+    },
+    "threads": {
+      "average": 57,
+      "peak": 64,
+      "final": 64,
+      "daemon": 19
+    }
+  },
+  "application": {
+    "jwt_validations": {
+      "total": 407515,
+      "success": 407515,
+      "errors": 0,
+      "cache_hits": 66153,
+      "cache_hit_rate_percent": 16.2,
+      "average_validation_time_ms": 0.34
+    }
+  }
+}
