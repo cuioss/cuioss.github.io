@@ -1,0 +1,997 @@
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-08-03 15:25:56,242 WARN  [io.quarkus.runtime.configuration.ConfigRecorder] (main) The profile 'prod' used to build the native image is different from the runtime profile 'it'. This may lead to unexpected results.
+2026-08-03 15:25:56,246 WARN  [io.quarkus.config] (main) The "quarkus.log.file.enable" config property is deprecated and should not be used anymore.
+2026-08-03 15:25:56,462 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-secure-directory' effective posture: anchor='assets-secure', auth.require='bearer', filter='strict'
+2026-08-03 15:25:56,462 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-directory' effective posture: anchor='assets-public', auth.require='none', filter='strict'
+2026-08-03 15:25:56,462 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-upstream' effective posture: anchor='assets-public', auth.require='none', filter='strict'
+2026-08-03 15:25:56,462 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-demo' effective posture: anchor='assets-public', auth.require='none', filter='strict'
+2026-08-03 15:25:56,462 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'bff-session-mediated' effective posture: anchor='bff-session', auth.require='session', filter='strict'
+2026-08-03 15:25:56,463 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'grpc-echo' effective posture: anchor='grpc', auth.require='none', filter='strict'
+2026-08-03 15:25:56,463 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'grpc-bearer' effective posture: anchor='grpc', auth.require='bearer', filter='strict'
+2026-08-03 15:25:56,463 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-proxy' effective posture: anchor='api', auth.require='none', filter='strict'
+2026-08-03 15:25:56,463 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-minimal-mode' effective posture: anchor='api', auth.require='none', filter='minimal'
+2026-08-03 15:25:56,463 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-graphql' effective posture: anchor='graphql', auth.require='none', filter='strict'
+2026-08-03 15:25:56,463 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-upload-small' effective posture: anchor='upload', auth.require='none', filter='strict'
+2026-08-03 15:25:56,463 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-upload-large' effective posture: anchor='upload', auth.require='none', filter='strict'
+2026-08-03 15:25:56,463 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'secure-proxy' effective posture: anchor='secure', auth.require='bearer', filter='strict'
+2026-08-03 15:25:56,464 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'ws-echo' effective posture: anchor='ws', auth.require='none', filter='strict'
+2026-08-03 15:25:56,464 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'ws-bearer' effective posture: anchor='ws', auth.require='bearer', filter='strict'
+2026-08-03 15:25:56,464 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'ws-idle' effective posture: anchor='ws', auth.require='none', filter='strict'
+2026-08-03 15:25:56,464 INFO  [de.cuioss.sheriff.gateway.quarkus.ConfigProducer] (main) ApiSheriff-2: Configuration loaded successfully (config_version='integration-test')
+2026-08-03 15:25:56,505 INFO  [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (main) ApiSheriff-1: Route table compiled: 16 route runtime(s) assembled
+2026-08-03 15:25:56,507 INFO  [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-7: Accept-time SNI front listener started on port 8443 (2 passthrough SNI mapping(s))
+2026-08-03 15:25:56,508 INFO  [de.cuioss.sheriff.token.validation.IssuerConfigCache] (main) TokenSheriff-8: Issuer configuration loaded successfully: https://api-sheriff.test/it
+2026-08-03 15:25:56,509 INFO  [de.cuioss.sheriff.token.validation.TokenValidator] (main) TokenSheriff-1: TokenValidator initialized with 3 enabled issuer(s): [https://api-sheriff.test/it, https://keycloak:8443/realms/benchmark, https://keycloak:8443/realms/integration]
+2026-08-03 15:25:56,843 INFO  [io.quarkus] (main) api-sheriff 0.1.0-SNAPSHOT native (powered by Quarkus 3.38.0) started in 0.641s. Listening on: http://0.0.0.0:8080 and https://0.0.0.0:8444. Management interface listening on https://0.0.0.0:9000.
+2026-08-03 15:25:56,843 INFO  [io.quarkus] (main) Profile it activated. 
+2026-08-03 15:25:56,843 INFO  [io.quarkus] (main) Installed features: [cdi, config-yaml, hibernate-validator, micrometer, resteasy-jackson, scheduler, security, smallrye-context-propagation, smallrye-fault-tolerance, smallrye-health, token-sheriff, token-sheriff-client, vertx]
+2026-08-03 15:25:56,999 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-12: Initializing JwtMetricsCollector
+2026-08-03 15:25:57,000 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-13: JwtMetricsCollector initialized with 40 event types
+2026-08-03 15:25:57,000 INFO  [de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer] (executor-thread-1) TokenSheriff_Q-5: Initializing JWT validation components from configuration
+2026-08-03 15:25:57,001 INFO  [de.cuioss.sheriff.token.quarkus.config.ParserConfigResolver] (executor-thread-1) TokenSheriff_Q-4: Resolved ParserConfig: maxTokenSize=8192 bytes, maxPayloadSize=8192 bytes, maxStringLength=4096
+2026-08-03 15:25:57,001 INFO  [de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver] (executor-thread-1) TokenSheriff_Q-1: Resolving issuer configurations from properties
+2026-08-03 15:25:57,001 ERROR [io.quarkus.scheduler.common.runtime.StatusEmitterInvoker] (executor-thread-1) Error occurred while executing task for trigger IntervalTrigger [id=1_de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector#updateCounters, interval=10000]: java.util.concurrent.CompletionException: java.lang.IllegalStateException: No issuer configurations found in properties
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:376)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:391)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:895)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenCompleteStage(CompletableFuture.java:908)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.whenComplete(CompletableFuture.java:2384)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture$MinimalStage.whenComplete(CompletableFuture.java:2967)
+	at io.quarkus.scheduler.common.runtime.DefaultInvoker.invoke(DefaultInvoker.java:25)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.StatusEmitterInvoker.invoke(StatusEmitterInvoker.java:35)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeComplete(DelegateInvoker.java:36)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:54)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:51)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$4(ContextImpl.java:192)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
+	at io.vertx.core.impl.ContextImpl$1.execute(ContextImpl.java:221)
+	at io.vertx.core.impl.WorkerTask.run(WorkerTask.java:56)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:700)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base@25.0.3/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.3/java.lang.Thread.run(Thread.java:1474)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+Caused by: java.lang.IllegalStateException: No issuer configurations found in properties
+	at de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver.resolveIssuerConfigs(IssuerConfigResolver.java:106)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer.init(TokenValidatorProducer.java:120)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch31(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc_contextualInstance(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch41(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.getCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateSecurityEventCounters(JwtMetricsCollector.java:182)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateCounters(JwtMetricsCollector.java:174)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.initialize(JwtMetricsCollector.java:117)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch27(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.updateCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ScheduledInvoker_updateCounters_ba96277bca65bb958b29cf93b137bce400db53ee.invokeBean(Unknown Source)
+	... 23 more
+
+2026-08-03 15:25:57,284 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) TokenSheriff-3: Background JWKS refresh started with interval: 600 seconds
+2026-08-03 15:25:57,284 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) TokenSheriff-2: Keys updated due to data change - load state: loading
+2026-08-03 15:25:57,284 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) TokenSheriff-7: JWKS loaded successfully for issuer: https://keycloak:8443/realms/integration
+2026-08-03 15:25:57,284 INFO  [de.cuioss.sheriff.token.validation.IssuerConfigCache] (ForkJoinPool.commonPool-worker-3) TokenSheriff-8: Issuer configuration loaded successfully: https://keycloak:8443/realms/integration
+2026-08-03 15:25:57,285 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-1) TokenSheriff-3: Background JWKS refresh started with interval: 600 seconds
+2026-08-03 15:25:57,285 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-1) TokenSheriff-2: Keys updated due to data change - load state: loading
+2026-08-03 15:25:57,286 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-1) TokenSheriff-7: JWKS loaded successfully for issuer: https://keycloak:8443/realms/benchmark
+2026-08-03 15:25:57,286 INFO  [de.cuioss.sheriff.token.validation.IssuerConfigCache] (ForkJoinPool.commonPool-worker-1) TokenSheriff-8: Issuer configuration loaded successfully: https://keycloak:8443/realms/benchmark
+2026-08-03 15:26:06,999 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-12: Initializing JwtMetricsCollector
+2026-08-03 15:26:07,000 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-13: JwtMetricsCollector initialized with 40 event types
+2026-08-03 15:26:07,000 INFO  [de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer] (executor-thread-1) TokenSheriff_Q-5: Initializing JWT validation components from configuration
+2026-08-03 15:26:07,000 INFO  [de.cuioss.sheriff.token.quarkus.config.ParserConfigResolver] (executor-thread-1) TokenSheriff_Q-4: Resolved ParserConfig: maxTokenSize=8192 bytes, maxPayloadSize=8192 bytes, maxStringLength=4096
+2026-08-03 15:26:07,000 INFO  [de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver] (executor-thread-1) TokenSheriff_Q-1: Resolving issuer configurations from properties
+2026-08-03 15:26:07,000 ERROR [io.quarkus.scheduler.common.runtime.StatusEmitterInvoker] (executor-thread-1) Error occurred while executing task for trigger IntervalTrigger [id=1_de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector#updateCounters, interval=10000]: java.util.concurrent.CompletionException: java.lang.IllegalStateException: No issuer configurations found in properties
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:376)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:391)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:895)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenCompleteStage(CompletableFuture.java:908)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.whenComplete(CompletableFuture.java:2384)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture$MinimalStage.whenComplete(CompletableFuture.java:2967)
+	at io.quarkus.scheduler.common.runtime.DefaultInvoker.invoke(DefaultInvoker.java:25)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.StatusEmitterInvoker.invoke(StatusEmitterInvoker.java:35)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeComplete(DelegateInvoker.java:36)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:54)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:51)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$4(ContextImpl.java:192)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
+	at io.vertx.core.impl.ContextImpl$1.execute(ContextImpl.java:221)
+	at io.vertx.core.impl.WorkerTask.run(WorkerTask.java:56)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:700)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base@25.0.3/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.3/java.lang.Thread.run(Thread.java:1474)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+Caused by: java.lang.IllegalStateException: No issuer configurations found in properties
+	at de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver.resolveIssuerConfigs(IssuerConfigResolver.java:106)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer.init(TokenValidatorProducer.java:120)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch31(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc_contextualInstance(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch41(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.getCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateSecurityEventCounters(JwtMetricsCollector.java:182)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateCounters(JwtMetricsCollector.java:174)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.initialize(JwtMetricsCollector.java:117)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch27(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.updateCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ScheduledInvoker_updateCounters_ba96277bca65bb958b29cf93b137bce400db53ee.invokeBean(Unknown Source)
+	... 23 more
+
+2026-08-03 15:26:07,017 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:07,702 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:07,712 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff1) ApiSheriff-100: Security filter rejected a request on route 'httpbin-proxy': failure type Per-route filter rejected INVALID_CHARACTER at PARAMETER_VALUE
+2026-08-03 15:26:07,772 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:07,817 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:07,863 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:07,898 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:07,949 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:07,957 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff6) ApiSheriff-100: Security filter rejected a request on route '<no-route>': failure type Non-canonical path rejected: encoded path separator %2f
+2026-08-03 15:26:07,985 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:10,656 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:10,930 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:10,939 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff9) ApiSheriff-100: Security filter rejected a request on route 'httpbin-proxy': failure type Per-route filter rejected INVALID_CHARACTER at PARAMETER_VALUE
+2026-08-03 15:26:11,048 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:13,722 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:13,916 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:13,978 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:14,013 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:14,046 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:15,891 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-idle'
+2026-08-03 15:26:16,999 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-12: Initializing JwtMetricsCollector
+2026-08-03 15:26:17,011 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-13: JwtMetricsCollector initialized with 40 event types
+2026-08-03 15:26:17,011 INFO  [de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer] (executor-thread-1) TokenSheriff_Q-5: Initializing JWT validation components from configuration
+2026-08-03 15:26:17,011 INFO  [de.cuioss.sheriff.token.quarkus.config.ParserConfigResolver] (executor-thread-1) TokenSheriff_Q-4: Resolved ParserConfig: maxTokenSize=8192 bytes, maxPayloadSize=8192 bytes, maxStringLength=4096
+2026-08-03 15:26:17,011 INFO  [de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver] (executor-thread-1) TokenSheriff_Q-1: Resolving issuer configurations from properties
+2026-08-03 15:26:17,011 ERROR [io.quarkus.scheduler.common.runtime.StatusEmitterInvoker] (executor-thread-1) Error occurred while executing task for trigger IntervalTrigger [id=1_de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector#updateCounters, interval=10000]: java.util.concurrent.CompletionException: java.lang.IllegalStateException: No issuer configurations found in properties
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:376)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:391)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:895)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenCompleteStage(CompletableFuture.java:908)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.whenComplete(CompletableFuture.java:2384)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture$MinimalStage.whenComplete(CompletableFuture.java:2967)
+	at io.quarkus.scheduler.common.runtime.DefaultInvoker.invoke(DefaultInvoker.java:25)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.StatusEmitterInvoker.invoke(StatusEmitterInvoker.java:35)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeComplete(DelegateInvoker.java:36)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:54)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:51)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$4(ContextImpl.java:192)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
+	at io.vertx.core.impl.ContextImpl$1.execute(ContextImpl.java:221)
+	at io.vertx.core.impl.WorkerTask.run(WorkerTask.java:56)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:700)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base@25.0.3/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.3/java.lang.Thread.run(Thread.java:1474)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+Caused by: java.lang.IllegalStateException: No issuer configurations found in properties
+	at de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver.resolveIssuerConfigs(IssuerConfigResolver.java:106)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer.init(TokenValidatorProducer.java:120)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch31(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc_contextualInstance(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch41(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.getCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateSecurityEventCounters(JwtMetricsCollector.java:182)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateCounters(JwtMetricsCollector.java:174)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.initialize(JwtMetricsCollector.java:117)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch27(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.updateCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ScheduledInvoker_updateCounters_ba96277bca65bb958b29cf93b137bce400db53ee.invokeBean(Unknown Source)
+	... 23 more
+
+2026-08-03 15:26:17,892 WARNING [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-106: WebSocket relay on route 'ws-idle' reclaimed after idle timeout of 2 seconds
+2026-08-03 15:26:19,175 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-08-03 15:26:19,205 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-idle'
+2026-08-03 15:26:24,023 WARNING [de.cuioss.sheriff.gateway.pipeline.OriginValidationStage] (api-sheriff21) ApiSheriff-105: WebSocket upgrade rejected on route 'ws-echo': foreign origin
+2026-08-03 15:26:24,035 WARNING [de.cuioss.sheriff.gateway.pipeline.OriginValidationStage] (api-sheriff22) ApiSheriff-105: WebSocket upgrade rejected on route 'ws-echo': absent origin
+2026-08-03 15:26:26,000 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-12: Initializing JwtMetricsCollector
+2026-08-03 15:26:26,000 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-13: JwtMetricsCollector initialized with 40 event types
+2026-08-03 15:26:26,000 INFO  [de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer] (executor-thread-1) TokenSheriff_Q-5: Initializing JWT validation components from configuration
+2026-08-03 15:26:26,000 INFO  [de.cuioss.sheriff.token.quarkus.config.ParserConfigResolver] (executor-thread-1) TokenSheriff_Q-4: Resolved ParserConfig: maxTokenSize=8192 bytes, maxPayloadSize=8192 bytes, maxStringLength=4096
+2026-08-03 15:26:26,000 INFO  [de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver] (executor-thread-1) TokenSheriff_Q-1: Resolving issuer configurations from properties
+2026-08-03 15:26:26,000 ERROR [io.quarkus.scheduler.common.runtime.StatusEmitterInvoker] (executor-thread-1) Error occurred while executing task for trigger IntervalTrigger [id=1_de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector#updateCounters, interval=10000]: java.util.concurrent.CompletionException: java.lang.IllegalStateException: No issuer configurations found in properties
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:376)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:391)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:895)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenCompleteStage(CompletableFuture.java:908)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.whenComplete(CompletableFuture.java:2384)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture$MinimalStage.whenComplete(CompletableFuture.java:2967)
+	at io.quarkus.scheduler.common.runtime.DefaultInvoker.invoke(DefaultInvoker.java:25)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.StatusEmitterInvoker.invoke(StatusEmitterInvoker.java:35)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeComplete(DelegateInvoker.java:36)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:54)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:51)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$4(ContextImpl.java:192)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
+	at io.vertx.core.impl.ContextImpl$1.execute(ContextImpl.java:221)
+	at io.vertx.core.impl.WorkerTask.run(WorkerTask.java:56)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:700)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base@25.0.3/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.3/java.lang.Thread.run(Thread.java:1474)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+Caused by: java.lang.IllegalStateException: No issuer configurations found in properties
+	at de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver.resolveIssuerConfigs(IssuerConfigResolver.java:106)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer.init(TokenValidatorProducer.java:120)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch31(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc_contextualInstance(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch41(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.getCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateSecurityEventCounters(JwtMetricsCollector.java:182)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateCounters(JwtMetricsCollector.java:174)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.initialize(JwtMetricsCollector.java:117)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch27(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.updateCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ScheduledInvoker_updateCounters_ba96277bca65bb958b29cf93b137bce400db53ee.invokeBean(Unknown Source)
+	... 23 more
+
+2026-08-03 15:26:27,013 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:27,561 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:27,570 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff24) ApiSheriff-108: Host-vs-SNI smuggle rejected before route selection: Terminated request Host names a reserved passthrough SNI
+2026-08-03 15:26:30,240 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:30,336 INFO  [de.cuioss.sheriff.token.client.discovery.DiscoveryResolver] (api-sheriff25) TokenSheriffClient-1: Resolved OIDC provider metadata for issuer 'https://keycloak:8443/realms/integration'
+2026-08-03 15:26:30,770 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:30,831 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:30,871 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:30,929 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:32,634 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:32,699 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff30) ApiSheriff-100: Security filter rejected a request on route '<no-route>': failure type Framing rejected: Body present on bodyless method GET
+2026-08-03 15:26:32,711 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:35,328 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:36,999 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-12: Initializing JwtMetricsCollector
+2026-08-03 15:26:36,999 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-13: JwtMetricsCollector initialized with 40 event types
+2026-08-03 15:26:37,000 INFO  [de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer] (executor-thread-1) TokenSheriff_Q-5: Initializing JWT validation components from configuration
+2026-08-03 15:26:37,000 INFO  [de.cuioss.sheriff.token.quarkus.config.ParserConfigResolver] (executor-thread-1) TokenSheriff_Q-4: Resolved ParserConfig: maxTokenSize=8192 bytes, maxPayloadSize=8192 bytes, maxStringLength=4096
+2026-08-03 15:26:37,000 INFO  [de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver] (executor-thread-1) TokenSheriff_Q-1: Resolving issuer configurations from properties
+2026-08-03 15:26:37,000 ERROR [io.quarkus.scheduler.common.runtime.StatusEmitterInvoker] (executor-thread-1) Error occurred while executing task for trigger IntervalTrigger [id=1_de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector#updateCounters, interval=10000]: java.util.concurrent.CompletionException: java.lang.IllegalStateException: No issuer configurations found in properties
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:376)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:391)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:895)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenCompleteStage(CompletableFuture.java:908)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.whenComplete(CompletableFuture.java:2384)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture$MinimalStage.whenComplete(CompletableFuture.java:2967)
+	at io.quarkus.scheduler.common.runtime.DefaultInvoker.invoke(DefaultInvoker.java:25)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.StatusEmitterInvoker.invoke(StatusEmitterInvoker.java:35)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeComplete(DelegateInvoker.java:36)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:54)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:51)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$4(ContextImpl.java:192)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
+	at io.vertx.core.impl.ContextImpl$1.execute(ContextImpl.java:221)
+	at io.vertx.core.impl.WorkerTask.run(WorkerTask.java:56)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:700)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base@25.0.3/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.3/java.lang.Thread.run(Thread.java:1474)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+Caused by: java.lang.IllegalStateException: No issuer configurations found in properties
+	at de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver.resolveIssuerConfigs(IssuerConfigResolver.java:106)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer.init(TokenValidatorProducer.java:120)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch31(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc_contextualInstance(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch41(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.getCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateSecurityEventCounters(JwtMetricsCollector.java:182)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateCounters(JwtMetricsCollector.java:174)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.initialize(JwtMetricsCollector.java:117)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch27(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.updateCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ScheduledInvoker_updateCounters_ba96277bca65bb958b29cf93b137bce400db53ee.invokeBean(Unknown Source)
+	... 23 more
+
+2026-08-03 15:26:41,529 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:41,723 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:42,059 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:42,105 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:44,856 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:45,523 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:47,002 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-12: Initializing JwtMetricsCollector
+2026-08-03 15:26:47,002 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-13: JwtMetricsCollector initialized with 40 event types
+2026-08-03 15:26:47,002 INFO  [de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer] (executor-thread-1) TokenSheriff_Q-5: Initializing JWT validation components from configuration
+2026-08-03 15:26:47,002 INFO  [de.cuioss.sheriff.token.quarkus.config.ParserConfigResolver] (executor-thread-1) TokenSheriff_Q-4: Resolved ParserConfig: maxTokenSize=8192 bytes, maxPayloadSize=8192 bytes, maxStringLength=4096
+2026-08-03 15:26:47,002 INFO  [de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver] (executor-thread-1) TokenSheriff_Q-1: Resolving issuer configurations from properties
+2026-08-03 15:26:47,002 ERROR [io.quarkus.scheduler.common.runtime.StatusEmitterInvoker] (executor-thread-1) Error occurred while executing task for trigger IntervalTrigger [id=1_de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector#updateCounters, interval=10000]: java.util.concurrent.CompletionException: java.lang.IllegalStateException: No issuer configurations found in properties
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:376)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:391)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:895)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenCompleteStage(CompletableFuture.java:908)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.whenComplete(CompletableFuture.java:2384)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture$MinimalStage.whenComplete(CompletableFuture.java:2967)
+	at io.quarkus.scheduler.common.runtime.DefaultInvoker.invoke(DefaultInvoker.java:25)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.StatusEmitterInvoker.invoke(StatusEmitterInvoker.java:35)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeComplete(DelegateInvoker.java:36)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:54)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:51)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$4(ContextImpl.java:192)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
+	at io.vertx.core.impl.ContextImpl$1.execute(ContextImpl.java:221)
+	at io.vertx.core.impl.WorkerTask.run(WorkerTask.java:56)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:700)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base@25.0.3/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.3/java.lang.Thread.run(Thread.java:1474)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+Caused by: java.lang.IllegalStateException: No issuer configurations found in properties
+	at de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver.resolveIssuerConfigs(IssuerConfigResolver.java:106)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer.init(TokenValidatorProducer.java:120)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch31(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc_contextualInstance(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch41(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.getCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateSecurityEventCounters(JwtMetricsCollector.java:182)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateCounters(JwtMetricsCollector.java:174)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.initialize(JwtMetricsCollector.java:117)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch27(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.updateCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ScheduledInvoker_updateCounters_ba96277bca65bb958b29cf93b137bce400db53ee.invokeBean(Unknown Source)
+	... 23 more
+
+2026-08-03 15:26:47,800 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,264 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,268 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,268 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,268 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,435 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,436 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,462 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,468 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,536 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,547 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,556 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,563 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,611 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,621 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,640 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:51,646 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:55,615 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:55,715 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:55,762 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:55,819 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:55,828 WARNING [de.cuioss.sheriff.token.validation.pipeline.NonValidatingJwtParser] (api-sheriff62) TokenSheriff-104: Invalid JWT Token format: expected 3 parts (JWS) or 5 parts (JWE) but got 1
+2026-08-03 15:26:57,999 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-12: Initializing JwtMetricsCollector
+2026-08-03 15:26:58,001 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-13: JwtMetricsCollector initialized with 40 event types
+2026-08-03 15:26:58,002 INFO  [de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer] (executor-thread-1) TokenSheriff_Q-5: Initializing JWT validation components from configuration
+2026-08-03 15:26:58,002 INFO  [de.cuioss.sheriff.token.quarkus.config.ParserConfigResolver] (executor-thread-1) TokenSheriff_Q-4: Resolved ParserConfig: maxTokenSize=8192 bytes, maxPayloadSize=8192 bytes, maxStringLength=4096
+2026-08-03 15:26:58,002 INFO  [de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver] (executor-thread-1) TokenSheriff_Q-1: Resolving issuer configurations from properties
+2026-08-03 15:26:58,002 ERROR [io.quarkus.scheduler.common.runtime.StatusEmitterInvoker] (executor-thread-1) Error occurred while executing task for trigger IntervalTrigger [id=1_de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector#updateCounters, interval=10000]: java.util.concurrent.CompletionException: java.lang.IllegalStateException: No issuer configurations found in properties
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:376)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:391)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:895)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenCompleteStage(CompletableFuture.java:908)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.whenComplete(CompletableFuture.java:2384)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture$MinimalStage.whenComplete(CompletableFuture.java:2967)
+	at io.quarkus.scheduler.common.runtime.DefaultInvoker.invoke(DefaultInvoker.java:25)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.StatusEmitterInvoker.invoke(StatusEmitterInvoker.java:35)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeComplete(DelegateInvoker.java:36)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:54)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:51)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$4(ContextImpl.java:192)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
+	at io.vertx.core.impl.ContextImpl$1.execute(ContextImpl.java:221)
+	at io.vertx.core.impl.WorkerTask.run(WorkerTask.java:56)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:700)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base@25.0.3/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.3/java.lang.Thread.run(Thread.java:1474)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+Caused by: java.lang.IllegalStateException: No issuer configurations found in properties
+	at de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver.resolveIssuerConfigs(IssuerConfigResolver.java:106)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer.init(TokenValidatorProducer.java:120)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch31(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc_contextualInstance(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch41(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.getCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateSecurityEventCounters(JwtMetricsCollector.java:182)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateCounters(JwtMetricsCollector.java:174)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.initialize(JwtMetricsCollector.java:117)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch27(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.updateCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ScheduledInvoker_updateCounters_ba96277bca65bb958b29cf93b137bce400db53ee.invokeBean(Unknown Source)
+	... 23 more
+
+2026-08-03 15:26:58,614 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:58,796 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:26:58,838 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:01,654 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:02,109 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:02,176 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:02,702 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:04,432 INFO  [de.cuioss.sheriff.gateway.tls.PassthroughRelay] (vert.x-eventloop-thread-0) ApiSheriff-6: Passthrough relay established for SNI 'passthrough.test.example' to upstream 'passthrough-backend:8443'
+2026-08-03 15:27:05,499 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:07,999 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-12: Initializing JwtMetricsCollector
+2026-08-03 15:27:08,001 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-13: JwtMetricsCollector initialized with 40 event types
+2026-08-03 15:27:08,001 INFO  [de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer] (executor-thread-1) TokenSheriff_Q-5: Initializing JWT validation components from configuration
+2026-08-03 15:27:08,001 INFO  [de.cuioss.sheriff.token.quarkus.config.ParserConfigResolver] (executor-thread-1) TokenSheriff_Q-4: Resolved ParserConfig: maxTokenSize=8192 bytes, maxPayloadSize=8192 bytes, maxStringLength=4096
+2026-08-03 15:27:08,001 INFO  [de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver] (executor-thread-1) TokenSheriff_Q-1: Resolving issuer configurations from properties
+2026-08-03 15:27:08,001 ERROR [io.quarkus.scheduler.common.runtime.StatusEmitterInvoker] (executor-thread-1) Error occurred while executing task for trigger IntervalTrigger [id=1_de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector#updateCounters, interval=10000]: java.util.concurrent.CompletionException: java.lang.IllegalStateException: No issuer configurations found in properties
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:376)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:391)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:895)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenCompleteStage(CompletableFuture.java:908)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.whenComplete(CompletableFuture.java:2384)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture$MinimalStage.whenComplete(CompletableFuture.java:2967)
+	at io.quarkus.scheduler.common.runtime.DefaultInvoker.invoke(DefaultInvoker.java:25)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.StatusEmitterInvoker.invoke(StatusEmitterInvoker.java:35)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeComplete(DelegateInvoker.java:36)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:54)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:51)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$4(ContextImpl.java:192)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
+	at io.vertx.core.impl.ContextImpl$1.execute(ContextImpl.java:221)
+	at io.vertx.core.impl.WorkerTask.run(WorkerTask.java:56)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:700)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base@25.0.3/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.3/java.lang.Thread.run(Thread.java:1474)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+Caused by: java.lang.IllegalStateException: No issuer configurations found in properties
+	at de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver.resolveIssuerConfigs(IssuerConfigResolver.java:106)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer.init(TokenValidatorProducer.java:120)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch31(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc_contextualInstance(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch41(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.getCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateSecurityEventCounters(JwtMetricsCollector.java:182)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateCounters(JwtMetricsCollector.java:174)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.initialize(JwtMetricsCollector.java:117)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch27(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.updateCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ScheduledInvoker_updateCounters_ba96277bca65bb958b29cf93b137bce400db53ee.invokeBean(Unknown Source)
+	... 23 more
+
+2026-08-03 15:27:08,685 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:09,323 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:09,386 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:11,255 INFO  [de.cuioss.sheriff.gateway.tls.PassthroughRelay] (vert.x-eventloop-thread-0) ApiSheriff-6: Passthrough relay established for SNI 'fault.test.example' to upstream 'toxiproxy:8666'
+2026-08-03 15:27:14,501 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:14,941 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:15,001 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:17,000 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-12: Initializing JwtMetricsCollector
+2026-08-03 15:27:17,001 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-13: JwtMetricsCollector initialized with 40 event types
+2026-08-03 15:27:17,001 INFO  [de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer] (executor-thread-1) TokenSheriff_Q-5: Initializing JWT validation components from configuration
+2026-08-03 15:27:17,001 INFO  [de.cuioss.sheriff.token.quarkus.config.ParserConfigResolver] (executor-thread-1) TokenSheriff_Q-4: Resolved ParserConfig: maxTokenSize=8192 bytes, maxPayloadSize=8192 bytes, maxStringLength=4096
+2026-08-03 15:27:17,001 INFO  [de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver] (executor-thread-1) TokenSheriff_Q-1: Resolving issuer configurations from properties
+2026-08-03 15:27:17,001 ERROR [io.quarkus.scheduler.common.runtime.StatusEmitterInvoker] (executor-thread-1) Error occurred while executing task for trigger IntervalTrigger [id=1_de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector#updateCounters, interval=10000]: java.util.concurrent.CompletionException: java.lang.IllegalStateException: No issuer configurations found in properties
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:376)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:391)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:895)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenCompleteStage(CompletableFuture.java:908)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.whenComplete(CompletableFuture.java:2384)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture$MinimalStage.whenComplete(CompletableFuture.java:2967)
+	at io.quarkus.scheduler.common.runtime.DefaultInvoker.invoke(DefaultInvoker.java:25)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.StatusEmitterInvoker.invoke(StatusEmitterInvoker.java:35)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeComplete(DelegateInvoker.java:36)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:54)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:51)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$4(ContextImpl.java:192)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
+	at io.vertx.core.impl.ContextImpl$1.execute(ContextImpl.java:221)
+	at io.vertx.core.impl.WorkerTask.run(WorkerTask.java:56)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:700)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base@25.0.3/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.3/java.lang.Thread.run(Thread.java:1474)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+Caused by: java.lang.IllegalStateException: No issuer configurations found in properties
+	at de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver.resolveIssuerConfigs(IssuerConfigResolver.java:106)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer.init(TokenValidatorProducer.java:120)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch31(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc_contextualInstance(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch41(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.getCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateSecurityEventCounters(JwtMetricsCollector.java:182)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateCounters(JwtMetricsCollector.java:174)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.initialize(JwtMetricsCollector.java:117)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch27(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.updateCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ScheduledInvoker_updateCounters_ba96277bca65bb958b29cf93b137bce400db53ee.invokeBean(Unknown Source)
+	... 23 more
+
+2026-08-03 15:27:28,001 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-12: Initializing JwtMetricsCollector
+2026-08-03 15:27:28,001 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-13: JwtMetricsCollector initialized with 40 event types
+2026-08-03 15:27:28,001 INFO  [de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer] (executor-thread-1) TokenSheriff_Q-5: Initializing JWT validation components from configuration
+2026-08-03 15:27:28,001 INFO  [de.cuioss.sheriff.token.quarkus.config.ParserConfigResolver] (executor-thread-1) TokenSheriff_Q-4: Resolved ParserConfig: maxTokenSize=8192 bytes, maxPayloadSize=8192 bytes, maxStringLength=4096
+2026-08-03 15:27:28,001 INFO  [de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver] (executor-thread-1) TokenSheriff_Q-1: Resolving issuer configurations from properties
+2026-08-03 15:27:28,001 ERROR [io.quarkus.scheduler.common.runtime.StatusEmitterInvoker] (executor-thread-1) Error occurred while executing task for trigger IntervalTrigger [id=1_de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector#updateCounters, interval=10000]: java.util.concurrent.CompletionException: java.lang.IllegalStateException: No issuer configurations found in properties
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:376)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:391)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:895)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenCompleteStage(CompletableFuture.java:908)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.whenComplete(CompletableFuture.java:2384)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture$MinimalStage.whenComplete(CompletableFuture.java:2967)
+	at io.quarkus.scheduler.common.runtime.DefaultInvoker.invoke(DefaultInvoker.java:25)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.StatusEmitterInvoker.invoke(StatusEmitterInvoker.java:35)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeComplete(DelegateInvoker.java:36)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:54)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:51)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$4(ContextImpl.java:192)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
+	at io.vertx.core.impl.ContextImpl$1.execute(ContextImpl.java:221)
+	at io.vertx.core.impl.WorkerTask.run(WorkerTask.java:56)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:700)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base@25.0.3/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.3/java.lang.Thread.run(Thread.java:1474)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+Caused by: java.lang.IllegalStateException: No issuer configurations found in properties
+	at de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver.resolveIssuerConfigs(IssuerConfigResolver.java:106)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer.init(TokenValidatorProducer.java:120)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch31(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc_contextualInstance(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch41(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.getCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateSecurityEventCounters(JwtMetricsCollector.java:182)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateCounters(JwtMetricsCollector.java:174)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.initialize(JwtMetricsCollector.java:117)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch27(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.updateCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ScheduledInvoker_updateCounters_ba96277bca65bb958b29cf93b137bce400db53ee.invokeBean(Unknown Source)
+	... 23 more
+
+2026-08-03 15:27:29,193 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:33,855 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:34,036 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:34,101 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:36,856 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:37,358 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:37,419 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:37,868 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:37,927 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:37,975 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:37,999 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-12: Initializing JwtMetricsCollector
+2026-08-03 15:27:38,001 INFO  [de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector] (executor-thread-1) TokenSheriff_Q-13: JwtMetricsCollector initialized with 40 event types
+2026-08-03 15:27:38,001 INFO  [de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer] (executor-thread-1) TokenSheriff_Q-5: Initializing JWT validation components from configuration
+2026-08-03 15:27:38,001 INFO  [de.cuioss.sheriff.token.quarkus.config.ParserConfigResolver] (executor-thread-1) TokenSheriff_Q-4: Resolved ParserConfig: maxTokenSize=8192 bytes, maxPayloadSize=8192 bytes, maxStringLength=4096
+2026-08-03 15:27:38,001 INFO  [de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver] (executor-thread-1) TokenSheriff_Q-1: Resolving issuer configurations from properties
+2026-08-03 15:27:38,001 ERROR [io.quarkus.scheduler.common.runtime.StatusEmitterInvoker] (executor-thread-1) Error occurred while executing task for trigger IntervalTrigger [id=1_de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector#updateCounters, interval=10000]: java.util.concurrent.CompletionException: java.lang.IllegalStateException: No issuer configurations found in properties
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:376)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:391)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:895)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.uniWhenCompleteStage(CompletableFuture.java:908)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture.whenComplete(CompletableFuture.java:2384)
+	at java.base@25.0.3/java.util.concurrent.CompletableFuture$MinimalStage.whenComplete(CompletableFuture.java:2967)
+	at io.quarkus.scheduler.common.runtime.DefaultInvoker.invoke(DefaultInvoker.java:25)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.StatusEmitterInvoker.invoke(StatusEmitterInvoker.java:35)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeDelegate(DelegateInvoker.java:29)
+	at io.quarkus.scheduler.common.runtime.DelegateInvoker.invokeComplete(DelegateInvoker.java:36)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:54)
+	at io.quarkus.scheduler.common.runtime.OffloadingInvoker$2.call(OffloadingInvoker.java:51)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$4(ContextImpl.java:192)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
+	at io.vertx.core.impl.ContextImpl$1.execute(ContextImpl.java:221)
+	at io.vertx.core.impl.WorkerTask.run(WorkerTask.java:56)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$15.runWith(VertxCoreRecorder.java:700)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base@25.0.3/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.3/java.lang.Thread.run(Thread.java:1474)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+Caused by: java.lang.IllegalStateException: No issuer configurations found in properties
+	at de.cuioss.sheriff.token.quarkus.config.IssuerConfigResolver.resolveIssuerConfigs(IssuerConfigResolver.java:106)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer.init(TokenValidatorProducer.java:120)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch31(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ClientProxy.arc_contextualInstance(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.producer.TokenValidatorProducer_ProducerField_securityEventCounter_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch41(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.commons.events.TokenValidatorProducer_ProducerField_securityEventCounter_ClientProxy.getCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateSecurityEventCounters(JwtMetricsCollector.java:182)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.updateCounters(JwtMetricsCollector.java:174)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector.initialize(JwtMetricsCollector.java:117)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_Bean.create(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.createInstanceHandle(AbstractSharedContext.java:119)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:38)
+	at io.quarkus.arc.impl.AbstractSharedContext$1.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.ch27(Unknown Source)
+	at io.quarkus.arc.generator.Default_jakarta_enterprise_context_ApplicationScoped_ContextInstances.computeIfAbsent(Unknown Source)
+	at io.quarkus.arc.impl.AbstractSharedContext.get(AbstractSharedContext.java:35)
+	at io.quarkus.arc.impl.ClientProxies.getApplicationScopedDelegate(ClientProxies.java:23)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.arc$delegate(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ClientProxy.updateCounters(Unknown Source)
+	at de.cuioss.sheriff.token.quarkus.metrics.JwtMetricsCollector_ScheduledInvoker_updateCounters_ba96277bca65bb958b29cf93b137bce400db53ee.invokeBean(Unknown Source)
+	... 23 more
+
+2026-08-03 15:27:38,014 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:38,210 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:38,258 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:41,055 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:41,727 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:41,784 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:41,877 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:41,936 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-08-03 15:27:41,990 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
