@@ -1,77 +1,77 @@
 {
   "metadata": {
-    "timestamp": "2026-08-04T12:19:01.118860131Z",
-    "displayTimestamp": "2026-08-04 12:19:01 UTC",
+    "timestamp": "2026-08-04T21:46:31.637228702Z",
+    "displayTimestamp": "2026-08-04 21:46:31 UTC",
     "benchmarkType": "Integration Performance",
     "reportVersion": "2.0"
   },
   "overview": {
-    "throughput": "8.8K ops/s",
-    "latency": "6.0ms",
-    "throughputOpsPerSec": 8760.19,
-    "latencyMs": 5.17,
+    "throughput": "6.2K ops/s",
+    "latency": "8.4ms",
+    "throughputOpsPerSec": 6184.34,
+    "latencyMs": 7.3,
     "throughputBenchmarkName": "jwtValidation",
     "latencyBenchmarkName": "jwtValidation",
-    "performanceScore": 90,
-    "performanceGrade": "A",
-    "performanceGradeClass": "grade-a"
+    "performanceScore": 76,
+    "performanceGrade": "C",
+    "performanceGradeClass": "grade-c"
   },
   "benchmarks": [
     {
       "name": "jwtValidation",
       "fullName": "wrk.jwtValidation",
       "mode": "thrpt",
-      "score": "8.8K ops/s",
+      "score": "6.2K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "8.8K ops/s",
-      "latency": "6.0ms",
-      "error": 4.35,
-      "variabilityCoefficient": 72.25913621262458,
-      "confidenceLow": 1.67,
-      "confidenceHigh": 10.37,
+      "throughput": "6.2K ops/s",
+      "latency": "8.4ms",
+      "error": 5.8,
+      "variabilityCoefficient": 68.72037914691943,
+      "confidenceLow": 2.6399999999999997,
+      "confidenceHigh": 14.239999999999998,
       "percentiles": {
-        "50.0": 5.17,
-        "75.0": 7.59,
-        "90.0": 10.74,
-        "99.0": 19.05
+        "50.0": 7.3,
+        "75.0": 10.5,
+        "90.0": 14.65,
+        "99.0": 25.4
       }
     },
     {
       "name": "mockJwtValidation",
       "fullName": "wrk.mockJwtValidation",
       "mode": "thrpt",
-      "score": "14.4K ops/s",
+      "score": "9.5K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "14.4K ops/s",
-      "latency": "3.7ms",
-      "error": 3.37,
-      "variabilityCoefficient": 92.32876712328768,
-      "confidenceLow": 0.2799999999999998,
-      "confidenceHigh": 7.02,
+      "throughput": "9.5K ops/s",
+      "latency": "5.5ms",
+      "error": 3.43,
+      "variabilityCoefficient": 62.93577981651376,
+      "confidenceLow": 2.02,
+      "confidenceHigh": 8.88,
       "percentiles": {
-        "50.0": 3.07,
-        "75.0": 4.25,
-        "90.0": 5.82,
-        "99.0": 10.74
+        "50.0": 4.73,
+        "75.0": 6.32,
+        "90.0": 8.56,
+        "99.0": 14.6
       }
     },
     {
       "name": "healthLiveCheck",
       "fullName": "wrk.healthLiveCheck",
       "mode": "thrpt",
-      "score": "23.7K ops/s",
+      "score": "13.9K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "23.7K ops/s",
-      "latency": "2.2ms",
-      "error": 2.12,
-      "variabilityCoefficient": 95.06726457399104,
-      "confidenceLow": 0.10999999999999988,
-      "confidenceHigh": 4.35,
+      "throughput": "13.9K ops/s",
+      "latency": "3.7ms",
+      "error": 2.85,
+      "variabilityCoefficient": 76.40750670241287,
+      "confidenceLow": 0.8799999999999999,
+      "confidenceHigh": 6.58,
       "percentiles": {
-        "50.0": 1.8,
-        "75.0": 2.56,
-        "90.0": 3.64,
-        "99.0": 7.13
+        "50.0": 3.09,
+        "75.0": 4.25,
+        "90.0": 5.7,
+        "99.0": 10.44
       }
     }
   ],
@@ -82,14 +82,14 @@
       "healthLiveCheck"
     ],
     "throughput": [
-      8760.19,
-      14359.07,
-      23653.56
+      6184.34,
+      9459.44,
+      13879.07
     ],
     "latency": [
-      5.17,
-      3.07,
-      1.8
+      7.3,
+      4.73,
+      3.09
     ],
     "percentilesData": {
       "percentileLabels": [
@@ -110,30 +110,30 @@
       "data": {
         "jwtValidation": [
           null,
-          5.17,
-          10.74,
+          7.3,
+          14.65,
           null,
-          19.05,
+          25.4,
           null,
           null,
           null
         ],
         "mockJwtValidation": [
           null,
-          3.07,
-          5.82,
+          4.73,
+          8.56,
           null,
-          10.74,
+          14.6,
           null,
           null,
           null
         ],
         "healthLiveCheck": [
           null,
-          1.8,
-          3.64,
+          3.09,
+          5.7,
           null,
-          7.13,
+          10.44,
           null,
           null,
           null
@@ -151,14 +151,14 @@
           null
         ],
         "50.0th": [
-          5.17,
-          3.07,
-          1.8
+          7.3,
+          4.73,
+          3.09
         ],
         "90.0th": [
-          10.74,
-          5.82,
-          3.64
+          14.65,
+          8.56,
+          5.7
         ],
         "95.0th": [
           null,
@@ -166,9 +166,9 @@
           null
         ],
         "99.0th": [
-          19.05,
-          10.74,
-          7.13
+          25.4,
+          14.6,
+          10.44
         ],
         "99.9th": [
           null,
@@ -190,37 +190,37 @@
   },
   "trends": {
     "available": true,
-    "direction": "stable",
-    "changePercentage": -1.098901098901099,
-    "movingAverage": 90.5,
-    "throughputTrend": 1.862674418604657,
-    "latencyTrend": 20.232558139534888,
+    "direction": "down",
+    "changePercentage": -16.483516483516482,
+    "movingAverage": 83.5,
+    "throughputTrend": -28.08906976744186,
+    "latencyTrend": 69.76744186046511,
     "chartData": {
       "timestamps": [
-        "2026-08-04T12:09:13.343469824Z",
+        "2026-08-04T21:36:02.466170167Z",
         "Current"
       ],
       "throughput": [
         8600,
-        8760.19
+        6184.34
       ],
       "latency": [
         4.3,
-        5.17
+        7.3
       ],
       "performanceScores": [
         91,
-        90
+        76
       ],
       "statistics": {
-        "throughputMin": 8600,
-        "throughputMax": 8760.19,
-        "throughputAvg": 8680.095000000001,
+        "throughputMin": 6184.34,
+        "throughputMax": 8600,
+        "throughputAvg": 7392.17,
         "latencyMin": 4.3,
-        "latencyMax": 5.17,
-        "latencyAvg": 4.734999999999999
+        "latencyMax": 7.3,
+        "latencyAvg": 5.8
       }
     },
-    "summary": "Performance is stable (1.1% change)"
+    "summary": "Performance decreased by 16.5%"
   }
 }
