@@ -1,54 +1,54 @@
 {
   "benchmark": {
     "name": "jwtValidation",
-    "start_time": "2026-08-08T18:04:43Z",
-    "end_time": "2026-08-08T18:05:47Z",
-    "duration_seconds": 64
+    "start_time": "2026-08-09T01:43:06Z",
+    "end_time": "2026-08-09T01:44:12Z",
+    "duration_seconds": 66
   },
   "resources": {
     "cpu": {
       "process": {
-        "average_percent": 76.3,
-        "peak_percent": 84.2,
-        "std_dev": 19.19,
+        "average_percent": 74.5,
+        "peak_percent": 83.8,
+        "std_dev": 22.63,
         "percentiles": {
-          "p50": 82.5,
-          "p75": 82.9,
+          "p50": 82.7,
+          "p75": 83.2,
           "p90": 83.5,
-          "p99": 84.2
+          "p99": 83.8
         }
       },
       "system": {
         "average_percent": 95.4,
-        "peak_percent": 99.5,
-        "std_dev": 2.06
+        "peak_percent": 99.6,
+        "std_dev": 2.09
       },
       "cores_available": 4
     },
     "memory": {
       "heap": {
-        "average_mb": 14.8,
-        "peak_mb": 39.5,
-        "final_mb": 29.0
+        "average_mb": 15.6,
+        "peak_mb": 48.0,
+        "final_mb": 1.5
       },
       "gc": {
         "overhead_percent": 0.0
       }
     },
     "threads": {
-      "average": 61,
-      "peak": 67,
+      "average": 58,
+      "peak": 65,
       "final": 65,
       "daemon": 19
     }
   },
   "application": {
     "jwt_validations": {
-      "total": 468184,
-      "success": 468184,
+      "total": 426712,
+      "success": 426712,
       "errors": 0,
-      "cache_hits": 76109,
-      "cache_hit_rate_percent": 16.3,
+      "cache_hits": 68705,
+      "cache_hit_rate_percent": 16.1,
       "average_validation_time_ms": 0.34
     }
   }
