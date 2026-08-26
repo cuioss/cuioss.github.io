@@ -1,0 +1,32 @@
+[06:31:31.851] [Test] [info] Started: should handle configuration dialog failures gracefully
+[06:31:31.852] [Auth] [info] Ensuring NiFi is ready for testing...
+[06:31:31.852] [Auth] [info] Checking NiFi accessibility...
+[06:31:31.888] [Auth] [info] NiFi service is accessible
+[06:31:31.925] [Auth] [info] Checking NiFi accessibility...
+[06:31:31.954] [Auth] [info] NiFi service is accessible
+[06:31:31.954] [Auth] [info] Starting login for user: testUser...
+[06:31:33.488] [Auth] [info] Already authenticated
+[06:31:33.488] [Auth] [info] Login for user: testUser completed in 1534ms
+[06:31:33.506] [Auth] [info] NiFi is ready for testing
+[06:31:33.506] [Processor] [info] Verifying MultiIssuerJWTTokenAuthenticator is on canvas...
+[06:31:33.559] [Processor] [info] MultiIssuerJWTTokenAuthenticator found on canvas with ID: 143914df-0581-5ae2-ab51-514a7bc830e6
+[06:31:33.559] [Processor] [info] Processor already on canvas
+[06:31:33.559] [Processor] [info] Navigating to process group: https://localhost:9095/nifi#/process-groups/bfbfae55-79b0-5ac6-9830-8a95a2230479
+[06:31:34.413] [Processor] [info] All preconditions met
+[06:31:34.413] [Processor] [info] Stopping MultiIssuerJWTTokenAuthenticator processor...
+[06:31:34.413] [Processor] [info] Verifying MultiIssuerJWTTokenAuthenticator is on canvas...
+[06:31:34.502] [Processor] [info] MultiIssuerJWTTokenAuthenticator found on canvas with ID: 143914df-0581-5ae2-ab51-514a7bc830e6
+[06:31:34.553] [Processor] [info] Processor stopped successfully
+[06:31:35.666] [Processor] [warn] Processor interaction failed (rightclick): locator.click: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-nonexistent="true"]')[22m
+
+[06:31:36.731] [Processor] [warn] Processor interaction failed (doubleclick): locator.dblclick: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-nonexistent="true"]')[22m
+
+[06:31:36.731] [Processor] [warn] Configure processor failed: locator.dblclick: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-nonexistent="true"]')[22m
+
+[06:31:36.732] [Test] [info] Finished: passed
