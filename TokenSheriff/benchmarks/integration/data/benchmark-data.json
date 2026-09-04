@@ -1,95 +1,95 @@
 {
   "metadata": {
-    "timestamp": "2026-09-04T09:44:55.155011760Z",
-    "displayTimestamp": "2026-09-04 09:44:55 UTC",
+    "timestamp": "2026-09-04T10:09:46.175419956Z",
+    "displayTimestamp": "2026-09-04 10:09:46 UTC",
     "benchmarkType": "Integration Performance",
     "reportVersion": "2.0"
   },
   "overview": {
-    "throughput": "6.4K ops/s",
-    "latency": "8.1ms",
-    "throughputOpsPerSec": 6429.35,
-    "latencyMs": 7.04,
-    "throughputBenchmarkName": "jwtValidation",
-    "latencyBenchmarkName": "jwtValidation",
-    "performanceScore": 78,
-    "performanceGrade": "C",
-    "performanceGradeClass": "grade-c"
+    "throughput": "11.3K ops/s",
+    "latency": "4.6ms",
+    "throughputOpsPerSec": 11286.11,
+    "latencyMs": 3.95,
+    "throughputBenchmarkName": "mockJwtValidation",
+    "latencyBenchmarkName": "mockJwtValidation",
+    "performanceScore": 98,
+    "performanceGrade": "A",
+    "performanceGradeClass": "grade-a"
   },
   "benchmarks": [
+    {
+      "name": "mockJwtValidation",
+      "fullName": "wrk.mockJwtValidation",
+      "mode": "thrpt",
+      "score": "11.3K ops/s",
+      "scoreUnit": "ops/s",
+      "throughput": "11.3K ops/s",
+      "latency": "4.6ms",
+      "error": 4.05,
+      "variabilityCoefficient": 87.4730021598272,
+      "confidenceLow": 0.5800000000000001,
+      "confidenceHigh": 8.68,
+      "percentiles": {
+        "50.0": 3.95,
+        "75.0": 5.39,
+        "90.0": 7.32,
+        "99.0": 13.31
+      }
+    },
     {
       "name": "jwtValidation",
       "fullName": "wrk.jwtValidation",
       "mode": "thrpt",
-      "score": "6.4K ops/s",
+      "score": "7.0K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "6.4K ops/s",
-      "latency": "8.1ms",
-      "error": 5.33,
-      "variabilityCoefficient": 65.72133168927252,
-      "confidenceLow": 2.7799999999999994,
-      "confidenceHigh": 13.44,
+      "throughput": "7.0K ops/s",
+      "latency": "7.6ms",
+      "error": 5.91,
+      "variabilityCoefficient": 77.96833773087072,
+      "confidenceLow": 1.67,
+      "confidenceHigh": 13.49,
       "percentiles": {
-        "50.0": 7.04,
-        "75.0": 10.09,
-        "90.0": 14.09,
-        "99.0": 24.31
+        "50.0": 6.5,
+        "75.0": 9.48,
+        "90.0": 13.35,
+        "99.0": 23.45
       }
     },
     {
       "name": "healthLiveCheck",
       "fullName": "wrk.healthLiveCheck",
       "mode": "thrpt",
-      "score": "14.7K ops/s",
+      "score": "18.0K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "14.7K ops/s",
-      "latency": "3.5ms",
-      "error": 2.95,
-      "variabilityCoefficient": 83.33333333333334,
-      "confidenceLow": 0.5899999999999999,
-      "confidenceHigh": 6.49,
+      "throughput": "18.0K ops/s",
+      "latency": "2.9ms",
+      "error": 3.13,
+      "variabilityCoefficient": 106.82593856655289,
+      "confidenceLow": 0,
+      "confidenceHigh": 6.0600000000000005,
       "percentiles": {
-        "50.0": 2.91,
-        "75.0": 4.04,
-        "90.0": 5.44,
-        "99.0": 10.26
-      }
-    },
-    {
-      "name": "mockJwtValidation",
-      "fullName": "wrk.mockJwtValidation",
-      "mode": "thrpt",
-      "score": "9.9K ops/s",
-      "scoreUnit": "ops/s",
-      "throughput": "9.9K ops/s",
-      "latency": "5.2ms",
-      "error": 3.3,
-      "variabilityCoefficient": 63.2183908045977,
-      "confidenceLow": 1.92,
-      "confidenceHigh": 8.52,
-      "percentiles": {
-        "50.0": 4.54,
-        "75.0": 6.07,
-        "90.0": 8.19,
-        "99.0": 14.19
+        "50.0": 2.35,
+        "75.0": 3.34,
+        "90.0": 4.53,
+        "99.0": 8.73
       }
     }
   ],
   "chartData": {
     "labels": [
+      "mockJwtValidation",
       "jwtValidation",
-      "healthLiveCheck",
-      "mockJwtValidation"
+      "healthLiveCheck"
     ],
     "throughput": [
-      6429.35,
-      14737.68,
-      9864.25
+      11286.11,
+      6959.89,
+      18020.98
     ],
     "latency": [
-      7.04,
-      2.91,
-      4.54
+      3.95,
+      6.5,
+      2.35
     ],
     "percentilesData": {
       "percentileLabels": [
@@ -103,46 +103,46 @@
         "P100"
       ],
       "benchmarks": [
+        "mockJwtValidation",
         "jwtValidation",
-        "healthLiveCheck",
-        "mockJwtValidation"
+        "healthLiveCheck"
       ],
       "data": {
+        "mockJwtValidation": [
+          null,
+          3.95,
+          7.32,
+          null,
+          13.31,
+          null,
+          null,
+          null
+        ],
         "jwtValidation": [
           null,
-          7.04,
-          14.09,
+          6.5,
+          13.35,
           null,
-          24.31,
+          23.45,
           null,
           null,
           null
         ],
         "healthLiveCheck": [
           null,
-          2.91,
-          5.44,
+          2.35,
+          4.53,
           null,
-          10.26,
-          null,
-          null,
-          null
-        ],
-        "mockJwtValidation": [
-          null,
-          4.54,
-          8.19,
-          null,
-          14.19,
+          8.73,
           null,
           null,
           null
         ]
       },
       "labels": [
+        "mockJwtValidation",
         "jwtValidation",
-        "healthLiveCheck",
-        "mockJwtValidation"
+        "healthLiveCheck"
       ],
       "datasets": {
         "0.0th": [
@@ -151,14 +151,14 @@
           null
         ],
         "50.0th": [
-          7.04,
-          2.91,
-          4.54
+          3.95,
+          6.5,
+          2.35
         ],
         "90.0th": [
-          14.09,
-          5.44,
-          8.19
+          7.32,
+          13.35,
+          4.53
         ],
         "95.0th": [
           null,
@@ -166,9 +166,9 @@
           null
         ],
         "99.0th": [
-          24.31,
-          10.26,
-          14.19
+          13.31,
+          23.45,
+          8.73
         ],
         "99.9th": [
           null,
@@ -190,37 +190,37 @@
   },
   "trends": {
     "available": true,
-    "direction": "down",
-    "changePercentage": -14.285714285714285,
-    "movingAverage": 84.5,
-    "throughputTrend": -25.240116279069763,
-    "latencyTrend": 63.720930232558146,
+    "direction": "up",
+    "changePercentage": 7.6923076923076925,
+    "movingAverage": 94.5,
+    "throughputTrend": 31.233837209302333,
+    "latencyTrend": -8.139534883720923,
     "chartData": {
       "timestamps": [
-        "2026-09-04T09:34:10.572310800Z",
+        "2026-09-04T09:59:22.537241369Z",
         "Current"
       ],
       "throughput": [
         8600,
-        6429.35
+        11286.11
       ],
       "latency": [
         4.3,
-        7.04
+        3.95
       ],
       "performanceScores": [
         91,
-        78
+        98
       ],
       "statistics": {
-        "throughputMin": 6429.35,
-        "throughputMax": 8600,
-        "throughputAvg": 7514.675,
-        "latencyMin": 4.3,
-        "latencyMax": 7.04,
-        "latencyAvg": 5.67
+        "throughputMin": 8600,
+        "throughputMax": 11286.11,
+        "throughputAvg": 9943.055,
+        "latencyMin": 3.95,
+        "latencyMax": 4.3,
+        "latencyAvg": 4.125
       }
     },
-    "summary": "Performance decreased by 14.3%"
+    "summary": "Performance improved by 7.7%"
   }
 }
