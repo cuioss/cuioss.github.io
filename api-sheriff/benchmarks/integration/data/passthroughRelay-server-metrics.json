@@ -1,0 +1,54 @@
+{
+  "benchmark": {
+    "name": "passthroughRelay",
+    "start_time": "2026-09-11T08:30:44.167Z",
+    "end_time": "2026-09-11T08:31:44.170Z",
+    "duration_seconds": 60
+  },
+  "resources": {
+    "cpu": {
+      "process": {
+        "average_percent": 16.3,
+        "peak_percent": 18.4,
+        "std_dev": 3.06,
+        "percentiles": {
+          "p50": 17.1,
+          "p75": 17.8,
+          "p90": 17.9,
+          "p99": 18.4
+        }
+      },
+      "system": {
+        "average_percent": 16.4,
+        "peak_percent": 18.0,
+        "std_dev": 3.18
+      },
+      "cores_available": 4
+    },
+    "memory": {
+      "heap": {
+        "average_mb": 16.4,
+        "peak_mb": 43.5,
+        "final_mb": 9.5
+      },
+      "gc": {
+        "overhead_percent": 0.0
+      }
+    },
+    "threads": {
+      "average": 21,
+      "peak": 24,
+      "final": 20,
+      "daemon": 16
+    }
+  },
+  "application": {
+    "jwt_validations": {
+      "total": 0,
+      "success": 0,
+      "errors": 0,
+      "cache_hits": 0,
+      "cache_hit_rate_percent": 0.0
+    }
+  }
+}
