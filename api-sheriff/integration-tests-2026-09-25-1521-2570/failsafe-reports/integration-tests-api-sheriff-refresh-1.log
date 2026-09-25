@@ -1,0 +1,115 @@
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-09-25 15:12:16,676 WARN  [io.quarkus.runtime.configuration.ConfigRecorder] (main) The profile 'prod' used to build the native image is different from the runtime profile 'it'. This may lead to unexpected results.
+2026-09-25 15:12:16,951 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-secure-directory' effective posture: anchor='assets-secure', auth.require='bearer', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,952 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-directory' effective posture: anchor='assets-public', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,952 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-spa' effective posture: anchor='assets-public', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,953 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-upstream' effective posture: anchor='assets-public', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,953 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-demo' effective posture: anchor='assets-public', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,953 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'bff-scoped' effective posture: anchor='bff-session', auth.require='session', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,954 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'bff-session-fallback' effective posture: anchor='bff-session', auth.require='bearer', auth.session_fallback=true, filter='strict'
+2026-09-25 15:12:16,954 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'bff-session-mediated' effective posture: anchor='bff-session', auth.require='session', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,955 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'bff-session-norelay' effective posture: anchor='bff-session', auth.require='session', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,955 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'grpc-echo' effective posture: anchor='grpc', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,955 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'grpc-bearer' effective posture: anchor='grpc', auth.require='bearer', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,956 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-proxy' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,956 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-redirect-entry' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,956 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-minimal-mode' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='minimal'
+2026-09-25 15:12:16,957 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-graphql' effective posture: anchor='graphql', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,957 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-upload-small' effective posture: anchor='upload', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,957 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-upload-large' effective posture: anchor='upload', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,957 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-deny-list' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,958 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-forward-all' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,958 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'origin-headers' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,958 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'origin-location-rewrite' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='minimal'
+2026-09-25 15:12:16,959 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'origin-status' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,959 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'header-order-present-first-with' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,959 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'header-order-present-first-without' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,960 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'header-order-absent-first-without' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,960 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'header-order-absent-first-with' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,960 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'portal-hidden-landing' effective posture: anchor='assets-public', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,961 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'secure-scoped' effective posture: anchor='secure', auth.require='bearer', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,961 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'secure-proxy' effective posture: anchor='secure', auth.require='bearer', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,961 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'secure-filtered' effective posture: anchor='secure', auth.require='bearer', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,962 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'untrusted-chain-control' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,962 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'ws-echo' effective posture: anchor='ws', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,962 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'ws-bearer' effective posture: anchor='ws', auth.require='bearer', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,964 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'ws-idle' effective posture: anchor='ws', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-09-25 15:12:16,964 INFO  [de.cuioss.sheriff.gateway.quarkus.ConfigProducer] (main) ApiSheriff-2: Configuration loaded successfully (config_version='integration-test')
+2026-09-25 15:12:16,969 INFO  [de.cuioss.sheriff.token.validation.IssuerConfigCache] (main) TokenSheriff-8: Issuer configuration loaded successfully: https://api-sheriff.test/it
+2026-09-25 15:12:16,971 INFO  [de.cuioss.sheriff.token.validation.TokenValidator] (main) TokenSheriff-1: TokenValidator initialized with 3 enabled issuer(s): [https://api-sheriff.test/it, https://keycloak:8443/realms/benchmark, https://keycloak:8443/realms/integration]
+2026-09-25 15:12:17,120 INFO  [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (main) ApiSheriff-1: Route table compiled: 34 route runtime(s) assembled
+2026-09-25 15:12:17,121 INFO  [io.quarkus.scheduler.runtime.SimpleScheduler] (main) No scheduled business methods found - Simple scheduler will not be started
+2026-09-25 15:12:17,122 INFO  [de.cuioss.sheriff.gateway.tls.DefaultTrustSourceAudit] (main) ApiSheriff-17: Effective default trust source — legs holding a raw JDK TrustManager: operator-supplied store (kind=PKCS12, path=/app/certificates/localhost-truststore.p12); legs resolving through the Quarkus TLS registry: platform default trust bundle (the <default> TLS bucket carries no trust material)
+2026-09-25 15:12:17,124 WARNING [de.cuioss.sheriff.gateway.tls.DefaultTrustSourceAudit] (main) ApiSheriff-122: An operator-supplied default trust store is in effect. It REPLACES the platform trust bundle wholesale rather than being added to it, so every anchor the deployment did not put into that store stops being trusted — the public roots the platform shipped included. Legs holding a raw JDK TrustManager: operator-supplied store (kind=PKCS12, path=/app/certificates/localhost-truststore.p12). Legs resolving through the Quarkus TLS registry: platform default trust bundle (the <default> TLS bucket carries no trust material). The two tiers DIVERGE: only the raw-TrustManager legs were moved, and every leg resolving through the TLS registry still verifies against the platform bundle.
+2026-09-25 15:12:17,252 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-1) TokenSheriff-3: Background JWKS refresh started with interval: 600 seconds
+2026-09-25 15:12:17,253 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-1) TokenSheriff-2: Keys updated due to data change - load state: loading
+2026-09-25 15:12:17,253 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-1) TokenSheriff-7: JWKS loaded successfully for issuer: https://keycloak:8443/realms/benchmark
+2026-09-25 15:12:17,253 INFO  [de.cuioss.sheriff.token.validation.IssuerConfigCache] (ForkJoinPool.commonPool-worker-1) TokenSheriff-8: Issuer configuration loaded successfully: https://keycloak:8443/realms/benchmark
+2026-09-25 15:12:17,349 INFO  [io.quarkus] (main) api-sheriff 0.2.4-SNAPSHOT native (powered by Quarkus 3.39.3) started in 0.855s. Listening on: http://0.0.0.0:8080 and https://0.0.0.0:8443. Management interface listening on https://0.0.0.0:9000.
+2026-09-25 15:12:17,349 INFO  [io.quarkus] (main) Profile it activated. 
+2026-09-25 15:12:17,349 INFO  [io.quarkus] (main) Installed features: [cdi, config-yaml, hibernate-validator, micrometer, qute, resteasy-jackson, scheduler, security, smallrye-context-propagation, smallrye-fault-tolerance, smallrye-health, token-sheriff, token-sheriff-client, vertx]
+2026-09-25 15:12:17,349 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-2) TokenSheriff-3: Background JWKS refresh started with interval: 600 seconds
+2026-09-25 15:12:17,349 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-2) TokenSheriff-2: Keys updated due to data change - load state: loading
+2026-09-25 15:12:17,349 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-2) TokenSheriff-7: JWKS loaded successfully for issuer: https://keycloak:8443/realms/integration
+2026-09-25 15:12:17,349 INFO  [de.cuioss.sheriff.token.validation.IssuerConfigCache] (ForkJoinPool.commonPool-worker-2) TokenSheriff-8: Issuer configuration loaded successfully: https://keycloak:8443/realms/integration
+2026-09-25 15:15:29,350 INFO  [de.cuioss.sheriff.token.client.discovery.DiscoveryResolver] (api-sheriff0) TokenSheriffClient-1: Resolved OIDC provider metadata for issuer 'https://keycloak:8443/realms/integration'
+2026-09-25 15:15:52,430 WARNING [de.cuioss.sheriff.gateway.bff.refresh.TokenRefreshCoordinator] (api-sheriff5) ApiSheriff-111: Token refresh failed for a require:session route (credential-rejected) — session destroyed: de.cuioss.sheriff.token.client.flow.CredentialRejectedException: Token endpoint rejected the presented credential with HTTP 400 (RFC 6749 §5.2 'invalid_grant')
+	at de.cuioss.sheriff.token.client.flow.TokenEndpointClient.requestToken(TokenEndpointClient.java:172)
+	at de.cuioss.sheriff.token.client.flow.RefreshFlow.refresh(RefreshFlow.java:212)
+	at de.cuioss.sheriff.gateway.bff.login.ScopedEngineFlows.refresh(ScopedEngineFlows.java:144)
+	at de.cuioss.sheriff.gateway.quarkus.BffRuntimeProducer.lambda$build$5(BffRuntimeProducer.java:397)
+	at de.cuioss.sheriff.gateway.bff.refresh.TokenRefreshCoordinator.performRefresh(TokenRefreshCoordinator.java:335)
+	at de.cuioss.sheriff.gateway.bff.refresh.TokenRefreshCoordinator.refresh(TokenRefreshCoordinator.java:285)
+	at de.cuioss.sheriff.gateway.quarkus.BffRuntimeProducer.lambda$nearExpiryRefresh$0(BffRuntimeProducer.java:633)
+	at de.cuioss.sheriff.gateway.bff.runtime.SessionAuthenticationStage.process(SessionAuthenticationStage.java:152)
+	at de.cuioss.sheriff.gateway.auth.AuthenticationStage.process(AuthenticationStage.java:152)
+	at de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute.process(GatewayEdgeRoute.java:899)
+	at de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute.lambda$dispatchProcessing$0(GatewayEdgeRoute.java:750)
+	at io.quarkus.virtual.threads.ContextPreservingExecutorService$ContextPreservingRunnable.run(ContextPreservingExecutorService.java:45)
+	at java.base@25.0.4.1/java.util.concurrent.ThreadPerTaskExecutor$TaskRunner.run(ThreadPerTaskExecutor.java:291)
+	at java.base@25.0.4.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.4.1/java.lang.VirtualThread.run(VirtualThread.java:460)
+	at java.base@25.0.4.1/java.lang.VirtualThread$VThreadContinuation$1.run(VirtualThread.java:252)
+
+2026-09-25 15:15:52,476 INFO  [de.cuioss.sheriff.gateway.bff.refresh.TokenRefreshCoordinator] (api-sheriff6) ApiSheriff-12: Mediated tokens refreshed for a require:session route (single-flight)
+2026-09-25 15:17:40,929 INFO  [de.cuioss.sheriff.gateway.bff.refresh.TokenRefreshCoordinator] (api-sheriff10) ApiSheriff-12: Mediated tokens refreshed for a require:session route (single-flight)
+2026-09-25 15:18:03,584 WARNING [de.cuioss.sheriff.gateway.bff.refresh.TokenRefreshCoordinator] (api-sheriff13) ApiSheriff-111: Token refresh failed for a require:session route (credential-rejected) — session destroyed: de.cuioss.sheriff.token.client.flow.CredentialRejectedException: Token endpoint rejected the presented credential with HTTP 400 (RFC 6749 §5.2 'invalid_grant')
+	at de.cuioss.sheriff.token.client.flow.TokenEndpointClient.requestToken(TokenEndpointClient.java:172)
+	at de.cuioss.sheriff.token.client.flow.RefreshFlow.refresh(RefreshFlow.java:212)
+	at de.cuioss.sheriff.gateway.bff.login.ScopedEngineFlows.refresh(ScopedEngineFlows.java:144)
+	at de.cuioss.sheriff.gateway.quarkus.BffRuntimeProducer.lambda$build$5(BffRuntimeProducer.java:397)
+	at de.cuioss.sheriff.gateway.bff.refresh.TokenRefreshCoordinator.performRefresh(TokenRefreshCoordinator.java:335)
+	at de.cuioss.sheriff.gateway.bff.refresh.TokenRefreshCoordinator.refresh(TokenRefreshCoordinator.java:285)
+	at de.cuioss.sheriff.gateway.quarkus.BffRuntimeProducer.lambda$nearExpiryRefresh$0(BffRuntimeProducer.java:633)
+	at de.cuioss.sheriff.gateway.bff.runtime.SessionAuthenticationStage.process(SessionAuthenticationStage.java:152)
+	at de.cuioss.sheriff.gateway.auth.AuthenticationStage.process(AuthenticationStage.java:152)
+	at de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute.process(GatewayEdgeRoute.java:899)
+	at de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute.lambda$dispatchProcessing$0(GatewayEdgeRoute.java:750)
+	at io.quarkus.virtual.threads.ContextPreservingExecutorService$ContextPreservingRunnable.run(ContextPreservingExecutorService.java:45)
+	at java.base@25.0.4.1/java.util.concurrent.ThreadPerTaskExecutor$TaskRunner.run(ThreadPerTaskExecutor.java:291)
+	at java.base@25.0.4.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.4.1/java.lang.VirtualThread.run(VirtualThread.java:460)
+	at java.base@25.0.4.1/java.lang.VirtualThread$VThreadContinuation$1.run(VirtualThread.java:252)
+
+2026-09-25 15:18:25,976 INFO  [de.cuioss.sheriff.gateway.bff.refresh.TokenRefreshCoordinator] (api-sheriff18) ApiSheriff-12: Mediated tokens refreshed for a require:session route (single-flight)
+2026-09-25 15:18:49,059 WARNING [de.cuioss.sheriff.gateway.bff.refresh.TokenRefreshCoordinator] (api-sheriff28) ApiSheriff-111: Token refresh failed for a require:session route (credential-rejected) — session destroyed: de.cuioss.sheriff.token.client.flow.CredentialRejectedException: Token endpoint rejected the presented credential with HTTP 400 (RFC 6749 §5.2 'invalid_grant')
+	at de.cuioss.sheriff.token.client.flow.TokenEndpointClient.requestToken(TokenEndpointClient.java:172)
+	at de.cuioss.sheriff.token.client.flow.RefreshFlow.refresh(RefreshFlow.java:212)
+	at de.cuioss.sheriff.gateway.bff.login.ScopedEngineFlows.refresh(ScopedEngineFlows.java:144)
+	at de.cuioss.sheriff.gateway.quarkus.BffRuntimeProducer.lambda$build$5(BffRuntimeProducer.java:397)
+	at de.cuioss.sheriff.gateway.bff.refresh.TokenRefreshCoordinator.performRefresh(TokenRefreshCoordinator.java:335)
+	at de.cuioss.sheriff.gateway.bff.refresh.TokenRefreshCoordinator.refresh(TokenRefreshCoordinator.java:285)
+	at de.cuioss.sheriff.gateway.quarkus.BffRuntimeProducer.lambda$nearExpiryRefresh$0(BffRuntimeProducer.java:633)
+	at de.cuioss.sheriff.gateway.bff.runtime.SessionAuthenticationStage.process(SessionAuthenticationStage.java:152)
+	at de.cuioss.sheriff.gateway.auth.AuthenticationStage.process(AuthenticationStage.java:152)
+	at de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute.process(GatewayEdgeRoute.java:899)
+	at de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute.lambda$dispatchProcessing$0(GatewayEdgeRoute.java:750)
+	at io.quarkus.virtual.threads.ContextPreservingExecutorService$ContextPreservingRunnable.run(ContextPreservingExecutorService.java:45)
+	at java.base@25.0.4.1/java.util.concurrent.ThreadPerTaskExecutor$TaskRunner.run(ThreadPerTaskExecutor.java:291)
+	at java.base@25.0.4.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.4.1/java.lang.VirtualThread.run(VirtualThread.java:460)
+	at java.base@25.0.4.1/java.lang.VirtualThread$VThreadContinuation$1.run(VirtualThread.java:252)
+
