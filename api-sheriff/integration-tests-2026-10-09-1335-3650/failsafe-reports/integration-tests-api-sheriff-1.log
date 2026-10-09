@@ -1,0 +1,616 @@
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-10-09 13:19:29,040 WARN  [io.quarkus.runtime.configuration.ConfigRecorder] (main) The profile 'prod' used to build the native image is different from the runtime profile 'it'. This may lead to unexpected results.
+2026-10-09 13:19:29,092 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-secure-directory' effective posture: anchor='assets-secure', auth.require='bearer', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,092 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-directory' effective posture: anchor='assets-public', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,092 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-spa' effective posture: anchor='assets-public', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,092 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-upstream' effective posture: anchor='assets-public', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,092 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'assets-demo' effective posture: anchor='assets-public', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,092 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'bff-scoped' effective posture: anchor='bff-session', auth.require='session', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,092 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'bff-session-fallback' effective posture: anchor='bff-session', auth.require='bearer', auth.session_fallback=true, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'bff-session-ws' effective posture: anchor='bff-session', auth.require='session', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'bff-session-mediated' effective posture: anchor='bff-session', auth.require='session', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'bff-session-norelay' effective posture: anchor='bff-session', auth.require='session', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'bff-unassigned-scope' effective posture: anchor='bff-session', auth.require='session', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'bff-unassigned-scope-fallback' effective posture: anchor='bff-session', auth.require='bearer', auth.session_fallback=true, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'grpc-echo' effective posture: anchor='grpc', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'grpc-bearer' effective posture: anchor='grpc', auth.require='bearer', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-proxy' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-redirect-entry' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-minimal-mode' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='minimal'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-graphql' effective posture: anchor='graphql', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-upload-small' effective posture: anchor='upload', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-upload-large' effective posture: anchor='upload', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-deny-list' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'httpbin-forward-all' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'origin-headers' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'origin-location-rewrite' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='minimal'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'origin-status' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'header-order-present-first-with' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'header-order-present-first-without' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'header-order-absent-first-without' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'header-order-absent-first-with' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'secure-scoped' effective posture: anchor='secure', auth.require='bearer', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'secure-proxy' effective posture: anchor='secure', auth.require='bearer', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'secure-filtered' effective posture: anchor='secure', auth.require='bearer', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,093 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'untrusted-chain-control' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,094 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'upstream-fault' effective posture: anchor='api', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,094 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'ws-echo' effective posture: anchor='ws', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,094 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'ws-bearer' effective posture: anchor='ws', auth.require='bearer', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,094 INFO  [de.cuioss.sheriff.gateway.config.RouteTableBuilder] (main) ApiSheriff-3: Route 'ws-idle' effective posture: anchor='ws', auth.require='none', auth.session_fallback=false, filter='strict'
+2026-10-09 13:19:29,094 INFO  [de.cuioss.sheriff.gateway.quarkus.ConfigProducer] (main) ApiSheriff-2: Configuration loaded successfully (config_version='integration-test')
+2026-10-09 13:19:29,094 WARNING [de.cuioss.sheriff.gateway.quarkus.BffRuntimeProducer] (main) ApiSheriff-126: egress_tls.oidc_tls_profile 'benchmark-idp' is in effect — its anchors REPLACE the JVM default trust store on the BFF OIDC back-channel (discovery, the pushed authorization request, the authorization-code exchange, refresh and refresh-token revocation), so a public certificate authority is no longer trusted for the identity provider unless the profile carries it too. The JWKS back-channel and the proxy, gRPC and WebSocket egress clients are not governed by this profile
+2026-10-09 13:19:29,103 INFO  [de.cuioss.sheriff.token.validation.IssuerConfigCache] (main) TokenSheriff-8: Issuer configuration loaded successfully: https://api-sheriff.test/it
+2026-10-09 13:19:29,103 INFO  [de.cuioss.sheriff.token.validation.TokenValidator] (main) TokenSheriff-1: TokenValidator initialized with 3 enabled issuer(s): [https://api-sheriff.test/it, https://keycloak:8443/realms/benchmark, https://keycloak:8443/realms/integration]
+2026-10-09 13:19:29,104 INFO  [de.cuioss.sheriff.gateway.quarkus.PortalProducer] (main) ApiSheriff-19: Application portal enabled at '/portal' with 1 active catalog entries, template: /app/sheriff-config/portal/portal.html
+2026-10-09 13:19:29,106 INFO  [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (main) ApiSheriff-1: Route table compiled: 37 route runtime(s) assembled
+2026-10-09 13:19:29,107 INFO  [io.quarkus.scheduler.runtime.SimpleScheduler] (main) No scheduled business methods found - Simple scheduler will not be started
+2026-10-09 13:19:29,108 INFO  [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-7: Accept-time SNI front listener started on port 8443 (2 passthrough SNI mapping(s))
+2026-10-09 13:19:29,108 INFO  [de.cuioss.sheriff.gateway.tls.DefaultTrustSourceAudit] (main) ApiSheriff-17: Effective default trust source — legs holding a raw JDK TrustManager: platform default trust bundle (no javax.net.ssl.trustStore on the runtime command line); legs resolving through the Quarkus TLS registry: platform default trust bundle (the <default> TLS bucket carries no trust material)
+2026-10-09 13:19:29,283 INFO  [io.quarkus] (main) api-sheriff 0.2.5-SNAPSHOT native (powered by Quarkus 3.40.1) started in 0.263s. Listening on: http://0.0.0.0:8080 and https://0.0.0.0:8444. Management interface listening on https://0.0.0.0:9000.
+2026-10-09 13:19:29,283 INFO  [io.quarkus] (main) Profile it activated. 
+2026-10-09 13:19:29,283 INFO  [io.quarkus] (main) Installed features: [cdi, config-yaml, hibernate-validator, micrometer, qute, resteasy-jackson, scheduler, security, smallrye-context-propagation, smallrye-fault-tolerance, smallrye-health, token-sheriff, token-sheriff-client, vertx]
+2026-10-09 13:19:30,115 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) TokenSheriff-3: Background JWKS refresh started with interval: 600 seconds
+2026-10-09 13:19:30,116 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) TokenSheriff-2: Keys updated due to data change - load state: loading
+2026-10-09 13:19:30,116 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-3) TokenSheriff-7: JWKS loaded successfully for issuer: https://keycloak:8443/realms/integration
+2026-10-09 13:19:30,116 INFO  [de.cuioss.sheriff.token.validation.IssuerConfigCache] (ForkJoinPool.commonPool-worker-3) TokenSheriff-8: Issuer configuration loaded successfully: https://keycloak:8443/realms/integration
+2026-10-09 13:19:30,150 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-1) TokenSheriff-3: Background JWKS refresh started with interval: 600 seconds
+2026-10-09 13:19:30,151 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-1) TokenSheriff-2: Keys updated due to data change - load state: loading
+2026-10-09 13:19:30,151 INFO  [de.cuioss.sheriff.token.validation.jwks.http.HttpJwksLoader] (ForkJoinPool.commonPool-worker-1) TokenSheriff-7: JWKS loaded successfully for issuer: https://keycloak:8443/realms/benchmark
+2026-10-09 13:19:30,151 INFO  [de.cuioss.sheriff.token.validation.IssuerConfigCache] (ForkJoinPool.commonPool-worker-1) TokenSheriff-8: Issuer configuration loaded successfully: https://keycloak:8443/realms/benchmark
+2026-10-09 13:19:39,412 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:19:39,463 WARNING [de.cuioss.sheriff.gateway.bff.reserved.BackchannelLogoutEndpoint] (api-sheriff0) ApiSheriff-112: Back-channel logout token rejected: missing-logout-token
+2026-10-09 13:19:42,959 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,588 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,589 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,589 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,589 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,734 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,744 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,745 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,745 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,776 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,790 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,797 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,807 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,839 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,844 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,861 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:22:58,871 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:01,619 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,188 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,195 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff22) ApiSheriff-100: Security filter rejected a request on route 'httpbin-forward-all': failure type Per-route filter rejected NULL_BYTE_INJECTION at PARAMETER_VALUE
+2026-10-09 13:23:02,237 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,243 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff23) ApiSheriff-100: Security filter rejected a request on route 'httpbin-forward-all': failure type Per-route filter rejected CONTROL_CHARACTERS at PARAMETER_VALUE
+2026-10-09 13:23:02,278 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,284 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff24) ApiSheriff-100: Security filter rejected a request on route 'httpbin-forward-all': failure type Per-route filter rejected CONTROL_CHARACTERS at PARAMETER_VALUE
+2026-10-09 13:23:02,316 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,322 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff25) ApiSheriff-100: Security filter rejected a request on route 'httpbin-forward-all': failure type Per-route filter rejected CONTROL_CHARACTERS at PARAMETER_VALUE
+2026-10-09 13:23:02,351 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,357 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff26) ApiSheriff-100: Security filter rejected a request on route 'httpbin-forward-all': failure type Per-route filter rejected DOUBLE_ENCODING at PARAMETER_VALUE
+2026-10-09 13:23:02,388 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,433 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,490 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,533 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,574 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,616 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,654 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,686 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,721 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,724 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff35) ApiSheriff-100: Security filter rejected a request on route 'httpbin-forward-all': failure type Per-route filter rejected SUSPICIOUS_PATTERN_DETECTED at PARAMETER_VALUE
+2026-10-09 13:23:02,749 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,755 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff36) ApiSheriff-100: Security filter rejected a request on route 'httpbin-forward-all': failure type Per-route filter rejected INVALID_CHARACTER at PARAMETER_NAME
+2026-10-09 13:23:02,780 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,785 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff37) ApiSheriff-100: Security filter rejected a request on route 'httpbin-forward-all': failure type Per-route filter rejected INVALID_CHARACTER at PARAMETER_NAME
+2026-10-09 13:23:02,819 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:02,828 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff38) ApiSheriff-100: Security filter rejected a request on route '<no-route>': failure type Security filter rejected INPUT_TOO_LONG at HEADER_VALUE
+2026-10-09 13:23:02,851 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:05,139 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:05,877 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:06,068 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:06,122 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:42,692 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:42,836 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:42,887 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:42,911 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:42,949 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:42,977 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:43,002 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:43,024 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:43,029 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff52) ApiSheriff-100: Security filter rejected a request on route '<no-route>': failure type Security filter rejected PATH_TRAVERSAL_DETECTED at URL_PATH
+2026-10-09 13:23:43,045 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:43,077 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:43,101 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:45,558 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:46,164 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:46,220 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:46,288 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:46,333 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:46,372 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:48,533 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:49,088 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:49,096 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff63) ApiSheriff-100: Security filter rejected a request on route 'httpbin-proxy': failure type Per-route filter rejected DOUBLE_ENCODING at PARAMETER_VALUE
+2026-10-09 13:23:49,126 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:49,156 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:49,198 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:49,232 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:49,279 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:49,287 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff68) ApiSheriff-100: Security filter rejected a request on route '<no-route>': failure type Non-canonical path rejected: encoded path separator %2f
+2026-10-09 13:23:49,317 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:51,649 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:51,745 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:51,752 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff71) ApiSheriff-100: Security filter rejected a request on route 'httpbin-proxy': failure type Per-route filter rejected PATH_TRAVERSAL_DETECTED at PARAMETER_VALUE
+2026-10-09 13:23:51,793 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:52,346 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:52,368 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:52,388 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:52,405 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:55,794 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:55,899 INFO  [de.cuioss.sheriff.token.client.discovery.DiscoveryResolver] (api-sheriff77) TokenSheriffClient-1: Resolved OIDC provider metadata for issuer 'https://keycloak:8443/realms/integration'
+2026-10-09 13:23:56,276 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:56,328 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:56,758 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:56,817 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:56,949 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:56,985 INFO  [de.cuioss.sheriff.gateway.bff.reserved.CallbackEndpoint] (api-sheriff82) ApiSheriff-20: Live session widened for a require:session route — scopes added: sheriff_it_endpoint
+2026-10-09 13:23:57,004 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:57,028 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:57,084 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:57,306 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:57,354 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:57,402 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:57,450 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:57,519 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:57,544 INFO  [de.cuioss.sheriff.gateway.bff.reserved.CallbackEndpoint] (api-sheriff90) ApiSheriff-20: Live session widened for a require:session route — scopes added: sheriff_it_endpoint
+2026-10-09 13:23:57,557 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:57,576 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:57,870 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,126 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,192 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,210 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,257 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,439 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,480 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,494 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,535 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,790 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,835 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,866 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,920 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,940 INFO  [de.cuioss.sheriff.gateway.bff.reserved.CallbackEndpoint] (api-sheriff105) ApiSheriff-20: Live session widened for a require:session route — scopes added: sheriff_it_endpoint
+2026-10-09 13:23:58,951 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:58,971 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:59,008 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:59,203 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:59,238 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:59,269 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:59,380 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:59,456 INFO  [de.cuioss.sheriff.gateway.bff.reserved.CallbackEndpoint] (api-sheriff112) ApiSheriff-20: Live session widened for a require:session route — scopes added: sheriff_it_endpoint
+2026-10-09 13:23:59,474 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:59,507 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:59,553 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:59,774 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:59,806 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:59,846 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:59,876 WARNING [de.cuioss.sheriff.gateway.bff.login.PushedAuthorizationRequests] (api-sheriff118) ApiSheriff-132: Pushed authorization request refused: push-failed — no redirect to the identity provider was issued; further refusals with this reason stay at DEBUG
+2026-10-09 13:23:59,895 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:23:59,924 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,105 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,137 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,174 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,208 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,245 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,430 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,465 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,484 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,671 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,700 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,717 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,881 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,914 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:00,933 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:01,085 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:01,114 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:01,143 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:01,168 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:01,204 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:01,368 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:01,396 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:01,422 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:01,447 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:01,472 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:02,827 INFO  [de.cuioss.sheriff.gateway.tls.PassthroughRelay] (vert.x-eventloop-thread-0) ApiSheriff-6: Passthrough relay established for SNI 'passthrough.test.example' to upstream 'passthrough-backend:8443'
+2026-10-09 13:24:03,563 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:22,252 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:48,763 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:49,174 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:49,227 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:49,574 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:24:49,711 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:12,118 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:12,293 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:12,325 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:12,598 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:12,624 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:14,705 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:14,823 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:14,850 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:17,197 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:17,732 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:18,048 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:18,089 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:18,319 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:18,475 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:18,704 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:18,740 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:18,914 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:19,063 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:19,260 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:19,294 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:19,344 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:19,361 WARNING [de.cuioss.sheriff.token.validation.pipeline.NonValidatingJwtParser] (api-sheriff174) TokenSheriff-104: Invalid JWT Token format: expected 3 parts (JWS) or 5 parts (JWE) but got 1
+2026-10-09 13:25:19,384 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:19,581 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:19,620 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:19,629 WARNING [de.cuioss.sheriff.token.validation.pipeline.NonValidatingJwtParser] (api-sheriff177) TokenSheriff-104: Invalid JWT Token format: expected 3 parts (JWS) or 5 parts (JWE) but got 1
+2026-10-09 13:25:19,651 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:19,678 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:19,846 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:19,874 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:19,897 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:19,924 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:20,084 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:20,117 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:20,141 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:20,166 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:20,421 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:20,460 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:20,506 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:20,530 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:20,750 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:20,799 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:20,830 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:21,002 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:21,044 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:21,161 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:21,300 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:21,457 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:21,488 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:23,523 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:23,902 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:23,952 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:23,976 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:24,181 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:24,225 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:24,249 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:24,283 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:24,493 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:24,529 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:24,683 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:24,714 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:24,889 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:24,935 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:25,208 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:25,237 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:25,399 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:25,433 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:25,617 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:25,692 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:25,939 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:25,969 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,132 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,167 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,423 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,461 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,627 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,662 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,678 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,827 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,856 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,873 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,890 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,907 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,927 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,942 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,955 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,972 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:26,992 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:27,008 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:27,026 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:27,069 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:27,107 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:25:27,286 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:03,914 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:04,304 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:04,355 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:05,061 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:05,066 INFO  [de.cuioss.sheriff.gateway.bff.logout.BackchannelLogoutReceiver] (api-sheriff251) ApiSheriff-13: Back-channel logout accepted — 1 session(s) destroyed
+2026-10-09 13:26:05,107 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:11,443 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:11,491 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff253) ApiSheriff-100: Security filter rejected a request on route '<no-route>': failure type Security filter rejected INPUT_TOO_LONG at HEADER_VALUE
+2026-10-09 13:26:11,563 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:11,574 WARNING [de.cuioss.sheriff.token.validation.pipeline.NonValidatingJwtParser] (api-sheriff254) TokenSheriff-104: Invalid JWT Token format: expected 3 parts (JWS) or 5 parts (JWE) but got 1
+2026-10-09 13:26:11,967 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:12,065 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:12,096 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:12,123 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:12,150 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:12,169 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:12,216 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:12,290 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:12,507 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:12,514 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff263) ApiSheriff-100: Security filter rejected a request on route '<no-route>': failure type Security filter rejected INPUT_TOO_LONG at HEADER_VALUE
+2026-10-09 13:26:12,529 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:14,643 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:14,851 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:14,984 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,052 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,074 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,110 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,130 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,150 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,266 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,285 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,302 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,319 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,338 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,355 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,374 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,393 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,411 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,428 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,445 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,459 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,473 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,494 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,509 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,523 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,537 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,559 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,572 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,587 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:15,613 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:26:45,633 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,657 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,683 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,699 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,712 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,739 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,756 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,768 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,781 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,794 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,808 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,822 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,837 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,852 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,867 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,882 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,896 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,909 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,927 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,940 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,953 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,966 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,979 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:15,993 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:16,004 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:16,021 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:16,279 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:16,406 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:16,662 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:16,668 WARNING [de.cuioss.sheriff.gateway.edge.UpstreamFailureMapper] (api-sheriff323) ApiSheriff-103: Circuit breaker opened for upstream 'toxiproxy:8667:retry=true'
+2026-10-09 13:27:16,684 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:16,706 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:16,936 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:17,398 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:17,850 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:18,463 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:18,867 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:19,477 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:19,883 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:20,477 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:20,740 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,166 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,430 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,693 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,705 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,708 WARNING [de.cuioss.sheriff.gateway.edge.UpstreamFailureMapper] (api-sheriff338) ApiSheriff-104: Circuit breaker closed for upstream 'toxiproxy:8667:retry=true'
+2026-10-09 13:27:21,715 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,727 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,741 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,757 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,770 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,785 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,805 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,822 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,835 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,848 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,860 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,872 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,885 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,898 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,909 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,922 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,933 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,944 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:21,960 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:22,378 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:22,393 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:22,411 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:24,501 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:24,639 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,009 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,045 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,070 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,133 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,167 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,197 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,230 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,261 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,281 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,305 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,324 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,344 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,363 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,383 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,399 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,421 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:27:25,449 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:29:08,219 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-idle'
+2026-10-09 13:29:10,221 WARNING [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-106: WebSocket relay on route 'ws-idle' reclaimed after idle timeout of 2 seconds
+2026-10-09 13:29:11,135 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,158 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,169 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-2) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,181 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,193 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,206 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,219 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-2) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,229 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,241 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,253 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,265 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-2) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,278 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,287 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,299 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,309 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-2) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,317 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,326 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,335 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,342 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-2) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,356 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,364 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,372 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,382 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-2) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,390 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,397 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,405 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,412 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-2) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,421 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,432 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,442 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,451 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-2) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,459 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,469 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,480 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,489 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-2) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,497 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,507 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,517 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,527 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-2) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,536 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,544 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,554 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,562 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-2) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,570 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,578 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,586 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,594 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-2) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,605 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,612 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-1) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,619 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-3) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,631 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-2) ApiSheriff-4: WebSocket relay established for route 'ws-echo'
+2026-10-09 13:29:11,644 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'ws-idle'
+2026-10-09 13:29:16,459 WARNING [de.cuioss.sheriff.gateway.pipeline.OriginValidationStage] (api-sheriff437) ApiSheriff-105: WebSocket upgrade rejected on route 'ws-echo': foreign origin
+2026-10-09 13:29:16,467 WARNING [de.cuioss.sheriff.gateway.pipeline.OriginValidationStage] (api-sheriff438) ApiSheriff-105: WebSocket upgrade rejected on route 'ws-echo': absent origin
+2026-10-09 13:32:48,081 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:51,227 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:51,445 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:51,592 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:53,778 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:54,207 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:54,310 WARNING [de.cuioss.sheriff.gateway.pipeline.OriginValidationStage] (api-sheriff452) ApiSheriff-105: WebSocket upgrade rejected on route 'bff-session-ws': foreign origin
+2026-10-09 13:32:54,343 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:54,519 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:54,555 INFO  [de.cuioss.sheriff.gateway.edge.WebSocketRelayStage] (vert.x-eventloop-thread-0) ApiSheriff-4: WebSocket relay established for route 'bff-session-ws'
+2026-10-09 13:32:54,573 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:57,034 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:57,420 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:57,478 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:57,535 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:57,760 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:32:57,791 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:00,056 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:00,432 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:01,165 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:03,254 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:03,598 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:03,658 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:03,853 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:03,894 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:06,377 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:06,756 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:06,803 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:07,170 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:07,367 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:07,405 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:07,452 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:07,680 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:07,722 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:07,771 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:07,939 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:07,976 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:09,580 INFO  [de.cuioss.sheriff.gateway.tls.PassthroughRelay] (vert.x-eventloop-thread-0) ApiSheriff-6: Passthrough relay established for SNI 'fault.test.example' to upstream 'toxiproxy:8666'
+2026-10-09 13:33:09,814 INFO  [de.cuioss.sheriff.gateway.tls.PassthroughRelay] (vert.x-eventloop-thread-0) ApiSheriff-6: Passthrough relay established for SNI 'fault.test.example' to upstream 'toxiproxy:8666'
+2026-10-09 13:33:12,451 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:46,512 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:46,922 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:46,980 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:47,016 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:33:47,048 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:20,282 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:20,664 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:20,707 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:21,067 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:21,120 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:21,174 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:21,208 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:21,239 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:21,419 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:21,449 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:21,508 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:21,700 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:21,738 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:21,797 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:55,844 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:56,307 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:56,382 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:57,860 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:34:57,922 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff508) ApiSheriff-100: Security filter rejected a request on route '<no-route>': failure type Framing rejected: Body present on bodyless method GET
+2026-10-09 13:34:57,939 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:00,240 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:00,384 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:00,435 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:00,461 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:00,486 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:00,513 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:00,543 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:00,564 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:00,583 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:00,603 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:03,334 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:03,440 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:03,480 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:03,522 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:03,529 WARNING [de.cuioss.sheriff.token.validation.pipeline.NonValidatingJwtParser] (api-sheriff523) TokenSheriff-104: Invalid JWT Token format: expected 3 parts (JWS) or 5 parts (JWE) but got 1
+2026-10-09 13:35:05,626 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:06,067 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:06,107 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:06,502 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:06,530 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:06,728 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:06,762 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:06,826 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:07,058 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:07,106 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:09,523 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:09,953 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:10,074 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:12,307 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:12,750 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:12,758 WARNING [de.cuioss.sheriff.gateway.edge.GatewayEdgeRoute] (api-sheriff538) ApiSheriff-108: Host-vs-SNI smuggle rejected before route selection: Terminated request Host names a reserved passthrough SNI
+2026-10-09 13:35:17,372 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:17,495 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
+2026-10-09 13:35:17,531 WARNING [de.cuioss.sheriff.gateway.tls.SniFrontListener] (vert.x-eventloop-thread-0) ApiSheriff-107: TLS ClientHello failed closed to terminated path: no-usable-sni
