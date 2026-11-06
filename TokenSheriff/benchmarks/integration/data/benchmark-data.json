@@ -1,18 +1,18 @@
 {
   "metadata": {
-    "timestamp": "2026-11-06T08:14:47.660259591Z",
-    "displayTimestamp": "2026-11-06 08:14:47 UTC",
+    "timestamp": "2026-11-06T08:49:10.019195326Z",
+    "displayTimestamp": "2026-11-06 08:49:10 UTC",
     "benchmarkType": "Integration Performance",
     "reportVersion": "2.0"
   },
   "overview": {
-    "throughput": "15.5K ops/s",
-    "latency": "3.4ms",
-    "throughputOpsPerSec": 15457.15,
-    "latencyMs": 2.82,
+    "throughput": "10.0K ops/s",
+    "latency": "5.3ms",
+    "throughputOpsPerSec": 9979.86,
+    "latencyMs": 4.31,
     "throughputBenchmarkName": "mockJwtValidation",
     "latencyBenchmarkName": "mockJwtValidation",
-    "performanceScore": 98,
+    "performanceScore": 96,
     "performanceGrade": "A",
     "performanceGradeClass": "grade-a"
   },
@@ -21,57 +21,57 @@
       "name": "healthLiveCheck",
       "fullName": "wrk.healthLiveCheck",
       "mode": "thrpt",
-      "score": "18.9K ops/s",
+      "score": "11.8K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "18.9K ops/s",
-      "latency": "2.7ms",
-      "error": 2.14,
-      "variabilityCoefficient": 78.10218978102189,
-      "confidenceLow": 0.6000000000000001,
-      "confidenceHigh": 4.880000000000001,
+      "throughput": "11.8K ops/s",
+      "latency": "4.4ms",
+      "error": 2.65,
+      "variabilityCoefficient": 60.77981651376147,
+      "confidenceLow": 1.7100000000000004,
+      "confidenceHigh": 7.01,
       "percentiles": {
-        "50.0": 2.33,
-        "75.0": 3.19,
-        "90.0": 4.35,
-        "99.0": 8.04
+        "50.0": 3.73,
+        "75.0": 4.97,
+        "90.0": 6.71,
+        "99.0": 12.68
       }
     },
     {
       "name": "mockJwtValidation",
       "fullName": "wrk.mockJwtValidation",
       "mode": "thrpt",
-      "score": "15.5K ops/s",
+      "score": "10.0K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "15.5K ops/s",
-      "latency": "3.4ms",
-      "error": 2.21,
-      "variabilityCoefficient": 65.38461538461539,
-      "confidenceLow": 1.17,
-      "confidenceHigh": 5.59,
+      "throughput": "10.0K ops/s",
+      "latency": "5.3ms",
+      "error": 3.46,
+      "variabilityCoefficient": 65.77946768060838,
+      "confidenceLow": 1.7999999999999998,
+      "confidenceHigh": 8.719999999999999,
       "percentiles": {
-        "50.0": 2.82,
-        "75.0": 4.03,
-        "90.0": 5.69,
-        "99.0": 10.87
+        "50.0": 4.31,
+        "75.0": 6.27,
+        "90.0": 9,
+        "99.0": 17.64
       }
     },
     {
       "name": "jwtValidation",
       "fullName": "wrk.jwtValidation",
       "mode": "thrpt",
-      "score": "9.3K ops/s",
+      "score": "6.5K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "9.3K ops/s",
-      "latency": "5.7ms",
-      "error": 3.76,
-      "variabilityCoefficient": 66.31393298059965,
-      "confidenceLow": 1.9100000000000001,
-      "confidenceHigh": 9.43,
+      "throughput": "6.5K ops/s",
+      "latency": "8.1ms",
+      "error": 5.33,
+      "variabilityCoefficient": 65.64039408866996,
+      "confidenceLow": 2.789999999999999,
+      "confidenceHigh": 13.45,
       "percentiles": {
-        "50.0": 4.85,
-        "75.0": 7.23,
-        "90.0": 10.31,
-        "99.0": 18.25
+        "50.0": 6.94,
+        "75.0": 10.23,
+        "90.0": 14.47,
+        "99.0": 25.7
       }
     }
   ],
@@ -82,14 +82,14 @@
       "jwtValidation"
     ],
     "throughput": [
-      18906.46,
-      15457.15,
-      9280.05
+      11822.22,
+      9979.86,
+      6458.16
     ],
     "latency": [
-      2.33,
-      2.82,
-      4.85
+      3.73,
+      4.31,
+      6.94
     ],
     "percentilesData": {
       "percentileLabels": [
@@ -110,30 +110,30 @@
       "data": {
         "healthLiveCheck": [
           null,
-          2.33,
-          4.35,
+          3.73,
+          6.71,
           null,
-          8.04,
+          12.68,
           null,
           null,
           null
         ],
         "mockJwtValidation": [
           null,
-          2.82,
-          5.69,
+          4.31,
+          9,
           null,
-          10.87,
+          17.64,
           null,
           null,
           null
         ],
         "jwtValidation": [
           null,
-          4.85,
-          10.31,
+          6.94,
+          14.47,
           null,
-          18.25,
+          25.7,
           null,
           null,
           null
@@ -151,14 +151,14 @@
           null
         ],
         "50.0th": [
-          2.33,
-          2.82,
-          4.85
+          3.73,
+          4.31,
+          6.94
         ],
         "90.0th": [
-          4.35,
-          5.69,
-          10.31
+          6.71,
+          9,
+          14.47
         ],
         "95.0th": [
           null,
@@ -166,9 +166,9 @@
           null
         ],
         "99.0th": [
-          8.04,
-          10.87,
-          18.25
+          12.68,
+          17.64,
+          25.7
         ],
         "99.9th": [
           null,
@@ -191,36 +191,36 @@
   "trends": {
     "available": true,
     "direction": "up",
-    "changePercentage": 7.6923076923076925,
-    "movingAverage": 94.5,
-    "throughputTrend": 79.7343023255814,
-    "latencyTrend": -34.418604651162795,
+    "changePercentage": 5.4945054945054945,
+    "movingAverage": 93.5,
+    "throughputTrend": 16.04488372093024,
+    "latencyTrend": 0.23255813953487878,
     "chartData": {
       "timestamps": [
-        "2026-11-06T08:04:59.848782536Z",
+        "2026-11-06T08:38:17.859533776Z",
         "Current"
       ],
       "throughput": [
         8600,
-        15457.15
+        9979.86
       ],
       "latency": [
         4.3,
-        2.82
+        4.31
       ],
       "performanceScores": [
         91,
-        98
+        96
       ],
       "statistics": {
         "throughputMin": 8600,
-        "throughputMax": 15457.15,
-        "throughputAvg": 12028.575,
-        "latencyMin": 2.82,
-        "latencyMax": 4.3,
-        "latencyAvg": 3.5599999999999996
+        "throughputMax": 9979.86,
+        "throughputAvg": 9289.93,
+        "latencyMin": 4.3,
+        "latencyMax": 4.31,
+        "latencyAvg": 4.305
       }
     },
-    "summary": "Performance improved by 7.7%"
+    "summary": "Performance improved by 5.5%"
   }
 }
