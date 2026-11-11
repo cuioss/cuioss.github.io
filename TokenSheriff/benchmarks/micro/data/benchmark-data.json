@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "timestamp": "2026-11-11T16:39:04.634075596Z",
+    "displayTimestamp": "2026-11-11 16:39:04 UTC",
+    "benchmarkType": "Micro Performance",
+    "reportVersion": "2.0",
+    "projectName": "Token-Sheriff"
+  },
+  "overview": {
+    "throughput": "59.9K ops/s",
+    "latency": "1.77ms",
+    "throughputOpsPerSec": 59868.18165347793,
+    "latencyMs": 1.7678126457046608,
+    "throughputBenchmarkName": "measureThroughput",
+    "latencyBenchmarkName": "measureAverageTime",
+    "performanceScore": 328,
+    "performanceGrade": "A+",
+    "performanceGradeClass": "grade-a+"
+  },
+  "benchmarks": [
+    {
+      "name": "measureThroughput",
+      "fullName": "de.cuioss.sheriff.token.validation.benchmark.standard.SimpleCoreValidationBenchmark.measureThroughput",
+      "mode": "thrpt",
+      "score": "59.9K ops/s",
+      "scoreUnit": "ops/s",
+      "throughput": "59.9K ops/s",
+      "error": 10404.094235989945,
+      "percentiles": {
+        "0.0": 0.018151561847938983,
+        "50.0": 0.016429748808757815,
+        "90.0": 0.016215980252604564,
+        "95.0": 0.016215980252604564,
+        "99.0": 0.016215980252604564,
+        "99.9": 0.016215980252604564,
+        "99.99": 0.016215980252604564,
+        "99.999": 0.016215980252604564,
+        "99.9999": 0.016215980252604564,
+        "100.0": 0.016215980252604564
+      }
+    },
+    {
+      "name": "validateMixedTokens0",
+      "fullName": "de.cuioss.sheriff.token.validation.benchmark.standard.SimpleErrorLoadBenchmark.validateMixedTokens0",
+      "mode": "thrpt",
+      "score": "58.9K ops/s",
+      "scoreUnit": "ops/s",
+      "throughput": "58.9K ops/s",
+      "error": 10280.616973073562,
+      "percentiles": {
+        "0.0": 0.01808011219685999,
+        "50.0": 0.016580485217161326,
+        "90.0": 0.016316952162038514,
+        "95.0": 0.016316952162038514,
+        "99.0": 0.016316952162038514,
+        "99.9": 0.016316952162038514,
+        "99.99": 0.016316952162038514,
+        "99.999": 0.016316952162038514,
+        "99.9999": 0.016316952162038514,
+        "100.0": 0.016316952162038514
+      }
+    },
+    {
+      "name": "validateMixedTokens50",
+      "fullName": "de.cuioss.sheriff.token.validation.benchmark.standard.SimpleErrorLoadBenchmark.validateMixedTokens50",
+      "mode": "thrpt",
+      "score": "68.6K ops/s",
+      "scoreUnit": "ops/s",
+      "throughput": "68.6K ops/s",
+      "error": 32641.203144747215,
+      "percentiles": {
+        "0.0": 0.018263405286620647,
+        "50.0": 0.01362840351538135,
+        "90.0": 0.013373344265643851,
+        "95.0": 0.013373344265643851,
+        "99.0": 0.013373344265643851,
+        "99.9": 0.013373344265643851,
+        "99.99": 0.013373344265643851,
+        "99.999": 0.013373344265643851,
+        "99.9999": 0.013373344265643851,
+        "100.0": 0.013373344265643851
+      }
+    },
+    {
+      "name": "measureAverageTime",
+      "fullName": "de.cuioss.sheriff.token.validation.benchmark.standard.SimpleCoreValidationBenchmark.measureAverageTime",
+      "mode": "avgt",
+      "score": "1.8K us/op",
+      "scoreUnit": "us/op",
+      "latency": "1.8K us/op",
+      "error": 565.1701225458817,
+      "percentiles": {
+        "0.0": 1.6807584580495631,
+        "50.0": 1.7126328595822322,
+        "90.0": 2.02921022079645,
+        "95.0": 2.02921022079645,
+        "99.0": 2.02921022079645,
+        "99.9": 2.02921022079645,
+        "99.99": 2.02921022079645,
+        "99.999": 2.02921022079645,
+        "99.9999": 2.02921022079645,
+        "100.0": 2.02921022079645
+      }
+    }
+  ],
+  "chartData": {
+    "labels": [
+      "measureThroughput",
+      "validateMixedTokens0",
+      "validateMixedTokens50",
+      "measureAverageTime"
+    ],
+    "throughput": [
+      59868.18165347793,
+      58879.096056544004,
+      68621.70460410735,
+      null
+    ],
+    "latency": [
+      null,
+      null,
+      null,
+      1.7126328595822322
+    ],
+    "percentilesData": {
+      "percentileLabels": [
+        "P0",
+        "P50",
+        "P90",
+        "P95",
+        "P99",
+        "P99.9",
+        "P99.99",
+        "P100"
+      ],
+      "benchmarks": [
+        "measureAverageTime"
+      ],
+      "data": {
+        "measureAverageTime": [
+          1.6807584580495631,
+          1.7126328595822322,
+          2.02921022079645,
+          2.02921022079645,
+          2.02921022079645,
+          2.02921022079645,
+          2.02921022079645,
+          2.02921022079645
+        ]
+      },
+      "labels": [
+        "measureAverageTime"
+      ],
+      "datasets": {
+        "0.0th": [
+          1.6807584580495631
+        ],
+        "50.0th": [
+          1.7126328595822322
+        ],
+        "90.0th": [
+          2.02921022079645
+        ],
+        "95.0th": [
+          2.02921022079645
+        ],
+        "99.0th": [
+          2.02921022079645
+        ],
+        "99.9th": [
+          2.02921022079645
+        ],
+        "99.99th": [
+          2.02921022079645
+        ],
+        "100.0th": [
+          2.02921022079645
+        ]
+      }
+    }
+  },
+  "trends": {
+    "available": false,
+    "message": "Historical data not yet available"
+  }
+}
