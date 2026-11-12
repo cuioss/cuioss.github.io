@@ -1,0 +1,27 @@
+[12:48:02.480] [Test] [info] Started: should handle configuration dialog failures gracefully
+[12:48:02.480] [Auth] [info] Ensuring NiFi is ready for testing...
+[12:48:02.480] [Auth] [info] Checking NiFi accessibility...
+[12:48:02.526] [Auth] [info] NiFi service is accessible
+[12:48:03.558] [Auth] [info] NiFi is ready for testing
+[12:48:03.558] [Processor] [info] Verifying MultiIssuerJWTTokenAuthenticator is on canvas...
+[12:48:03.634] [Processor] [info] MultiIssuerJWTTokenAuthenticator found on canvas with ID: 143914df-0581-5ae2-ab51-514a7bc830e6
+[12:48:03.634] [Processor] [info] Processor already on canvas
+[12:48:03.634] [Processor] [info] Navigating to process group: https://localhost:9095/nifi#/process-groups/bfbfae55-79b0-5ac6-9830-8a95a2230479
+[12:48:04.407] [Processor] [info] All preconditions met
+[12:48:04.407] [Processor] [info] Stopping MultiIssuerJWTTokenAuthenticator processor...
+[12:48:04.407] [Processor] [info] Verifying MultiIssuerJWTTokenAuthenticator is on canvas...
+[12:48:04.470] [Processor] [info] MultiIssuerJWTTokenAuthenticator found on canvas with ID: 143914df-0581-5ae2-ab51-514a7bc830e6
+[12:48:04.521] [Processor] [info] Processor stopped successfully
+[12:48:05.685] [Processor] [warn] Processor interaction failed (rightclick): locator.click: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-nonexistent="true"]')[22m
+
+[12:48:06.851] [Processor] [warn] Processor interaction failed (doubleclick): locator.dblclick: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-nonexistent="true"]')[22m
+
+[12:48:06.851] [Processor] [warn] Configure processor failed: locator.dblclick: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-nonexistent="true"]')[22m
+
+[12:48:06.851] [Test] [info] Finished: passed
