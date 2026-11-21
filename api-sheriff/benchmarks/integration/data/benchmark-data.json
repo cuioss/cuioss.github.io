@@ -1,248 +1,248 @@
 {
   "metadata": {
-    "timestamp": "2026-11-21T01:10:49.056504925Z",
-    "displayTimestamp": "2026-11-21 01:10:49 UTC",
+    "timestamp": "2026-11-21T13:03:35.380240151Z",
+    "displayTimestamp": "2026-11-21 13:03:35 UTC",
     "benchmarkType": "Integration Performance",
     "reportVersion": "2.0"
   },
   "overview": {
-    "throughput": "4.3K ops/s",
-    "latency": "11ms",
-    "throughputOpsPerSec": 4316.4,
-    "latencyMs": 10.46,
+    "throughput": "5.7K ops/s",
+    "latency": "8.6ms",
+    "throughputOpsPerSec": 5699.93,
+    "latencyMs": 7.85,
     "throughputBenchmarkName": "bearerProxied",
     "latencyBenchmarkName": "bearerProxied",
-    "performanceScore": 65,
-    "performanceGrade": "D",
-    "performanceGradeClass": "grade-d"
+    "performanceScore": 74,
+    "performanceGrade": "C",
+    "performanceGradeClass": "grade-c"
   },
   "benchmarks": [
     {
       "name": "bearerProxied",
       "fullName": "k6.api-sheriff.bearerProxied",
       "mode": "thrpt",
-      "score": "4.3K ops/s",
+      "score": "5.7K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "4.3K ops/s",
-      "latency": "11ms",
+      "throughput": "5.7K ops/s",
+      "latency": "8.6ms",
       "error": 0,
       "variabilityCoefficient": 0,
-      "confidenceLow": 11.41,
-      "confidenceHigh": 11.41,
+      "confidenceLow": 8.64,
+      "confidenceHigh": 8.64,
       "percentiles": {
-        "50.0": 10.46,
-        "75.0": 12.33,
-        "90.0": 15.31,
-        "99.0": 23.95
+        "50.0": 7.85,
+        "75.0": 9.25,
+        "90.0": 11.95,
+        "99.0": 19.02
       }
     },
     {
       "name": "gatewayHealth",
       "fullName": "k6.api-sheriff.gatewayHealth",
       "mode": "thrpt",
-      "score": "7.2K ops/s",
+      "score": "13K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "7.2K ops/s",
-      "latency": "6.8ms",
+      "throughput": "13K ops/s",
+      "latency": "3.9ms",
       "error": 0,
       "variabilityCoefficient": 0,
-      "confidenceLow": 6.84,
-      "confidenceHigh": 6.84,
+      "confidenceLow": 3.91,
+      "confidenceHigh": 3.91,
       "percentiles": {
-        "50.0": 6.74,
-        "75.0": 8.4,
-        "90.0": 9.99,
-        "99.0": 15.18
+        "50.0": 3.91,
+        "75.0": 4.66,
+        "90.0": 5.69,
+        "99.0": 9.99
       }
     },
     {
       "name": "graphql",
       "fullName": "k6.api-sheriff.graphql",
       "mode": "thrpt",
-      "score": "4.2K ops/s",
+      "score": "5.8K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "4.2K ops/s",
-      "latency": "12ms",
+      "throughput": "5.8K ops/s",
+      "latency": "8.6ms",
       "error": 0,
       "variabilityCoefficient": 0,
-      "confidenceLow": 11.81,
-      "confidenceHigh": 11.81,
+      "confidenceLow": 8.55,
+      "confidenceHigh": 8.55,
       "percentiles": {
-        "50.0": 10.85,
-        "75.0": 12.74,
-        "90.0": 15.8,
-        "99.0": 23.45
+        "50.0": 7.78,
+        "75.0": 9.16,
+        "90.0": 11.85,
+        "99.0": 18.66
       }
     },
     {
       "name": "grpcUnary",
       "fullName": "k6.api-sheriff.grpcUnary",
       "mode": "thrpt",
-      "score": "3.7K ops/s",
+      "score": "4.9K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "3.7K ops/s",
-      "latency": "13ms",
+      "throughput": "4.9K ops/s",
+      "latency": "10ms",
       "error": 0,
       "variabilityCoefficient": 0,
-      "confidenceLow": 13.18,
-      "confidenceHigh": 13.18,
+      "confidenceLow": 10.05,
+      "confidenceHigh": 10.05,
       "percentiles": {
-        "50.0": 12.06,
-        "75.0": 15.14,
-        "90.0": 19.32,
-        "99.0": 31.47
+        "50.0": 9.06,
+        "75.0": 11.81,
+        "90.0": 15.45,
+        "99.0": 25.81
       }
     },
     {
       "name": "healthLiveCheck",
       "fullName": "k6.api-sheriff.healthLiveCheck",
       "mode": "thrpt",
-      "score": "10K ops/s",
+      "score": "17K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "10K ops/s",
-      "latency": "4.8ms",
+      "throughput": "17K ops/s",
+      "latency": "2.9ms",
       "error": 0,
       "variabilityCoefficient": 0,
-      "confidenceLow": 4.78,
-      "confidenceHigh": 4.78,
+      "confidenceLow": 2.9,
+      "confidenceHigh": 2.9,
       "percentiles": {
-        "50.0": 4.32,
-        "75.0": 5.1,
-        "90.0": 7.02,
-        "99.0": 11.4
+        "50.0": 2.52,
+        "75.0": 3.04,
+        "90.0": 4.38,
+        "99.0": 8.09
       }
     },
     {
       "name": "http2",
       "fullName": "k6.api-sheriff.http2",
       "mode": "thrpt",
-      "score": "4.8K ops/s",
+      "score": "6.3K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "4.8K ops/s",
-      "latency": "10ms",
+      "throughput": "6.3K ops/s",
+      "latency": "7.9ms",
       "error": 0,
       "variabilityCoefficient": 0,
-      "confidenceLow": 10.42,
-      "confidenceHigh": 10.42,
+      "confidenceLow": 7.87,
+      "confidenceHigh": 7.87,
       "percentiles": {
-        "50.0": 9.52,
-        "75.0": 11.19,
-        "90.0": 13.99,
-        "99.0": 22.21
+        "50.0": 7.16,
+        "75.0": 8.4,
+        "90.0": 10.94,
+        "99.0": 17.83
       }
     },
     {
       "name": "passthroughRelay",
       "fullName": "k6.api-sheriff.passthroughRelay",
       "mode": "thrpt",
-      "score": "15K ops/s",
+      "score": "22K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "15K ops/s",
-      "latency": "3.3ms",
+      "throughput": "22K ops/s",
+      "latency": "2.2ms",
       "error": 0,
       "variabilityCoefficient": 0,
-      "confidenceLow": 3.26,
-      "confidenceHigh": 3.26,
+      "confidenceLow": 2.23,
+      "confidenceHigh": 2.23,
       "percentiles": {
-        "50.0": 2.85,
-        "75.0": 3.99,
-        "90.0": 5.79,
-        "99.0": 11.38
+        "50.0": 1.89,
+        "75.0": 2.75,
+        "90.0": 4.06,
+        "99.0": 8.31
       }
     },
     {
       "name": "passthroughRelayEmpty",
       "fullName": "k6.api-sheriff.passthroughRelayEmpty",
       "mode": "thrpt",
-      "score": "4.8K ops/s",
+      "score": "6.9K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "4.8K ops/s",
-      "latency": "10ms",
+      "throughput": "6.9K ops/s",
+      "latency": "7.2ms",
       "error": 0,
       "variabilityCoefficient": 0,
-      "confidenceLow": 10.34,
-      "confidenceHigh": 10.34,
+      "confidenceLow": 7.19,
+      "confidenceHigh": 7.19,
       "percentiles": {
-        "50.0": 9.42,
-        "75.0": 10.92,
-        "90.0": 13.83,
-        "99.0": 21.51
+        "50.0": 6.52,
+        "75.0": 7.52,
+        "90.0": 9.94,
+        "99.0": 16.11
       }
     },
     {
       "name": "proxiedStatic",
       "fullName": "k6.api-sheriff.proxiedStatic",
       "mode": "thrpt",
-      "score": "4.7K ops/s",
+      "score": "6.9K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "4.7K ops/s",
-      "latency": "11ms",
+      "throughput": "6.9K ops/s",
+      "latency": "7.2ms",
       "error": 0,
       "variabilityCoefficient": 0,
-      "confidenceLow": 10.52,
-      "confidenceHigh": 10.52,
+      "confidenceLow": 7.19,
+      "confidenceHigh": 7.19,
       "percentiles": {
-        "50.0": 9.58,
-        "75.0": 11.37,
-        "90.0": 14.31,
-        "99.0": 22.89
+        "50.0": 6.53,
+        "75.0": 7.67,
+        "90.0": 10,
+        "99.0": 16.33
       }
     },
     {
       "name": "uploadLarge",
       "fullName": "k6.api-sheriff.uploadLarge",
       "mode": "thrpt",
-      "score": "1.23 ops/s",
+      "score": "1.89 ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "1.23 ops/s",
-      "latency": "4.0s",
+      "throughput": "1.89 ops/s",
+      "latency": "2.6s",
       "error": 0,
       "variabilityCoefficient": 0,
-      "confidenceLow": 3999.06,
-      "confidenceHigh": 3999.06,
+      "confidenceLow": 2626.07,
+      "confidenceHigh": 2626.07,
       "percentiles": {
-        "50.0": 4021.94,
-        "75.0": 4703.62,
-        "90.0": 4889.17,
-        "99.0": 4970.1
+        "50.0": 2633.89,
+        "75.0": 3090.58,
+        "90.0": 3227.64,
+        "99.0": 3428.46
       }
     },
     {
       "name": "uploadSmall",
       "fullName": "k6.api-sheriff.uploadSmall",
       "mode": "thrpt",
-      "score": "57 ops/s",
+      "score": "86 ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "57 ops/s",
-      "latency": "866ms",
+      "throughput": "86 ops/s",
+      "latency": "580ms",
       "error": 0,
       "variabilityCoefficient": 0,
-      "confidenceLow": 866.26,
-      "confidenceHigh": 866.26,
+      "confidenceLow": 580.2,
+      "confidenceHigh": 580.2,
       "percentiles": {
-        "50.0": 862.8,
-        "75.0": 905.98,
-        "90.0": 943.43,
-        "99.0": 1009.89
+        "50.0": 575.12,
+        "75.0": 600.18,
+        "90.0": 633.11,
+        "99.0": 693.96
       }
     },
     {
       "name": "websocketEcho",
       "fullName": "k6.api-sheriff.websocketEcho",
       "mode": "thrpt",
-      "score": "4.1K ops/s",
+      "score": "4.6K ops/s",
       "scoreUnit": "ops/s",
-      "throughput": "4.1K ops/s",
-      "latency": "10ms",
+      "throughput": "4.6K ops/s",
+      "latency": "9.0ms",
       "error": 0,
       "variabilityCoefficient": 0,
-      "confidenceLow": 10.01,
-      "confidenceHigh": 10.01,
+      "confidenceLow": 9.02,
+      "confidenceHigh": 9.02,
       "percentiles": {
-        "50.0": 9,
-        "75.0": 13,
-        "90.0": 16,
-        "99.0": 26
+        "50.0": 8,
+        "75.0": 11,
+        "90.0": 15,
+        "99.0": 23
       }
     }
   ],
@@ -262,18 +262,18 @@
       "websocketEcho"
     ],
     "throughput": [
-      4316.4,
-      7236.1,
-      4197.63,
-      3748.8,
-      10302.83,
-      4755.17,
-      14840.29,
-      4790.18,
-      4711.05,
-      1.23,
-      57.24,
-      4131.29
+      5699.93,
+      12654.67,
+      5793.69,
+      4913.22,
+      17005.59,
+      6291.07,
+      21722.87,
+      6893.71,
+      6892.71,
+      1.89,
+      85.67,
+      4589.06
     ],
     "latency": [
       null,
@@ -318,36 +318,36 @@
   "trends": {
     "available": true,
     "direction": "down",
-    "changePercentage": -28.57142857142857,
-    "movingAverage": 78,
-    "throughputTrend": -49.8093023255814,
-    "latencyTrend": 86.7857142857143,
+    "changePercentage": -18.681318681318682,
+    "movingAverage": 82.5,
+    "throughputTrend": -33.72174418604651,
+    "latencyTrend": 40.17857142857143,
     "chartData": {
       "timestamps": [
-        "2026-11-21T00:53:06.034790110Z",
+        "2026-11-21T12:47:00.292649231Z",
         "Current"
       ],
       "throughput": [
         8600,
-        4316.4
+        5699.93
       ],
       "latency": [
         5.6,
-        10.46
+        7.85
       ],
       "performanceScores": [
         91,
-        65
+        74
       ],
       "statistics": {
-        "throughputMin": 4316.4,
+        "throughputMin": 5699.93,
         "throughputMax": 8600,
-        "throughputAvg": 6458.2,
+        "throughputAvg": 7149.965,
         "latencyMin": 5.6,
-        "latencyMax": 10.46,
-        "latencyAvg": 8.030000000000001
+        "latencyMax": 7.85,
+        "latencyAvg": 6.725
       }
     },
-    "summary": "Performance decreased by 28.6%"
+    "summary": "Performance decreased by 18.7%"
   }
 }
