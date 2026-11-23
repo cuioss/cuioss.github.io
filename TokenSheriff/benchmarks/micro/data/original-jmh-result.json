@@ -1,0 +1,300 @@
+[
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "de.cuioss.sheriff.token.validation.benchmark.standard.SimpleCoreValidationBenchmark.measureThroughput",
+        "mode" : "thrpt",
+        "threads" : 100,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
+        "jvmArgs" : [
+            "-Djmh.threads=100",
+            "-Djmh.include=de\\.cuioss\\.sheriff\\.token\\.validation\\.benchmark\\.standard\\..*",
+            "-Djmh.result.filePrefix=target/benchmark-results/micro-result",
+            "-Djmh.iterations=5",
+            "-Djmh.forks=1",
+            "-Dbenchmark.history.dir=/home/runner/work/TokenSheriff/TokenSheriff/benchmark-history/micro",
+            "-Djmh.time=4s",
+            "-Djmh.warmupTime=1s",
+            "-Djmh.result.format=JSON",
+            "-Djmh.warmupIterations=3",
+            "-Djmh.include=de\\.cuioss\\.sheriff\\.token\\.validation\\.benchmark\\.standard\\..*",
+            "-Djmh.result.format=JSON",
+            "-Djmh.result.filePrefix=target/benchmark-results/micro-result",
+            "-Djmh.iterations=5",
+            "-Djmh.warmupIterations=3",
+            "-Djmh.forks=1",
+            "-Djmh.threads=100",
+            "-Djmh.time=4s",
+            "-Djmh.warmupTime=1s",
+            "-Dbenchmark.history.dir=/home/runner/work/TokenSheriff/TokenSheriff/benchmark-history/micro",
+            "-Djava.util.logging.config.file=benchmark-logging.properties",
+            "-XX:+UnlockDiagnosticVMOptions",
+            "-XX:+DebugNonSafepoints"
+        ],
+        "jdkVersion" : "21.0.13",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "21.0.13+9-LTS",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "4 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 42511.06948011184,
+            "scoreError" : 50648.93054685933,
+            "scoreConfidence" : [
+                -8137.861066747493,
+                93160.00002697116
+            ],
+            "scorePercentiles" : {
+                "0.0" : 19315.984510126822,
+                "50.0" : 49317.325275071,
+                "90.0" : 50046.98937593595,
+                "95.0" : 50046.98937593595,
+                "99.0" : 50046.98937593595,
+                "99.9" : 50046.98937593595,
+                "99.99" : 50046.98937593595,
+                "99.999" : 50046.98937593595,
+                "99.9999" : 50046.98937593595,
+                "100.0" : 50046.98937593595
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    19315.984510126822,
+                    44515.746051656155,
+                    49359.30218776925,
+                    49317.325275071,
+                    50046.98937593595
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "de.cuioss.sheriff.token.validation.benchmark.standard.SimpleErrorLoadBenchmark.validateMixedTokens0",
+        "mode" : "thrpt",
+        "threads" : 100,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
+        "jvmArgs" : [
+            "-Djmh.threads=100",
+            "-Djmh.include=de\\.cuioss\\.sheriff\\.token\\.validation\\.benchmark\\.standard\\..*",
+            "-Djmh.result.filePrefix=target/benchmark-results/micro-result",
+            "-Djmh.iterations=5",
+            "-Djmh.forks=1",
+            "-Dbenchmark.history.dir=/home/runner/work/TokenSheriff/TokenSheriff/benchmark-history/micro",
+            "-Djmh.time=4s",
+            "-Djmh.warmupTime=1s",
+            "-Djmh.result.format=JSON",
+            "-Djmh.warmupIterations=3",
+            "-Djmh.include=de\\.cuioss\\.sheriff\\.token\\.validation\\.benchmark\\.standard\\..*",
+            "-Djmh.result.format=JSON",
+            "-Djmh.result.filePrefix=target/benchmark-results/micro-result",
+            "-Djmh.iterations=5",
+            "-Djmh.warmupIterations=3",
+            "-Djmh.forks=1",
+            "-Djmh.threads=100",
+            "-Djmh.time=4s",
+            "-Djmh.warmupTime=1s",
+            "-Dbenchmark.history.dir=/home/runner/work/TokenSheriff/TokenSheriff/benchmark-history/micro",
+            "-Djava.util.logging.config.file=benchmark-logging.properties",
+            "-XX:+UnlockDiagnosticVMOptions",
+            "-XX:+DebugNonSafepoints"
+        ],
+        "jdkVersion" : "21.0.13",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "21.0.13+9-LTS",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "4 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 40998.16249328967,
+            "scoreError" : 50001.24958435277,
+            "scoreConfidence" : [
+                -9003.087091063106,
+                90999.41207764244
+            ],
+            "scorePercentiles" : {
+                "0.0" : 18194.879809935435,
+                "50.0" : 45838.5226727461,
+                "90.0" : 49458.84263071451,
+                "95.0" : 49458.84263071451,
+                "99.0" : 49458.84263071451,
+                "99.9" : 49458.84263071451,
+                "99.99" : 49458.84263071451,
+                "99.999" : 49458.84263071451,
+                "99.9999" : 49458.84263071451,
+                "100.0" : 49458.84263071451
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    18194.879809935435,
+                    43074.40843753044,
+                    49458.84263071451,
+                    48424.15891552187,
+                    45838.5226727461
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "de.cuioss.sheriff.token.validation.benchmark.standard.SimpleErrorLoadBenchmark.validateMixedTokens50",
+        "mode" : "thrpt",
+        "threads" : 100,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
+        "jvmArgs" : [
+            "-Djmh.threads=100",
+            "-Djmh.include=de\\.cuioss\\.sheriff\\.token\\.validation\\.benchmark\\.standard\\..*",
+            "-Djmh.result.filePrefix=target/benchmark-results/micro-result",
+            "-Djmh.iterations=5",
+            "-Djmh.forks=1",
+            "-Dbenchmark.history.dir=/home/runner/work/TokenSheriff/TokenSheriff/benchmark-history/micro",
+            "-Djmh.time=4s",
+            "-Djmh.warmupTime=1s",
+            "-Djmh.result.format=JSON",
+            "-Djmh.warmupIterations=3",
+            "-Djmh.include=de\\.cuioss\\.sheriff\\.token\\.validation\\.benchmark\\.standard\\..*",
+            "-Djmh.result.format=JSON",
+            "-Djmh.result.filePrefix=target/benchmark-results/micro-result",
+            "-Djmh.iterations=5",
+            "-Djmh.warmupIterations=3",
+            "-Djmh.forks=1",
+            "-Djmh.threads=100",
+            "-Djmh.time=4s",
+            "-Djmh.warmupTime=1s",
+            "-Dbenchmark.history.dir=/home/runner/work/TokenSheriff/TokenSheriff/benchmark-history/micro",
+            "-Djava.util.logging.config.file=benchmark-logging.properties",
+            "-XX:+UnlockDiagnosticVMOptions",
+            "-XX:+DebugNonSafepoints"
+        ],
+        "jdkVersion" : "21.0.13",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "21.0.13+9-LTS",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "4 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 50863.72645670015,
+            "scoreError" : 29916.256557687924,
+            "scoreConfidence" : [
+                20947.469899012223,
+                80779.98301438807
+            ],
+            "scorePercentiles" : {
+                "0.0" : 42929.26607642325,
+                "50.0" : 48913.03232247744,
+                "90.0" : 59791.40243565616,
+                "95.0" : 59791.40243565616,
+                "99.0" : 59791.40243565616,
+                "99.9" : 59791.40243565616,
+                "99.99" : 59791.40243565616,
+                "99.999" : 59791.40243565616,
+                "99.9999" : 59791.40243565616,
+                "100.0" : 59791.40243565616
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    42929.26607642325,
+                    44468.00061840463,
+                    48913.03232247744,
+                    58216.93083053929,
+                    59791.40243565616
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.37",
+        "benchmark" : "de.cuioss.sheriff.token.validation.benchmark.standard.SimpleCoreValidationBenchmark.measureAverageTime",
+        "mode" : "avgt",
+        "threads" : 100,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/temurin-21-jdk-amd64/bin/java",
+        "jvmArgs" : [
+            "-Djmh.threads=100",
+            "-Djmh.include=de\\.cuioss\\.sheriff\\.token\\.validation\\.benchmark\\.standard\\..*",
+            "-Djmh.result.filePrefix=target/benchmark-results/micro-result",
+            "-Djmh.iterations=5",
+            "-Djmh.forks=1",
+            "-Dbenchmark.history.dir=/home/runner/work/TokenSheriff/TokenSheriff/benchmark-history/micro",
+            "-Djmh.time=4s",
+            "-Djmh.warmupTime=1s",
+            "-Djmh.result.format=JSON",
+            "-Djmh.warmupIterations=3",
+            "-Djmh.include=de\\.cuioss\\.sheriff\\.token\\.validation\\.benchmark\\.standard\\..*",
+            "-Djmh.result.format=JSON",
+            "-Djmh.result.filePrefix=target/benchmark-results/micro-result",
+            "-Djmh.iterations=5",
+            "-Djmh.warmupIterations=3",
+            "-Djmh.forks=1",
+            "-Djmh.threads=100",
+            "-Djmh.time=4s",
+            "-Djmh.warmupTime=1s",
+            "-Dbenchmark.history.dir=/home/runner/work/TokenSheriff/TokenSheriff/benchmark-history/micro",
+            "-Djava.util.logging.config.file=benchmark-logging.properties",
+            "-XX:+UnlockDiagnosticVMOptions",
+            "-XX:+DebugNonSafepoints"
+        ],
+        "jdkVersion" : "21.0.13",
+        "vmName" : "OpenJDK 64-Bit Server VM",
+        "vmVersion" : "21.0.13+9-LTS",
+        "warmupIterations" : 3,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "4 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 2661.3538520385823,
+            "scoreError" : 4043.043482655367,
+            "scoreConfidence" : [
+                -1381.6896306167846,
+                6704.397334693949
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2082.6957170032833,
+                "50.0" : 2212.747612594493,
+                "90.0" : 4530.471283674409,
+                "95.0" : 4530.471283674409,
+                "99.0" : 4530.471283674409,
+                "99.9" : 4530.471283674409,
+                "99.99" : 4530.471283674409,
+                "99.999" : 4530.471283674409,
+                "99.9999" : 4530.471283674409,
+                "100.0" : 4530.471283674409
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    4530.471283674409,
+                    2212.747612594493,
+                    2353.696026639346,
+                    2127.1586202813796,
+                    2082.6957170032833
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+
